@@ -67,7 +67,12 @@ def page_context(p: dict, i: int, match: dict | None) -> dict:
     ctx = {"page": i, "type": p["type"], "headline": p["headline"], "media_hint": p["media_hint"], "team_nation": "neutral",
            "event": None}
     if match and p.get("minute") is not None:
-        ev = next((e for e in match["events"] if e["minute"] == p["minute"] and e["type"] != "half_time"), None)
+        at = [e for e in match["events"] if e["minute"] == p["minute"] and e["type"] != "half_time"]
+        # several events can share a minute (e.g. one sub per team at 120'): use the one whose player the page names
+        text = " ".join([p.get("headline", ""), p.get("caption", "")] + list(p.get("players_mentioned", []))).lower()
+        named = [e for e in at if any(x and x.lower() in text
+                                      for x in (e.get("player"), e.get("player_in"), e.get("player_out")))]
+        ev = (named or at or [None])[0]
         if ev:
             ctx["event"] = ev["type"]
             if ev.get("team"):

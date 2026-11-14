@@ -179,7 +179,7 @@ docs/PROMPTS.md    prompt and model design, and which eval failure each rule cam
 `python -m evals.run`: 10 fictional matches × 2 voices (half English, half Arabic) + 1 prompt-injection
 case. Rule checks run in code; an LLM judge (`gpt-oss-20b`) scores hook, accuracy and brand voice from 1 to 5.
 Full table: [evals/report.md](evals/report.md). The deterministic guards are also covered by
-[`tests/`](tests/test_guards.py) (19 tests, run in CI).
+[`tests/`](tests/test_guards.py) (20 tests, run in CI).
 
 | check | passed |
 |---|---|

@@ -149,3 +149,14 @@ def test_photo_guard_never_reuses_a_photo():
     ctxs = [{"page": 0, "type": "moment", "team_nation": "argentina"}, {"page": 1, "type": "moment", "team_nation": "argentina"}]
     out = media._guard(ctxs, {0: {"photo": "arg", "reason": ""}, 1: {"photo": "arg", "reason": ""}}, LIB)
     assert out[0]["id"] != out[1]["id"]
+
+
+def test_photo_context_uses_the_event_the_page_is_about():
+    # two subs in the same minute, one per team (like 120' in the 2022 final): the page about the
+    # home side's sub must be tied to the home team, not to whichever event comes first in the feed
+    match = {"home": {"name": "Argentina"}, "away": {"name": "France"}, "score": {"home": 3, "away": 3},
+             "events": [{"minute": 120, "type": "sub", "team": "away", "player_in": "Axel Disasi", "player_out": "Jules Koundé"},
+                        {"minute": 120, "type": "sub", "team": "home", "player_in": "Paulo Dybala", "player_out": "Nicolás Tagliafico"}]}
+    p = {"type": "moment", "headline": "Dybala replaces Tagliafico", "caption": "x", "media_hint": "x",
+         "minute": 120, "players_mentioned": ["Paulo Dybala"]}
+    assert media.page_context(p, 0, match)["team_nation"] == "argentina"
