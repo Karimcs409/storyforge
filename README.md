@@ -8,6 +8,8 @@
 
 [![tests](https://github.com/Karimcs409/storyforge/actions/workflows/tests.yml/badge.svg)](https://github.com/Karimcs409/storyforge/actions/workflows/tests.yml)
 
+**▶ Demo video (1:50):** https://youtu.be/rAAtZjrGfJQ
+
 ### What this project demonstrates
 
 | AI engineering skill | Where to look |
