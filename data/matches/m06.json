@@ -1,0 +1,177 @@
+{
+  "id": "m06",
+  "competition": "Continental Premier League (fictional)",
+  "matchday": 15,
+  "date": "2026-10-16",
+  "venue": "Dune Stadium",
+  "home": {
+    "name": "Sahara Falcons",
+    "short": "SAF",
+    "colors": [
+      "#d97706",
+      "#3b2a14"
+    ],
+    "coach": "Rachid Bennani",
+    "lineup": [
+      "Amine Tahiri",
+      "Bilal Saidi",
+      "Hamza Idrissi",
+      "Yassine Amrani",
+      "Anas Belhaj",
+      "Reda Ouali",
+      "Ilyas Zerouali",
+      "Mehdi Kaddour",
+      "Soufiane Naji",
+      "Walid Chraibi",
+      "Adil Fassi"
+    ],
+    "bench": [
+      "Nabil Ghazi",
+      "Driss Alaoui",
+      "Taha Mernissi"
+    ]
+  },
+  "away": {
+    "name": "Nile City FC",
+    "short": "NCF",
+    "colors": [
+      "#0b3d91",
+      "#f5c518"
+    ],
+    "coach": "Samir Haddad",
+    "lineup": [
+      "Omar Fathy",
+      "Karim Nassar",
+      "Youssef Adel",
+      "Mido Rashed",
+      "Tarek Selim",
+      "Hany Gamal",
+      "Ali Mansour",
+      "Ziad Hosny",
+      "Mostafa Kamel",
+      "Ramy Saber",
+      "Ehab Lotfy"
+    ],
+    "bench": [
+      "Sherif Badr",
+      "Adham Zaki",
+      "Nour Eldin"
+    ]
+  },
+  "score": {
+    "home": 2,
+    "away": 1
+  },
+  "events": [
+    {
+      "minute": 16,
+      "type": "goal",
+      "team": "home",
+      "player": "Adil Fassi",
+      "assist": null,
+      "detail": "right-foot finish",
+      "score_after": "1-0"
+    },
+    {
+      "minute": 21,
+      "type": "goal",
+      "team": "away",
+      "player": "Mostafa Kamel",
+      "assist": "Tarek Selim",
+      "detail": "penalty",
+      "score_after": "1-1"
+    },
+    {
+      "minute": 45,
+      "type": "half_time",
+      "score": "1-1"
+    },
+    {
+      "minute": 58,
+      "type": "yellow_card",
+      "team": "home",
+      "player": "Adil Fassi"
+    },
+    {
+      "minute": 61,
+      "type": "yellow_card",
+      "team": "away",
+      "player": "Mostafa Kamel"
+    },
+    {
+      "minute": 62,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Sherif Badr",
+      "player_out": "Ehab Lotfy"
+    },
+    {
+      "minute": 76,
+      "type": "goal",
+      "team": "home",
+      "player": "Adil Fassi",
+      "assist": "Walid Chraibi",
+      "detail": "left-foot finish",
+      "score_after": "2-1"
+    },
+    {
+      "minute": 77,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Driss Alaoui",
+      "player_out": "Walid Chraibi"
+    },
+    {
+      "minute": 78,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Adham Zaki",
+      "player_out": "Ramy Saber"
+    },
+    {
+      "minute": 84,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Nabil Ghazi",
+      "player_out": "Adil Fassi"
+    },
+    {
+      "minute": 90,
+      "type": "full_time",
+      "score": "2-1"
+    }
+  ],
+  "stats": {
+    "possession": [
+      43,
+      57
+    ],
+    "shots": [
+      14,
+      7
+    ],
+    "shots_on_target": [
+      7,
+      3
+    ],
+    "corners": [
+      1,
+      5
+    ],
+    "fouls": [
+      15,
+      7
+    ]
+  },
+  "quotes": [
+    {
+      "speaker": "Rachid Bennani",
+      "role": "Sahara Falcons head coach",
+      "text": "We stayed patient and it paid off in the end."
+    }
+  ],
+  "cta": {
+    "text": "Get tickets for the next home game",
+    "url": "https://example.com/saf/tickets"
+  }
+}

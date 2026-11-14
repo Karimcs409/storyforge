@@ -1,0 +1,168 @@
+{
+  "id": "m01",
+  "competition": "Continental Premier League (fictional)",
+  "matchday": 10,
+  "date": "2026-10-01",
+  "venue": "Pharos Arena",
+  "home": {
+    "name": "Nile City FC",
+    "short": "NCF",
+    "colors": [
+      "#0b3d91",
+      "#f5c518"
+    ],
+    "coach": "Samir Haddad",
+    "lineup": [
+      "Omar Fathy",
+      "Karim Nassar",
+      "Youssef Adel",
+      "Mido Rashed",
+      "Tarek Selim",
+      "Hany Gamal",
+      "Ali Mansour",
+      "Ziad Hosny",
+      "Mostafa Kamel",
+      "Ramy Saber",
+      "Ehab Lotfy"
+    ],
+    "bench": [
+      "Sherif Badr",
+      "Adham Zaki",
+      "Nour Eldin"
+    ]
+  },
+  "away": {
+    "name": "Delta Rovers",
+    "short": "DRV",
+    "colors": [
+      "#0f7a3d",
+      "#ffffff"
+    ],
+    "coach": "Lena Varga",
+    "lineup": [
+      "Marco Bellini",
+      "Jonas Petrov",
+      "Ade Okafor",
+      "Luis Ferreira",
+      "Tom Hadley",
+      "Ivan Kovac",
+      "Sami Laine",
+      "Diego Ramos",
+      "Paul Mercer",
+      "Kofi Mensah",
+      "Erik Dahl"
+    ],
+    "bench": [
+      "Hugo Laurent",
+      "Ben Ashby",
+      "Rui Costa Neto"
+    ]
+  },
+  "score": {
+    "home": 1,
+    "away": 1
+  },
+  "events": [
+    {
+      "minute": 25,
+      "type": "goal",
+      "team": "home",
+      "player": "Ramy Saber",
+      "assist": null,
+      "detail": "tap-in",
+      "score_after": "1-0"
+    },
+    {
+      "minute": 32,
+      "type": "red_card",
+      "team": "home",
+      "player": "Mido Rashed"
+    },
+    {
+      "minute": 45,
+      "type": "half_time",
+      "score": "1-0"
+    },
+    {
+      "minute": 61,
+      "type": "yellow_card",
+      "team": "home",
+      "player": "Hany Gamal"
+    },
+    {
+      "minute": 62,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Hugo Laurent",
+      "player_out": "Erik Dahl"
+    },
+    {
+      "minute": 67,
+      "type": "goal",
+      "team": "away",
+      "player": "Paul Mercer",
+      "assist": null,
+      "detail": "free kick",
+      "score_after": "1-1"
+    },
+    {
+      "minute": 79,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Adham Zaki",
+      "player_out": "Ramy Saber"
+    },
+    {
+      "minute": 81,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Sherif Badr",
+      "player_out": "Ehab Lotfy"
+    },
+    {
+      "minute": 85,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Ben Ashby",
+      "player_out": "Kofi Mensah"
+    },
+    {
+      "minute": 90,
+      "type": "full_time",
+      "score": "1-1"
+    }
+  ],
+  "stats": {
+    "possession": [
+      43,
+      57
+    ],
+    "shots": [
+      7,
+      6
+    ],
+    "shots_on_target": [
+      4,
+      3
+    ],
+    "corners": [
+      7,
+      3
+    ],
+    "fouls": [
+      12,
+      13
+    ]
+  },
+  "quotes": [
+    {
+      "speaker": "Samir Haddad",
+      "role": "Nile City FC head coach",
+      "text": "We will take the point and move on."
+    }
+  ],
+  "cta": {
+    "text": "Get tickets for the next home game",
+    "url": "https://example.com/ncf/tickets"
+  }
+}

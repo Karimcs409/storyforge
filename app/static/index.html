@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StoryForge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;700&family=Cairo:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo">SF</span><div><b>StoryForge</b><small>AI Story drafting for sports clubs &amp; publishers</small></div></div>
+  <nav class="tabs">
+    <button data-tab="studio" class="on">Editor</button>
+    <button data-tab="live">Live <span class="dot"></span></button>
+  </nav>
+  <div class="meter" id="meter">—</div>
+</header>
+
+<main>
+  <!-- LEFT: controls -->
+  <section class="panel left">
+    <div id="studioCtl">
+      <h3>Source</h3>
+      <div class="seg" id="srcSeg"><button class="on" data-v="match">Match feed</button><button data-v="article">Article</button></div>
+      <div id="srcMatch">
+        <label>Feed<select id="feed"></select></label>
+        <label>Match<select id="match"></select></label>
+      </div>
+      <div id="srcArticle" hidden>
+        <label>Paste post-match article<textarea id="article" rows="9" placeholder="Paste the match report here. Text inside is treated as data, never instructions."></textarea></label>
+      </div>
+      <h3>Preset</h3>
+      <label>Brand voice<div class="seg" id="voiceSeg"><button class="on" data-v="official">Official club</button><button data-v="fan">Fan zone</button></div></label>
+      <label>Language<div class="seg" id="langSeg"><button class="on" data-v="en">EN</button><button data-v="ar">AR</button><button data-v="es">ES</button></div></label>
+      <button class="primary" id="gen">✦ Draft Story</button>
+      <p class="hint">Drafts the Story, Trivia Quiz, Poll and categories in one call. Every score, minute, name and quiz answer is then checked in code against the source.</p>
+    </div>
+    <div id="liveCtl" hidden>
+      <h3>Live feed</h3>
+      <label>Feed adapter<select id="lfeed"></select></label>
+      <label>Match<select id="lmatch"></select></label>
+      <label>Brand voice<div class="seg" id="lvoiceSeg"><button class="on" data-v="official">Official club</button><button data-v="fan">Fan zone</button></div></label>
+      <label>Language<div class="seg" id="llangSeg"><button class="on" data-v="en">EN</button><button data-v="ar">AR</button></div></label>
+      <label>Replay speed<select id="speed"><option value="3">1 event / 3 s</option><option value="1.5">1 event / 1.5 s</option><option value="5">1 event / 5 s</option></select></label>
+      <button class="primary" id="liveGo">● Go live</button>
+      <h3>Feed</h3>
+      <ol class="ticker" id="ticker"></ol>
+    </div>
+  </section>
+
+  <!-- CENTER: phone -->
+  <section class="center">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen" id="screen">
+        <div class="bars" id="bars"></div>
+        <div id="pageView" class="empty"><div class="emptyMsg">Pick a match and draft a Story</div></div>
+        <div class="tap prev" id="tapPrev"></div><div class="tap next" id="tapNext"></div>
+      </div>
+    </div>
+    <div class="cost" id="cost"></div>
+  </section>
+
+  <!-- RIGHT: editor / queue -->
+  <section class="panel right">
+    <div id="editor">
+      <div class="phead"><h3>Review</h3><span id="status" class="chip">no story</span></div>
+      <div id="report"></div>
+      <div id="pagesEd"></div>
+      <div id="extrasEd"></div>
+    </div>
+    <div id="queue" hidden>
+      <div class="phead"><h3>Approval queue</h3><button class="ghost" id="saveLive" disabled>Save live Story</button></div>
+      <div id="queueList"><p class="hint">Key events (goal, red card, sub, half-time, full-time) become draft pages here in &lt; 5 s. Approve / Edit / Skip. Approved pages go live in the phone preview.</p></div>
+    </div>
+  </section>
+</main>
+<div id="toast"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>

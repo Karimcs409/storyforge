@@ -1,0 +1,180 @@
+{
+  "id": "m02",
+  "competition": "Continental Premier League (fictional)",
+  "matchday": 11,
+  "date": "2026-10-04",
+  "venue": "Lighthouse Ground",
+  "home": {
+    "name": "Harbor Town United",
+    "short": "HTU",
+    "colors": [
+      "#b5121b",
+      "#1c1c1c"
+    ],
+    "coach": "Mark Ellery",
+    "lineup": [
+      "Jack Rowan",
+      "Callum Pike",
+      "Ethan Moss",
+      "Leo Grant",
+      "Ryan Vale",
+      "Owen Sharp",
+      "Kai Brooks",
+      "Noah Field",
+      "Finn Archer",
+      "Liam Stone",
+      "Max Hollis"
+    ],
+    "bench": [
+      "Dan Price",
+      "Sam Kerrigan",
+      "Ollie Ward"
+    ]
+  },
+  "away": {
+    "name": "Sahara Falcons",
+    "short": "SAF",
+    "colors": [
+      "#d97706",
+      "#3b2a14"
+    ],
+    "coach": "Rachid Bennani",
+    "lineup": [
+      "Amine Tahiri",
+      "Bilal Saidi",
+      "Hamza Idrissi",
+      "Yassine Amrani",
+      "Anas Belhaj",
+      "Reda Ouali",
+      "Ilyas Zerouali",
+      "Mehdi Kaddour",
+      "Soufiane Naji",
+      "Walid Chraibi",
+      "Adil Fassi"
+    ],
+    "bench": [
+      "Nabil Ghazi",
+      "Driss Alaoui",
+      "Taha Mernissi"
+    ]
+  },
+  "score": {
+    "home": 2,
+    "away": 0
+  },
+  "events": [
+    {
+      "minute": 27,
+      "type": "yellow_card",
+      "team": "away",
+      "player": "Yassine Amrani"
+    },
+    {
+      "minute": 31,
+      "type": "goal",
+      "team": "home",
+      "player": "Noah Field",
+      "assist": null,
+      "detail": "penalty",
+      "score_after": "1-0"
+    },
+    {
+      "minute": 33,
+      "type": "red_card",
+      "team": "away",
+      "player": "Anas Belhaj"
+    },
+    {
+      "minute": 45,
+      "type": "half_time",
+      "score": "1-0"
+    },
+    {
+      "minute": 57,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Nabil Ghazi",
+      "player_out": "Adil Fassi"
+    },
+    {
+      "minute": 59,
+      "type": "yellow_card",
+      "team": "home",
+      "player": "Ethan Moss"
+    },
+    {
+      "minute": 61,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Sam Kerrigan",
+      "player_out": "Liam Stone"
+    },
+    {
+      "minute": 62,
+      "type": "goal",
+      "team": "home",
+      "player": "Max Hollis",
+      "assist": "Owen Sharp",
+      "detail": "free kick",
+      "score_after": "2-0"
+    },
+    {
+      "minute": 68,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Dan Price",
+      "player_out": "Max Hollis"
+    },
+    {
+      "minute": 69,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Driss Alaoui",
+      "player_out": "Walid Chraibi"
+    },
+    {
+      "minute": 71,
+      "type": "yellow_card",
+      "team": "home",
+      "player": "Kai Brooks"
+    },
+    {
+      "minute": 90,
+      "type": "full_time",
+      "score": "2-0"
+    }
+  ],
+  "stats": {
+    "possession": [
+      52,
+      48
+    ],
+    "shots": [
+      9,
+      6
+    ],
+    "shots_on_target": [
+      3,
+      4
+    ],
+    "corners": [
+      6,
+      4
+    ],
+    "fouls": [
+      12,
+      12
+    ]
+  },
+  "quotes": [
+    {
+      "speaker": "Mark Ellery",
+      "role": "Harbor Town United head coach",
+      "text": "The boys gave everything tonight. This one is for the fans."
+    }
+  ],
+  "cta": {
+    "text": "Get tickets for the next home game",
+    "url": "https://example.com/htu/tickets"
+  }
+}

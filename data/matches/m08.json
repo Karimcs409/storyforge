@@ -1,0 +1,183 @@
+{
+  "id": "m08",
+  "competition": "Continental Premier League (fictional)",
+  "matchday": 17,
+  "date": "2026-10-22",
+  "venue": "Quarry Road",
+  "home": {
+    "name": "Granite Hill FC",
+    "short": "GHF",
+    "colors": [
+      "#455a64",
+      "#cfd8dc"
+    ],
+    "coach": "Ian Doyle",
+    "lineup": [
+      "Sean Murphy",
+      "Conor Walsh",
+      "Aidan Byrne",
+      "Ciaran Kelly",
+      "Darragh Ryan",
+      "Eoin Burke",
+      "Niall Quinn Jr",
+      "Rory Hayes",
+      "Shane Daly",
+      "Kevin Lynch",
+      "Brian Nolan"
+    ],
+    "bench": [
+      "Fionn Carey",
+      "Liam Devlin",
+      "Paddy Moran"
+    ]
+  },
+  "away": {
+    "name": "Alpine Wanderers",
+    "short": "ALW",
+    "colors": [
+      "#1e88e5",
+      "#e3f2fd"
+    ],
+    "coach": "Anna Keller",
+    "lineup": [
+      "Felix Huber",
+      "Lukas Brandt",
+      "Jan Moser",
+      "Nico Weber",
+      "Simon Graf",
+      "Tim Baumann",
+      "Elias Frei",
+      "David Steiner",
+      "Fabian Roth",
+      "Moritz Kern",
+      "Leon Vogt"
+    ],
+    "bench": [
+      "Matteo Rossi",
+      "Jonas Egli",
+      "Pascal Imhof"
+    ]
+  },
+  "score": {
+    "home": 1,
+    "away": 2
+  },
+  "events": [
+    {
+      "minute": 7,
+      "type": "goal",
+      "team": "away",
+      "player": "Fabian Roth",
+      "assist": null,
+      "detail": "right-foot finish",
+      "score_after": "0-1"
+    },
+    {
+      "minute": 17,
+      "type": "red_card",
+      "team": "away",
+      "player": "Lukas Brandt"
+    },
+    {
+      "minute": 22,
+      "type": "yellow_card",
+      "team": "home",
+      "player": "Kevin Lynch"
+    },
+    {
+      "minute": 26,
+      "type": "yellow_card",
+      "team": "home",
+      "player": "Brian Nolan"
+    },
+    {
+      "minute": 45,
+      "type": "half_time",
+      "score": "0-1"
+    },
+    {
+      "minute": 57,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Matteo Rossi",
+      "player_out": "Leon Vogt"
+    },
+    {
+      "minute": 60,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Liam Devlin",
+      "player_out": "Kevin Lynch"
+    },
+    {
+      "minute": 70,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Jonas Egli",
+      "player_out": "Moritz Kern"
+    },
+    {
+      "minute": 72,
+      "type": "goal",
+      "team": "away",
+      "player": "David Steiner",
+      "assist": null,
+      "detail": "right-foot finish",
+      "score_after": "0-2"
+    },
+    {
+      "minute": 85,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Fionn Carey",
+      "player_out": "Brian Nolan"
+    },
+    {
+      "minute": 87,
+      "type": "goal",
+      "team": "home",
+      "player": "Brian Nolan",
+      "assist": "Kevin Lynch",
+      "detail": "right-foot finish",
+      "score_after": "1-2"
+    },
+    {
+      "minute": 90,
+      "type": "full_time",
+      "score": "1-2"
+    }
+  ],
+  "stats": {
+    "possession": [
+      44,
+      56
+    ],
+    "shots": [
+      7,
+      10
+    ],
+    "shots_on_target": [
+      4,
+      2
+    ],
+    "corners": [
+      4,
+      4
+    ],
+    "fouls": [
+      12,
+      12
+    ]
+  },
+  "quotes": [
+    {
+      "speaker": "Ian Doyle",
+      "role": "Granite Hill FC head coach",
+      "text": "We have to look at ourselves. Not good enough today."
+    }
+  ],
+  "cta": {
+    "text": "Get tickets for the next home game",
+    "url": "https://example.com/ghf/tickets"
+  }
+}

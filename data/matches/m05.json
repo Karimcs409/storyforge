@@ -1,0 +1,162 @@
+{
+  "id": "m05",
+  "competition": "Continental Premier League (fictional)",
+  "matchday": 14,
+  "date": "2026-10-13",
+  "venue": "Delta Park",
+  "home": {
+    "name": "Delta Rovers",
+    "short": "DRV",
+    "colors": [
+      "#0f7a3d",
+      "#ffffff"
+    ],
+    "coach": "Lena Varga",
+    "lineup": [
+      "Marco Bellini",
+      "Jonas Petrov",
+      "Ade Okafor",
+      "Luis Ferreira",
+      "Tom Hadley",
+      "Ivan Kovac",
+      "Sami Laine",
+      "Diego Ramos",
+      "Paul Mercer",
+      "Kofi Mensah",
+      "Erik Dahl"
+    ],
+    "bench": [
+      "Hugo Laurent",
+      "Ben Ashby",
+      "Rui Costa Neto"
+    ]
+  },
+  "away": {
+    "name": "Harbor Town United",
+    "short": "HTU",
+    "colors": [
+      "#b5121b",
+      "#1c1c1c"
+    ],
+    "coach": "Mark Ellery",
+    "lineup": [
+      "Jack Rowan",
+      "Callum Pike",
+      "Ethan Moss",
+      "Leo Grant",
+      "Ryan Vale",
+      "Owen Sharp",
+      "Kai Brooks",
+      "Noah Field",
+      "Finn Archer",
+      "Liam Stone",
+      "Max Hollis"
+    ],
+    "bench": [
+      "Dan Price",
+      "Sam Kerrigan",
+      "Ollie Ward"
+    ]
+  },
+  "score": {
+    "home": 0,
+    "away": 0
+  },
+  "events": [
+    {
+      "minute": 16,
+      "type": "yellow_card",
+      "team": "home",
+      "player": "Luis Ferreira"
+    },
+    {
+      "minute": 19,
+      "type": "yellow_card",
+      "team": "home",
+      "player": "Jonas Petrov"
+    },
+    {
+      "minute": 45,
+      "type": "half_time",
+      "score": "0-0"
+    },
+    {
+      "minute": 50,
+      "type": "red_card",
+      "team": "away",
+      "player": "Callum Pike"
+    },
+    {
+      "minute": 53,
+      "type": "yellow_card",
+      "team": "home",
+      "player": "Sami Laine"
+    },
+    {
+      "minute": 61,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Ben Ashby",
+      "player_out": "Kofi Mensah"
+    },
+    {
+      "minute": 63,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Sam Kerrigan",
+      "player_out": "Liam Stone"
+    },
+    {
+      "minute": 73,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Dan Price",
+      "player_out": "Max Hollis"
+    },
+    {
+      "minute": 82,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Hugo Laurent",
+      "player_out": "Erik Dahl"
+    },
+    {
+      "minute": 90,
+      "type": "full_time",
+      "score": "0-0"
+    }
+  ],
+  "stats": {
+    "possession": [
+      50,
+      50
+    ],
+    "shots": [
+      10,
+      12
+    ],
+    "shots_on_target": [
+      2,
+      2
+    ],
+    "corners": [
+      7,
+      0
+    ],
+    "fouls": [
+      13,
+      13
+    ]
+  },
+  "quotes": [
+    {
+      "speaker": "Lena Varga",
+      "role": "Delta Rovers head coach",
+      "text": "A fair result. Both teams wanted it."
+    }
+  ],
+  "cta": {
+    "text": "Get tickets for the next home game",
+    "url": "https://example.com/drv/tickets"
+  }
+}

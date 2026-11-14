@@ -1,0 +1,192 @@
+{
+  "id": "m03",
+  "competition": "Continental Premier League (fictional)",
+  "matchday": 12,
+  "date": "2026-10-07",
+  "venue": "Glacier Park",
+  "home": {
+    "name": "Alpine Wanderers",
+    "short": "ALW",
+    "colors": [
+      "#1e88e5",
+      "#e3f2fd"
+    ],
+    "coach": "Anna Keller",
+    "lineup": [
+      "Felix Huber",
+      "Lukas Brandt",
+      "Jan Moser",
+      "Nico Weber",
+      "Simon Graf",
+      "Tim Baumann",
+      "Elias Frei",
+      "David Steiner",
+      "Fabian Roth",
+      "Moritz Kern",
+      "Leon Vogt"
+    ],
+    "bench": [
+      "Matteo Rossi",
+      "Jonas Egli",
+      "Pascal Imhof"
+    ]
+  },
+  "away": {
+    "name": "Coral Bay Athletic",
+    "short": "CBA",
+    "colors": [
+      "#ec407a",
+      "#00897b"
+    ],
+    "coach": "Carlos Mendes",
+    "lineup": [
+      "Rafael Souza",
+      "Bruno Lima",
+      "Caio Alves",
+      "Thiago Prado",
+      "Igor Santos",
+      "Vitor Reis",
+      "Leandro Melo",
+      "Danilo Rocha",
+      "Gabriel Nunes",
+      "Mateus Pinto",
+      "Andre Viana"
+    ],
+    "bench": [
+      "Hugo Faria",
+      "Pedro Matos",
+      "Joao Brito"
+    ]
+  },
+  "score": {
+    "home": 1,
+    "away": 3
+  },
+  "events": [
+    {
+      "minute": 8,
+      "type": "goal",
+      "team": "away",
+      "player": "Andre Viana",
+      "assist": null,
+      "detail": "free kick",
+      "score_after": "0-1"
+    },
+    {
+      "minute": 13,
+      "type": "yellow_card",
+      "team": "home",
+      "player": "Lukas Brandt"
+    },
+    {
+      "minute": 24,
+      "type": "goal",
+      "team": "home",
+      "player": "Leon Vogt",
+      "assist": "Tim Baumann",
+      "detail": "tap-in",
+      "score_after": "1-1"
+    },
+    {
+      "minute": 45,
+      "type": "half_time",
+      "score": "1-1"
+    },
+    {
+      "minute": 52,
+      "type": "goal",
+      "team": "away",
+      "player": "Andre Viana",
+      "assist": "Igor Santos",
+      "detail": "penalty",
+      "score_after": "1-2"
+    },
+    {
+      "minute": 59,
+      "type": "yellow_card",
+      "team": "away",
+      "player": "Igor Santos"
+    },
+    {
+      "minute": 62,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Hugo Faria",
+      "player_out": "Andre Viana"
+    },
+    {
+      "minute": 69,
+      "type": "goal",
+      "team": "away",
+      "player": "Andre Viana",
+      "assist": null,
+      "detail": "left-foot finish",
+      "score_after": "1-3"
+    },
+    {
+      "minute": 71,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Matteo Rossi",
+      "player_out": "Leon Vogt"
+    },
+    {
+      "minute": 77,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Pedro Matos",
+      "player_out": "Mateus Pinto"
+    },
+    {
+      "minute": 80,
+      "type": "yellow_card",
+      "team": "home",
+      "player": "Leon Vogt"
+    },
+    {
+      "minute": 81,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Jonas Egli",
+      "player_out": "Moritz Kern"
+    },
+    {
+      "minute": 90,
+      "type": "full_time",
+      "score": "1-3"
+    }
+  ],
+  "stats": {
+    "possession": [
+      54,
+      46
+    ],
+    "shots": [
+      13,
+      5
+    ],
+    "shots_on_target": [
+      5,
+      5
+    ],
+    "corners": [
+      7,
+      7
+    ],
+    "fouls": [
+      16,
+      7
+    ]
+  },
+  "quotes": [
+    {
+      "speaker": "Anna Keller",
+      "role": "Alpine Wanderers head coach",
+      "text": "We have to look at ourselves. Not good enough today."
+    }
+  ],
+  "cta": {
+    "text": "Get tickets for the next home game",
+    "url": "https://example.com/alw/tickets"
+  }
+}

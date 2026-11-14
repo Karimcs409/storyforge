@@ -1,0 +1,319 @@
+[
+  {
+    "id": "px_14980647",
+    "file": "px_14980647.jpg",
+    "source": "https://www.pexels.com/photo/14980647/",
+    "pexels_alt": "Crowd celebrating in Buenos Aires after Argentina's 2022 World Cup win",
+    "license": "Pexels License",
+    "description": "Dense crowd of people packed into a city street/plaza in daylight, many wearing light-blue-and-white striped shirts and holding light-blue-and-white flags. Several individuals are perched on top of traffic-light poles; one wears a dark green jersey printed 'MESSI 10' on the back, another on a pole to the left wears the light-blue-and-white striped shirt. A tall stone obelisk/monument stands in the background left, ornate classical stone buildings line the right, and a black street sign reads 'Viamonte 1100‑1200' beside a red no‑parking sign. People in the crowd hold up phones and flags.",
+    "good_for": [
+      "stat",
+      "red_card",
+      "goal",
+      "sub"
+    ],
+    "mood": "celebration",
+    "nation": "argentina",
+    "scene": "street",
+    "text_area": "top",
+    "time_of_day": "day"
+  },
+  {
+    "id": "px_14905737",
+    "file": "px_14905737.jpg",
+    "source": "https://www.pexels.com/photo/14905737/",
+    "pexels_alt": "Vibrant street celebration in Buenos Aires with football fans and drums",
+    "license": "Pexels License",
+    "description": "Crowd of men on a city street during a daytime celebration; several wear light-blue-and-white vertically striped shirts, one with the number 10 on the back. A shirtless man and others hold drumsticks and play small hand drums; water or spray is visible in the air. In the background stand a tall white obelisk monument, high-rise buildings, a traffic light, street signs, and a leafy tree on the right.",
+    "good_for": [
+      "stat"
+    ],
+    "mood": "celebration",
+    "nation": "argentina",
+    "scene": "street",
+    "text_area": "top",
+    "time_of_day": "day"
+  },
+  {
+    "id": "px_14846795",
+    "file": "px_14846795.jpg",
+    "source": "https://www.pexels.com/photo/14846795/",
+    "pexels_alt": "People celebrating with flags and a trophy on a Buenos Aires balcony",
+    "license": "Pexels License",
+    "description": "A group of people stand on the stone balcony of a neoclassical building with tall fluted columns and a robed statue set in a niche. A large light‑blue‑and‑white flag with a sun emblem flies from a pole on the left, and a smaller matching flag hangs over the balustrade on the right. Several men wear white t‑shirts and light‑blue‑and‑white vertically striped shirts; one man on the right raises a golden trophy overhead with both arms, another lifts a cup to drink, and others raise their arms in celebration.",
+    "good_for": [
+      "full_time",
+      "cover",
+      "full_time"
+    ],
+    "mood": "celebration",
+    "nation": "argentina",
+    "scene": "stadium",
+    "text_area": "bottom",
+    "time_of_day": "day"
+  },
+  {
+    "id": "px_14905734",
+    "file": "px_14905734.jpg",
+    "source": "https://www.pexels.com/photo/14905734/",
+    "pexels_alt": "Lively street celebration in Buenos Aires with musical instruments and sports fans",
+    "license": "Pexels License",
+    "description": "A dense outdoor crowd on a sunny street, with a shirtless man in the foreground playing a brass trombone and others holding up brass instruments; several people wear sky-blue-and-white striped shirts, including a woman in a striped jersey numbered 10, while a hand waves a small Argentine flag (light blue and white with a sun) and a white parasol is held overhead; a concrete overpass/bridge, church spires, palm fronds and a clear sky fill the background.",
+    "good_for": [
+      "stat",
+      "stat"
+    ],
+    "mood": "celebration",
+    "nation": "argentina",
+    "scene": "street",
+    "text_area": "top",
+    "time_of_day": "day"
+  },
+  {
+    "id": "px_31514425",
+    "file": "px_31514425.jpg",
+    "source": "https://www.pexels.com/photo/31514425/",
+    "pexels_alt": "Crowd of enthusiastic football fans cheering inside a stadium in Cordoba, Argentina",
+    "license": "Pexels License",
+    "description": "Black-and-white image of a dense crowd of football supporters in a stadium, photographed from behind; several fans have their arms and fists raised in the air, one wears a hooded sweatshirt and another a light-coloured hoodie with a striped front pocket; blurred tiered seating and out-of-focus advertising boards fill the background.",
+    "good_for": [
+      "stat",
+      "stat",
+      "stat",
+      "stat"
+    ],
+    "mood": "celebration",
+    "nation": "neutral",
+    "scene": "stadium",
+    "text_area": "top",
+    "time_of_day": "day"
+  },
+  {
+    "id": "px_27989141",
+    "file": "px_27989141.jpg",
+    "source": "https://www.pexels.com/photo/27989141/",
+    "pexels_alt": "Crowd of sports fans waving red, white and blue flags at a stadium event",
+    "license": "Pexels License",
+    "description": "Stadium crowd of fans waving vertical blue-white-red tricolor flags on poles; one man in a white shirt with red and blue horizontal bands and a 'FORTALEZA' crest raises his arm; a red cap with white lettering and sunglasses are held in the foreground; the metal roof structure of the stadium is visible overhead.",
+    "good_for": [
+      "full_time",
+      "stat"
+    ],
+    "mood": "celebration",
+    "nation": "france",
+    "scene": "stadium",
+    "text_area": "top",
+    "time_of_day": "day"
+  },
+  {
+    "id": "px_28496568",
+    "file": "px_28496568.jpg",
+    "source": "https://www.pexels.com/photo/28496568/",
+    "pexels_alt": "Aerial shot of a stadium event from the Eiffel Tower in Paris",
+    "license": "Pexels License",
+    "description": "High-angle view from the Eiffel Tower looking down over a Paris 2024 event venue in the Champ de Mars. The dark iron lattice and a triangular opening of the tower frame the shot. Below are terraced grandstands densely filled with spectators, a multi-level media/control building branded 'PARIS 2024' with Olympic rings, rows of national flags on poles, manicured hedges, trees and walkways with a few pedestrians, and a hazy Paris city skyline in the background.",
+    "good_for": [
+      "stat",
+      "stat",
+      "stat",
+      "stat"
+    ],
+    "mood": "celebration",
+    "nation": "france",
+    "scene": "stadium",
+    "text_area": "top",
+    "time_of_day": "day"
+  },
+  {
+    "id": "px_17425774",
+    "file": "px_17425774.jpg",
+    "source": "https://www.pexels.com/photo/17425774/",
+    "pexels_alt": "Close-up of a soccer net with a blurred sports field in Saint-Denis, France",
+    "license": "Pexels License",
+    "description": "Close-up of a white football goal net in sharp focus, with a blurred green pitch and out-of-focus crowd/stands in the background.",
+    "good_for": [
+      "goal",
+      "stat",
+      "stat"
+    ],
+    "mood": "calm",
+    "nation": "neutral",
+    "scene": "stadium",
+    "text_area": "bottom",
+    "time_of_day": "day"
+  },
+  {
+    "id": "px_30651230",
+    "file": "px_30651230.jpg",
+    "source": "https://www.pexels.com/photo/30651230/",
+    "pexels_alt": "Crowded soccer stadium under bright lights at night",
+    "license": "Pexels License",
+    "description": "A large multi-purpose stadium at night, packed with spectators in the tiered stands. A green soccer pitch with white markings sits inside a reddish-brown athletics running track. Bright floodlights illuminate the scene from a curved white roof structure with visible support cables against a black sky. A few small figures are on the pitch near a circular arrangement, and a goal is visible at one end.",
+    "good_for": [
+      "stat",
+      "stat"
+    ],
+    "mood": "calm",
+    "nation": "neutral",
+    "scene": "stadium",
+    "text_area": "bottom",
+    "time_of_day": "night"
+  },
+  {
+    "id": "px_28827841",
+    "file": "px_28827841.jpg",
+    "source": "https://www.pexels.com/photo/28827841/",
+    "pexels_alt": "Brightly lit empty soccer stadium with green field under spotlights at night",
+    "license": "Pexels License",
+    "description": "Night view of a floodlit stadium: a green football pitch is surrounded by a red athletics running track, with bright floodlight towers against a dark sky. Spectators occupy the tiered stands, a small number of people walk on the track near yellow service containers, and a yellow Coca‑Cola branded panel is laid out at the goal end of the field.",
+    "good_for": [
+      "stat",
+      "stat"
+    ],
+    "mood": "calm",
+    "nation": "neutral",
+    "scene": "stadium",
+    "text_area": "center",
+    "time_of_day": "night"
+  },
+  {
+    "id": "px_27273074",
+    "file": "px_27273074.jpg",
+    "source": "https://www.pexels.com/photo/27273074/",
+    "pexels_alt": "Excited fans in a stadium cheering under bright arena lights at night",
+    "license": "Pexels License",
+    "description": "A man seen from behind in the stands, wearing a blue and red horizontal-striped shirt, with his right arm raised and hand open. In the foreground, a spectator wears a red, white and blue cap and glasses; other heads are partly visible. Above, a row of bright stadium floodlights and the roof structure of the arena are seen against a blurred crowd.",
+    "good_for": [
+      "stat",
+      "stat"
+    ],
+    "mood": "celebration",
+    "nation": "neutral",
+    "scene": "stadium",
+    "text_area": "bottom",
+    "time_of_day": "night"
+  },
+  {
+    "id": "px_17071576",
+    "file": "px_17071576.jpg",
+    "source": "https://www.pexels.com/photo/17071576/",
+    "pexels_alt": "Lively crowd of soccer fans filling a stadium",
+    "license": "Pexels License",
+    "description": "A large crowd of spectators packed into the stands of a covered stadium. Many fans wear black-and-white vertically striped shirts, scarves and beanies; several hold up phones, and a few black-and-white striped flags/scarves are visible in the crowd. The upper part of the frame shows the stadium's steel roof trusses, bright floodlights and a haze or smoke in the air. No national flag or identifiable team kit colours are clearly visible.",
+    "good_for": [
+      "stat",
+      "stat"
+    ],
+    "mood": "tension",
+    "nation": "neutral",
+    "scene": "stadium",
+    "text_area": "bottom",
+    "time_of_day": "day"
+  },
+  {
+    "id": "px_38105639",
+    "file": "px_38105639.jpg",
+    "source": "https://www.pexels.com/photo/38105639/",
+    "pexels_alt": "Soccer ball resting on a grass field at nightfall with visible dew",
+    "license": "Pexels License",
+    "description": "A white match ball with a green and black geometric pattern and 'uhlsport' branding rests on a grass pitch beside a white chalk boundary line; small dew droplets are visible on the blades of grass in dim, low light.",
+    "good_for": [
+      "sub",
+      "cover",
+      "quote"
+    ],
+    "mood": "calm",
+    "nation": "neutral",
+    "scene": "pitch",
+    "text_area": "top",
+    "time_of_day": "day"
+  },
+  {
+    "id": "px_38275739",
+    "file": "px_38275739.jpg",
+    "source": "https://www.pexels.com/photo/38275739/",
+    "pexels_alt": "Lone soccer ball on a green field marked with white lines",
+    "license": "Pexels License",
+    "description": "A single light-tan soccer ball rests on a green grass field beside a white painted boundary line.",
+    "good_for": [
+      "stat",
+      "stat"
+    ],
+    "mood": "calm",
+    "nation": "neutral",
+    "scene": "pitch",
+    "text_area": "center",
+    "time_of_day": "day"
+  },
+  {
+    "id": "px_26955012",
+    "file": "px_26955012.jpg",
+    "source": "https://www.pexels.com/photo/26955012/",
+    "pexels_alt": "Soccer ball trapped in the goal net on a sunny day",
+    "license": "Pexels License",
+    "description": "A white soccer ball with dark geometric markings rests on the grass, caught in the white-and-blue rope of a goal net, with a white goalpost to the right; an open green pitch, distant trees, and a blue sky with scattered clouds are visible through the netting.",
+    "good_for": [
+      "sub",
+      "cover"
+    ],
+    "mood": "calm",
+    "nation": "neutral",
+    "scene": "goal",
+    "text_area": "bottom",
+    "time_of_day": "day"
+  },
+  {
+    "id": "px_37391237",
+    "file": "px_37391237.jpg",
+    "source": "https://www.pexels.com/photo/37391237/",
+    "pexels_alt": "Brightly lit soccer goal on a field under night lights",
+    "license": "Pexels License",
+    "description": "Close-up of a white-painted goal post corner with white netting, brightly illuminated by a floodlight against a dark night sky; green grass pitch with white line markings and a blurred stadium stand with orange advertising boards in the background.",
+    "good_for": [
+      "goal",
+      "stat",
+      "stat"
+    ],
+    "mood": "calm",
+    "nation": "neutral",
+    "scene": "stadium",
+    "text_area": "top",
+    "time_of_day": "night"
+  },
+  {
+    "id": "px_34151308",
+    "file": "px_34151308.jpg",
+    "source": "https://www.pexels.com/photo/34151308/",
+    "pexels_alt": "Close-up of a golden soccer trophy with a player figurine",
+    "license": "Pexels License",
+    "description": "Close-up of a polished golden (brass/bronze) football trophy. The cup has a textured body, a domed lid, and two side handles each topped with a stylized leaf/flower finial. Mounted on the lid is a shiny golden figurine of a male soccer player in a running/kicking pose, one foot resting on a small golden ball. The metal is highly reflective with bright highlights. The background is softly blurred (bokeh) in muted grey and warm brown tones. No flags, kits, stadium, or crowd are visible.",
+    "good_for": [
+      "cover",
+      "quote"
+    ],
+    "mood": "calm",
+    "nation": "neutral",
+    "scene": "trophy",
+    "text_area": "bottom",
+    "time_of_day": "day"
+  },
+  {
+    "id": "px_1657322",
+    "file": "px_1657322.jpg",
+    "source": "https://www.pexels.com/photo/1657322/",
+    "pexels_alt": "Soccer match in a stadium with spectators and a sunset backdrop",
+    "license": "Pexels License",
+    "description": "Single wide shot of a football stadium at dusk: a packed spectator stand (many fans in orange/red) behind a red perimeter advertising board reading 'ixaBank', with a fan banner reading 'AMUNT GHORON!!' hung on the fence. A lone player in a light/white kit with the number 13 stands on the bare pitch near a white touchline; sideline staff in high‑visibility vests and a camera operator are visible against the red board. The upper portion shows the stadium roofline with illuminated floodlights set against a deep red, cloud‑streaked sunset sky.",
+    "good_for": [
+      "stat",
+      "stat",
+      "stat",
+      "stat"
+    ],
+    "mood": "calm",
+    "nation": "neutral",
+    "scene": "stadium",
+    "text_area": "top",
+    "time_of_day": "day"
+  }
+]

@@ -1,0 +1,186 @@
+{
+  "id": "m09",
+  "competition": "Continental Premier League (fictional)",
+  "matchday": 18,
+  "date": "2026-10-25",
+  "venue": "Pharos Arena",
+  "home": {
+    "name": "Nile City FC",
+    "short": "NCF",
+    "colors": [
+      "#0b3d91",
+      "#f5c518"
+    ],
+    "coach": "Samir Haddad",
+    "lineup": [
+      "Omar Fathy",
+      "Karim Nassar",
+      "Youssef Adel",
+      "Mido Rashed",
+      "Tarek Selim",
+      "Hany Gamal",
+      "Ali Mansour",
+      "Ziad Hosny",
+      "Mostafa Kamel",
+      "Ramy Saber",
+      "Ehab Lotfy"
+    ],
+    "bench": [
+      "Sherif Badr",
+      "Adham Zaki",
+      "Nour Eldin"
+    ]
+  },
+  "away": {
+    "name": "Coral Bay Athletic",
+    "short": "CBA",
+    "colors": [
+      "#ec407a",
+      "#00897b"
+    ],
+    "coach": "Carlos Mendes",
+    "lineup": [
+      "Rafael Souza",
+      "Bruno Lima",
+      "Caio Alves",
+      "Thiago Prado",
+      "Igor Santos",
+      "Vitor Reis",
+      "Leandro Melo",
+      "Danilo Rocha",
+      "Gabriel Nunes",
+      "Mateus Pinto",
+      "Andre Viana"
+    ],
+    "bench": [
+      "Hugo Faria",
+      "Pedro Matos",
+      "Joao Brito"
+    ]
+  },
+  "score": {
+    "home": 1,
+    "away": 3
+  },
+  "events": [
+    {
+      "minute": 17,
+      "type": "goal",
+      "team": "away",
+      "player": "Gabriel Nunes",
+      "assist": "Igor Santos",
+      "detail": "free kick",
+      "score_after": "0-1"
+    },
+    {
+      "minute": 41,
+      "type": "goal",
+      "team": "away",
+      "player": "Danilo Rocha",
+      "assist": "Thiago Prado",
+      "detail": "left-foot finish",
+      "score_after": "0-2"
+    },
+    {
+      "minute": 45,
+      "type": "half_time",
+      "score": "0-2"
+    },
+    {
+      "minute": 52,
+      "type": "goal",
+      "team": "home",
+      "player": "Ali Mansour",
+      "assist": null,
+      "detail": "penalty",
+      "score_after": "1-2"
+    },
+    {
+      "minute": 61,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Sherif Badr",
+      "player_out": "Ehab Lotfy"
+    },
+    {
+      "minute": 71,
+      "type": "goal",
+      "team": "away",
+      "player": "Mateus Pinto",
+      "assist": "Thiago Prado",
+      "detail": "penalty",
+      "score_after": "1-3"
+    },
+    {
+      "minute": 72,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Adham Zaki",
+      "player_out": "Ramy Saber"
+    },
+    {
+      "minute": 75,
+      "type": "yellow_card",
+      "team": "home",
+      "player": "Mostafa Kamel"
+    },
+    {
+      "minute": 79,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Hugo Faria",
+      "player_out": "Andre Viana"
+    },
+    {
+      "minute": 85,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Pedro Matos",
+      "player_out": "Mateus Pinto"
+    },
+    {
+      "minute": 86,
+      "type": "red_card",
+      "team": "away",
+      "player": "Caio Alves"
+    },
+    {
+      "minute": 90,
+      "type": "full_time",
+      "score": "1-3"
+    }
+  ],
+  "stats": {
+    "possession": [
+      53,
+      47
+    ],
+    "shots": [
+      8,
+      3
+    ],
+    "shots_on_target": [
+      2,
+      3
+    ],
+    "corners": [
+      10,
+      1
+    ],
+    "fouls": [
+      12,
+      8
+    ]
+  },
+  "quotes": [
+    {
+      "speaker": "Samir Haddad",
+      "role": "Nile City FC head coach",
+      "text": "We created chances but did not take them. We go again."
+    }
+  ],
+  "cta": {
+    "text": "Get tickets for the next home game",
+    "url": "https://example.com/ncf/tickets"
+  }
+}

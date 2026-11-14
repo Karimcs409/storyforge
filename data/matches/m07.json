@@ -1,0 +1,198 @@
+{
+  "id": "m07",
+  "competition": "Continental Premier League (fictional)",
+  "matchday": 16,
+  "date": "2026-10-19",
+  "venue": "Reef Stadium",
+  "home": {
+    "name": "Coral Bay Athletic",
+    "short": "CBA",
+    "colors": [
+      "#ec407a",
+      "#00897b"
+    ],
+    "coach": "Carlos Mendes",
+    "lineup": [
+      "Rafael Souza",
+      "Bruno Lima",
+      "Caio Alves",
+      "Thiago Prado",
+      "Igor Santos",
+      "Vitor Reis",
+      "Leandro Melo",
+      "Danilo Rocha",
+      "Gabriel Nunes",
+      "Mateus Pinto",
+      "Andre Viana"
+    ],
+    "bench": [
+      "Hugo Faria",
+      "Pedro Matos",
+      "Joao Brito"
+    ]
+  },
+  "away": {
+    "name": "Riverside Phoenix",
+    "short": "RVP",
+    "colors": [
+      "#6a1b9a",
+      "#ffb300"
+    ],
+    "coach": "Grace Okoye",
+    "lineup": [
+      "Chidi Eze",
+      "Tunde Bello",
+      "Emeka Obi",
+      "Femi Adeyemi",
+      "Kwame Asante",
+      "Yaw Boateng",
+      "Seun Lawal",
+      "Ibrahim Sow",
+      "Moussa Diallo",
+      "Cheikh Ndiaye",
+      "Joel Mbeki"
+    ],
+    "bench": [
+      "Ade Bakare",
+      "Victor Osei",
+      "Samuel Kalu"
+    ]
+  },
+  "score": {
+    "home": 3,
+    "away": 1
+  },
+  "events": [
+    {
+      "minute": 11,
+      "type": "goal",
+      "team": "home",
+      "player": "Gabriel Nunes",
+      "assist": "Andre Viana",
+      "detail": "penalty",
+      "score_after": "1-0"
+    },
+    {
+      "minute": 20,
+      "type": "red_card",
+      "team": "home",
+      "player": "Igor Santos"
+    },
+    {
+      "minute": 26,
+      "type": "yellow_card",
+      "team": "home",
+      "player": "Vitor Reis"
+    },
+    {
+      "minute": 39,
+      "type": "yellow_card",
+      "team": "home",
+      "player": "Leandro Melo"
+    },
+    {
+      "minute": 45,
+      "type": "half_time",
+      "score": "1-0"
+    },
+    {
+      "minute": 56,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Pedro Matos",
+      "player_out": "Mateus Pinto"
+    },
+    {
+      "minute": 57,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Hugo Faria",
+      "player_out": "Andre Viana"
+    },
+    {
+      "minute": 58,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Ade Bakare",
+      "player_out": "Joel Mbeki"
+    },
+    {
+      "minute": 60,
+      "type": "goal",
+      "team": "home",
+      "player": "Gabriel Nunes",
+      "assist": null,
+      "detail": "right-foot finish",
+      "score_after": "2-0"
+    },
+    {
+      "minute": 62,
+      "type": "goal",
+      "team": "away",
+      "player": "Ibrahim Sow",
+      "assist": "Cheikh Ndiaye",
+      "detail": "penalty",
+      "score_after": "2-1"
+    },
+    {
+      "minute": 65,
+      "type": "yellow_card",
+      "team": "away",
+      "player": "Seun Lawal"
+    },
+    {
+      "minute": 70,
+      "type": "goal",
+      "team": "home",
+      "player": "Leandro Melo",
+      "assist": null,
+      "detail": "header",
+      "score_after": "3-1"
+    },
+    {
+      "minute": 78,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Victor Osei",
+      "player_out": "Cheikh Ndiaye"
+    },
+    {
+      "minute": 90,
+      "type": "full_time",
+      "score": "3-1"
+    }
+  ],
+  "stats": {
+    "possession": [
+      48,
+      52
+    ],
+    "shots": [
+      6,
+      14
+    ],
+    "shots_on_target": [
+      5,
+      3
+    ],
+    "corners": [
+      8,
+      8
+    ],
+    "fouls": [
+      10,
+      15
+    ]
+  },
+  "quotes": [
+    {
+      "speaker": "Carlos Mendes",
+      "role": "Coral Bay Athletic head coach",
+      "text": "We stayed patient and it paid off in the end."
+    }
+  ],
+  "cta": {
+    "text": "Get tickets for the next home game",
+    "url": "https://example.com/cba/tickets"
+  }
+}

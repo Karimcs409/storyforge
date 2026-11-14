@@ -1,0 +1,17 @@
+# secrets and local state
+.env
+*.db
+__pycache__/
+.claude/
+
+# private planning notes (names, outreach plan) - not for the public repo
+SPEC.md
+
+# StatsBomb files are downloaded at runtime (credit: StatsBomb Open Data)
+data/statsbomb/
+
+# eval scratch
+evals/partial.json
+evals/run.log
+docs/DEMO_SCRIPT.md
+private/

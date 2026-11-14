@@ -1,0 +1,165 @@
+{
+  "id": "m10",
+  "competition": "Continental Premier League (fictional)",
+  "matchday": 19,
+  "date": "2026-10-28",
+  "venue": "Ember Field",
+  "home": {
+    "name": "Riverside Phoenix",
+    "short": "RVP",
+    "colors": [
+      "#6a1b9a",
+      "#ffb300"
+    ],
+    "coach": "Grace Okoye",
+    "lineup": [
+      "Chidi Eze",
+      "Tunde Bello",
+      "Emeka Obi",
+      "Femi Adeyemi",
+      "Kwame Asante",
+      "Yaw Boateng",
+      "Seun Lawal",
+      "Ibrahim Sow",
+      "Moussa Diallo",
+      "Cheikh Ndiaye",
+      "Joel Mbeki"
+    ],
+    "bench": [
+      "Ade Bakare",
+      "Victor Osei",
+      "Samuel Kalu"
+    ]
+  },
+  "away": {
+    "name": "Delta Rovers",
+    "short": "DRV",
+    "colors": [
+      "#0f7a3d",
+      "#ffffff"
+    ],
+    "coach": "Lena Varga",
+    "lineup": [
+      "Marco Bellini",
+      "Jonas Petrov",
+      "Ade Okafor",
+      "Luis Ferreira",
+      "Tom Hadley",
+      "Ivan Kovac",
+      "Sami Laine",
+      "Diego Ramos",
+      "Paul Mercer",
+      "Kofi Mensah",
+      "Erik Dahl"
+    ],
+    "bench": [
+      "Hugo Laurent",
+      "Ben Ashby",
+      "Rui Costa Neto"
+    ]
+  },
+  "score": {
+    "home": 1,
+    "away": 0
+  },
+  "events": [
+    {
+      "minute": 33,
+      "type": "yellow_card",
+      "team": "home",
+      "player": "Moussa Diallo"
+    },
+    {
+      "minute": 41,
+      "type": "yellow_card",
+      "team": "away",
+      "player": "Erik Dahl"
+    },
+    {
+      "minute": 45,
+      "type": "half_time",
+      "score": "0-0"
+    },
+    {
+      "minute": 57,
+      "type": "yellow_card",
+      "team": "away",
+      "player": "Luis Ferreira"
+    },
+    {
+      "minute": 64,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Ade Bakare",
+      "player_out": "Joel Mbeki"
+    },
+    {
+      "minute": 72,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Ben Ashby",
+      "player_out": "Kofi Mensah"
+    },
+    {
+      "minute": 73,
+      "type": "goal",
+      "team": "home",
+      "player": "Cheikh Ndiaye",
+      "assist": "Seun Lawal",
+      "detail": "left-foot finish",
+      "score_after": "1-0"
+    },
+    {
+      "minute": 78,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Hugo Laurent",
+      "player_out": "Erik Dahl"
+    },
+    {
+      "minute": 83,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Victor Osei",
+      "player_out": "Cheikh Ndiaye"
+    },
+    {
+      "minute": 90,
+      "type": "full_time",
+      "score": "1-0"
+    }
+  ],
+  "stats": {
+    "possession": [
+      54,
+      46
+    ],
+    "shots": [
+      10,
+      4
+    ],
+    "shots_on_target": [
+      6,
+      1
+    ],
+    "corners": [
+      1,
+      5
+    ],
+    "fouls": [
+      15,
+      9
+    ]
+  },
+  "quotes": [
+    {
+      "speaker": "Grace Okoye",
+      "role": "Riverside Phoenix head coach",
+      "text": "The boys gave everything tonight. This one is for the fans."
+    }
+  ],
+  "cta": {
+    "text": "Get tickets for the next home game",
+    "url": "https://example.com/rvp/tickets"
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "id": "m04",
+  "competition": "Continental Premier League (fictional)",
+  "matchday": 13,
+  "date": "2026-10-10",
+  "venue": "Ember Field",
+  "home": {
+    "name": "Riverside Phoenix",
+    "short": "RVP",
+    "colors": [
+      "#6a1b9a",
+      "#ffb300"
+    ],
+    "coach": "Grace Okoye",
+    "lineup": [
+      "Chidi Eze",
+      "Tunde Bello",
+      "Emeka Obi",
+      "Femi Adeyemi",
+      "Kwame Asante",
+      "Yaw Boateng",
+      "Seun Lawal",
+      "Ibrahim Sow",
+      "Moussa Diallo",
+      "Cheikh Ndiaye",
+      "Joel Mbeki"
+    ],
+    "bench": [
+      "Ade Bakare",
+      "Victor Osei",
+      "Samuel Kalu"
+    ]
+  },
+  "away": {
+    "name": "Granite Hill FC",
+    "short": "GHF",
+    "colors": [
+      "#455a64",
+      "#cfd8dc"
+    ],
+    "coach": "Ian Doyle",
+    "lineup": [
+      "Sean Murphy",
+      "Conor Walsh",
+      "Aidan Byrne",
+      "Ciaran Kelly",
+      "Darragh Ryan",
+      "Eoin Burke",
+      "Niall Quinn Jr",
+      "Rory Hayes",
+      "Shane Daly",
+      "Kevin Lynch",
+      "Brian Nolan"
+    ],
+    "bench": [
+      "Fionn Carey",
+      "Liam Devlin",
+      "Paddy Moran"
+    ]
+  },
+  "score": {
+    "home": 3,
+    "away": 1
+  },
+  "events": [
+    {
+      "minute": 12,
+      "type": "goal",
+      "team": "home",
+      "player": "Ibrahim Sow",
+      "assist": null,
+      "detail": "tap-in",
+      "score_after": "1-0"
+    },
+    {
+      "minute": 13,
+      "type": "goal",
+      "team": "home",
+      "player": "Seun Lawal",
+      "assist": "Ibrahim Sow",
+      "detail": "free kick",
+      "score_after": "2-0"
+    },
+    {
+      "minute": 26,
+      "type": "yellow_card",
+      "team": "away",
+      "player": "Rory Hayes"
+    },
+    {
+      "minute": 31,
+      "type": "goal",
+      "team": "away",
+      "player": "Niall Quinn Jr",
+      "assist": null,
+      "detail": "tap-in",
+      "score_after": "2-1"
+    },
+    {
+      "minute": 45,
+      "type": "half_time",
+      "score": "2-1"
+    },
+    {
+      "minute": 51,
+      "type": "goal",
+      "team": "home",
+      "player": "Seun Lawal",
+      "assist": "Cheikh Ndiaye",
+      "detail": "right-foot finish",
+      "score_after": "3-1"
+    },
+    {
+      "minute": 68,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Liam Devlin",
+      "player_out": "Kevin Lynch"
+    },
+    {
+      "minute": 73,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Ade Bakare",
+      "player_out": "Joel Mbeki"
+    },
+    {
+      "minute": 76,
+      "type": "sub",
+      "team": "away",
+      "player_in": "Fionn Carey",
+      "player_out": "Brian Nolan"
+    },
+    {
+      "minute": 78,
+      "type": "sub",
+      "team": "home",
+      "player_in": "Victor Osei",
+      "player_out": "Cheikh Ndiaye"
+    },
+    {
+      "minute": 90,
+      "type": "full_time",
+      "score": "3-1"
+    }
+  ],
+  "stats": {
+    "possession": [
+      45,
+      55
+    ],
+    "shots": [
+      17,
+      13
+    ],
+    "shots_on_target": [
+      8,
+      5
+    ],
+    "corners": [
+      4,
+      1
+    ],
+    "fouls": [
+      11,
+      9
+    ]
+  },
+  "quotes": [
+    {
+      "speaker": "Grace Okoye",
+      "role": "Riverside Phoenix head coach",
+      "text": "Proud of the reaction after the break. Big three points."
+    }
+  ],
+  "cta": {
+    "text": "Get tickets for the next home game",
+    "url": "https://example.com/rvp/tickets"
+  }
+}
