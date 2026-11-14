@@ -6,6 +6,24 @@
 > StoryForge drafts the Story, the Trivia Quiz, the Poll and the categories from one match feed,
 > fact-checks every score, name and answer in code, and leaves the editor one click to approve.
 
+[![tests](https://github.com/Karimcs409/storyforge/actions/workflows/tests.yml/badge.svg)](https://github.com/Karimcs409/storyforge/actions/workflows/tests.yml)
+
+### What this project demonstrates
+
+| AI engineering skill | Where to look |
+|---|---|
+| **Strict structured outputs:** a JSON schema built per request, with `enum`s for the roster and photo IDs | [`app/llm.py`](app/llm.py), [`app/schemas.py`](app/schemas.py) |
+| **Prompt design** that changed with every eval failure, written up rule by rule | [`docs/PROMPTS.md`](docs/PROMPTS.md) |
+| **A fact guard in code, not in a model:** scores, minutes, %, names, who-did-what, quiz answers | [`app/factcheck.py`](app/factcheck.py) |
+| **Evals:** rule checks + LLM-as-judge on 21 cases, 9 → 20 passing, failures kept in the report | [`evals/`](evals/report.md) |
+| **Tests** on the real failures found while building (CI, no API key needed) | [`tests/`](tests/test_guards.py) |
+| **Cost and latency per call**, model routing, a latency budget with fallback | [`app/llm.py`](app/llm.py) |
+| **Vision model + LLM + code guard** for media selection | [`app/media.py`](app/media.py) |
+| **Prompt-injection defence:** source text is data, links come from code | [`docs/sample_article_injection.txt`](docs/sample_article_injection.txt) |
+| **Human in the loop:** flagged pages can't be approved, and edits are re-checked | [`app/main.py`](app/main.py) |
+
+The UI is deliberately minimal (one HTML page, vanilla JS, no build step). It exists to show the AI layer.
+
 <p align="center">
   <img src="docs/screenshots/01_editor_overview.png" width="100%" alt="StoryForge editor: the 2022 World Cup final drafted as a Story with AI-picked photos">
 </p>
@@ -150,6 +168,8 @@ app/media.py       vision tagging of the photo library + AI photo picker with a 
 app/store.py       SQLite: stories + per-call cost log
 app/static/        one HTML page, vanilla JS, CSS (no build step)
 evals/run.py       rule checks + LLM-as-judge -> evals/report.md
+tests/             deterministic guard tests (run in GitHub Actions)
+docs/PROMPTS.md    prompt and model design, and which eval failure each rule came from
 ```
 
 ---
@@ -158,7 +178,8 @@ evals/run.py       rule checks + LLM-as-judge -> evals/report.md
 
 `python -m evals.run`: 10 fictional matches × 2 voices (half English, half Arabic) + 1 prompt-injection
 case. Rule checks run in code; an LLM judge (`gpt-oss-20b`) scores hook, accuracy and brand voice from 1 to 5.
-Full table: [evals/report.md](evals/report.md).
+Full table: [evals/report.md](evals/report.md). The deterministic guards are also covered by
+[`tests/`](tests/test_guards.py) (19 tests, run in CI).
 
 | check | passed |
 |---|---|
@@ -198,6 +219,7 @@ Optional:
 python data/make_matches.py       # regenerate the 10 fictional matches
 python -m app.media --force       # re-tag the photo library with the vision model
 python -m evals.run               # run the evals, writes evals/report.md
+python -m pytest -q               # guard tests, no API key needed
 python -m app.cli data/matches/m01.json --voice fan --lang ar
 ```
 
