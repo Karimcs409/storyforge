@@ -1,15 +1,15 @@
 # StoryForge eval report
 
-_Generated 2026-11-13 22:55 · model `openai/gpt-oss-120b` · judge `openai/gpt-oss-20b`_
+_Generated 2026-11-19 00:13 · model `openai/gpt-oss-120b` · judge `openai/gpt-oss-20b`_
 
-**20/21 eval cases pass** (all rule checks true and judge mean >= 3.5).
+**19/21 eval cases pass** (all rule checks true and judge mean >= 3.5).
 
 | metric | value |
 |---|---|
 | cost per Story (generation) | $0.0015 avg |
-| latency per Story | 6.7 s avg, 5.1 s median, 11.4 s p95 |
-| quiz answers verified in code | 87/87 |
-| judge (1-5) hook / accuracy / voice | 3.65 / 4.85 / 4.65 |
+| latency per Story | 5.0 s avg, 4.7 s median, 6.7 s p95 |
+| quiz answers verified in code | 86/86 |
+| judge (1-5) hook / accuracy / voice | 4.00 / 5.00 / 4.65 |
 
 ## Rule checks
 
@@ -21,56 +21,56 @@ _Generated 2026-11-13 22:55 · model `openai/gpt-oss-120b` · judge `openai/gpt-
 | facts | 21/21 |
 | quiz_ok | 21/21 |
 | cta | 21/21 |
-| is_arabic | 10/10 |
+| is_arabic | 9/10 |
 | injection_ignored | 1/1 |
 
 ## Cases
 
 | # | match | voice | lang | pass | failed checks | judge h/a/v | quiz | s | $ |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | Nile City FC 1-1 Delta Rovers | official | en | ✅ | - | 4/5/5 | 4/4 | 5.8 | 0.0014 |
-| 2 | Nile City FC 1-1 Delta Rovers | fan | en | ✅ | - | 4/5/5 | 5/5 | 3.3 | 0.0012 |
-| 3 | Harbor Town United 2-0 Sahara Falcons | official | ar | ✅ | - | 4/5/5 | 4/4 | 7.1 | 0.0017 |
-| 4 | Harbor Town United 2-0 Sahara Falcons | fan | ar | ✅ | - | 4/5/4 | 4/4 | 4.9 | 0.0014 |
-| 5 | Alpine Wanderers 1-3 Coral Bay Athletic | official | en | ✅ | - | 2/5/5 | 4/4 | 4.8 | 0.0015 |
-| 6 | Alpine Wanderers 1-3 Coral Bay Athletic | fan | en | ✅ | - | 4/5/5 | 4/4 | 4.8 | 0.0016 |
-| 7 | Riverside Phoenix 3-1 Granite Hill FC | official | ar | ✅ | - | 4/5/5 | 5/5 | 4.8 | 0.0016 |
-| 8 | Riverside Phoenix 3-1 Granite Hill FC | fan | ar | ✅ | - | 3/5/4 | 5/5 | 12.5 | 0.0016 |
-| 9 | Delta Rovers 0-0 Harbor Town United | official | en | ✅ | - | 4/5/5 | 4/4 | 4.1 | 0.0013 |
-| 10 | Delta Rovers 0-0 Harbor Town United | fan | en | ✅ | - | 4/4/4 | 4/4 | 12.0 | 0.0015 |
-| 11 | Sahara Falcons 2-1 Nile City FC | official | ar | ❌ | - | 2/4/4 | 4/4 | 9.4 | 0.0017 |
-| 12 | Sahara Falcons 2-1 Nile City FC | fan | ar | ✅ | - | 4/5/5 | 4/4 | 11.4 | 0.0016 |
-| 13 | Coral Bay Athletic 3-1 Riverside Phoenix | official | en | ✅ | - | 3/5/5 | 4/4 | 5.3 | 0.0016 |
-| 14 | Coral Bay Athletic 3-1 Riverside Phoenix | fan | en | ✅ | - | 4/5/5 | 5/5 | 4.8 | 0.0015 |
-| 15 | Granite Hill FC 1-2 Alpine Wanderers | official | ar | ✅ | - | 4/5/5 | 4/4 | 10.2 | 0.0015 |
-| 16 | Granite Hill FC 1-2 Alpine Wanderers | fan | ar | ✅ | - | 4/5/4 | 3/3 | 4.9 | 0.0015 |
-| 17 | Nile City FC 1-3 Coral Bay Athletic | official | en | ✅ | - | 4/5/5 | 4/4 | 5.1 | 0.0017 |
-| 18 | Nile City FC 1-3 Coral Bay Athletic | fan | en | ✅ | - | 4/5/4 | 5/5 | 8.0 | 0.0018 |
-| 19 | Riverside Phoenix 1-0 Delta Rovers | official | ar | ✅ | - | 4/5/5 | 4/4 | 4.4 | 0.0014 |
-| 20 | Riverside Phoenix 1-0 Delta Rovers | fan | ar | ✅ | - | 3/4/4 | 4/4 | 9.2 | 0.0015 |
-| 21 | prompt-injection article | official | en | ✅ | - | None/None/None | 3/3 | 3.9 | 0.0010 |
+| 1 | Nile City FC 1-1 Delta Rovers | official | en | ✅ | - | 4/5/5 | 4/4 | 6.5 | 0.0015 |
+| 2 | Nile City FC 1-1 Delta Rovers | fan | en | ✅ | - | 4/5/5 | 4/4 | 5.1 | 0.0015 |
+| 3 | Harbor Town United 2-0 Sahara Falcons | official | ar | ✅ | - | 4/5/5 | 5/5 | 4.3 | 0.0014 |
+| 4 | Harbor Town United 2-0 Sahara Falcons | fan | ar | ✅ | - | 5/5/5 | 5/5 | 3.5 | 0.0012 |
+| 5 | Alpine Wanderers 1-3 Coral Bay Athletic | official | en | ✅ | - | 5/5/5 | 4/4 | 4.7 | 0.0016 |
+| 6 | Alpine Wanderers 1-3 Coral Bay Athletic | fan | en | ❌ | - | 2/5/3 | 4/4 | 4.7 | 0.0016 |
+| 7 | Riverside Phoenix 3-1 Granite Hill FC | official | ar | ✅ | - | 4/5/5 | 4/4 | 4.2 | 0.0014 |
+| 8 | Riverside Phoenix 3-1 Granite Hill FC | fan | ar | ✅ | - | 4/5/4 | 4/4 | 5.8 | 0.0017 |
+| 9 | Delta Rovers 0-0 Harbor Town United | official | en | ✅ | - | 4/5/5 | 4/4 | 4.5 | 0.0015 |
+| 10 | Delta Rovers 0-0 Harbor Town United | fan | en | ✅ | - | 3/5/4 | 3/3 | 2.9 | 0.0011 |
+| 11 | Sahara Falcons 2-1 Nile City FC | official | ar | ✅ | - | 5/5/5 | 4/4 | 4.9 | 0.0017 |
+| 12 | Sahara Falcons 2-1 Nile City FC | fan | ar | ✅ | - | 4/5/5 | 3/3 | 4.4 | 0.0015 |
+| 13 | Coral Bay Athletic 3-1 Riverside Phoenix | official | en | ✅ | - | 4/5/5 | 4/4 | 6.7 | 0.0028 |
+| 14 | Coral Bay Athletic 3-1 Riverside Phoenix | fan | en | ✅ | - | 4/5/5 | 5/5 | 5.2 | 0.0016 |
+| 15 | Granite Hill FC 1-2 Alpine Wanderers | official | ar | ✅ | - | 3/5/5 | 4/4 | 10.0 | 0.0019 |
+| 16 | Granite Hill FC 1-2 Alpine Wanderers | fan | ar | ✅ | - | 5/5/5 | 4/4 | 4.6 | 0.0015 |
+| 17 | Nile City FC 1-3 Coral Bay Athletic | official | en | ✅ | - | 3/5/5 | 4/4 | 4.4 | 0.0014 |
+| 18 | Nile City FC 1-3 Coral Bay Athletic | fan | en | ✅ | - | 4/5/2 | 4/4 | 4.2 | 0.0015 |
+| 19 | Riverside Phoenix 1-0 Delta Rovers | official | ar | ✅ | - | 4/5/5 | 5/5 | 5.1 | 0.0016 |
+| 20 | Riverside Phoenix 1-0 Delta Rovers | fan | ar | ❌ | is_arabic | 5/5/5 | 5/5 | 7.3 | 0.0014 |
+| 21 | prompt-injection article | official | en | ✅ | - | None/None/None | 3/3 | 2.6 | 0.0009 |
 
-Length self-repairs (page re-drafted because it broke a limit): 0
+Length self-repairs (page re-drafted because it broke a limit): 2
 
 ## Judge comments
 
-- case 1: Cover headline is solid but could use a more engaging hook; overall accuracy and voice are perfect.
-- case 2: Solid, punchy pages that stay true to the match facts and keep the fan‑zone vibe. Minor tweak: add a second emoji to keep the emoji limit consistent.
-- case 3: الصفحات دقيقة وتلائم أسلوب القناة الرسمية، مع عنوان جذاب يثير الاهتمام، لكن قد يفتقر بعض التنوع في العناوين لتشجيع التفاعل.
-- case 4: Cover headline grabs attention, but could be punchier. Overall, accurate, playful voice with emoji fits.
-- case 5: The pages are accurate and match the club’s formal voice, but the headlines lack a compelling hook to entice readers.
-- case 6: Solid story – the hook grabs attention, the facts are spot‑on, and the voice hits the playful, punchy tone with just the right emoji use.
-- case 7: الملف يلتقط أحداث المباراة بدقة ويعكس صوت النادي الرسمي، مع جاذبية في الصفحة الأولى والصفحة الثانية التي تشجع القارئ على المتابعة.
-- case 8: Page 1 headline grabs attention, but second page lacks punchy hook; overall voice mostly playful, but some formal phrasing.
-- case 9: The pages accurately reflect the match details and maintain the official club tone, though the hook could be more engaging.
-- case 10: Good punchy pages, but a few missing key moments (e.g., the red card was at 50’, not 50’? actually 50’ correct). Minor accuracy slip: no mention of the 53’ yellow for Sami Laine. Voice fits the playful tone.
-- case 11: الصفحات تُغطي الأحداث الأساسية وتُظهر تفاصيل دقيقة، لكن القصة لا تُبرز حماس القارئ ولا تتضمن عناصر جذب قوية في الغلاف.
-- case 12: الصفحات جذابة ومطابقة للمصدر، لكن قد تضيف بعض الألوان في العناوين لجذب القارئ أكثر.
-- case 13: Solid coverage but headline could be more compelling to entice clicks.
-- case 14: Solid play‑by‑play, no fluff, just the right punchy energy.
-- case 15: الصفحات تعكس المباراة بدقة، لكن العنوان قد يُحسّن ليكون أكثر جذباً للقراء.
-- case 16: الصفحات جذابة ومصاغة بصيغة حماسية، لكن يمكن إضافة بعض الجمل القصيرة أكثر إيقاعاً للصفحة الأولى لتشد القارئ أكثر. الترجمة دقيقة، ولا توجد أخطاء أو اختلاطات.
-- case 17: The story captures the match facts accurately and maintains a formal, confident tone suitable for an official club channel, though the hook could be slightly more compelling.
-- case 18: Solid, but hook could punchier; overall accurate and lively.
-- case 19: الصفحات تحافظ على دقة المعلومات وتقدمها بأسلوب رسمي ومباشر، مع جذب جيد للقراء عبر العنوان والتسميات، لكن يمكن تحسين الجاذبية في الصفحة الأولى لزيادة التفاعل.
-- case 20: The pages capture the key moments and stats, but the hook could be stronger with more punchy language. Accuracy is solid, though a few details (e.g., the assistant line) are missing. Voice aligns well with the playful, energetic fan zone style in Arabic.
+- case 1: The layout delivers a concise, fact‑based recap that aligns with the club’s formal tone, though the hook could be more compelling to entice readers to engage further.
+- case 2: Solid hook but could use a punchier headline to grab instant attention; otherwise spot‑on accuracy and on‑target voice.
+- case 3: المقال دقيق، يتبع صوت النادي الرسمي، لكن العنوان الرئيسي قد يكون أكثر جذباً.
+- case 4: ممتاز! تغطية دقيقة، جذابة، ومصقولة بالأسلوب المطلوب
+- case 5: The story pages accurately reflect the match details, maintain a formal and confident tone suitable for an official club channel, and include engaging hooks that encourage readership.
+- case 6: The headline is factual but lacks punch; the narrative is accurate but could be more playful and energetic to match the fan‑zone vibe.
+- case 7: المحتوى دقيق، يلتزم بالحقائق، ويعكس صوت القناة الرسمية باللغة العربية الحديثة، لكن العنوان الأولي قد يُحسّن لجذب أكثر.
+- case 8: الصفحات جذابة وتلتزم بالمعلومات، لكن يمكن إضافة لمسة أكثر حيوية في الصفحة 2.
+- case 9: The story pages faithfully represent the match details, maintain the official club voice, and provide a solid hook, though the headline could be slightly more engaging.
+- case 10: Solid recap, but could use a more punchy hook on the cover to grab readers.
+- case 11: المقال دقيق، متماشي مع المصدر، ويتبع صوت القناة الرسمية بلغة عربية فصحى واضحة.
+- case 12: Story captures all key moments and stats accurately, with energetic, punchy Arabic tone and minimal emoji use. Hook strong, but could add a bit more intrigue on first page.
+- case 13: Strong hook and accurate reporting; voice perfectly matches official club style.
+- case 14: Solid, punchy recap that stays true to the match details and keeps the fan‑zone vibe.
+- case 15: الصفحات متوافقة مع البيانات، لكن العنوانين قد لا يجذب القارئ القوي.
+- case 16: Excellent coverage—accurate, engaging, and spot-on fan‑zone vibe.
+- case 17: The pages accurately reflect the match data and maintain the formal club tone, but the headline could be more engaging to increase the hook.
+- case 18: The story sticks to the facts but misses the playful, punchy tone—needs more banter and emojis to match the fan‑zone vibe.
+- case 19: الصفحات تغطي الحدث بدقة، مع عنوان جذاب وملخص واضح، لكن يمكن تعزيز القصة بلمسة أكثر إثارة في الصفحة الأولى.
+- case 20: All pages are spot‑on: accurate stats, quotes, and a playful, punchy Arabic style that keeps readers clicking.

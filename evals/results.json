@@ -16,14 +16,14 @@
       "hook": 4,
       "accuracy": 5,
       "voice": 5,
-      "comment": "Cover headline is solid but could use a more engaging hook; overall accuracy and voice are perfect."
+      "comment": "The layout delivers a concise, fact‑based recap that aligns with the club’s formal tone, though the hook could be more compelling to entice readers to engage further."
     },
     "pass": true,
-    "ms": 5753,
-    "usd": 0.001422,
-    "judge_usd": 0.000127,
-    "tokens_in": 2263,
-    "tokens_out": 1805,
+    "ms": 6482,
+    "usd": 0.001465,
+    "judge_usd": 0.00017,
+    "tokens_in": 2284,
+    "tokens_out": 1871,
     "flags": {},
     "quiz": "4/4",
     "quiz_flags": {},
@@ -31,15 +31,15 @@
     "repairs": 0,
     "rate_limit_wait_ms": 0,
     "story": {
-      "title": "Nile City FC 1-1 Delta Rovers – CPL Match Report",
+      "title": "Nile City 1-1 Delta Rovers – CPL Match Report",
       "pages": [
         {
           "type": "cover",
           "template": "cover-score",
           "icon": "ball",
           "headline": "Nile City 1-1 Delta Rovers",
-          "caption": "A hard‑fought draw at Pharos Arena as Nile City fought back to level after a red card reduced them to ten men.",
-          "media_hint": "final whistle at Pharos Arena",
+          "caption": "A hard‑fought draw at Pharos Arena as Nile City equalised late through Paul Mercer.",
+          "media_hint": "final whistle with scoreboard",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -50,8 +50,8 @@
           "template": "moment",
           "icon": "ball",
           "headline": "Ramy Saber scores",
-          "caption": "Ramy Saber put Nile City ahead with a tap‑in at 25'. The home side led 1‑0 before the red card.",
-          "media_hint": "Ramy Saber tapping in",
+          "caption": "25' – Ramy Saber puts Nile City ahead with a tap‑in. Score 1‑0.",
+          "media_hint": "Ramy Saber celebrating the tap‑in",
           "minute": 25,
           "players_mentioned": [
             "Ramy Saber"
@@ -64,8 +64,8 @@
           "template": "moment",
           "icon": "card-red",
           "headline": "Mido Rashed sent off",
-          "caption": "Mido Rashed received a straight red card in the 32nd minute, leaving Nile City with ten men for the rest of the game.",
-          "media_hint": "Mido Rashed red card",
+          "caption": "32' – Mido Rashed receives a red card, leaving Nile City with ten men.",
+          "media_hint": "Mido Rashed shown being dismissed by the referee",
           "minute": 32,
           "players_mentioned": [
             "Mido Rashed"
@@ -78,8 +78,8 @@
           "template": "moment",
           "icon": "ball",
           "headline": "Paul Mercer equalises",
-          "caption": "Paul Mercer curled a free‑kick into the net at 67' to restore parity for Delta Rovers.",
-          "media_hint": "Paul Mercer free kick",
+          "caption": "67' – Paul Mercer scores from a free kick to level the match 1‑1.",
+          "media_hint": "Paul Mercer striking the free‑kick",
           "minute": 67,
           "players_mentioned": [
             "Paul Mercer"
@@ -91,9 +91,9 @@
           "type": "stat",
           "template": "stat-card",
           "icon": "stat",
-          "headline": "Match Stats",
-          "caption": "Possession: Nile City 43% - 57% Delta Rovers | Shots: 7‑6 | Shots on target: 4‑3 | Corners: 7‑3 | Fouls: 12‑13.",
-          "media_hint": "stat board display",
+          "headline": "Match stats",
+          "caption": "Possession: Nile City 43% – 57% Delta Rovers. Shots 7‑6, on target 4‑3, corners 7‑3.",
+          "media_hint": "infographic of key match statistics",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -104,8 +104,8 @@
           "template": "quote",
           "icon": "quote",
           "headline": "Coach Samir Haddad comments",
-          "caption": "\"We will take the point and move on,\" said Samir Haddad after the final whistle.",
-          "media_hint": "Samir Haddad interview",
+          "caption": "\"We will take the point and move on.\"",
+          "media_hint": "Samir Haddad speaking on the touchline",
           "minute": null,
           "players_mentioned": [
             "Samir Haddad"
@@ -118,8 +118,8 @@
           "template": "cta",
           "icon": "ticket",
           "headline": "Next home game tickets",
-          "caption": "Secure your seat for Nile City's next home match – tickets are now on sale.",
-          "media_hint": "ticket graphic",
+          "caption": "Secure your seat for Nile City's next match at Pharos Arena.",
+          "media_hint": "ticket graphic or stadium exterior",
           "minute": null,
           "players_mentioned": [],
           "cta_text": "Get tickets for the next home game",
@@ -132,36 +132,36 @@
           "options": [
             "2-0",
             "0-2",
-            "1-1",
-            "3-1"
+            "3-1",
+            "1-1"
           ],
-          "correct_index": 2,
+          "correct_index": 3,
           "kind": "final_score",
           "answer_canonical": "1-1",
           "stat_key": "none"
         },
         {
-          "question": "Who scored the first goal of the match?",
+          "question": "Who scored the first goal?",
           "options": [
-            "Ramy Saber",
+            "Paul Mercer",
             "Ade Okafor",
-            "Luis Ferreira",
-            "Paul Mercer"
+            "Ramy Saber",
+            "Luis Ferreira"
           ],
-          "correct_index": 0,
+          "correct_index": 2,
           "kind": "first_scorer",
           "answer_canonical": "Ramy Saber",
           "stat_key": "none"
         },
         {
-          "question": "Which Nile City player received a red card?",
+          "question": "Which Nile City player was sent off?",
           "options": [
-            "Karim Nassar",
-            "Hany Gamal",
             "Mido Rashed",
-            "Omar Fathy"
+            "Karim Nassar",
+            "Omar Fathy",
+            "Hany Gamal"
           ],
-          "correct_index": 2,
+          "correct_index": 0,
           "kind": "red_card",
           "answer_canonical": "Mido Rashed",
           "stat_key": "none"
@@ -169,9 +169,9 @@
         {
           "question": "Where was the match played?",
           "options": [
-            "Nile Stadium",
-            "Sahara Field",
-            "Delta Dome",
+            "Grand Arena",
+            "Delta Stadium",
+            "Nile City Ground",
             "Pharos Arena"
           ],
           "correct_index": 3,
@@ -186,7 +186,7 @@
           "Ramy Saber's goal",
           "Mido Rashed's red card",
           "Paul Mercer's equaliser",
-          "All of the above"
+          "Tactical substitutions"
         ]
       },
       "categories": [
@@ -200,8 +200,8 @@
         "nilecity",
         "deltarovers",
         "cpl",
-        "draw",
-        "pharosarena"
+        "pharosarena",
+        "draw"
       ]
     }
   },
@@ -222,16 +222,16 @@
       "hook": 4,
       "accuracy": 5,
       "voice": 5,
-      "comment": "Solid, punchy pages that stay true to the match facts and keep the fan‑zone vibe. Minor tweak: add a second emoji to keep the emoji limit consistent."
+      "comment": "Solid hook but could use a punchier headline to grab instant attention; otherwise spot‑on accuracy and on‑target voice."
     },
     "pass": true,
-    "ms": 3282,
-    "usd": 0.001197,
-    "judge_usd": 0.000127,
-    "tokens_in": 2270,
-    "tokens_out": 1428,
+    "ms": 5108,
+    "usd": 0.00147,
+    "judge_usd": 0.000137,
+    "tokens_in": 2291,
+    "tokens_out": 1877,
     "flags": {},
-    "quiz": "5/5",
+    "quiz": "4/4",
     "quiz_flags": {},
     "story_flags": [],
     "repairs": 0,
@@ -244,8 +244,8 @@
           "template": "cover-score",
           "icon": "ball",
           "headline": "Nile City 1-1 Delta Rovers",
-          "caption": "A pulsating draw at Pharos Arena – both sides grab a point in a roller‑coaster of goals and a red card! ⚽",
-          "media_hint": "full‑stadium shot showing both teams celebrating",
+          "caption": "A hard‑fought 1-1 at Pharos Arena – both sides share the spoils! ⚽",
+          "media_hint": "action shot of both teams battling on the pitch",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -256,8 +256,8 @@
           "template": "moment",
           "icon": "ball",
           "headline": "Ramy Saber opens scoring",
-          "caption": "25' – Ramy Saber taps in to put Nile City ahead. The crowd erupts! 🔥",
-          "media_hint": "Ramy Saber celebrating after the tap‑in",
+          "caption": "25' – Ramy Saber taps in to give Nile City the lead. 🎉",
+          "media_hint": "Ramy Saber celebrating after his tap‑in goal",
           "minute": 25,
           "players_mentioned": [
             "Ramy Saber"
@@ -269,9 +269,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "card-red",
-          "headline": "Mido Rashed sees red",
-          "caption": "32' – Mido Rashed is sent off. Nile City down to ten men early on. 😮",
-          "media_hint": "Mido Rashed receiving red card from referee",
+          "headline": "Mido Rashed sent off",
+          "caption": "32' – Mido Rashed sees red, leaving Nile City a man down.",
+          "media_hint": "Mido Rashed receiving a red card from the referee",
           "minute": 32,
           "players_mentioned": [
             "Mido Rashed"
@@ -284,8 +284,8 @@
           "template": "moment",
           "icon": "ball",
           "headline": "Paul Mercer equalises",
-          "caption": "67' – Paul Mercer curls a free‑kick to level the game. Delta Rovers roar back! ⚡",
-          "media_hint": "Paul Mercer striking the free kick",
+          "caption": "67' – Paul Mercer curls a free‑kick to level the game for Delta Rovers.",
+          "media_hint": "Paul Mercer striking the free‑kick that finds the net",
           "minute": 67,
           "players_mentioned": [
             "Paul Mercer"
@@ -297,9 +297,9 @@
           "type": "stat",
           "template": "stat-card",
           "icon": "stat",
-          "headline": "Stat showdown",
-          "caption": "Possession: Nile City 43% – 57% Delta Rovers | Shots: 7‑6 | Corners: 7‑3. Close on every front! 📊",
-          "media_hint": "infographic style stat bar",
+          "headline": "Match stats",
+          "caption": "Possession: Nile City 43% – 57% Delta Rovers | Shots: 7‑6 | Shots on target: 4‑3 | Corners: 7‑3 | Fouls: 12‑13",
+          "media_hint": "graphic showing the match statistics",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -309,9 +309,9 @@
           "type": "quote",
           "template": "quote",
           "icon": "quote",
-          "headline": "Coach Haddad's take",
+          "headline": "Coach Haddad on the draw",
           "caption": "\"We will take the point and move on.\" – Samir Haddad, Nile City FC head coach",
-          "media_hint": "Samir Haddad speaking on the bench",
+          "media_hint": "Samir Haddad speaking to the media after the match",
           "minute": null,
           "players_mentioned": [
             "Samir Haddad"
@@ -323,9 +323,9 @@
           "type": "cta",
           "template": "cta",
           "icon": "ticket",
-          "headline": "Next game, next chance!",
-          "caption": "Grab your seat for Nile City's next home clash – tickets are selling fast! 🎟️",
-          "media_hint": "fans holding tickets in the stands",
+          "headline": "Next home game tickets",
+          "caption": "Grab your seat for the next clash at Pharos Arena! 🎟️",
+          "media_hint": "promo image of tickets for the upcoming home match",
           "minute": null,
           "players_mentioned": [],
           "cta_text": "Get tickets for the next home game",
@@ -337,8 +337,8 @@
           "question": "What was the final score?",
           "options": [
             "0-2",
-            "2-0",
             "3-1",
+            "2-0",
             "1-1"
           ],
           "correct_index": 3,
@@ -347,79 +347,66 @@
           "stat_key": "none"
         },
         {
-          "question": "Who scored the opening goal?",
+          "question": "Who scored the first goal?",
           "options": [
+            "Luis Ferreira",
             "Mido Rashed",
-            "Ade Okafor",
-            "Ramy Saber",
-            "Paul Mercer"
+            "Paul Mercer",
+            "Ramy Saber"
           ],
-          "correct_index": 2,
+          "correct_index": 3,
           "kind": "first_scorer",
           "answer_canonical": "Ramy Saber",
           "stat_key": "none"
         },
         {
-          "question": "At which minute was the red card shown?",
+          "question": "Which Nile City player was sent off?",
           "options": [
-            "90'",
-            "25'",
-            "61'",
-            "32'"
+            "Mido Rashed",
+            "Karim Nassar",
+            "Hany Gamal",
+            "Youssef Adel"
           ],
-          "correct_index": 3,
+          "correct_index": 0,
           "kind": "red_card",
-          "answer_canonical": "32'",
+          "answer_canonical": "Mido Rashed",
           "stat_key": "none"
         },
         {
-          "question": "Which venue hosted the match?",
+          "question": "Where was the match played?",
           "options": [
-            "Nile Stadium",
+            "Nile City Ground",
             "Pharos Arena",
-            "Delta Dome",
-            "Cairo Park"
+            "River Park",
+            "Delta Stadium"
           ],
           "correct_index": 1,
           "kind": "venue",
           "answer_canonical": "Pharos Arena",
           "stat_key": "none"
-        },
-        {
-          "question": "How many corners did Delta Rovers have?",
-          "options": [
-            "5",
-            "3",
-            "9",
-            "7"
-          ],
-          "correct_index": 1,
-          "kind": "stat",
-          "answer_canonical": "3",
-          "stat_key": "corners"
         }
       ],
       "poll": {
-        "question": "Which moment defined the match for you?",
+        "question": "Which moment defined the match?",
         "options": [
-          "Ramy Saber's goal",
-          "Mido Rashed's red card",
+          "Ramy Saber's opening goal",
+          "Mido Rashed red card",
           "Paul Mercer's equaliser",
-          "The stat battle"
+          "Tactical subs"
         ]
       },
       "categories": [
         "match-report",
         "goals",
         "red-card",
-        "comeback",
-        "stats"
+        "stats",
+        "post-match-quotes"
       ],
       "tags": [
         "nilecity",
         "deltarovers",
-        "cpl",
-        "pharosarena"
+        "draw",
+        "cpl"
       ]
     }
   },
@@ -441,30 +428,30 @@
       "hook": 4,
       "accuracy": 5,
       "voice": 5,
-      "comment": "الصفحات دقيقة وتلائم أسلوب القناة الرسمية، مع عنوان جذاب يثير الاهتمام، لكن قد يفتقر بعض التنوع في العناوين لتشجيع التفاعل."
+      "comment": "المقال دقيق، يتبع صوت النادي الرسمي، لكن العنوان الرئيسي قد يكون أكثر جذباً."
     },
     "pass": true,
-    "ms": 7129,
-    "usd": 0.001689,
+    "ms": 4300,
+    "usd": 0.001387,
     "judge_usd": 0.000138,
-    "tokens_in": 2359,
-    "tokens_out": 2226,
+    "tokens_in": 2380,
+    "tokens_out": 1717,
     "flags": {},
-    "quiz": "4/4",
+    "quiz": "5/5",
     "quiz_flags": {},
     "story_flags": [],
     "repairs": 0,
     "rate_limit_wait_ms": 0,
     "story": {
-      "title": "هاربور تاون يونايتد 2-0 ساهارا فالكونز",
+      "title": "Harbor Town United 2-0 Sahara Falcons",
       "pages": [
         {
           "type": "cover",
           "template": "cover-score",
           "icon": "ball",
-          "headline": "هاربور تاون يونايتد 2-0 ساهارا فالكونز",
-          "caption": "فوز هاربور تاون يونايتد على ساهارا فالكونز 2-0 في الجولة 11 من الدوري.",
-          "media_hint": "final score graphic",
+          "headline": "هاربور تاون يحقق فوزاً 2-0",
+          "caption": "انتهت المباراة على ملعب لايتهاوس جراوند بفوز هاربور تاون يونايتد على ساهارا فالكونز بهدفين نظيفين.",
+          "media_hint": "final score board with both team logos",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -474,9 +461,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "نواه فيلد يضيف هدفًا من ركلة جزاء",
-          "caption": "نواه فيلد سجل هدفًا من ركلة جزاء في الدقيقة 31 ليمنح هاربور تاون يونايتد الصدارة.",
-          "media_hint": "penalty celebration of Noah Field",
+          "headline": "الهدف الأول من ركلة جزاء",
+          "caption": "في الدقيقة 31 سجل نوح فيلد هدفاً من ركلة جزاء ليضع هاربور تاون يونايتد في الصدارة 1-0.",
+          "media_hint": "Noah Field celebrating after penalty",
           "minute": 31,
           "players_mentioned": [
             "Noah Field"
@@ -487,24 +474,10 @@
         {
           "type": "moment",
           "template": "moment",
-          "icon": "card-red",
-          "headline": "أنس بيلهاج يطرد",
-          "caption": "أنس بيلهاج طُرد بالبطاقة الحمراء في الدقيقة 33.",
-          "media_hint": "red card shown to Anas Belhaj",
-          "minute": 33,
-          "players_mentioned": [
-            "Anas Belhaj"
-          ],
-          "cta_text": null,
-          "cta_url": null
-        },
-        {
-          "type": "moment",
-          "template": "moment",
           "icon": "ball",
-          "headline": "ماكس هوليس يضيف هدفًا من ركلة حرة",
-          "caption": "ماكس هوليس سجل هدفًا من ركلة حرة في الدقيقة 62 بعد تمريرة من أوين شارب.",
-          "media_hint": "free kick goal by Max Hollis",
+          "headline": "الهدف الثاني من ركلة حرة",
+          "caption": "في الدقيقة 62 أضاف ماكس هوليس الهدف الثاني من ركلة حرة بعد تمريرة من أوين شارب لتقليل الفارق 2-0.",
+          "media_hint": "Max Hollis striking free kick",
           "minute": 62,
           "players_mentioned": [
             "Max Hollis",
@@ -514,12 +487,26 @@
           "cta_url": null
         },
         {
+          "type": "moment",
+          "template": "moment",
+          "icon": "card-red",
+          "headline": "طرد اللاعب أنس بلحاج",
+          "caption": "في الدقيقة 33 طُرد أنس بلحاج (ساهارا فالكونز) بعد حادثة عنيفة، مما عزل الفريق الزائر.",
+          "media_hint": "Anas Belhaj receiving red card",
+          "minute": 33,
+          "players_mentioned": [
+            "Anas Belhaj"
+          ],
+          "cta_text": null,
+          "cta_url": null
+        },
+        {
           "type": "stat",
           "template": "stat-card",
           "icon": "stat",
           "headline": "إحصائيات المباراة",
-          "caption": "حصص الاستحواذ 52% - 48%، التسديدات 9 - 6، التسديدات على المرمى 3 - 4.",
-          "media_hint": "stat overlay",
+          "caption": "استحوذت هاربور تاون على 52% من الاستحواذ، 9 تسديدات مقابل 6 لساهارا، مع 3 تسديدات على المرمى.",
+          "media_hint": "graphic showing possession, shots, shots on target",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -529,9 +516,9 @@
           "type": "quote",
           "template": "quote",
           "icon": "quote",
-          "headline": "تعليق المدرب مارك إيلري",
-          "caption": "مارك إيلري: \"الأولاد بذلوا كل شيء الليلة. هذا للمعجبين\".",
-          "media_hint": "coach Mark Ellery speaking",
+          "headline": "كلمة المدرب مارك إيلري",
+          "caption": "قال مارك إيلري: «الأولاد أعطوا كل شيء الليلة. هذه النتيجة من أجل المشجعين».",
+          "media_hint": "Mark Ellery speaking to media",
           "minute": null,
           "players_mentioned": [
             "Mark Ellery"
@@ -543,9 +530,9 @@
           "type": "cta",
           "template": "cta",
           "icon": "ticket",
-          "headline": "احجز تذاكر المباراة القادمة",
-          "caption": "احصل على تذاكر لمباراة هاربور تاون يونايتد القادمة.",
-          "media_hint": "ticket graphic",
+          "headline": "احجز تذكرتك للمباراة القادمة",
+          "caption": "لا تفوت فرصة مشاهدة هاربور تاون يونايتد في ملعب لايتهاوس جراوند. احجز الآن!",
+          "media_hint": "fans entering stadium",
           "minute": null,
           "players_mentioned": [],
           "cta_text": "Get tickets for the next home game",
@@ -554,65 +541,78 @@
       ],
       "quiz": [
         {
-          "question": "ما هو نتيجة المباراة؟",
+          "question": "ما هو النتيجة النهائية للمباراة؟",
           "options": [
-            "2-2",
-            "0-2",
+            "1-1",
             "2-0",
+            "0-2",
             "1-0"
           ],
-          "correct_index": 2,
+          "correct_index": 1,
           "kind": "final_score",
           "answer_canonical": "2-0",
           "stat_key": "none"
         },
         {
-          "question": "من سجل أول هدف؟",
+          "question": "من هو صاحب الهدف الأول؟",
           "options": [
-            "Max Hollis",
-            "Ryan Vale",
+            "Ethan Moss",
             "Noah Field",
-            "Ethan Moss"
+            "Max Hollis",
+            "Kai Brooks"
           ],
-          "correct_index": 2,
+          "correct_index": 1,
           "kind": "first_scorer",
           "answer_canonical": "Noah Field",
           "stat_key": "none"
         },
         {
-          "question": "من تلقى البطاقة الحمراء؟",
+          "question": "في أي دقيقة تم طرد أنس بلحاج؟",
           "options": [
-            "Reda Ouali",
-            "Yassine Amrani",
-            "Anas Belhaj",
-            "Adil Fassi"
+            "59",
+            "27",
+            "45",
+            "33"
           ],
-          "correct_index": 2,
+          "correct_index": 3,
           "kind": "red_card",
-          "answer_canonical": "Anas Belhaj",
+          "answer_canonical": "33",
           "stat_key": "none"
         },
         {
-          "question": "من قدم التمريرة الحاسمة لهدف ماكس هوليس؟",
+          "question": "من هو المدرب الرئيسي لهاربور تاون يونايتد؟",
           "options": [
-            "Callum Pike",
+            "Rachid Bennani",
             "Sam Kerrigan",
-            "Dan Price",
-            "Owen Sharp"
+            "Mark Ellery",
+            "Dan Price"
+          ],
+          "correct_index": 2,
+          "kind": "other",
+          "answer_canonical": "Mark Ellery",
+          "stat_key": "none"
+        },
+        {
+          "question": "ما هو نسبة الاستحواذ التي حققها هاربور تاون يونايتد؟",
+          "options": [
+            "55%",
+            "48%",
+            "50%",
+            "52%"
           ],
           "correct_index": 3,
-          "kind": "assist",
-          "answer_canonical": "Owen Sharp",
-          "stat_key": "none"
+          "kind": "stat",
+          "answer_canonical": "52%",
+          "stat_key": "possession"
         }
       ],
       "poll": {
-        "question": "ما هو رأيك بأداء هاربور تاون يونايتد؟",
+        "question": "ما هو أكثر لحظة أثرت في نتيجتك للمباراة؟",
         "options": [
-          "ممتاز",
-          "جيد",
-          "متوسط",
-          "ضعيف"
+          "الهدف من ركلة جزاء",
+          "الهدف من ركلة حرة",
+          "الطرد الأحمر",
+          "الأداء الدفاعي"
         ]
       },
       "categories": [
@@ -626,8 +626,8 @@
         "harbor",
         "sahara",
         "cpl",
-        "htu",
-        "match"
+        "htU",
+        "falcons"
       ]
     }
   },
@@ -646,33 +646,33 @@
       "is_arabic": true
     },
     "grade": {
-      "hook": 4,
+      "hook": 5,
       "accuracy": 5,
-      "voice": 4,
-      "comment": "Cover headline grabs attention, but could be punchier. Overall, accurate, playful voice with emoji fits."
+      "voice": 5,
+      "comment": "ممتاز! تغطية دقيقة، جذابة، ومصقولة بالأسلوب المطلوب"
     },
     "pass": true,
-    "ms": 4885,
-    "usd": 0.001388,
-    "judge_usd": 0.000137,
-    "tokens_in": 2366,
-    "tokens_out": 1722,
+    "ms": 3469,
+    "usd": 0.001232,
+    "judge_usd": 0.000167,
+    "tokens_in": 2387,
+    "tokens_out": 1457,
     "flags": {},
-    "quiz": "4/4",
+    "quiz": "5/5",
     "quiz_flags": {},
     "story_flags": [],
     "repairs": 0,
     "rate_limit_wait_ms": 0,
     "story": {
-      "title": "هاربر تاون يحقق فوزاً نظيفاً على ساهارا فالكونز",
+      "title": "هاربر تاون يطرد ساهارا فالكونز 2-0",
       "pages": [
         {
           "type": "cover",
           "template": "cover-score",
           "icon": "ball",
-          "headline": "هاربر تاون ينهزم ساهارا فالكونز 2-0",
-          "caption": "انتصار قوي للمنزل على الأرض، هدفين نظيفين بدون رد. 🏆",
-          "media_hint": "final scoreboard",
+          "headline": "هاربر تاون 2-0 ساهارا فالكونز",
+          "caption": "فوز نظيف على ساهارا فالكونز في ليت هاوس جراوند، هدفين من هاريبر تاون يرفعونهم للثلاثة نقاط 🎉",
+          "media_hint": "final whistle with both teams shaking hands",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -682,9 +682,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "نواه فيلد يضيف هدف ركلة جزاء",
-          "caption": "في الدقيقة 31، نواه فيلد يضع الفريق في الصدارة بركلة جزاء متقنة.",
-          "media_hint": "penalty celebration",
+          "headline": "نقطة جزاء في الدقيقة 31",
+          "caption": "نواه فيلد يضيف هدفًا من ركلة جزاء بعد ضغط هاريبر تاون القوي.",
+          "media_hint": "Noah Field preparing for penalty kick",
           "minute": 31,
           "players_mentioned": [
             "Noah Field"
@@ -696,9 +696,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "card-red",
-          "headline": "أنس بلهج يطرد بطاقة حمراء",
-          "caption": "الدقيقة 33، أنس بلهج يخرج من الملعب بعد طرد مباشر، يترك ساهارا في وضع أصعب.",
-          "media_hint": "red card reaction",
+          "headline": "طرد ساهارا في الدقيقة 33",
+          "caption": "أنس بلهج يُطرد بعد تدخل عنيف، يترك ساهارا بأحد عشر لاعبًا.",
+          "media_hint": "Anas Belhaj receiving red card",
           "minute": 33,
           "players_mentioned": [
             "Anas Belhaj"
@@ -709,14 +709,14 @@
         {
           "type": "moment",
           "template": "moment",
-          "icon": "swap",
-          "headline": "نابيل غازي يدخل بدلاً من أديل فاسي",
-          "caption": "الدقيقة 57، نابيل غازي يحل محل أديل فاسي لتقوية هجوم ساهارا في الشوط الثاني.",
-          "media_hint": "substitution bench",
-          "minute": 57,
+          "icon": "ball",
+          "headline": "ضربة حرة في الدقيقة 62",
+          "caption": "ماكس هوليس يسجل من كرة حرة بعد تمريرة من أوين شارب، يطبع النتيجة 2-0.",
+          "media_hint": "Max Hollis striking free kick",
+          "minute": 62,
           "players_mentioned": [
-            "Nabil Ghazi",
-            "Adil Fassi"
+            "Max Hollis",
+            "Owen Sharp"
           ],
           "cta_text": null,
           "cta_url": null
@@ -726,8 +726,8 @@
           "template": "stat-card",
           "icon": "stat",
           "headline": "إحصائيات المباراة",
-          "caption": "حيازة الكرة: هاربر 52% - 48% ساهارا. التسديدات: 9 - 6. على الهدف: 3 - 4. الزوايا: 6 - 4. الأخطاء: 12 - 12.",
-          "media_hint": "stat graphic",
+          "caption": "استحواذ 52% لهاريبر تاون، تسديدات 9-6، كرات على المرمى 3-4، ركلات ركنية 6-4، أخطاء متساوية 12-12.",
+          "media_hint": "infographic of match stats",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -737,9 +737,9 @@
           "type": "quote",
           "template": "quote",
           "icon": "quote",
-          "headline": "مارك إيلري يهنئ الجماهير",
-          "caption": "مارك إيلري: \"الأولاد أعطوا كل شيء الليلة. هذه للمعجبين.\"",
-          "media_hint": "coach speaking",
+          "headline": "كلمة المدرب مارك إيلري",
+          "caption": "«الأولاد أعطوا كل شيء الليلة. هذه للمشجعين».",
+          "media_hint": "Mark Ellery speaking on the sideline",
           "minute": null,
           "players_mentioned": [
             "Mark Ellery"
@@ -751,12 +751,12 @@
           "type": "cta",
           "template": "cta",
           "icon": "ticket",
-          "headline": "احجز تذكرتك للمباراة القادمة",
-          "caption": "لا تفوت فرصة مشاهدة هاربر تاون يواصل الانتصارات في ملعب لايت هاوس جراوند.",
-          "media_hint": "ticket graphic",
+          "headline": "احجز مقعدك للمباراة القادمة",
+          "caption": "لا تفوت فرصة مشاهدة هاريبر تاون في ملعبهم. احجز الآن!",
+          "media_hint": "ticket stub with club logo",
           "minute": null,
           "players_mentioned": [],
-          "cta_text": "احصل على تذاكر الآن",
+          "cta_text": "Get tickets for the next home game",
           "cta_url": "https://example.com/htu/tickets"
         }
       ],
@@ -764,25 +764,25 @@
         {
           "question": "ما هو النتيجة النهائية للمباراة؟",
           "options": [
+            "2-0",
             "1-0",
             "0-2",
-            "1-1",
-            "2-0"
+            "1-1"
           ],
-          "correct_index": 3,
+          "correct_index": 0,
           "kind": "final_score",
           "answer_canonical": "2-0",
           "stat_key": "none"
         },
         {
-          "question": "من سجل هدف هاربر تاون الأول؟",
+          "question": "من سجل هدف هاريبر تاون الأول؟",
           "options": [
-            "Ryan Vale",
             "Max Hollis",
             "Noah Field",
-            "Jack Rowan"
+            "Jack Rowan",
+            "Kai Brooks"
           ],
-          "correct_index": 2,
+          "correct_index": 1,
           "kind": "first_scorer",
           "answer_canonical": "Noah Field",
           "stat_key": "none"
@@ -790,36 +790,50 @@
         {
           "question": "في أي دقيقة تم طرد أنس بلهج؟",
           "options": [
-            "59",
-            "33",
+            "45",
             "27",
-            "45"
+            "33",
+            "59"
           ],
-          "correct_index": 1,
+          "correct_index": 2,
           "kind": "red_card",
           "answer_canonical": "33",
           "stat_key": "none"
         },
         {
-          "question": "من هو المدرب الرئيسي لهاربر تاون يونايتد؟",
+          "question": "من هو مدرب ساهارا فالكونز؟",
           "options": [
-            "Dan Price",
             "Sam Kerrigan",
-            "Rachid Bennani",
-            "Mark Ellery"
+            "Mark Ellery",
+            "Dan Price",
+            "Rachid Bennani"
           ],
           "correct_index": 3,
           "kind": "other",
-          "answer_canonical": "Mark Ellery",
+          "answer_canonical": "Rachid Bennani",
+          "stat_key": "none"
+        },
+        {
+          "question": "أين أقيمت المباراة؟",
+          "options": [
+            "Coastal Park",
+            "Desert Arena",
+            "Harbor Stadium",
+            "Lighthouse Ground"
+          ],
+          "correct_index": 3,
+          "kind": "venue",
+          "answer_canonical": "Lighthouse Ground",
           "stat_key": "none"
         }
       ],
       "poll": {
-        "question": "ما هو أفضل هدف في المباراة برأيك؟",
+        "question": "ما هو أفضل هدف في المباراة؟",
         "options": [
-          "نواه فيلد (ركلة جزاء)",
-          "ماكس هوليس (ركنية حرة)",
-          "لا شيء"
+          "Penalty by Noah Field",
+          "Free kick by Max Hollis",
+          "Both equally great",
+          "No goal was spectacular"
         ]
       },
       "categories": [
@@ -831,9 +845,9 @@
       ],
       "tags": [
         "harbor",
-        "sahara",
+        "falcons",
         "cpl",
-        "tickets"
+        "lighthouse"
       ]
     }
   },
@@ -851,17 +865,209 @@
       "cta": true
     },
     "grade": {
-      "hook": 2,
+      "hook": 5,
       "accuracy": 5,
       "voice": 5,
-      "comment": "The pages are accurate and match the club’s formal voice, but the headlines lack a compelling hook to entice readers."
+      "comment": "The story pages accurately reflect the match details, maintain a formal and confident tone suitable for an official club channel, and include engaging hooks that encourage readership."
     },
     "pass": true,
-    "ms": 4795,
-    "usd": 0.001544,
-    "judge_usd": 0.000137,
-    "tokens_in": 2367,
-    "tokens_out": 1982,
+    "ms": 4701,
+    "usd": 0.001579,
+    "judge_usd": 0.000139,
+    "tokens_in": 2388,
+    "tokens_out": 2034,
+    "flags": {},
+    "quiz": "4/4",
+    "quiz_flags": {},
+    "story_flags": [],
+    "repairs": 0,
+    "rate_limit_wait_ms": 0,
+    "story": {
+      "title": "Alpine Wanderers vs Coral Bay Athletic – CPL Match Report",
+      "pages": [
+        {
+          "type": "cover",
+          "template": "cover-score",
+          "icon": "ball",
+          "headline": "Alpine Wanderers 1-3 Coral Bay Athletic",
+          "caption": "Coral Bay Athletic secure a 3‑1 away win at Glacier Park, with Andre Viana scoring a hat‑trick.",
+          "media_hint": "final whistle with scoreboard showing 1-3",
+          "minute": null,
+          "players_mentioned": [],
+          "cta_text": null,
+          "cta_url": null
+        },
+        {
+          "type": "moment",
+          "template": "moment",
+          "icon": "ball",
+          "headline": "Andre Viana scores three",
+          "caption": "Andre Viana nets a free‑kick (8'), a penalty (52') and a left‑foot finish (69') as Coral Bay dominate.",
+          "media_hint": "Andre Viana celebrating multiple goals",
+          "minute": null,
+          "players_mentioned": [
+            "Andre Viana"
+          ],
+          "cta_text": null,
+          "cta_url": null
+        },
+        {
+          "type": "moment",
+          "template": "moment",
+          "icon": "ball",
+          "headline": "Leon Vogt equalises",
+          "caption": "Leon Vogt taps in from Tim Baumann at 24' to level the match for Alpine Wanderers.",
+          "media_hint": "Leon Vogt scoring a tap‑in",
+          "minute": 24,
+          "players_mentioned": [
+            "Leon Vogt",
+            "Tim Baumann"
+          ],
+          "cta_text": null,
+          "cta_url": null
+        },
+        {
+          "type": "stat",
+          "template": "stat-card",
+          "icon": "stat",
+          "headline": "Match stats",
+          "caption": "Possession: Alpine Wanderers 54% - 46% Coral Bay. Shots 13‑5, both 5 on target, 7 corners each, fouls 16‑7.",
+          "media_hint": "statistic graphic with bars",
+          "minute": null,
+          "players_mentioned": [],
+          "cta_text": null,
+          "cta_url": null
+        },
+        {
+          "type": "quote",
+          "template": "quote",
+          "icon": "quote",
+          "headline": "Coach Anna Keller comments",
+          "caption": "\"We have to look at ourselves. Not good enough today.\" – Anna Keller",
+          "media_hint": "Anna Keller speaking on the bench",
+          "minute": null,
+          "players_mentioned": [
+            "Anna Keller"
+          ],
+          "cta_text": null,
+          "cta_url": null
+        },
+        {
+          "type": "cta",
+          "template": "cta",
+          "icon": "ticket",
+          "headline": "Next home game tickets",
+          "caption": "Secure your seat for Alpine Wanderers' next match at Glacier Park.",
+          "media_hint": "ticket stub image",
+          "minute": null,
+          "players_mentioned": [],
+          "cta_text": "Get tickets for the next home game",
+          "cta_url": "https://example.com/alw/tickets"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What was the final score?",
+          "options": [
+            "2-2",
+            "1-3",
+            "0-2",
+            "3-1"
+          ],
+          "correct_index": 1,
+          "kind": "final_score",
+          "answer_canonical": "1-3",
+          "stat_key": "none"
+        },
+        {
+          "question": "Who scored the first goal of the match?",
+          "options": [
+            "Bruno Lima",
+            "Leon Vogt",
+            "Rafael Souza",
+            "Andre Viana"
+          ],
+          "correct_index": 3,
+          "kind": "first_scorer",
+          "answer_canonical": "Andre Viana",
+          "stat_key": "none"
+        },
+        {
+          "question": "In which minute was the opening goal scored?",
+          "options": [
+            "24",
+            "69",
+            "8",
+            "52"
+          ],
+          "correct_index": 2,
+          "kind": "goal_minute",
+          "answer_canonical": "8",
+          "stat_key": "none"
+        },
+        {
+          "question": "Which player provided the assist for Alpine Wanderers' equaliser?",
+          "options": [
+            "Igor Santos",
+            "Hugo Faria",
+            "Tim Baumann",
+            "Matteo Rossi"
+          ],
+          "correct_index": 2,
+          "kind": "assist",
+          "answer_canonical": "Tim Baumann",
+          "stat_key": "none"
+        }
+      ],
+      "poll": {
+        "question": "Which moment defined the match?",
+        "options": [
+          "Andre Viana hat‑trick",
+          "Leon Vogt equaliser",
+          "Yellow cards",
+          "Substitutions"
+        ]
+      },
+      "categories": [
+        "match-report",
+        "goals",
+        "comeback",
+        "stats"
+      ],
+      "tags": [
+        "alpine-wanderers",
+        "coral-bay",
+        "cpl",
+        "glacier-park",
+        "2026"
+      ]
+    }
+  },
+  {
+    "match_id": "m03",
+    "label": "Alpine Wanderers 1-3 Coral Bay Athletic",
+    "voice": "fan",
+    "lang": "en",
+    "checks": {
+      "schema": true,
+      "lengths": true,
+      "pages_5_7": true,
+      "facts": true,
+      "quiz_ok": true,
+      "cta": true
+    },
+    "grade": {
+      "hook": 2,
+      "accuracy": 5,
+      "voice": 3,
+      "comment": "The headline is factual but lacks punch; the narrative is accurate but could be more playful and energetic to match the fan‑zone vibe."
+    },
+    "pass": false,
+    "ms": 4668,
+    "usd": 0.001598,
+    "judge_usd": 0.000147,
+    "tokens_in": 2395,
+    "tokens_out": 2065,
     "flags": {},
     "quiz": "4/4",
     "quiz_flags": {},
@@ -876,7 +1082,7 @@
           "template": "cover-score",
           "icon": "ball",
           "headline": "Alpine Wanderers 1-3 Coral Bay Athletic",
-          "caption": "Coral Bay Athletic secured a 3-1 victory at Glacier Park, with Andre Viana scoring a hat‑trick.",
+          "caption": "A tough night at Glacier Park as Coral Bay Athletic run away 3‑1.",
           "media_hint": "final whistle with scoreboard",
           "minute": null,
           "players_mentioned": [],
@@ -888,8 +1094,8 @@
           "template": "moment",
           "icon": "ball",
           "headline": "Andre Viana opens scoring",
-          "caption": "Andre Viana netted a free‑kick in the 8th minute to give Coral Bay Athletic the lead.",
-          "media_hint": "Andre Viana celebrating free kick",
+          "caption": "8’ – Andre Viana fires a free‑kick past the keeper to put CBA ahead.",
+          "media_hint": "Andre Viana celebrates free kick",
           "minute": 8,
           "players_mentioned": [
             "Andre Viana"
@@ -901,9 +1107,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "Leon Vogt equalises",
-          "caption": "Leon Vogt tapped in from Tim Baumann's pass in the 24th minute to level at 1-1.",
-          "media_hint": "Leon Vogt celebrating tap‑in",
+          "headline": "Leon Vogt levels for Wanderers",
+          "caption": "24’ – Leon Vogt taps in from Tim Baumann’s pass, leveling the score.",
+          "media_hint": "Leon Vogt tapping in",
           "minute": 24,
           "players_mentioned": [
             "Leon Vogt",
@@ -916,9 +1122,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "Andre Viana completes hat‑trick",
-          "caption": "Andre Viana scored a penalty in the 52nd minute and added a left‑foot finish in the 69th to seal a 3‑1 win.",
-          "media_hint": "Andre Viana scoring penalty and later goal",
+          "headline": "Andre Viana nets penalty",
+          "caption": "52’ – Viana converts a penalty, courtesy of Igor Santos, to restore the lead.",
+          "media_hint": "Andre Viana scoring from spot",
           "minute": 52,
           "players_mentioned": [
             "Andre Viana",
@@ -932,7 +1138,7 @@
           "template": "stat-card",
           "icon": "stat",
           "headline": "Match stats",
-          "caption": "Possession: Alpine Wanderers 54% - 46% Coral Bay Athletic. Shots 13-5, Shots on target 5-5, Corners 7-7, Fouls 16-7.",
+          "caption": "Possession: Alpine 54% – 46% Coral Bay. Shots: 13‑5. On target: 5‑5. Corners: 7‑7. Fouls: 16‑7.",
           "media_hint": "infographic of match stats",
           "minute": null,
           "players_mentioned": [],
@@ -943,216 +1149,9 @@
           "type": "quote",
           "template": "quote",
           "icon": "quote",
-          "headline": "Coach Anna Keller speaks out",
-          "caption": "\"We have to look at ourselves. Not good enough today.\" – Anna Keller, Alpine Wanderers head coach",
-          "media_hint": "Anna Keller at post‑match interview",
-          "minute": null,
-          "players_mentioned": [
-            "Anna Keller"
-          ],
-          "cta_text": null,
-          "cta_url": null
-        },
-        {
-          "type": "cta",
-          "template": "cta",
-          "icon": "ticket",
-          "headline": "Next home game tickets",
-          "caption": "Secure your seat for Alpine Wanderers' next match at Glacier Park.",
-          "media_hint": "ticket graphic",
-          "minute": null,
-          "players_mentioned": [],
-          "cta_text": "Get tickets for the next home game",
-          "cta_url": "https://example.com/alw/tickets"
-        }
-      ],
-      "quiz": [
-        {
-          "question": "What was the final score?",
-          "options": [
-            "0-2",
-            "3-1",
-            "1-3",
-            "2-2"
-          ],
-          "correct_index": 2,
-          "kind": "final_score",
-          "answer_canonical": "1-3",
-          "stat_key": "none"
-        },
-        {
-          "question": "Who scored the first goal of the match?",
-          "options": [
-            "Rafael Souza",
-            "Leon Vogt",
-            "Bruno Lima",
-            "Andre Viana"
-          ],
-          "correct_index": 3,
-          "kind": "first_scorer",
-          "answer_canonical": "Andre Viana",
-          "stat_key": "none"
-        },
-        {
-          "question": "In which minute did Leon Vogt equalise?",
-          "options": [
-            "24",
-            "45",
-            "30",
-            "52"
-          ],
-          "correct_index": 0,
-          "kind": "goal_minute",
-          "answer_canonical": "24",
-          "stat_key": "none"
-        },
-        {
-          "question": "Who provided the assist for Andre Viana's penalty?",
-          "options": [
-            "Matteo Rossi",
-            "Hugo Faria",
-            "Tim Baumann",
-            "Igor Santos"
-          ],
-          "correct_index": 3,
-          "kind": "assist",
-          "answer_canonical": "Igor Santos",
-          "stat_key": "none"
-        }
-      ],
-      "poll": {
-        "question": "Which moment defined the match?",
-        "options": [
-          "Andre Viana's first goal",
-          "Leon Vogt's equaliser",
-          "Andre Viana's penalty",
-          "Overall team performance"
-        ]
-      },
-      "categories": [
-        "match-report",
-        "goals",
-        "comeback",
-        "stats"
-      ],
-      "tags": [
-        "alpinewanderers",
-        "coralbay",
-        "cpl",
-        "glacierpark"
-      ]
-    }
-  },
-  {
-    "match_id": "m03",
-    "label": "Alpine Wanderers 1-3 Coral Bay Athletic",
-    "voice": "fan",
-    "lang": "en",
-    "checks": {
-      "schema": true,
-      "lengths": true,
-      "pages_5_7": true,
-      "facts": true,
-      "quiz_ok": true,
-      "cta": true
-    },
-    "grade": {
-      "hook": 4,
-      "accuracy": 5,
-      "voice": 5,
-      "comment": "Solid story – the hook grabs attention, the facts are spot‑on, and the voice hits the playful, punchy tone with just the right emoji use."
-    },
-    "pass": true,
-    "ms": 4804,
-    "usd": 0.001613,
-    "judge_usd": 0.000146,
-    "tokens_in": 2374,
-    "tokens_out": 2094,
-    "flags": {},
-    "quiz": "4/4",
-    "quiz_flags": {},
-    "story_flags": [],
-    "repairs": 0,
-    "rate_limit_wait_ms": 0,
-    "story": {
-      "title": "Alpine Wanderers vs Coral Bay Athletic",
-      "pages": [
-        {
-          "type": "cover",
-          "template": "cover-score",
-          "icon": "ball",
-          "headline": "Alpine Wanderers 1-3 Coral Bay",
-          "caption": "Tough night at Glacier Park as Coral Bay Athletic run away with a 3-1 win! ⚽",
-          "media_hint": "final score graphic with both team logos",
-          "minute": null,
-          "players_mentioned": [],
-          "cta_text": null,
-          "cta_url": null
-        },
-        {
-          "type": "moment",
-          "template": "moment",
-          "icon": "ball",
-          "headline": "Early drama",
-          "caption": "Andre Viana scores free‑kick 8', then Leon Vogt equalises 24' with Tim Baumann assist.",
-          "media_hint": "action shot of Viana's free‑kick and Vogt's tap‑in",
-          "minute": 8,
-          "players_mentioned": [
-            "Andre Viana",
-            "Leon Vogt",
-            "Tim Baumann"
-          ],
-          "cta_text": null,
-          "cta_url": null
-        },
-        {
-          "type": "moment",
-          "template": "moment",
-          "icon": "ball",
-          "headline": "Viana nets penalty",
-          "caption": "Andre Viana converts a penalty at 52' with help from Igor Santos.",
-          "media_hint": "penalty kick celebration",
-          "minute": 52,
-          "players_mentioned": [
-            "Andre Viana",
-            "Igor Santos"
-          ],
-          "cta_text": null,
-          "cta_url": null
-        },
-        {
-          "type": "moment",
-          "template": "moment",
-          "icon": "ball",
-          "headline": "Viana caps it off",
-          "caption": "Andre Viana finishes left‑foot at 69' to seal 3-1.",
-          "media_hint": "Viana's left‑foot finish celebration",
-          "minute": 69,
-          "players_mentioned": [
-            "Andre Viana"
-          ],
-          "cta_text": null,
-          "cta_url": null
-        },
-        {
-          "type": "stat",
-          "template": "stat-card",
-          "icon": "stat",
-          "headline": "Match stats",
-          "caption": "Possession: Alpine Wanderers 54% - 46% Coral Bay. Shots 13‑5, corners 7‑7.",
-          "media_hint": "stat overlay graphic",
-          "minute": null,
-          "players_mentioned": [],
-          "cta_text": null,
-          "cta_url": null
-        },
-        {
-          "type": "quote",
-          "template": "quote",
-          "icon": "quote",
           "headline": "Coach Keller’s take",
-          "caption": "“We have to look at ourselves. Not good enough today.” – Anna Keller",
-          "media_hint": "coach Anna Keller speaking on the sideline",
+          "caption": "\"We have to look at ourselves. Not good enough today.\" – Coach Anna Keller.",
+          "media_hint": "Anna Keller speaking",
           "minute": null,
           "players_mentioned": [
             "Anna Keller"
@@ -1164,9 +1163,9 @@
           "type": "cta",
           "template": "cta",
           "icon": "ticket",
-          "headline": "Next match tickets",
-          "caption": "Grab your seat for the next Alpine Wanderers home game! 🎟️",
-          "media_hint": "ticket promo graphic",
+          "headline": "Don’t miss the next home game!",
+          "caption": "Grab your seat for the next home clash and cheer the Wanderers back to victory!",
+          "media_hint": "fans cheering in the stands",
           "minute": null,
           "players_mentioned": [],
           "cta_text": "Get tickets for the next home game",
@@ -1177,22 +1176,22 @@
         {
           "question": "What was the final score?",
           "options": [
-            "0-4",
             "2-2",
-            "1-3",
-            "3-1"
+            "0-4",
+            "3-1",
+            "1-3"
           ],
-          "correct_index": 2,
+          "correct_index": 3,
           "kind": "final_score",
           "answer_canonical": "1-3",
           "stat_key": "none"
         },
         {
-          "question": "Who scored the first goal?",
+          "question": "Who scored the opening goal?",
           "options": [
             "Andre Viana",
-            "Igor Santos",
-            "Tim Baumann",
+            "Bruno Lima",
+            "Rafael Souza",
             "Leon Vogt"
           ],
           "correct_index": 0,
@@ -1201,53 +1200,54 @@
           "stat_key": "none"
         },
         {
-          "question": "At what minute did Viana complete his hat‑trick?",
+          "question": "In which minute did Andre Viana complete his hat‑trick?",
           "options": [
-            "24'",
-            "8'",
-            "52'",
-            "69'"
+            "8",
+            "69",
+            "45",
+            "52"
           ],
-          "correct_index": 3,
+          "correct_index": 1,
           "kind": "goal_minute",
-          "answer_canonical": "69'",
+          "answer_canonical": "69",
           "stat_key": "none"
         },
         {
-          "question": "Who provided the assist for Vogt's goal?",
+          "question": "Who provided the assist for Leon Vogt’s goal?",
           "options": [
             "Jonas Egli",
-            "Matteo Rossi",
             "Igor Santos",
-            "Tim Baumann"
+            "Tim Baumann",
+            "Matteo Rossi"
           ],
-          "correct_index": 3,
+          "correct_index": 2,
           "kind": "assist",
           "answer_canonical": "Tim Baumann",
           "stat_key": "none"
         }
       ],
       "poll": {
-        "question": "Which moment was the biggest swing in the game?",
+        "question": "Which moment defined the match?",
         "options": [
-          "Viana's first goal",
-          "Vogt's equaliser",
-          "Viana's penalty",
-          "Viana's late finish"
+          "Andre Viana’s first free‑kick",
+          "Leon Vogt’s equaliser",
+          "Penalty conversion",
+          "Overall team performance"
         ]
       },
       "categories": [
         "match-report",
         "goals",
         "comeback",
-        "stats"
+        "stats",
+        "post-match-quotes"
       ],
       "tags": [
-        "alpine",
+        "alps",
         "coralbay",
-        "glacierpark",
         "cpl",
-        "match"
+        "glacierpark",
+        "upset"
       ]
     }
   },
@@ -1269,29 +1269,29 @@
       "hook": 4,
       "accuracy": 5,
       "voice": 5,
-      "comment": "الملف يلتقط أحداث المباراة بدقة ويعكس صوت النادي الرسمي، مع جاذبية في الصفحة الأولى والصفحة الثانية التي تشجع القارئ على المتابعة."
+      "comment": "المحتوى دقيق، يلتزم بالحقائق، ويعكس صوت القناة الرسمية باللغة العربية الحديثة، لكن العنوان الأولي قد يُحسّن لجذب أكثر."
     },
     "pass": true,
-    "ms": 4794,
-    "usd": 0.00164,
-    "judge_usd": 0.000136,
-    "tokens_in": 2351,
-    "tokens_out": 2146,
+    "ms": 4231,
+    "usd": 0.001406,
+    "judge_usd": 0.000137,
+    "tokens_in": 2372,
+    "tokens_out": 1750,
     "flags": {},
-    "quiz": "5/5",
+    "quiz": "4/4",
     "quiz_flags": {},
     "story_flags": [],
     "repairs": 0,
     "rate_limit_wait_ms": 0,
     "story": {
-      "title": "ريفرسايد فينكس ينتصر على غرانيت هيل 3-1",
+      "title": "ملخص مباراة ريفرسايد فينكس ضد غرانيت هيل إف سي",
       "pages": [
         {
           "type": "cover",
           "template": "cover-score",
           "icon": "ball",
-          "headline": "ريفرسايد فينكس 3-1 غرانيت هيل",
-          "caption": "فاز ريفرسايد فينكس على غرانيت هيل بثلاثة أهداف مقابل هدف واحد في مباراة اليوم على ملعب إمبر فيلد.",
+          "headline": "ريفرسايد فينكس 3-1 غرانيت هيل إف سي",
+          "caption": "فوز ريفرسايد فينكس بثلاثة أهداف على غرانيت هيل في ملعب إمبر فيلد، مع سيطرة نسبية على الإحصاءات.",
           "media_hint": "final score board with both team logos",
           "minute": null,
           "players_mentioned": [],
@@ -1302,10 +1302,10 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "سلسلة أهداف فينكس في الشوط الأول",
-          "caption": "إبراهيم سو سجل هدفاً في الدقيقة 12' وتبعها سون لوال في الدقيقة 13' بعد تمريرة من سو، لتقود فينكس إلى 2-0.",
-          "media_hint": "high‑kick footage of the two early goals",
-          "minute": null,
+          "headline": "إبراهيم سو وتيون لوال يفتحان التسجيل",
+          "caption": "الدقيقة 12' هدف إبراهيم سو بتصويب سهل، ثم الدقيقة 13' هدف تيون لوال من ركلة حرة مساعدة إبراهيم سو.",
+          "media_hint": "إبراهيم سو يسجل هدفًا، ثم تيون لوال يتلقى ركلة حرة",
+          "minute": 12,
           "players_mentioned": [
             "Ibrahim Sow",
             "Seun Lawal"
@@ -1317,9 +1317,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "نيل كوين جونيور يجيب هدف غرانيت هيل",
-          "caption": "في الدقيقة 31' سجل نيل كوين جونيور هدفاً لتقليل الفارق إلى 2-1.",
-          "media_hint": "away goal celebration",
+          "headline": "نيل كوين جونيور يقلص الفارق",
+          "caption": "الدقيقة 31' نيل كوين جونيور يسجل هدفًا سريعًا لتقليل الفارق إلى 2-1 قبل نهاية الشوط الأول.",
+          "media_hint": "نيل كوين جونيور يحتفل بالهدف",
           "minute": 31,
           "players_mentioned": [
             "Niall Quinn Jr"
@@ -1331,9 +1331,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "سون لوال يضيف هدف الفينكس",
-          "caption": "في الدقيقة 51' أعاد سون لوال التسجيل بعد تمريرة من شايخ نديي، لتصبح النتيجة 3-1.",
-          "media_hint": "right‑foot finish by Lawal",
+          "headline": "تيون لوال يضيف هدفًا ثالثًا",
+          "caption": "الدقيقة 51' تيون لوال يضع اللمسة الأخيرة بتسديدة بقدم يمنى بعد تمريرة من شايخ ندييه، ليقفل المباراة 3-1.",
+          "media_hint": "تيون لوال يسجل هدفًا من ركلة داخلية",
           "minute": 51,
           "players_mentioned": [
             "Seun Lawal",
@@ -1346,9 +1346,9 @@
           "type": "stat",
           "template": "stat-card",
           "icon": "stat",
-          "headline": "إحصائيات المباراة",
-          "caption": "الاستحواذ: ريفرسايد فينكس 45% - 55% غرانيت هيل. التسديدات: 17 - 13. التسديدات على المرمى: 8 - 5. الزوايا: 4 - 1. الأخطاء: 11 - 9.",
-          "media_hint": "statistical overlay graphic",
+          "headline": "إحصاءات المباراة",
+          "caption": "امتلاك الكرة: ريفرسايد 45% - 55% غرانيت هيل. التسديدات: 17 - 13. التسديدات على المرمى: 8 - 5. الزوايا: 4 - 1. الأخطاء: 11 - 9.",
+          "media_hint": "جدول إحصاءات المباراة",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -1358,9 +1358,9 @@
           "type": "quote",
           "template": "quote",
           "icon": "quote",
-          "headline": "تعليق المدرب غريس أوكويا",
-          "caption": "«فخور بالرد بعد الاستراحة. ثلاث نقاط مهمة.»",
-          "media_hint": "coach Grace Okoye speaking on the bench",
+          "headline": "تصريح المدرب غريس أوكويا",
+          "caption": "«فخور بالرد بعد الشوط الثاني. ثلاث نقاط مهمة». – غريس أوكويا، مدربة ريفرسايد فينكس.",
+          "media_hint": "غريس أوكويا تتحدث في المؤتمر الصحفي",
           "minute": null,
           "players_mentioned": [
             "Grace Okoye"
@@ -1372,12 +1372,12 @@
           "type": "cta",
           "template": "cta",
           "icon": "ticket",
-          "headline": "احجز تذكرتك للمباراة القادمة",
-          "caption": "لا تفوت فرصة مشاهدة ريفرسايد فينكس في ملعب إمبر فيلد، احجز الآن.",
-          "media_hint": "ticket graphic with club logo",
+          "headline": "احجز مقعدك للمباراة القادمة",
+          "caption": "لا تفوت فرصة مشاهدة ريفرسايد فينكس في ملعب إمبر فلد. احجز تذكرتك الآن!",
+          "media_hint": "صورة مقاعد خالية في ملعب إمبر فلد",
           "minute": null,
           "players_mentioned": [],
-          "cta_text": "احصل على تذاكر",
+          "cta_text": "Get tickets for the next home game",
           "cta_url": "https://example.com/rvp/tickets"
         }
       ],
@@ -1387,8 +1387,8 @@
           "options": [
             "3-1",
             "3-0",
-            "2-1",
-            "1-0"
+            "1-1",
+            "2-1"
           ],
           "correct_index": 0,
           "kind": "final_score",
@@ -1398,63 +1398,50 @@
         {
           "question": "من سجل أول هدف في المباراة؟",
           "options": [
-            "Ibrahim Sow",
-            "Seun Lawal",
             "Niall Quinn Jr",
-            "Kevin Lynch"
+            "Kevin Lynch",
+            "Ibrahim Sow",
+            "Seun Lawal"
           ],
-          "correct_index": 0,
+          "correct_index": 2,
           "kind": "first_scorer",
           "answer_canonical": "Ibrahim Sow",
           "stat_key": "none"
         },
         {
-          "question": "أي لاعب سجل هدفين في المباراة؟",
+          "question": "في أي دقيقة سجل نيل كوين جونيور هدفه؟",
           "options": [
-            "Ibrahim Sow",
-            "Niall Quinn Jr",
-            "Seun Lawal",
-            "Cheikh Ndiaye"
-          ],
-          "correct_index": 2,
-          "kind": "scorer",
-          "answer_canonical": "Seun Lawal",
-          "stat_key": "none"
-        },
-        {
-          "question": "من قدم التمريرة الحاسمة للهدف الثالث للفيينكس؟",
-          "options": [
-            "Cheikh Ndiaye",
-            "Ade Bakare",
-            "Ibrahim Sow",
-            "Victor Osei"
+            "31'",
+            "12'",
+            "45'",
+            "51'"
           ],
           "correct_index": 0,
-          "kind": "assist",
-          "answer_canonical": "Cheikh Ndiaye",
+          "kind": "goal_minute",
+          "answer_canonical": "31'",
           "stat_key": "none"
         },
         {
-          "question": "أين أقيمت المباراة؟",
+          "question": "من هو مدرب غرانيت هيل إف سي؟",
           "options": [
-            "River Stadium",
-            "CPL Central",
-            "Granite Hill Arena",
-            "Ember Field"
+            "Ian Doyle",
+            "Aidan Byrne",
+            "Sean Murphy",
+            "Grace Okoye"
           ],
-          "correct_index": 3,
-          "kind": "venue",
-          "answer_canonical": "Ember Field",
+          "correct_index": 0,
+          "kind": "other",
+          "answer_canonical": "Ian Doyle",
           "stat_key": "none"
         }
       ],
       "poll": {
-        "question": "ما هو لحظة المباراة التي أعجبتك أكثر؟",
+        "question": "ما هو أفضل هدف في مباراة ريفرسايد فينكس اليوم؟",
         "options": [
-          "الأهداف الأولى",
-          "هدف غرانيت هيل",
-          "الهدف الثالث للفيينكس",
-          "الإحصائيات"
+          "هدف إبراهيم سو (12')",
+          "هدف تيون لوال (13')",
+          "هدف نيل كوين جونيور (31')",
+          "هدف تيون لوال (51')"
         ]
       },
       "categories": [
@@ -1487,33 +1474,33 @@
       "is_arabic": true
     },
     "grade": {
-      "hook": 3,
+      "hook": 4,
       "accuracy": 5,
       "voice": 4,
-      "comment": "Page 1 headline grabs attention, but second page lacks punchy hook; overall voice mostly playful, but some formal phrasing."
+      "comment": "الصفحات جذابة وتلتزم بالمعلومات، لكن يمكن إضافة لمسة أكثر حيوية في الصفحة 2."
     },
     "pass": true,
-    "ms": 12500,
-    "usd": 0.001649,
-    "judge_usd": 0.00012,
-    "tokens_in": 2358,
-    "tokens_out": 2158,
+    "ms": 5771,
+    "usd": 0.001703,
+    "judge_usd": 0.00013,
+    "tokens_in": 2379,
+    "tokens_out": 2244,
     "flags": {},
-    "quiz": "5/5",
+    "quiz": "4/4",
     "quiz_flags": {},
     "story_flags": [],
     "repairs": 0,
     "rate_limit_wait_ms": 0,
     "story": {
-      "title": "ملخص مباراة ريفرسايد فينكس ضد غرانيت هيل",
+      "title": "ريڤرسايد فينكس ينتصر 3-1 على غرانيت هيل",
       "pages": [
         {
           "type": "cover",
           "template": "cover-score",
-          "icon": "ball",
-          "headline": "فوز ريفرسايد فينكس 3-1 على غرانيت هيل",
-          "caption": "فريق الفينيكس ينتصر بثلاثية على غرانيت هيل في ملعب إمبر.",
-          "media_hint": "celebration of Riverside Phoenix players",
+          "icon": "none",
+          "headline": "ريڤرسايد فينكس 3-1 غرانيت هيل",
+          "caption": "انتصار قوي في ملعب إمبر فيلد، الثلاثية الأولى للفيينكس تُظهر سيطرتهم على اللقاء.",
+          "media_hint": "final score board with both team logos",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -1523,13 +1510,12 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "إبراهيم سو وتيون لوال يفتحان الباب",
-          "caption": "دقيقة 12: سو يسجل هدفاً بسيطاً. دقيقة 13: لوال يضيف هدفاً من ركلة حرة.",
-          "media_hint": "highlights of the first half goals",
-          "minute": null,
+          "headline": "إبراهيم سوو يفتح التسجيل",
+          "caption": "في الدقيقة 12، سوو يستقبل تمريرة ويضع الكرة في الشباك لتقود ريفرسايد إلى 1-0.",
+          "media_hint": "Ibrahim Sow celebrating after the goal",
+          "minute": 12,
           "players_mentioned": [
-            "Ibrahim Sow",
-            "Seun Lawal"
+            "Ibrahim Sow"
           ],
           "cta_text": null,
           "cta_url": null
@@ -1538,13 +1524,27 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "لوال يسجل هدفاً ثالثاً",
-          "caption": "دقيقة 51: لوال يرفع رصيده مع تمريرة من شيخ نديا.",
-          "media_hint": "goal clip of Lawal's finish",
-          "minute": 51,
+          "headline": "سِيون لوال يضيف هدفين متتاليين",
+          "caption": "دقيقتان متتاليتان: 13' لوال يضاعف النتيجة من ركلة حرة بعد تمريرة من سوو، ثم 51' يضيف هدفًا آخر من تمريرة شايخ نديا.",
+          "media_hint": "Seun Lawal scoring from a free kick and later a right‑foot finish",
+          "minute": 13,
           "players_mentioned": [
             "Seun Lawal",
-            "Cheikh Ndiaye"
+            "Ibrahim Sow"
+          ],
+          "cta_text": null,
+          "cta_url": null
+        },
+        {
+          "type": "moment",
+          "template": "moment",
+          "icon": "ball",
+          "headline": "نيل كوين جونيور يقلص الفارق",
+          "caption": "في الدقيقة 31، نيل كوين جونيور ينجح في تسديدة سريعة لتقليص الفارق إلى 2-1 لصالح غرانيت هيل.",
+          "media_hint": "Niall Quinn Jr scoring the away goal",
+          "minute": 31,
+          "players_mentioned": [
+            "Niall Quinn Jr"
           ],
           "cta_text": null,
           "cta_url": null
@@ -1553,9 +1553,9 @@
           "type": "stat",
           "template": "stat-card",
           "icon": "stat",
-          "headline": "الإحصاءات",
-          "caption": "امتلاك الكرة 45% - 55% لصالح غرانيت هيل. التسديدات 17-13، على الهدف 8-5.",
-          "media_hint": "stat graphic",
+          "headline": "إحصاءات المباراة",
+          "caption": "الاستحواذ: ريفرسايد 45% - 55% غرانيت هيل. التسديدات: 17 - 13. على الهدف: 8 - 5. الزوايا: 4 - 1. الأخطاء: 11 - 9.",
+          "media_hint": "infographic of match stats",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -1566,8 +1566,8 @@
           "template": "quote",
           "icon": "quote",
           "headline": "كلمة المدرب",
-          "caption": "غرانيت أوكي: \"فخور بالرد بعد الشوط الثاني. ثلاث نقاط مهمة.\"",
-          "media_hint": "coach Grace Okoye speaking",
+          "caption": "غرايس أوكويا: \"فخور برد الفعل بعد الشوط الثاني. ثلاث نقاط مهمة.\"",
+          "media_hint": "Grace Okoye speaking on the sidelines",
           "minute": null,
           "players_mentioned": [
             "Grace Okoye"
@@ -1580,8 +1580,8 @@
           "template": "cta",
           "icon": "ticket",
           "headline": "احجز تذكرتك للمباراة القادمة",
-          "caption": "لا تفوت فرصة مشاهدة الفينيكس في المنزل. احجز الآن!",
-          "media_hint": "ticket promo image",
+          "caption": "لا تفوت فرصة مشاهدة ريفرسايد فينكس يواصل الانتصارات على ملعب إمبر فيلد.",
+          "media_hint": "fans holding tickets in the stadium",
           "minute": null,
           "players_mentioned": [],
           "cta_text": "Get tickets for the next home game",
@@ -1590,78 +1590,65 @@
       ],
       "quiz": [
         {
-          "question": "ما هو النتيجة النهائية للمباراة؟",
+          "question": "ما هي نتيجة المباراة؟",
           "options": [
-            "1-1",
-            "3-0",
             "3-1",
+            "3-0",
+            "1-0",
             "2-1"
           ],
-          "correct_index": 2,
+          "correct_index": 0,
           "kind": "final_score",
           "answer_canonical": "3-1",
           "stat_key": "none"
         },
         {
-          "question": "من سجل أول هدف؟",
+          "question": "من سجل أول هدف في المباراة؟",
           "options": [
+            "Ibrahim Sow",
             "Niall Quinn Jr",
-            "Sean Murphy",
-            "Seun Lawal",
-            "Ibrahim Sow"
+            "Kevin Lynch",
+            "Seun Lawal"
           ],
-          "correct_index": 3,
+          "correct_index": 0,
           "kind": "first_scorer",
           "answer_canonical": "Ibrahim Sow",
           "stat_key": "none"
         },
         {
-          "question": "في أي دقيقة سجل نيل كوين جونيور هدفه؟",
+          "question": "من كان هداف فريق ريفرسايد في هذه المباراة؟",
           "options": [
-            "45'",
-            "31'",
-            "26'",
-            "68'"
+            "Yaw Boateng",
+            "Ibrahim Sow",
+            "Seun Lawal",
+            "Cheikh Ndiaye"
           ],
-          "correct_index": 1,
-          "kind": "goal_minute",
-          "answer_canonical": "31'",
+          "correct_index": 2,
+          "kind": "scorer",
+          "answer_canonical": "Seun Lawal",
           "stat_key": "none"
         },
         {
-          "question": "من قدم التمريرة الحاسمة لهدف لوال في الدقيقة 13؟",
+          "question": "من قدم التمريرة الحاسمة للهدف الثاني للفيينكس؟",
           "options": [
-            "Cheikh Ndiaye",
+            "Ade Bakare",
             "Ibrahim Sow",
-            "Victor Osei",
-            "Ade Bakare"
+            "Cheikh Ndiaye",
+            "Victor Osei"
           ],
           "correct_index": 1,
           "kind": "assist",
           "answer_canonical": "Ibrahim Sow",
           "stat_key": "none"
-        },
-        {
-          "question": "أين أقيمت المباراة؟",
-          "options": [
-            "Ember Field",
-            "River Stadium",
-            "Granite Arena",
-            "Phoenix Park"
-          ],
-          "correct_index": 0,
-          "kind": "venue",
-          "answer_canonical": "Ember Field",
-          "stat_key": "none"
         }
       ],
       "poll": {
-        "question": "أي لحظة كانت الأروع في المباراة؟",
+        "question": "أي هدف كان الأكثر إثارةً في المباراة؟",
         "options": [
-          "الأهداف الأولى",
-          "هدف لوال في الشوط الثاني",
-          "الإحصاءات",
-          "الكلمة التحفيزية"
+          "هدف 12 - سوو",
+          "هدف 13 - لوال",
+          "هدف 31 - كوين",
+          "هدف 51 - لوال"
         ]
       },
       "categories": [
@@ -1672,10 +1659,9 @@
       ],
       "tags": [
         "riverside",
-        "phoenix",
-        "granite",
-        "premier",
-        "2026"
+        "granitehill",
+        "cpl",
+        "emberfield"
       ]
     }
   },
@@ -1696,14 +1682,14 @@
       "hook": 4,
       "accuracy": 5,
       "voice": 5,
-      "comment": "The pages accurately reflect the match details and maintain the official club tone, though the hook could be more engaging."
+      "comment": "The story pages faithfully represent the match details, maintain the official club voice, and provide a solid hook, though the headline could be slightly more engaging."
     },
     "pass": true,
-    "ms": 4068,
-    "usd": 0.001286,
-    "judge_usd": 0.000125,
-    "tokens_in": 2181,
-    "tokens_out": 1598,
+    "ms": 4501,
+    "usd": 0.001499,
+    "judge_usd": 0.000126,
+    "tokens_in": 2202,
+    "tokens_out": 1948,
     "flags": {},
     "quiz": "4/4",
     "quiz_flags": {},
@@ -1718,8 +1704,8 @@
           "template": "cover-score",
           "icon": "ball",
           "headline": "Delta Rovers 0-0 Harbor Town United",
-          "caption": "A tight battle ends in a goalless draw at Delta Park.",
-          "media_hint": "wide shot of Delta Park stadium with both teams",
+          "caption": "A hard‑fought stalemate at Delta Park ends 0-0.",
+          "media_hint": "panorama of Delta Park stadium",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -1729,9 +1715,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "card-red",
-          "headline": "Callum Pike sent off",
-          "caption": "Away striker Callum Pike receives a red card in the 50th minute, leaving HTU with ten men.",
-          "media_hint": "referee showing red card to Callum Pike",
+          "headline": "Red card for Callum Pike",
+          "caption": "Callum Pike (Harbor Town United) sent off in the 50th minute.",
+          "media_hint": "close-up of red card being shown",
           "minute": 50,
           "players_mentioned": [
             "Callum Pike"
@@ -1742,13 +1728,29 @@
         {
           "type": "moment",
           "template": "moment",
-          "icon": "card-yellow",
-          "headline": "Luis Ferreira booked",
-          "caption": "Delta Rovers defender Luis Ferreira gets a yellow card in the 16th minute.",
-          "media_hint": "Luis Ferreira receiving yellow card",
-          "minute": 16,
+          "icon": "swap",
+          "headline": "Ben Ashby replaces Kofi Mensah",
+          "caption": "Ben Ashby comes on for Kofi Mensah at 61' as Delta Rovers adjust.",
+          "media_hint": "Ben Ashby entering the pitch",
+          "minute": 61,
           "players_mentioned": [
-            "Luis Ferreira"
+            "Ben Ashby",
+            "Kofi Mensah"
+          ],
+          "cta_text": null,
+          "cta_url": null
+        },
+        {
+          "type": "moment",
+          "template": "moment",
+          "icon": "swap",
+          "headline": "Sam Kerrigan on for Liam Stone",
+          "caption": "Sam Kerrigan enters at 63' for Liam Stone for Harbor Town United.",
+          "media_hint": "Sam Kerrigan substitution",
+          "minute": 63,
+          "players_mentioned": [
+            "Sam Kerrigan",
+            "Liam Stone"
           ],
           "cta_text": null,
           "cta_url": null
@@ -1757,9 +1759,9 @@
           "type": "stat",
           "template": "stat-card",
           "icon": "stat",
-          "headline": "Match statistics",
-          "caption": "Possession 50%‑50%, shots 10‑12, shots on target 2‑2, corners 7‑0, fouls 13‑13.",
-          "media_hint": "infographic of match stats",
+          "headline": "Match stats",
+          "caption": "Possession: Delta Rovers 50% - 50% Harbor Town United. Shots 10-12, on target 2-2, corners 7-0, fouls 13-13.",
+          "media_hint": "statistical graphic of match data",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -1771,7 +1773,7 @@
           "icon": "quote",
           "headline": "Coach Lena Varga comments",
           "caption": "\"A fair result. Both teams wanted it.\" – Lena Varga, Delta Rovers head coach",
-          "media_hint": "Lena Varga speaking on the touchline",
+          "media_hint": "Lena Varga speaking post‑match",
           "minute": null,
           "players_mentioned": [
             "Lena Varga"
@@ -1784,8 +1786,8 @@
           "template": "cta",
           "icon": "ticket",
           "headline": "Next home game tickets",
-          "caption": "Secure your seat for the upcoming home match at Delta Park.",
-          "media_hint": "ticket graphic with Delta Rovers logo",
+          "caption": "Secure your seat for Delta Rovers' upcoming match at Delta Park.",
+          "media_hint": "ticket graphic",
           "minute": null,
           "players_mentioned": [],
           "cta_text": "Get tickets for the next home game",
@@ -1794,14 +1796,14 @@
       ],
       "quiz": [
         {
-          "question": "What was the final score of the match?",
+          "question": "What was the final score?",
           "options": [
-            "0-0",
+            "3-3",
             "1-0",
             "2-1",
-            "3-2"
+            "0-0"
           ],
-          "correct_index": 0,
+          "correct_index": 3,
           "kind": "final_score",
           "answer_canonical": "0-0",
           "stat_key": "none"
@@ -1809,50 +1811,50 @@
         {
           "question": "Which player received a red card?",
           "options": [
+            "Callum Pike",
             "Luis Ferreira",
-            "Ethan Moss",
             "Jonas Petrov",
-            "Callum Pike"
+            "Ben Ashby"
           ],
-          "correct_index": 3,
+          "correct_index": 0,
           "kind": "red_card",
           "answer_canonical": "Callum Pike",
           "stat_key": "none"
         },
         {
+          "question": "How many corners did Delta Rovers have?",
+          "options": [
+            "7",
+            "9",
+            "5",
+            "0"
+          ],
+          "correct_index": 0,
+          "kind": "stat",
+          "answer_canonical": "7",
+          "stat_key": "corners"
+        },
+        {
           "question": "Where was the match played?",
           "options": [
-            "Harbor Stadium",
-            "River Field",
+            "City Arena",
             "Delta Park",
-            "City Arena"
+            "Harbor Stadium",
+            "Riverbank Field"
           ],
-          "correct_index": 2,
+          "correct_index": 1,
           "kind": "venue",
           "answer_canonical": "Delta Park",
           "stat_key": "none"
-        },
-        {
-          "question": "Which team had more corners?",
-          "options": [
-            "Harbor Town United",
-            "Delta Rovers",
-            "None",
-            "Both equal"
-          ],
-          "correct_index": 1,
-          "kind": "stat",
-          "answer_canonical": "Delta Rovers",
-          "stat_key": "corners"
         }
       ],
       "poll": {
         "question": "Which moment defined the match for you?",
         "options": [
           "Red card",
-          "Yellow cards",
           "Substitutions",
-          "Tight defence"
+          "Stat battle",
+          "Overall stalemate"
         ]
       },
       "categories": [
@@ -1862,10 +1864,11 @@
         "post-match-quotes"
       ],
       "tags": [
-        "deltarovers",
-        "harborunited",
-        "goalless",
-        "cpl2026"
+        "delta rovers",
+        "harbor town united",
+        "0-0",
+        "cpl",
+        "delta park"
       ]
     }
   },
@@ -1883,33 +1886,33 @@
       "cta": true
     },
     "grade": {
-      "hook": 4,
-      "accuracy": 4,
+      "hook": 3,
+      "accuracy": 5,
       "voice": 4,
-      "comment": "Good punchy pages, but a few missing key moments (e.g., the red card was at 50’, not 50’? actually 50’ correct). Minor accuracy slip: no mention of the 53’ yellow for Sami Laine. Voice fits the playful tone."
+      "comment": "Solid recap, but could use a more punchy hook on the cover to grab readers."
     },
     "pass": true,
-    "ms": 12031,
-    "usd": 0.001453,
-    "judge_usd": 0.000116,
-    "tokens_in": 2188,
-    "tokens_out": 1875,
+    "ms": 2907,
+    "usd": 0.001084,
+    "judge_usd": 0.000108,
+    "tokens_in": 2209,
+    "tokens_out": 1255,
     "flags": {},
-    "quiz": "4/4",
+    "quiz": "3/3",
     "quiz_flags": {},
     "story_flags": [],
     "repairs": 0,
     "rate_limit_wait_ms": 0,
     "story": {
-      "title": "Delta Rovers vs Harbor Town United – 0-0 Draw",
+      "title": "Delta Rovers vs Harbor Town United 0-0 Draw",
       "pages": [
         {
           "type": "cover",
           "template": "cover-score",
           "icon": "ball",
           "headline": "Delta Rovers 0-0 Harbor Town",
-          "caption": "Zero‑zero stalemate at Delta Park – no goals, but drama galore!",
-          "media_hint": "final whistle view of both teams",
+          "caption": "A tense stalemate at Delta Park – no goals, but plenty of drama! ⚽️",
+          "media_hint": "wide shot of Delta Park stadium, fans in the stands",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -1918,10 +1921,25 @@
         {
           "type": "moment",
           "template": "moment",
+          "icon": "card-yellow",
+          "headline": "Early cautions",
+          "caption": "Luis Ferreira (16') and Jonas Petrov (19') booked for Delta Rovers – tempers flaring early.",
+          "media_hint": "close‑up of Luis Ferreira receiving a yellow card",
+          "minute": 19,
+          "players_mentioned": [
+            "Luis Ferreira",
+            "Jonas Petrov"
+          ],
+          "cta_text": null,
+          "cta_url": null
+        },
+        {
+          "type": "moment",
+          "template": "moment",
           "icon": "card-red",
-          "headline": "Red card shock!",
-          "caption": "Callum Pike sent off at 50' – HTU down to ten men.",
-          "media_hint": "Callum Pike receiving red card",
+          "headline": "Red card shock",
+          "caption": "Callum Pike sent off at 50' – Harbor Town down to ten men early in the second half.",
+          "media_hint": "referee showing red card to Callum Pike",
           "minute": 50,
           "players_mentioned": [
             "Callum Pike"
@@ -1933,13 +1951,17 @@
           "type": "moment",
           "template": "moment",
           "icon": "swap",
-          "headline": "Fresh legs in",
-          "caption": "Ben Ashby on for Kofi Mensah at 61' as Delta chase a goal.",
-          "media_hint": "Ben Ashby entering the pitch",
-          "minute": 61,
+          "headline": "Substitutions",
+          "caption": "Kofi Mensah off, Ben Ashby on (61'); Liam Stone off, Sam Kerrigan on (63'); Max Hollis off, Dan Price on (73').",
+          "media_hint": "bench area with players entering",
+          "minute": 73,
           "players_mentioned": [
+            "Kofi Mensah",
             "Ben Ashby",
-            "Kofi Mensah"
+            "Liam Stone",
+            "Sam Kerrigan",
+            "Max Hollis",
+            "Dan Price"
           ],
           "cta_text": null,
           "cta_url": null
@@ -1949,8 +1971,8 @@
           "template": "stat-card",
           "icon": "stat",
           "headline": "Match stats",
-          "caption": "Possession 50%‑50%, shots 10‑12, corners 7‑0 – Delta held their own.",
-          "media_hint": "stat graphic",
+          "caption": "Possession: Delta Rovers 50% - 50% Harbor Town. Shots 10-12, corners 7-0, fouls 13 each.",
+          "media_hint": "infographic of key stats",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -1960,9 +1982,9 @@
           "type": "quote",
           "template": "quote",
           "icon": "quote",
-          "headline": "Coach Varga’s take",
-          "caption": "\"A fair result. Both teams wanted it.\" – Lena Varga",
-          "media_hint": "Lena Varga speaking post‑match",
+          "headline": "Coach's take",
+          "caption": "Lena Varga: “A fair result. Both teams wanted it.”",
+          "media_hint": "coach Lena Varga speaking on the touchline",
           "minute": null,
           "players_mentioned": [
             "Lena Varga"
@@ -1975,8 +1997,8 @@
           "template": "cta",
           "icon": "ticket",
           "headline": "Next match tickets",
-          "caption": "Grab your seats for the next Delta Rovers home game! 🎟️",
-          "media_hint": "ticket promo graphic",
+          "caption": "Don’t miss the next home game – grab your seats now!",
+          "media_hint": "ticket graphic with Delta Rovers logo",
           "minute": null,
           "players_mentioned": [],
           "cta_text": "Get tickets for the next home game",
@@ -1987,25 +2009,25 @@
         {
           "question": "What was the final score?",
           "options": [
-            "3-2",
             "0-0",
-            "2-1",
-            "1-0"
+            "1-0",
+            "2-2",
+            "0-1"
           ],
-          "correct_index": 1,
+          "correct_index": 0,
           "kind": "final_score",
           "answer_canonical": "0-0",
           "stat_key": "none"
         },
         {
-          "question": "Which player received a red card?",
+          "question": "Which Harbor Town player received a red card?",
           "options": [
-            "Luis Ferreira",
-            "Jonas Petrov",
-            "Ben Ashby",
-            "Callum Pike"
+            "Ethan Moss",
+            "Noah Field",
+            "Callum Pike",
+            "Ryan Vale"
           ],
-          "correct_index": 3,
+          "correct_index": 2,
           "kind": "red_card",
           "answer_canonical": "Callum Pike",
           "stat_key": "none"
@@ -2014,51 +2036,38 @@
           "question": "How many corners did Delta Rovers have?",
           "options": [
             "3",
-            "0",
+            "5",
             "7",
-            "10"
+            "0"
           ],
           "correct_index": 2,
           "kind": "stat",
           "answer_canonical": "7",
           "stat_key": "corners"
-        },
-        {
-          "question": "Where was the match played?",
-          "options": [
-            "City Ground",
-            "River Arena",
-            "Delta Park",
-            "Harbor Stadium"
-          ],
-          "correct_index": 2,
-          "kind": "venue",
-          "answer_canonical": "Delta Park",
-          "stat_key": "none"
         }
       ],
       "poll": {
         "question": "Which moment defined the match for you?",
         "options": [
-          "Red card",
-          "Yellow cards",
+          "Early yellow cards",
+          "Red card at 50'",
           "Substitutions",
-          "Stats battle"
+          "Stat battle"
         ]
       },
       "categories": [
         "match-report",
-        "red-card",
         "stats",
         "post-match-quotes",
+        "clean-sheet",
         "fan-zone"
       ],
       "tags": [
         "delta-rovers",
         "harbor-town",
-        "0-0",
         "cpl",
-        "delta-park"
+        "draw",
+        "ticket"
       ]
     }
   },
@@ -2077,17 +2086,17 @@
       "is_arabic": true
     },
     "grade": {
-      "hook": 2,
-      "accuracy": 4,
-      "voice": 4,
-      "comment": "الصفحات تُغطي الأحداث الأساسية وتُظهر تفاصيل دقيقة، لكن القصة لا تُبرز حماس القارئ ولا تتضمن عناصر جذب قوية في الغلاف."
+      "hook": 5,
+      "accuracy": 5,
+      "voice": 5,
+      "comment": "المقال دقيق، متماشي مع المصدر، ويتبع صوت القناة الرسمية بلغة عربية فصحى واضحة."
     },
-    "pass": false,
-    "ms": 9366,
-    "usd": 0.001651,
-    "judge_usd": 0.00013,
-    "tokens_in": 2400,
-    "tokens_out": 2152,
+    "pass": true,
+    "ms": 4872,
+    "usd": 0.001662,
+    "judge_usd": 0.000157,
+    "tokens_in": 2421,
+    "tokens_out": 2165,
     "flags": {},
     "quiz": "4/4",
     "quiz_flags": {},
@@ -2095,15 +2104,15 @@
     "repairs": 0,
     "rate_limit_wait_ms": 0,
     "story": {
-      "title": "سافرة الصحراء تتفوق على نيل سيتي 2-1",
+      "title": "ساهارا فالكونز 2-1 نيل سيتي",
       "pages": [
         {
           "type": "cover",
           "template": "cover-score",
           "icon": "ball",
-          "headline": "سافرة الصحراء 2-1 نيل سيتي",
-          "caption": "فوز صقور الصحراء 2-1 على نيل سيتي في ملعب الدون ستادي بحكم أداء صلب وتكتيك محكم.",
-          "media_hint": "fans celebrating on the pitch",
+          "headline": "ساهارا فالكونز 2-1 نيل سيتي",
+          "caption": "فوز ساهارا فالكونز 2-1 على نيل سيتي في ملعب الصحراء في الجولة 15 من دوري القارة الممتاز.",
+          "media_hint": "final score board with both team logos",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -2113,9 +2122,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "أديل فاسي يسجل الهدف الأول",
-          "caption": "في الدقيقة 16، أديل فاسي يضع الصقر على القمة بإنهاء بالقدم اليمنى.",
-          "media_hint": "Adil Fassi scoring",
+          "headline": "هدف أول لساهارا فالكونز",
+          "caption": "أديل فاسي يسجل في الدقيقة 16 بركلة يمين لتقليل الفارق 1-0.",
+          "media_hint": "Adil Fassi celebrating after his goal",
           "minute": 16,
           "players_mentioned": [
             "Adil Fassi"
@@ -2127,9 +2136,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "مصطفى كامل يعادل النتيجة",
-          "caption": "في الدقيقة 21، مصطفى كامل من نيل سيتي ينفذ ركلة جزاء ليجعل النتيجة 1-1.",
-          "media_hint": "penalty kick",
+          "headline": "تعادل نيل سيتي",
+          "caption": "مصطفى كامل يحول في الدقيقة 21 من ركلة جزاء ليفتح النقاط 1-1.",
+          "media_hint": "Mostafa Kamel scoring the penalty",
           "minute": 21,
           "players_mentioned": [
             "Mostafa Kamel"
@@ -2141,9 +2150,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "أديل فاسي يضيف هدفًا ثانيًا",
-          "caption": "في الدقيقة 76، أديل فاسي يضاعف التقدم لساڤرنز بإنهاء بالقدم اليسرى بعد تمريرة من وليد شرايبي.",
-          "media_hint": "Adil Fassi second goal",
+          "headline": "هدف الفوز",
+          "caption": "أديل فاسي يضيف هدفاً في الدقيقة 76 بتمرير من وليد شرايبي لتقود ساهارا فالكونز 2-1.",
+          "media_hint": "Adil Fassi scoring the second goal with assist from Walid Chraibi",
           "minute": 76,
           "players_mentioned": [
             "Adil Fassi",
@@ -2157,8 +2166,8 @@
           "template": "stat-card",
           "icon": "stat",
           "headline": "إحصاءات المباراة",
-          "caption": "استحوذت نيل سيتي على 57% من الاستحواذ، لكن الصقور أطلقت 14 تسديدة مقارنة ب7.",
-          "media_hint": "stat graphic",
+          "caption": "استحوذت نيل سيتي على حيازة 57%، بينما ساهارا فالكونز أطلقت 14 تسديدة مقابل 7.",
+          "media_hint": "statistical graphic showing possession and shots",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -2168,9 +2177,9 @@
           "type": "quote",
           "template": "quote",
           "icon": "quote",
-          "headline": "تصريح المدرب",
-          "caption": "رشد بناني: \"بقينا صبورين وكان ذلك هو الفارق\"",
-          "media_hint": "coach speaking",
+          "headline": "كلمة المدرب",
+          "caption": "رشد بناني: \"ظلنا صبورين وكان ذلك سبب الفوز\".",
+          "media_hint": "Rachid Bennani speaking to media after the match",
           "minute": null,
           "players_mentioned": [
             "Rachid Bennani"
@@ -2183,8 +2192,8 @@
           "template": "cta",
           "icon": "ticket",
           "headline": "احجز تذكرتك للمباراة القادمة",
-          "caption": "لا تفوت فرصة مشاهدة الصقور على أرض الدون ستادي.",
-          "media_hint": "ticket graphic",
+          "caption": "تابع ساهارا فالكونز في ملعب الصحراء واحصل على تذاكر المباريات القادمة.",
+          "media_hint": "fans holding tickets in the stadium",
           "minute": null,
           "players_mentioned": [],
           "cta_text": "Get tickets for the next home game",
@@ -2193,14 +2202,14 @@
       ],
       "quiz": [
         {
-          "question": "ما هي النتيجة النهائية للمباراة؟",
+          "question": "ما هي نتيجة المباراة؟",
           "options": [
-            "3-0",
-            "2-1",
             "1-2",
-            "0-0"
+            "0-0",
+            "3-0",
+            "2-1"
           ],
-          "correct_index": 1,
+          "correct_index": 3,
           "kind": "final_score",
           "answer_canonical": "2-1",
           "stat_key": "none"
@@ -2210,8 +2219,8 @@
           "options": [
             "Mostafa Kamel",
             "Adil Fassi",
-            "Walid Chraibi",
-            "Tarek Selim"
+            "Omar Fathy",
+            "Walid Chraibi"
           ],
           "correct_index": 1,
           "kind": "first_scorer",
@@ -2219,39 +2228,39 @@
           "stat_key": "none"
         },
         {
-          "question": "من قدم التمريرة الحاسمة للهدف الثاني لصاحبه؟",
+          "question": "من قدم التمريرة الحاسمة للهدف الثاني لساهارا فالكونز؟",
           "options": [
+            "Adil Fassi",
             "Walid Chraibi",
             "Nabil Ghazi",
-            "Adil Fassi",
             "Sherif Badr"
           ],
-          "correct_index": 0,
+          "correct_index": 1,
           "kind": "assist",
           "answer_canonical": "Walid Chraibi",
           "stat_key": "none"
         },
         {
-          "question": "كم عدد التسديدات التي أطلقتها الصقور؟",
+          "question": "في أي ملعب أقيمت المباراة؟",
           "options": [
-            "7",
-            "10",
-            "14",
-            "12"
+            "ستاد المدينة",
+            "ملعب الوادي",
+            "ملعب الصحراء",
+            "ملعب النيل"
           ],
           "correct_index": 2,
-          "kind": "stat",
-          "answer_canonical": "14",
-          "stat_key": "shots"
+          "kind": "venue",
+          "answer_canonical": "Dune Stadium",
+          "stat_key": "none"
         }
       ],
       "poll": {
-        "question": "أي لحظة كانت الأهم في فوز الصقور؟",
+        "question": "أي لحظة كانت الأهم في فوز ساهارا فالكونز؟",
         "options": [
-          "الهدف الأول لأديل فاسي",
-          "الهدف الثاني لأديل فاسي",
-          "الركلة الجزائية لمصطفى كامل",
-          "التبديلات في الشوط الثاني"
+          "هدف أديل فاسي في الدقيقة 16",
+          "هدف أديل فاسي في الدقيقة 76",
+          "ركلة جزاء كامل",
+          "بديل شرايبي"
         ]
       },
       "categories": [
@@ -2261,10 +2270,10 @@
         "stats"
       ],
       "tags": [
-        "sahara",
-        "ncf",
-        "premierleague",
-        "tickets"
+        "saharafalcons",
+        "nilecity",
+        "cpl",
+        "dunstadium"
       ]
     }
   },
@@ -2286,30 +2295,30 @@
       "hook": 4,
       "accuracy": 5,
       "voice": 5,
-      "comment": "الصفحات جذابة ومطابقة للمصدر، لكن قد تضيف بعض الألوان في العناوين لجذب القارئ أكثر."
+      "comment": "Story captures all key moments and stats accurately, with energetic, punchy Arabic tone and minimal emoji use. Hook strong, but could add a bit more intrigue on first page."
     },
     "pass": true,
-    "ms": 11433,
-    "usd": 0.001561,
-    "judge_usd": 0.000125,
-    "tokens_in": 2407,
-    "tokens_out": 2000,
+    "ms": 4438,
+    "usd": 0.001541,
+    "judge_usd": 0.000127,
+    "tokens_in": 2428,
+    "tokens_out": 1962,
     "flags": {},
-    "quiz": "4/4",
+    "quiz": "3/3",
     "quiz_flags": {},
     "story_flags": [],
     "repairs": 0,
     "rate_limit_wait_ms": 0,
     "story": {
-      "title": "ساحرة الصقور تتغلب على نيل سيتي 2-1",
+      "title": "ساهارا فالكونز يتفوق على نيلي سيتي 2-1",
       "pages": [
         {
           "type": "cover",
           "template": "cover-score",
           "icon": "ball",
-          "headline": "ساحرة الصقور 2-1 نيل سيتي",
-          "caption": "الصقور تفوز على نيل سيتي 2-1 في استاد الصحراء، مباراة مثيرة على مدار 90 دقيقة.",
-          "media_hint": "final score graphic with both team logos",
+          "headline": "ساهارا فالكونز 2-1 نيلي سيتي",
+          "caption": "فوز صعب أمام نيلي سيتي في ملعب الدون، 2-1",
+          "media_hint": "final score board",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -2319,9 +2328,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "هدف الافتتاح",
-          "caption": "الدقيقة 16: أديل فاسي يسجل هدف الافتتاح بلمسة قدم يمين.",
-          "media_hint": "Adil Fassi celebrating his first goal",
+          "headline": "هدف مبكر لفالكونز",
+          "caption": "في الدقيقة 16، أديل فاسي يفتح التسجيل بضربة قدم يمينية",
+          "media_hint": "Adil Fassi celebrating",
           "minute": 16,
           "players_mentioned": [
             "Adil Fassi"
@@ -2333,12 +2342,13 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "المعادلة",
-          "caption": "الدقيقة 21: مصطفى كمال يرد بالركن من طرف طارق سليم ويعادل النتيجة.",
-          "media_hint": "Mostafa Kamel scoring from the penalty spot",
+          "headline": "تعادل نيلي سيتي",
+          "caption": "في الدقيقة 21، موستافا كامل يسجل ركلة جزاء من تمريرة طارق سليم",
+          "media_hint": "penalty kick",
           "minute": 21,
           "players_mentioned": [
-            "Mostafa Kamel"
+            "Mostafa Kamel",
+            "Tarek Selim"
           ],
           "cta_text": null,
           "cta_url": null
@@ -2347,9 +2357,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "الهدف الفائز",
-          "caption": "الدقيقة 76: أديل فاسي يضيف الهدف الثاني بلمسة قدم يسار، مساعدة من وليد شرابي.",
-          "media_hint": "Adil Fassi's second goal with Walid Chraibi celebrating",
+          "headline": "هدف الفوز",
+          "caption": "في الدقيقة 76، أديل فاسي يضيف هدفًا ثانيًا بلمسة قدم يسرى، مع تمريرة من وليد شرابي",
+          "media_hint": "second goal celebration",
           "minute": 76,
           "players_mentioned": [
             "Adil Fassi",
@@ -2362,9 +2372,9 @@
           "type": "stat",
           "template": "stat-card",
           "icon": "stat",
-          "headline": "الإحصائيات",
-          "caption": "الإحصائيات: حيازة الكرة 43% - 57% لصالح نيل سيتي، تسديدات 14-7، زوايا 1-5.",
-          "media_hint": "statistical bar chart comparing both teams",
+          "headline": "إحصائيات المباراة",
+          "caption": "حيازة: ساهارا 43% - 57% نيلي سيتي؛ تسديدات 14-7؛ زوايا 1-5",
+          "media_hint": "stat overlay",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -2375,8 +2385,8 @@
           "template": "quote",
           "icon": "quote",
           "headline": "كلمة المدرب",
-          "caption": "رئيس المدرب رتشيد بناني: “صبرنا أتى ثماره في النهاية.”",
-          "media_hint": "Rachid Bennani speaking on the sideline",
+          "caption": "راشد بناني: \"بقينا صبورين وحققنا النتيجة في النهاية\"",
+          "media_hint": "coach interview",
           "minute": null,
           "players_mentioned": [
             "Rachid Bennani"
@@ -2389,8 +2399,8 @@
           "template": "cta",
           "icon": "ticket",
           "headline": "احجز تذكرتك",
-          "caption": "احجز تذكرتك للمباراة القادمة في استاد الصحراء الآن!",
-          "media_hint": "ticket graphic with stadium background",
+          "caption": "لا تفوت المباراة القادمة في ملعب الدون! احجز الآن",
+          "media_hint": "ticket graphic",
           "minute": null,
           "players_mentioned": [],
           "cta_text": "Get tickets for the next home game",
@@ -2399,80 +2409,65 @@
       ],
       "quiz": [
         {
-          "question": "ما هو النتيجة النهائية للمباراة؟",
+          "question": "ما هي النتيجة النهائية للمباراة؟",
           "options": [
-            "0-0",
             "1-2",
             "2-1",
-            "3-0"
+            "3-0",
+            "0-0"
           ],
-          "correct_index": 2,
+          "correct_index": 1,
           "kind": "final_score",
           "answer_canonical": "2-1",
           "stat_key": "none"
         },
         {
-          "question": "من هو أول من سجل هدفًا في المباراة؟",
+          "question": "من سجل هدفًا لفالكونز؟",
           "options": [
-            "Adil Fassi",
-            "Omar Fathy",
+            "Youssef Adel",
             "Mostafa Kamel",
-            "Karim Nassar"
+            "Adil Fassi",
+            "Omar Fathy"
           ],
-          "correct_index": 0,
-          "kind": "first_scorer",
+          "correct_index": 2,
+          "kind": "scorer",
           "answer_canonical": "Adil Fassi",
           "stat_key": "none"
         },
         {
-          "question": "في أي دقيقة جاء الهدف الفائز لفريق الصقور؟",
+          "question": "في أي دقيقة جاء هدف الفوز؟",
           "options": [
-            "58",
-            "16",
-            "76",
-            "21"
+            "76'",
+            "21'",
+            "58'",
+            "16'"
           ],
-          "correct_index": 2,
+          "correct_index": 0,
           "kind": "goal_minute",
-          "answer_canonical": "76",
-          "stat_key": "none"
-        },
-        {
-          "question": "من هو صانع هدف الفائز في الدقيقة 76؟",
-          "options": [
-            "Nabil Ghazi",
-            "Tarek Selim",
-            "Walid Chraibi",
-            "Sherif Badr"
-          ],
-          "correct_index": 2,
-          "kind": "assist",
-          "answer_canonical": "Walid Chraibi",
+          "answer_canonical": "76'",
           "stat_key": "none"
         }
       ],
       "poll": {
-        "question": "من أكثر لاعب أثر في فوز الصقور؟",
+        "question": "من كان اللاعب الأكثر تأثيرًا في المباراة؟",
         "options": [
           "Adil Fassi",
-          "Walid Chraibi",
           "Mostafa Kamel",
-          "الملاعب"
+          "Walid Chraibi",
+          "Tarek Selim"
         ]
       },
       "categories": [
         "match-report",
         "goals",
         "comeback",
-        "stats",
-        "post-match-quotes"
+        "stats"
       ],
       "tags": [
-        "sahara",
-        "ncf",
+        "saharafalcons",
+        "nilecity",
         "cpl",
-        "tickets",
-        "stats"
+        "dunstadium"
       ]
     }
   },
@@ -2490,22 +2485,22 @@
       "cta": true
     },
     "grade": {
-      "hook": 3,
+      "hook": 4,
       "accuracy": 5,
       "voice": 5,
-      "comment": "Solid coverage but headline could be more compelling to entice clicks."
+      "comment": "Strong hook and accurate reporting; voice perfectly matches official club style."
     },
     "pass": true,
-    "ms": 5282,
-    "usd": 0.001584,
-    "judge_usd": 0.000134,
-    "tokens_in": 2409,
-    "tokens_out": 2038,
+    "ms": 6687,
+    "usd": 0.002764,
+    "judge_usd": 0.000123,
+    "tokens_in": 7632,
+    "tokens_out": 2699,
     "flags": {},
     "quiz": "4/4",
     "quiz_flags": {},
     "story_flags": [],
-    "repairs": 0,
+    "repairs": 2,
     "rate_limit_wait_ms": 0,
     "story": {
       "title": "Coral Bay Athletic 3-1 Riverside Phoenix",
@@ -2515,8 +2510,8 @@
           "template": "cover-score",
           "icon": "ball",
           "headline": "Coral Bay Athletic 3-1 Riverside Phoenix",
-          "caption": "Coral Bay Athletic secured a 3-1 victory over Riverside Phoenix at Reef Stadium on matchday 16.",
-          "media_hint": "final whistle with scoreboard",
+          "caption": "Home side secured a 3-1 victory at Reef Stadium, dominating the second half after an early penalty.",
+          "media_hint": "final whistle with scoreboard showing 3-1",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -2527,7 +2522,7 @@
           "template": "moment",
           "icon": "ball",
           "headline": "Gabriel Nunes scores penalty",
-          "caption": "11' – Gabriel Nunes converts a penalty, assisted by Andre Viana, to put CBA ahead 1-0.",
+          "caption": "11' – Gabriel Nunes converts from the spot, assisted by Andre Viana, to give CBA the lead.",
           "media_hint": "Gabriel Nunes celebrating after penalty",
           "minute": 11,
           "players_mentioned": [
@@ -2542,8 +2537,8 @@
           "template": "moment",
           "icon": "card-red",
           "headline": "Igor Santos sent off",
-          "caption": "20' – Igor Santos receives a red card, leaving Coral Bay Athletic with ten men.",
-          "media_hint": "Igor Santos shown receiving red card",
+          "caption": "20' – Igor Santos receives a red card, reducing Coral Bay to ten men early in the first half.",
+          "media_hint": "Igor Santos showing red card to referee",
           "minute": 20,
           "players_mentioned": [
             "Igor Santos"
@@ -2555,13 +2550,14 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "Late goals seal win",
-          "caption": "60' Gabriel Nunes scores again, 62' Ibrahim Sow converts a penalty, and 70' Leandro Melo heads home the third.",
-          "media_hint": "Coral Bay Athletic celebrating late goals",
+          "headline": "Second‑half goals",
+          "caption": "60' – Gabriel Nunes scores, 62' – Ibrahim Sow penalty (assist Cheikh Ndiaye), 70' – Leandro Melo header. Final 3-1.",
+          "media_hint": "sequence of goals in second half",
           "minute": 60,
           "players_mentioned": [
             "Gabriel Nunes",
             "Ibrahim Sow",
+            "Cheikh Ndiaye",
             "Leandro Melo"
           ],
           "cta_text": null,
@@ -2572,8 +2568,8 @@
           "template": "stat-card",
           "icon": "stat",
           "headline": "Match stats",
-          "caption": "Possession: 48% - 52% | Shots: 6 - 14 | Shots on target: 5 - 3 | Corners: 8 - 8 | Fouls: 10 - 15",
-          "media_hint": "graphic showing match statistics",
+          "caption": "Possession 48%‑52%, Shots 6‑14, Shots on target 5‑3, Corners 8‑8, Fouls 10‑15.",
+          "media_hint": "infographic of match statistics",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -2583,9 +2579,9 @@
           "type": "quote",
           "template": "quote",
           "icon": "quote",
-          "headline": "Coach Mendes comments",
+          "headline": "Coach Carlos Mendes comments",
           "caption": "\"We stayed patient and it paid off in the end.\" – Carlos Mendes, Coral Bay Athletic head coach",
-          "media_hint": "Carlos Mendes speaking to media",
+          "media_hint": "Carlos Mendes speaking on the sidelines",
           "minute": null,
           "players_mentioned": [
             "Carlos Mendes"
@@ -2598,8 +2594,8 @@
           "template": "cta",
           "icon": "ticket",
           "headline": "Next home game tickets",
-          "caption": "Get tickets for Coral Bay Athletic's next home match at Reef Stadium.",
-          "media_hint": "ticket graphic with club logo",
+          "caption": "Get tickets for the next home game and support Coral Bay Athletic at Reef Stadium.",
+          "media_hint": "ticket graphic or stadium backdrop",
           "minute": null,
           "players_mentioned": [],
           "cta_text": "Get tickets for the next home game",
@@ -2610,12 +2606,12 @@
         {
           "question": "What was the final score?",
           "options": [
-            "1-0",
-            "2-2",
-            "3-1",
-            "4-0"
+            "1-1",
+            "3-0",
+            "2-1",
+            "3-1"
           ],
-          "correct_index": 2,
+          "correct_index": 3,
           "kind": "final_score",
           "answer_canonical": "3-1",
           "stat_key": "none"
@@ -2623,12 +2619,12 @@
         {
           "question": "Who scored the first goal?",
           "options": [
-            "Igor Santos",
-            "Leandro Melo",
+            "Gabriel Nunes",
             "Ibrahim Sow",
-            "Gabriel Nunes"
+            "Igor Santos",
+            "Leandro Melo"
           ],
-          "correct_index": 3,
+          "correct_index": 0,
           "kind": "first_scorer",
           "answer_canonical": "Gabriel Nunes",
           "stat_key": "none"
@@ -2637,36 +2633,36 @@
           "question": "Which player received a red card?",
           "options": [
             "Seun Lawal",
-            "Ade Bakare",
-            "Victor Osei",
-            "Igor Santos"
+            "Vitor Reis",
+            "Igor Santos",
+            "Ade Bakare"
           ],
-          "correct_index": 3,
+          "correct_index": 2,
           "kind": "red_card",
           "answer_canonical": "Igor Santos",
           "stat_key": "none"
         },
         {
-          "question": "Who provided the assist for Ibrahim Sow's penalty?",
+          "question": "Who provided the assist for the opening penalty?",
           "options": [
-            "Andre Viana",
-            "Pedro Matos",
             "Hugo Faria",
-            "Cheikh Ndiaye"
+            "Cheikh Ndiaye",
+            "Pedro Matos",
+            "Andre Viana"
           ],
           "correct_index": 3,
           "kind": "assist",
-          "answer_canonical": "Cheikh Ndiaye",
+          "answer_canonical": "Andre Viana",
           "stat_key": "none"
         }
       ],
       "poll": {
         "question": "Which moment defined the match?",
         "options": [
-          "Gabriel Nunes' penalty",
+          "Gabriel Nunes penalty",
           "Igor Santos red card",
           "Leandro Melo header",
-          "Ibrahim Sow's goal"
+          "Overall team performance"
         ]
       },
       "categories": [
@@ -2702,14 +2698,14 @@
       "hook": 4,
       "accuracy": 5,
       "voice": 5,
-      "comment": "Solid play‑by‑play, no fluff, just the right punchy energy."
+      "comment": "Solid, punchy recap that stays true to the match details and keeps the fan‑zone vibe."
     },
     "pass": true,
-    "ms": 4792,
-    "usd": 0.00149,
-    "judge_usd": 0.000124,
-    "tokens_in": 2416,
-    "tokens_out": 1879,
+    "ms": 5183,
+    "usd": 0.001585,
+    "judge_usd": 0.000138,
+    "tokens_in": 2437,
+    "tokens_out": 2033,
     "flags": {},
     "quiz": "5/5",
     "quiz_flags": {},
@@ -2723,9 +2719,9 @@
           "type": "cover",
           "template": "cover-score",
           "icon": "ball",
-          "headline": "CBA 3-1 RVP",
-          "caption": "Coral Bay Athletic roar to a 3-1 win at Reef Stadium! 🎉",
-          "media_hint": "team celebration on the pitch",
+          "headline": "Coral Bay Athletic 3-1 Riverside Phoenix",
+          "caption": "Home win at Reef Stadium! CBA dominate with a 3-1 victory.",
+          "media_hint": "team celebrating on pitch",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -2734,24 +2730,10 @@
         {
           "type": "moment",
           "template": "moment",
-          "icon": "card-red",
-          "headline": "Santos sent off",
-          "caption": "Igor Santos sees red, 20' – CBA down to 10 men.",
-          "media_hint": "ref showing red card to Igor Santos",
-          "minute": 20,
-          "players_mentioned": [
-            "Igor Santos"
-          ],
-          "cta_text": null,
-          "cta_url": null
-        },
-        {
-          "type": "moment",
-          "template": "moment",
           "icon": "ball",
-          "headline": "Nunes penalty",
-          "caption": "Gabriel Nunes converts a penalty, 11' – CBA lead 1-0.",
-          "media_hint": "Gabriel Nunes taking the spot‑kick",
+          "headline": "Nunes opens scoring",
+          "caption": "Gabriel Nunes nets a penalty at 11', assisted by Andre Viana. 1-0 CBA.",
+          "media_hint": "Gabriel Nunes celebrating after penalty",
           "minute": 11,
           "players_mentioned": [
             "Gabriel Nunes",
@@ -2763,16 +2745,28 @@
         {
           "type": "moment",
           "template": "moment",
-          "icon": "ball",
-          "headline": "Second‑half fireworks",
-          "caption": "60' – Nunes scores his second. 62' – Ibrahim Sow pulls a penalty for RVP (2‑1). 70' – Leandro Melo heads home the winner, final 3‑1.",
-          "media_hint": "highlights of the three goals",
-          "minute": null,
+          "icon": "card-red",
+          "headline": "Igor sent off",
+          "caption": "Igor Santos sees red at 20' – CBA down to ten men.",
+          "media_hint": "Igor Santos receiving red card",
+          "minute": 20,
           "players_mentioned": [
-            "Gabriel Nunes",
-            "Ibrahim Sow",
-            "Cheikh Ndiaye",
-            "Leandro Melo"
+            "Igor Santos"
+          ],
+          "cta_text": null,
+          "cta_url": null
+        },
+        {
+          "type": "moment",
+          "template": "moment",
+          "icon": "ball",
+          "headline": "Melo caps comeback",
+          "caption": "Leandro Melo heads home the third at 70' after Gabriel’s brace. Final 3-1.",
+          "media_hint": "Leandro Melo celebrating header",
+          "minute": 70,
+          "players_mentioned": [
+            "Leandro Melo",
+            "Gabriel Nunes"
           ],
           "cta_text": null,
           "cta_url": null
@@ -2782,8 +2776,8 @@
           "template": "stat-card",
           "icon": "stat",
           "headline": "Match stats",
-          "caption": "Possession: CBA 48% - 52% RVP. Shots: 6‑14. On target: 5‑3. Corners: 8‑8. Fouls: 10‑15.",
-          "media_hint": "statistical graphic",
+          "caption": "Possession: CBA 48% - 52% RVP. Shots: 6-14. Shots on target: 5-3.",
+          "media_hint": "stat graphic",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -2795,7 +2789,7 @@
           "icon": "quote",
           "headline": "Coach Mendes speaks",
           "caption": "\"We stayed patient and it paid off in the end.\" – Carlos Mendes",
-          "media_hint": "Carlos Mendes on the touchline",
+          "media_hint": "Carlos Mendes interview",
           "minute": null,
           "players_mentioned": [
             "Carlos Mendes"
@@ -2807,9 +2801,9 @@
           "type": "cta",
           "template": "cta",
           "icon": "ticket",
-          "headline": "Next home game tickets",
-          "caption": "Grab your seat for the next home game! 🎟️",
-          "media_hint": "ticket graphic or stadium backdrop",
+          "headline": "Want more action?",
+          "caption": "Grab your seat for the next CBA home game! 🎟️",
+          "media_hint": "stadium seats",
           "minute": null,
           "players_mentioned": [],
           "cta_text": "Get tickets for the next home game",
@@ -2820,25 +2814,25 @@
         {
           "question": "What was the final score?",
           "options": [
-            "1-1",
-            "2-1",
+            "2-2",
             "3-1",
-            "3-0"
+            "1-0",
+            "4-0"
           ],
-          "correct_index": 2,
+          "correct_index": 1,
           "kind": "final_score",
           "answer_canonical": "3-1",
           "stat_key": "none"
         },
         {
-          "question": "Who scored the first goal?",
+          "question": "Who scored the opening goal?",
           "options": [
-            "Gabriel Nunes",
+            "Igor Santos",
             "Leandro Melo",
             "Ibrahim Sow",
-            "Andre Viana"
+            "Gabriel Nunes"
           ],
-          "correct_index": 0,
+          "correct_index": 3,
           "kind": "first_scorer",
           "answer_canonical": "Gabriel Nunes",
           "stat_key": "none"
@@ -2846,50 +2840,49 @@
         {
           "question": "Which player received a red card?",
           "options": [
-            "Vitor Reis",
             "Igor Santos",
             "Seun Lawal",
-            "Cheikh Ndiaye"
+            "Pedro Matos",
+            "Victor Osei"
           ],
-          "correct_index": 1,
+          "correct_index": 0,
           "kind": "red_card",
           "answer_canonical": "Igor Santos",
           "stat_key": "none"
         },
         {
-          "question": "Where was the match played?",
+          "question": "Who provided the assist for the first goal?",
           "options": [
-            "Phoenix Field",
-            "Coral Bay Arena",
-            "Riverbank Park",
-            "Reef Stadium"
+            "Andre Viana",
+            "Hugo Faria",
+            "Tunde Bello",
+            "Cheikh Ndiaye"
           ],
-          "correct_index": 3,
-          "kind": "venue",
-          "answer_canonical": "Reef Stadium",
+          "correct_index": 0,
+          "kind": "assist",
+          "answer_canonical": "Andre Viana",
           "stat_key": "none"
         },
         {
-          "question": "How many shots did the away team have?",
+          "question": "Where was the match played?",
           "options": [
-            "10",
-            "6",
-            "8",
-            "14"
+            "Harbor Park",
+            "Reef Stadium",
+            "Coastal Field",
+            "Ocean Arena"
           ],
-          "correct_index": 3,
-          "kind": "stat",
-          "answer_canonical": "14",
-          "stat_key": "shots"
+          "correct_index": 1,
+          "kind": "venue",
+          "answer_canonical": "Reef Stadium",
+          "stat_key": "none"
         }
       ],
       "poll": {
-        "question": "Which moment was the match‑winner?",
+        "question": "Which moment turned the match in CBA's favor?",
         "options": [
-          "Leandro Melo header",
-          "Gabriel Nunes penalty",
-          "Ibrahim Sow penalty",
-          "Igor Santos red card"
+          "Red card to Igor Santos",
+          "Gabriel Nunes' brace",
+          "Leandro Melo's header"
         ]
       },
       "categories": [
@@ -2900,10 +2893,11 @@
         "post-match-quotes"
       ],
       "tags": [
-        "cba",
-        "rvp",
+        "coralbay",
+        "riverside",
         "cpl",
-        "reef stadium"
+        "reefstadium",
+        "victory"
       ]
     }
   },
@@ -2922,17 +2916,17 @@
       "is_arabic": true
     },
     "grade": {
-      "hook": 4,
+      "hook": 3,
       "accuracy": 5,
       "voice": 5,
-      "comment": "الصفحات تعكس المباراة بدقة، لكن العنوان قد يُحسّن ليكون أكثر جذباً للقراء."
+      "comment": "الصفحات متوافقة مع البيانات، لكن العنوانين قد لا يجذب القارئ القوي."
     },
     "pass": true,
-    "ms": 10159,
-    "usd": 0.001539,
-    "judge_usd": 0.000146,
-    "tokens_in": 2333,
-    "tokens_out": 1982,
+    "ms": 10032,
+    "usd": 0.001897,
+    "judge_usd": 0.000132,
+    "tokens_in": 2354,
+    "tokens_out": 2574,
     "flags": {},
     "quiz": "4/4",
     "quiz_flags": {},
@@ -2940,15 +2934,15 @@
     "repairs": 0,
     "rate_limit_wait_ms": 0,
     "story": {
-      "title": "غرانيت هيل 1-2 ألباين واندررز",
+      "title": "غرانيت هيل 1 - 2 ألبين وايندررز",
       "pages": [
         {
           "type": "cover",
           "template": "cover-score",
           "icon": "ball",
-          "headline": "غرانيت هيل 1-2 ألباين واندررز",
-          "caption": "انتهت المباراة بفوز ألباين واندررز 2-1 على غرانيت هيل في ملعب كوارى رود.",
-          "media_hint": "full‑stadium shot showing both team banners",
+          "headline": "غرانيت هيل 1 - 2 ألبين وايندررز",
+          "caption": "انتهت المباراة بفوز ألبين وايندررز 2-1 على غرانيت هيل في ملعب كوارى رود.",
+          "media_hint": "final score graphic",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -2958,12 +2952,13 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "هدف ألباين واندررز",
-          "caption": "الدقيقة 7: فابيان روث يسجل هدفًا بقدمه اليمنى لتقدم ألباين واندررز 0-1.",
-          "media_hint": "close‑up of Fabian Roth celebrating the goal",
+          "headline": "أهداف ألبين وايندررز",
+          "caption": "سجل فابيان روث هدفًا مبكرًا في الدقيقة 7، وتابع ديفيد ستاينر الهدف الثاني في الدقيقة 72 ليتقدموا 2-0.",
+          "media_hint": "Fabian Roth and David Steiner celebrating",
           "minute": 7,
           "players_mentioned": [
-            "Fabian Roth"
+            "Fabian Roth",
+            "David Steiner"
           ],
           "cta_text": null,
           "cta_url": null
@@ -2972,8 +2967,8 @@
           "type": "moment",
           "template": "moment",
           "icon": "card-red",
-          "headline": "بطاقة حمراء للاندرز",
-          "caption": "الدقيقة 17: لوكاس براندت يحصل على بطاقة حمراء ويُطرد من الملعب.",
+          "headline": "بطاقة حمراء للوكاس براندت",
+          "caption": "تلقت ألبين وايندررز بطاقة حمراء للوكاس براندت في الدقيقة 17.",
           "media_hint": "referee showing red card to Lukas Brandt",
           "minute": 17,
           "players_mentioned": [
@@ -2987,7 +2982,7 @@
           "template": "moment",
           "icon": "ball",
           "headline": "هدف غرانيت هيل",
-          "caption": "الدقيقة 87: برايان نولان يضيف هدفًا للغرانيت هيل من تمريرة كيلنچ لتقليص الفارق 1-2.",
+          "caption": "أحرز برايان نولان هدف غرانيت هيل في الدقيقة 87 بعد تمريرة من كيفن لينش، ليقلص الفارق 2-1.",
           "media_hint": "Brian Nolan scoring with assist from Kevin Lynch",
           "minute": 87,
           "players_mentioned": [
@@ -3002,8 +2997,8 @@
           "template": "stat-card",
           "icon": "stat",
           "headline": "إحصاءات المباراة",
-          "caption": "الاستحواذ: غرانيت هيل 44% - 56% ألباين واندررز. التسديدات: 7 - 10. على الهدف: 4 - 2. الركنيات: 4 - 4. الأخطاء: 12 - 12.",
-          "media_hint": "infographic of match statistics",
+          "caption": "الإحصاءات: حيازة الكرة غرانيت هيل 44% - 56% ألبين وايندررز؛ التسديدات 7-10؛ على المرمى 4-2؛ ركلات ركنية 4-4؛ الأخطاء 12-12.",
+          "media_hint": "stat board screenshot",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -3013,9 +3008,9 @@
           "type": "quote",
           "template": "quote",
           "icon": "quote",
-          "headline": "تصريح المدرب",
-          "caption": "إيان دويل: \"علينا مراجعة أدائنا، لم نكن جيدين اليوم.\"",
-          "media_hint": "coach Ian Doyle speaking on the sidelines",
+          "headline": "تصريح المدرب إيان دويل",
+          "caption": "إيان دويل: “علينا أن نعيد النظر في أدائنا، لم نكن جيدين اليوم.”",
+          "media_hint": "Ian Doyle speaking to media",
           "minute": null,
           "players_mentioned": [
             "Ian Doyle"
@@ -3027,12 +3022,12 @@
           "type": "cta",
           "template": "cta",
           "icon": "ticket",
-          "headline": "احجز تذكرتك",
-          "caption": "احصل على تذاكر المباراة القادمة في ملعب غرانيت هيل.",
-          "media_hint": "ticket graphic with club logo",
+          "headline": "احجز تذاكر المباراة القادمة",
+          "caption": "احجز تذاكر المباراة القادمة في كوارى رود ولا تفوت فرصة مشاهدة فريقنا يحقق الانتصار.",
+          "media_hint": "ticket graphic",
           "minute": null,
           "players_mentioned": [],
-          "cta_text": "احجز الآن",
+          "cta_text": "Get tickets for the next home game",
           "cta_url": "https://example.com/ghf/tickets"
         }
       ],
@@ -3041,9 +3036,9 @@
           "question": "ما هي النتيجة النهائية للمباراة؟",
           "options": [
             "1-2",
-            "0-0",
-            "3-2",
-            "2-1"
+            "2-1",
+            "0-2",
+            "1-1"
           ],
           "correct_index": 0,
           "kind": "final_score",
@@ -3053,25 +3048,25 @@
         {
           "question": "من سجل أول هدف في المباراة؟",
           "options": [
-            "David Steiner",
-            "Sean Murphy",
             "Fabian Roth",
-            "Brian Nolan"
+            "David Steiner",
+            "Brian Nolan",
+            "Kevin Lynch"
           ],
-          "correct_index": 2,
+          "correct_index": 0,
           "kind": "first_scorer",
           "answer_canonical": "Fabian Roth",
           "stat_key": "none"
         },
         {
-          "question": "من حصل على بطاقة حمراء؟",
+          "question": "أي لاعب تلقى بطاقة حمراء؟",
           "options": [
             "Sean Murphy",
+            "Brian Nolan",
             "Kevin Lynch",
-            "Lukas Brandt",
-            "Jan Moser"
+            "Lukas Brandt"
           ],
-          "correct_index": 2,
+          "correct_index": 3,
           "kind": "red_card",
           "answer_canonical": "Lukas Brandt",
           "stat_key": "none"
@@ -3079,37 +3074,39 @@
         {
           "question": "من قدم التمريرة الحاسمة لهدف غرانيت هيل؟",
           "options": [
+            "Conor Walsh",
             "Kevin Lynch",
             "Liam Devlin",
-            "Jonas Egli",
-            "Matteo Rossi"
+            "Sean Murphy"
           ],
-          "correct_index": 0,
+          "correct_index": 1,
           "kind": "assist",
           "answer_canonical": "Kevin Lynch",
           "stat_key": "none"
         }
       ],
       "poll": {
-        "question": "ما هو تقييمك لأداء الفريق المضيف؟",
+        "question": "ما هو أكثر ما أعجبكم في المباراة؟",
         "options": [
-          "جيد",
-          "متوسط",
-          "ضعيف"
+          "الأهداف",
+          "التحولات",
+          "الإحصاءات",
+          "تصريح المدرب"
         ]
       },
       "categories": [
         "match-report",
         "goals",
         "red-card",
-        "stats",
-        "post-match-quotes"
+        "comeback",
+        "stats"
       ],
       "tags": [
-        "granite hill",
-        "alpine wanderers",
+        "granitehill",
+        "alpinewanderers",
         "cpl",
-        "matchday17"
+        "matchday17",
+        "tickets"
       ]
     }
   },
@@ -3128,33 +3125,33 @@
       "is_arabic": true
     },
     "grade": {
-      "hook": 4,
+      "hook": 5,
       "accuracy": 5,
-      "voice": 4,
-      "comment": "الصفحات جذابة ومصاغة بصيغة حماسية، لكن يمكن إضافة بعض الجمل القصيرة أكثر إيقاعاً للصفحة الأولى لتشد القارئ أكثر. الترجمة دقيقة، ولا توجد أخطاء أو اختلاطات."
+      "voice": 5,
+      "comment": "Excellent coverage—accurate, engaging, and spot-on fan‑zone vibe."
     },
     "pass": true,
-    "ms": 4877,
-    "usd": 0.001537,
-    "judge_usd": 0.000143,
-    "tokens_in": 2340,
-    "tokens_out": 1976,
+    "ms": 4597,
+    "usd": 0.001545,
+    "judge_usd": 0.000194,
+    "tokens_in": 2361,
+    "tokens_out": 1984,
     "flags": {},
-    "quiz": "3/3",
+    "quiz": "4/4",
     "quiz_flags": {},
     "story_flags": [],
     "repairs": 0,
     "rate_limit_wait_ms": 0,
     "story": {
-      "title": "غرانيت هيل 1-2 ألباين واندررز",
+      "title": "غرانيت هيل 1-2 ألباين وانديرز",
       "pages": [
         {
           "type": "cover",
           "template": "cover-score",
           "icon": "ball",
-          "headline": "غرانيت هيل 1-2 ألباين واندررز",
-          "caption": "انتهت المباراة بنتيجة 1-2 لصالح ألباين واندررز في ملعب كوارى رود. هدفين للزوار وصناعة هدف للغرانيت هيل في الدقيقة 87. ⚽",
-          "media_hint": "final score board",
+          "headline": "غرانيت هيل 1-2 ألباين وانديرز",
+          "caption": "نهاية مثيرة: وانديرز يتفوقون 2-1 في كوايري رود ⚽",
+          "media_hint": "final scoreboard with both team logos",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -3164,9 +3161,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "هدف مبكر للزوار",
-          "caption": "في الدقيقة 7 سجل فابيان روث هدفًا بقدمه اليمنى ليمنح ألباين واندررز الصدارة 0-1.",
-          "media_hint": "Fabian Roth celebrates after scoring",
+          "headline": "هدف أول للضيف",
+          "caption": "7' هدف رائع من فابيان روث يفتح التسجيل 0-1",
+          "media_hint": "Fabian Roth celebrating after the 7th minute goal",
           "minute": 7,
           "players_mentioned": [
             "Fabian Roth"
@@ -3178,9 +3175,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "card-red",
-          "headline": "بطاقة حمراء للزوار",
-          "caption": "في الدقيقة 17 طُرد لوكاس براندت من الملعب بالبطاقة الحمراء، لكن الفريق استمر في الضغط.",
-          "media_hint": "Lukas Brandt receiving red card",
+          "headline": "طرد لوقاس براندت",
+          "caption": "17' طرد مباشر للوكاس براندت، يقلل عدد اللاعبين",
+          "media_hint": "Lukas Brandt receiving a red card on the pitch",
           "minute": 17,
           "players_mentioned": [
             "Lukas Brandt"
@@ -3192,12 +3189,11 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "أهداف حاسمة في الشوط الثاني",
-          "caption": "ديفيد ستاينر سجل في الدقيقة 72 لتوسيع الفارق 0-2، ثم برايان نولان أضاع هدف الغرانيت هيل في الدقيقة 87 بمساعدة كيفن لينش.",
-          "media_hint": "collage of David Steiner and Brian Nolan goals",
-          "minute": 72,
+          "headline": "نقطة غرانيت في الدقيقة 87",
+          "caption": "87' بريان نولان يضرب هدفًا بتمرير من كيفن لينش 1-2",
+          "media_hint": "Brian Nolan scoring with Kevin Lynch's assist",
+          "minute": 87,
           "players_mentioned": [
-            "David Steiner",
             "Brian Nolan",
             "Kevin Lynch"
           ],
@@ -3208,9 +3204,9 @@
           "type": "stat",
           "template": "stat-card",
           "icon": "stat",
-          "headline": "الإحصائيات",
-          "caption": "الاستحواذ: غرانيت هيل 44% - 56% ألباين واندررز. التسديدات: 7 - 10. على المرمى: 4 - 2. الركنيات: 4 - 4. الأخطاء: 12 - 12.",
-          "media_hint": "stats graphic showing possession, shots, corners, fouls",
+          "headline": "إحصائيات المباراة",
+          "caption": "استحواذ: غرانيت 44% - 56% ألباين. تسديدات: 7 - 10. تسديدات على المرمى: 4 - 2",
+          "media_hint": "infographic of match stats",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -3221,8 +3217,8 @@
           "template": "quote",
           "icon": "quote",
           "headline": "تصريح المدرب",
-          "caption": "إيان دويل: \"علينا أن ننظر إلى أنفسنا. لم نكن جيدين اليوم.\"",
-          "media_hint": "Ian Doyle speaking to media",
+          "caption": "آيان دويل: “علينا أن نعيد النظر، لم نكن جيدين اليوم”.",
+          "media_hint": "Ian Doyle speaking during post‑match interview",
           "minute": null,
           "players_mentioned": [
             "Ian Doyle"
@@ -3234,9 +3230,9 @@
           "type": "cta",
           "template": "cta",
           "icon": "ticket",
-          "headline": "احجز تذكرتك للمباراة القادمة",
-          "caption": "لا تفوت فرصة مشاهدة غرانيت هيل في ملعبه! احجز الآن.",
-          "media_hint": "ticket graphic with club logos",
+          "headline": "احجز مقعدك للمباراة القادمة",
+          "caption": "لا تفوت فرصة مشاهدة غرانيت هيل في المنزل، احصل على تذاكر الآن!",
+          "media_hint": "ticket graphic with club colors",
           "minute": null,
           "players_mentioned": [],
           "cta_text": "Get tickets for the next home game",
@@ -3245,12 +3241,12 @@
       ],
       "quiz": [
         {
-          "question": "ما هو النتيجة النهائية للمباراة؟",
+          "question": "ما هي النتيجة النهائية للمباراة؟",
           "options": [
             "1-2",
-            "1-1",
-            "0-2",
-            "2-1"
+            "2-1",
+            "2-0",
+            "0-2"
           ],
           "correct_index": 0,
           "kind": "final_score",
@@ -3260,52 +3256,64 @@
         {
           "question": "من سجل أول هدف في المباراة؟",
           "options": [
-            "Fabian Roth",
-            "Lukas Brandt",
             "David Steiner",
-            "Brian Nolan"
+            "Brian Nolan",
+            "Fabian Roth",
+            "Sean Murphy"
           ],
-          "correct_index": 0,
+          "correct_index": 2,
           "kind": "first_scorer",
           "answer_canonical": "Fabian Roth",
           "stat_key": "none"
         },
         {
-          "question": "من حصل على بطاقة حمراء؟",
+          "question": "في أي دقيقة تم طرد لوكاس براندت؟",
           "options": [
-            "Brian Nolan",
-            "Sean Murphy",
-            "Kevin Lynch",
-            "Lukas Brandt"
+            "17'",
+            "45'",
+            "70'",
+            "22'"
           ],
-          "correct_index": 3,
+          "correct_index": 0,
           "kind": "red_card",
-          "answer_canonical": "Lukas Brandt",
+          "answer_canonical": "17'",
+          "stat_key": "none"
+        },
+        {
+          "question": "من هو مدرب غرانيت هيل؟",
+          "options": [
+            "Kevin Lynch",
+            "Anna Keller",
+            "Ian Doyle",
+            "Jonas Egli"
+          ],
+          "correct_index": 2,
+          "kind": "other",
+          "answer_canonical": "Ian Doyle",
           "stat_key": "none"
         }
       ],
       "poll": {
-        "question": "من كان اللاعب الأكثر تأثيرًا في المباراة؟",
+        "question": "ما هو رأيك في أداء غرانيت هيل اليوم؟",
         "options": [
-          "Fabian Roth",
-          "David Steiner",
-          "Brian Nolan",
-          "Lukas Brandt"
+          "جيد",
+          "متوسط",
+          "سيء"
         ]
       },
       "categories": [
         "match-report",
         "goals",
         "red-card",
-        "stats",
-        "post-match-quotes"
+        "comeback",
+        "stats"
       ],
       "tags": [
         "granitehill",
         "alpinewanderers",
         "cpl",
-        "matchday17",
-        "tickets"
+        "2026",
+        "thriller"
       ]
     }
   },
@@ -3323,17 +3331,17 @@
       "cta": true
     },
     "grade": {
-      "hook": 4,
+      "hook": 3,
       "accuracy": 5,
       "voice": 5,
-      "comment": "The story captures the match facts accurately and maintains a formal, confident tone suitable for an official club channel, though the hook could be slightly more compelling."
+      "comment": "The pages accurately reflect the match data and maintain the formal club tone, but the headline could be more engaging to increase the hook."
     },
     "pass": true,
-    "ms": 5083,
-    "usd": 0.00168,
-    "judge_usd": 0.000126,
-    "tokens_in": 2370,
-    "tokens_out": 2207,
+    "ms": 4401,
+    "usd": 0.00141,
+    "judge_usd": 0.000119,
+    "tokens_in": 2391,
+    "tokens_out": 1753,
     "flags": {},
     "quiz": "4/4",
     "quiz_flags": {},
@@ -3348,8 +3356,8 @@
           "template": "cover-score",
           "icon": "ball",
           "headline": "CBA 3-1 Nile City",
-          "caption": "Coral Bay Athletic secure a 3-1 victory at Pharos Arena on matchday 18.",
-          "media_hint": "final scoreboard graphic",
+          "caption": "Coral Bay Athletic secure a 3-1 victory over Nile City FC at Pharos Arena.",
+          "media_hint": "final whistle with both team benches",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -3359,15 +3367,15 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "CBA take early lead",
-          "caption": "Gabriel Nunes (17') free‑kick and Danilo Rocha (41') left‑foot finish put Coral Bay 2‑0 up.",
-          "media_hint": "Gabriel Nunes celebrating free kick",
-          "minute": 17,
+          "headline": "Goals",
+          "caption": "Gabriel Nunes (17') free kick, Danilo Rocha (41') left-foot, Ali Mansour (52') penalty, Mateus Pinto (71') penalty.",
+          "media_hint": "goal celebrations collage",
+          "minute": null,
           "players_mentioned": [
             "Gabriel Nunes",
-            "Igor Santos",
             "Danilo Rocha",
-            "Thiago Prado"
+            "Ali Mansour",
+            "Mateus Pinto"
           ],
           "cta_text": null,
           "cta_url": null
@@ -3375,28 +3383,12 @@
         {
           "type": "moment",
           "template": "moment",
-          "icon": "ball",
-          "headline": "Mansour scores penalty",
-          "caption": "Ali Mansour converts from the spot in the 52nd minute to give Nile City a lifeline, 1‑2.",
-          "media_hint": "Ali Mansour penalty shot",
-          "minute": 52,
+          "icon": "card-red",
+          "headline": "Red Card",
+          "caption": "Caio Alves sent off for Coral Bay Athletic in the 86th minute.",
+          "media_hint": "referee showing red card to Caio Alves",
+          "minute": 86,
           "players_mentioned": [
-            "Ali Mansour"
-          ],
-          "cta_text": null,
-          "cta_url": null
-        },
-        {
-          "type": "moment",
-          "template": "moment",
-          "icon": "ball",
-          "headline": "CBA seal win, Alves sent off",
-          "caption": "Mateus Pinto penalties 71' to make it 3‑1; later Caio Alves receives a red card in the 86th minute.",
-          "media_hint": "Mateus Pinto celebrating penalty",
-          "minute": 71,
-          "players_mentioned": [
-            "Mateus Pinto",
-            "Thiago Prado",
             "Caio Alves"
           ],
           "cta_text": null,
@@ -3406,9 +3398,9 @@
           "type": "stat",
           "template": "stat-card",
           "icon": "stat",
-          "headline": "Match stats",
-          "caption": "Possession: Nile City 53% - 47% Coral Bay; Shots 8‑3; Shots on target 2‑3; Corners 10‑1; Fouls 12‑8.",
-          "media_hint": "statistical infographic",
+          "headline": "Match Stats",
+          "caption": "Possession: Nile City 53% - 47% Coral Bay. Shots 8-3, Shots on target 2-3, Corners 10-1, Fouls 12-8.",
+          "media_hint": "infographic of key statistics",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -3418,9 +3410,9 @@
           "type": "quote",
           "template": "quote",
           "icon": "quote",
-          "headline": "Coach Haddad reflects",
-          "caption": "\"We created chances but did not take them. We go again,\" says Samir Haddad.",
-          "media_hint": "Samir Haddad speaking to media",
+          "headline": "Coach’s Reaction",
+          "caption": "Samir Haddad: “We created chances but did not take them. We go again.”",
+          "media_hint": "coach Samir Haddad speaking at post‑match press area",
           "minute": null,
           "players_mentioned": [
             "Samir Haddad"
@@ -3432,9 +3424,9 @@
           "type": "cta",
           "template": "cta",
           "icon": "ticket",
-          "headline": "Next match tickets",
-          "caption": "Get tickets for Nile City's next home game and cheer us on!",
-          "media_hint": "stadium seats photo",
+          "headline": "Next Match Tickets",
+          "caption": "Get your tickets now for Nile City’s upcoming home game.",
+          "media_hint": "stadium seats with ticket graphic",
           "minute": null,
           "players_mentioned": [],
           "cta_text": "Get tickets for the next home game",
@@ -3445,18 +3437,18 @@
         {
           "question": "What was the final score?",
           "options": [
+            "2-2",
+            "0-4",
             "3-1",
-            "2-1",
-            "0-2",
             "1-3"
           ],
-          "correct_index": 0,
+          "correct_index": 2,
           "kind": "final_score",
           "answer_canonical": "3-1",
           "stat_key": "none"
         },
         {
-          "question": "Who scored the first goal of the match?",
+          "question": "Who scored the opening goal?",
           "options": [
             "Gabriel Nunes",
             "Ali Mansour",
@@ -3471,27 +3463,27 @@
         {
           "question": "Which player received a red card?",
           "options": [
-            "Caio Alves",
-            "Ramy Saber",
-            "Mostafa Kamel",
-            "Hany Gamal"
+            "Leandro Melo",
+            "Bruno Lima",
+            "Igor Santos",
+            "Caio Alves"
           ],
-          "correct_index": 0,
+          "correct_index": 3,
           "kind": "red_card",
           "answer_canonical": "Caio Alves",
           "stat_key": "none"
         },
         {
-          "question": "Who assisted Mateus Pinto's penalty goal?",
+          "question": "Who assisted the first goal?",
           "options": [
+            "Igor Santos",
             "Thiago Prado",
-            "Vitor Reis",
-            "Leandro Melo",
-            "Igor Santos"
+            "Hugo Faria",
+            "Pedro Matos"
           ],
           "correct_index": 0,
           "kind": "assist",
-          "answer_canonical": "Thiago Prado",
+          "answer_canonical": "Igor Santos",
           "stat_key": "none"
         }
       ],
@@ -3500,8 +3492,217 @@
         "options": [
           "Early away goals",
           "Home penalty",
-          "Late red card",
-          "Final away penalty"
+          "Red card",
+          "Late substitution"
+        ]
+      },
+      "categories": [
+        "match-report",
+        "goals",
+        "red-card",
+        "stats",
+        "post-match-quotes"
+      ],
+      "tags": [
+        "nile city",
+        "coral bay",
+        "cpl",
+        "pharos arena",
+        "2026"
+      ]
+    }
+  },
+  {
+    "match_id": "m09",
+    "label": "Nile City FC 1-3 Coral Bay Athletic",
+    "voice": "fan",
+    "lang": "en",
+    "checks": {
+      "schema": true,
+      "lengths": true,
+      "pages_5_7": true,
+      "facts": true,
+      "quiz_ok": true,
+      "cta": true
+    },
+    "grade": {
+      "hook": 4,
+      "accuracy": 5,
+      "voice": 2,
+      "comment": "The story sticks to the facts but misses the playful, punchy tone—needs more banter and emojis to match the fan‑zone vibe."
+    },
+    "pass": true,
+    "ms": 4247,
+    "usd": 0.001485,
+    "judge_usd": 0.000133,
+    "tokens_in": 2398,
+    "tokens_out": 1875,
+    "flags": {},
+    "quiz": "4/4",
+    "quiz_flags": {},
+    "story_flags": [],
+    "repairs": 0,
+    "rate_limit_wait_ms": 0,
+    "story": {
+      "title": "Coral Bay Athletic 3-1 Nile City FC",
+      "pages": [
+        {
+          "type": "cover",
+          "template": "cover-score",
+          "icon": "ball",
+          "headline": "CBA crush NCF 3-1",
+          "caption": "Coral Bay Athletic stormed Nile City FC to a 3-1 win at Pharos Arena.",
+          "media_hint": "action shot of final whistle with scoreboard",
+          "minute": null,
+          "players_mentioned": [],
+          "cta_text": null,
+          "cta_url": null
+        },
+        {
+          "type": "moment",
+          "template": "moment",
+          "icon": "ball",
+          "headline": "Nunes opens scoring",
+          "caption": "Gabriel Nunes curls a free‑kick past the keeper at 17'.",
+          "media_hint": "Gabriel Nunes celebrating free kick",
+          "minute": 17,
+          "players_mentioned": [
+            "Gabriel Nunes",
+            "Igor Santos"
+          ],
+          "cta_text": null,
+          "cta_url": null
+        },
+        {
+          "type": "moment",
+          "template": "moment",
+          "icon": "ball",
+          "headline": "Rocha doubles lead",
+          "caption": "Danilo Rocha nets a left‑foot finish at 41', assisted by Thiago Prado.",
+          "media_hint": "Danilo Rocha celebrating goal",
+          "minute": 41,
+          "players_mentioned": [
+            "Danilo Rocha",
+            "Thiago Prado"
+          ],
+          "cta_text": null,
+          "cta_url": null
+        },
+        {
+          "type": "moment",
+          "template": "moment",
+          "icon": "ball",
+          "headline": "Pinto caps it off",
+          "caption": "Mateus Pinto slots home a penalty at 71' to seal 3-1.",
+          "media_hint": "Mateus Pinto celebrating penalty",
+          "minute": 71,
+          "players_mentioned": [
+            "Mateus Pinto",
+            "Thiago Prado"
+          ],
+          "cta_text": null,
+          "cta_url": null
+        },
+        {
+          "type": "stat",
+          "template": "stat-card",
+          "icon": "stat",
+          "headline": "Match stats",
+          "caption": "Possession Nile City 53% - 47% Coral Bay; Shots 8-3; Corners 10-1.",
+          "media_hint": "infographic of match stats",
+          "minute": null,
+          "players_mentioned": [],
+          "cta_text": null,
+          "cta_url": null
+        },
+        {
+          "type": "quote",
+          "template": "quote",
+          "icon": "quote",
+          "headline": "Coach Haddad speaks",
+          "caption": "\"We created chances but did not take them. We go again.\" – Samir Haddad",
+          "media_hint": "Samir Haddad on the bench",
+          "minute": null,
+          "players_mentioned": [
+            "Samir Haddad"
+          ],
+          "cta_text": null,
+          "cta_url": null
+        },
+        {
+          "type": "cta",
+          "template": "cta",
+          "icon": "ticket",
+          "headline": "Next game tickets",
+          "caption": "Grab your seat for Nile City’s next home clash! 🎟️",
+          "media_hint": "stadium seats with ticket graphic",
+          "minute": null,
+          "players_mentioned": [],
+          "cta_text": "Get tickets for the next home game",
+          "cta_url": "https://example.com/ncf/tickets"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What was the final score?",
+          "options": [
+            "3-0",
+            "2-1",
+            "0-2",
+            "1-3"
+          ],
+          "correct_index": 3,
+          "kind": "final_score",
+          "answer_canonical": "1-3",
+          "stat_key": "none"
+        },
+        {
+          "question": "Who scored the opening goal?",
+          "options": [
+            "Gabriel Nunes",
+            "Danilo Rocha",
+            "Mateus Pinto",
+            "Ali Mansour"
+          ],
+          "correct_index": 0,
+          "kind": "first_scorer",
+          "answer_canonical": "Gabriel Nunes",
+          "stat_key": "none"
+        },
+        {
+          "question": "Which player received a red card?",
+          "options": [
+            "Igor Santos",
+            "Bruno Lima",
+            "Rafael Souza",
+            "Caio Alves"
+          ],
+          "correct_index": 3,
+          "kind": "red_card",
+          "answer_canonical": "Caio Alves",
+          "stat_key": "none"
+        },
+        {
+          "question": "Who provided the assist for the first goal?",
+          "options": [
+            "Igor Santos",
+            "Pedro Matos",
+            "Thiago Prado",
+            "Hugo Faria"
+          ],
+          "correct_index": 0,
+          "kind": "assist",
+          "answer_canonical": "Igor Santos",
+          "stat_key": "none"
+        }
+      ],
+      "poll": {
+        "question": "Which moment was the turning point of the match?",
+        "options": [
+          "Gabriel Nunes free kick",
+          "Danilo Rocha goal",
+          "Mateus Pinto penalty",
+          "Red card to Caio Alves"
         ]
       },
       "categories": [
@@ -3521,229 +3722,6 @@
     }
   },
   {
-    "match_id": "m09",
-    "label": "Nile City FC 1-3 Coral Bay Athletic",
-    "voice": "fan",
-    "lang": "en",
-    "checks": {
-      "schema": true,
-      "lengths": true,
-      "pages_5_7": true,
-      "facts": true,
-      "quiz_ok": true,
-      "cta": true
-    },
-    "grade": {
-      "hook": 4,
-      "accuracy": 5,
-      "voice": 4,
-      "comment": "Solid, but hook could punchier; overall accurate and lively."
-    },
-    "pass": true,
-    "ms": 7995,
-    "usd": 0.001798,
-    "judge_usd": 0.000134,
-    "tokens_in": 2377,
-    "tokens_out": 2403,
-    "flags": {},
-    "quiz": "5/5",
-    "quiz_flags": {},
-    "story_flags": [],
-    "repairs": 0,
-    "rate_limit_wait_ms": 0,
-    "story": {
-      "title": "Coral Bay Athletic 3-1 Nile City FC",
-      "pages": [
-        {
-          "type": "cover",
-          "template": "cover-score",
-          "icon": "ball",
-          "headline": "Coral Bay 3-1 Nile City",
-          "caption": "A wild night at Pharos Arena – CBA cruise to a 3-1 victory over the hosts! 🎉",
-          "media_hint": "final whistle view of scoreboard",
-          "minute": null,
-          "players_mentioned": [],
-          "cta_text": null,
-          "cta_url": null
-        },
-        {
-          "type": "moment",
-          "template": "moment",
-          "icon": "ball",
-          "headline": "CBA storm ahead",
-          "caption": "17' Gabriel Nunes (free‑kick) and 41' Danilo Rocha (left‑foot) put the visitors 2‑0 up by halftime.",
-          "media_hint": "Gabriel Nunes and Danilo Rocha celebrating",
-          "minute": null,
-          "players_mentioned": [
-            "Gabriel Nunes",
-            "Igor Santos",
-            "Danilo Rocha",
-            "Thiago Prado"
-          ],
-          "cta_text": null,
-          "cta_url": null
-        },
-        {
-          "type": "moment",
-          "template": "moment",
-          "icon": "ball",
-          "headline": "Goals fire back",
-          "caption": "52' Ali Mansour converts a penalty, but 71' Mateus Pinto’s spot‑kick seals the win for CBA.",
-          "media_hint": "Ali Mansour and Mateus Pinto penalties",
-          "minute": null,
-          "players_mentioned": [
-            "Ali Mansour",
-            "Mateus Pinto",
-            "Thiago Prado"
-          ],
-          "cta_text": null,
-          "cta_url": null
-        },
-        {
-          "type": "moment",
-          "template": "moment",
-          "icon": "card-red",
-          "headline": "Red card for Caio Alves",
-          "caption": "86' Caio Alves is sent off, leaving CBA a man down but still in control.",
-          "media_hint": "Caio Alves shown red card",
-          "minute": 86,
-          "players_mentioned": [
-            "Caio Alves"
-          ],
-          "cta_text": null,
-          "cta_url": null
-        },
-        {
-          "type": "stat",
-          "template": "stat-card",
-          "icon": "stat",
-          "headline": "Match stats",
-          "caption": "Possession 53%‑47% • Shots 8‑3 • Shots on target 2‑3 • Corners 10‑1 • Fouls 12‑8",
-          "media_hint": "statistic graphic",
-          "minute": null,
-          "players_mentioned": [],
-          "cta_text": null,
-          "cta_url": null
-        },
-        {
-          "type": "quote",
-          "template": "quote",
-          "icon": "quote",
-          "headline": "Coach Haddad's take",
-          "caption": "“We created chances but did not take them. We go again.” – Samir Haddad",
-          "media_hint": "Samir Haddad speaking to media",
-          "minute": null,
-          "players_mentioned": [
-            "Samir Haddad"
-          ],
-          "cta_text": null,
-          "cta_url": null
-        },
-        {
-          "type": "cta",
-          "template": "cta",
-          "icon": "ticket",
-          "headline": "Next home game tickets",
-          "caption": "Don’t miss the action – grab your seats for Nile City’s next match!",
-          "media_hint": "ticket graphic",
-          "minute": null,
-          "players_mentioned": [],
-          "cta_text": "Get tickets for the next home game",
-          "cta_url": "https://example.com/ncf/tickets"
-        }
-      ],
-      "quiz": [
-        {
-          "question": "What was the final score?",
-          "options": [
-            "0-4",
-            "2-2",
-            "3-1",
-            "1-3"
-          ],
-          "correct_index": 2,
-          "kind": "final_score",
-          "answer_canonical": "3-1",
-          "stat_key": "none"
-        },
-        {
-          "question": "Who scored the first goal?",
-          "options": [
-            "Danilo Rocha",
-            "Ali Mansour",
-            "Gabriel Nunes",
-            "Mateus Pinto"
-          ],
-          "correct_index": 2,
-          "kind": "first_scorer",
-          "answer_canonical": "Gabriel Nunes",
-          "stat_key": "none"
-        },
-        {
-          "question": "Which player received a red card?",
-          "options": [
-            "Rafael Souza",
-            "Igor Santos",
-            "Caio Alves",
-            "Bruno Lima"
-          ],
-          "correct_index": 2,
-          "kind": "red_card",
-          "answer_canonical": "Caio Alves",
-          "stat_key": "none"
-        },
-        {
-          "question": "Who assisted the opening goal?",
-          "options": [
-            "Tarek Selim",
-            "Thiago Prado",
-            "Igor Santos",
-            "Hany Gamal"
-          ],
-          "correct_index": 2,
-          "kind": "assist",
-          "answer_canonical": "Igor Santos",
-          "stat_key": "none"
-        },
-        {
-          "question": "Where was the match played?",
-          "options": [
-            "Oceanic Park",
-            "Pharos Arena",
-            "Riverfront Ground",
-            "Delta Stadium"
-          ],
-          "correct_index": 1,
-          "kind": "venue",
-          "answer_canonical": "Pharos Arena",
-          "stat_key": "none"
-        }
-      ],
-      "poll": {
-        "question": "Which moment defined the match?",
-        "options": [
-          "Opening goal",
-          "Penalty comeback",
-          "Red card"
-        ]
-      },
-      "categories": [
-        "match-report",
-        "goals",
-        "red-card",
-        "stats",
-        "post-match-quotes"
-      ],
-      "tags": [
-        "nilecity",
-        "coralbay",
-        "cpl",
-        "2026",
-        "pharosarena"
-      ]
-    }
-  },
-  {
     "match_id": "m10",
     "label": "Riverside Phoenix 1-0 Delta Rovers",
     "voice": "official",
@@ -3761,30 +3739,30 @@
       "hook": 4,
       "accuracy": 5,
       "voice": 5,
-      "comment": "الصفحات تحافظ على دقة المعلومات وتقدمها بأسلوب رسمي ومباشر، مع جذب جيد للقراء عبر العنوان والتسميات، لكن يمكن تحسين الجاذبية في الصفحة الأولى لزيادة التفاعل."
+      "comment": "الصفحات تغطي الحدث بدقة، مع عنوان جذاب وملخص واضح، لكن يمكن تعزيز القصة بلمسة أكثر إثارة في الصفحة الأولى."
     },
     "pass": true,
-    "ms": 4414,
-    "usd": 0.001432,
-    "judge_usd": 0.000141,
-    "tokens_in": 2268,
-    "tokens_out": 1820,
+    "ms": 5102,
+    "usd": 0.001584,
+    "judge_usd": 0.000127,
+    "tokens_in": 2289,
+    "tokens_out": 2067,
     "flags": {},
-    "quiz": "4/4",
+    "quiz": "5/5",
     "quiz_flags": {},
     "story_flags": [],
     "repairs": 0,
     "rate_limit_wait_ms": 0,
     "story": {
-      "title": "ريفييرس فاينكس 1-0 دلتا روفرز",
+      "title": "ريڤرسايد فينكس ينتصر 1-0 على دلتا روفرز",
       "pages": [
         {
           "type": "cover",
           "template": "cover-score",
           "icon": "ball",
-          "headline": "ريفييرس فاينكس 1-0 دلتا روفرز",
-          "caption": "فاز ريفيرس فاينكس على دلتا روفرز بنتيجة 1-0 في ملعب إمبر في الجولة 19 من دوري القارة الممتاز.",
-          "media_hint": "final scoreboard with both team logos",
+          "headline": "ريڤرسايد فينكس 1-0 دلتا روفرز",
+          "caption": "نهاية قوية لفريق ريفرسايد فينكس بفوز 1-0 على دلتا روفرز في ملعب إمبر.",
+          "media_hint": "final score graphic with both team logos",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -3794,9 +3772,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "هدف شايخ ندايي",
-          "caption": "الهدف جاء في الدقيقة 73 عن طريق شايخ ندايي من تمريرة حاسمة من سون لور.",
-          "media_hint": "Cheikh Ndiaye celebrating after scoring",
+          "headline": "هدف شايخ نديا",
+          "caption": "في الدقيقة 73 سجل شايخ نديا هدف اليسار لتقود ريفرسايد فينكس إلى الصدارة 1-0.",
+          "media_hint": "Cheikh Ndiaye celebrating after goal",
           "minute": 73,
           "players_mentioned": [
             "Cheikh Ndiaye",
@@ -3809,12 +3787,14 @@
           "type": "moment",
           "template": "moment",
           "icon": "card-yellow",
-          "headline": "إنذار أصفر لموسى ديالو",
-          "caption": "حصل موسى ديالو (ريفرسايد) على إنذار أصفر في الدقيقة 33.",
-          "media_hint": "Moussa Diallo receiving yellow card",
-          "minute": 33,
+          "headline": "بطاقات صفراء",
+          "caption": "حصل موسى ديالو على بطاقة صفراء في الدقيقة 33، وإريك داله في الدقيقة 41، ولويس فيريرا في الدقيقة 57.",
+          "media_hint": "yellow cards being shown to players",
+          "minute": null,
           "players_mentioned": [
-            "Moussa Diallo"
+            "Moussa Diallo",
+            "Erik Dahl",
+            "Luis Ferreira"
           ],
           "cta_text": null,
           "cta_url": null
@@ -3823,9 +3803,9 @@
           "type": "stat",
           "template": "stat-card",
           "icon": "stat",
-          "headline": "الإحصائيات",
-          "caption": "الاستحواذ 54% - 46% لصالح ريفيرس فاينكس. التسديدات 10 - 4، على الهدف 6 - 1. الزوايا 1 - 5، الأخطاء 15 - 9.",
-          "media_hint": "statistical graphic showing possession, shots, corners",
+          "headline": "إحصائيات المباراة",
+          "caption": "استحوذت ريفرسايد فينكس على 54% من الاستحواذ، 10 تسديدات (6 على المرمى) مقابل 4 تسديدات (1 على المرمى) لفريق دلتا روفرز.",
+          "media_hint": "statistical bar chart comparing both teams",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -3835,8 +3815,8 @@
           "type": "quote",
           "template": "quote",
           "icon": "quote",
-          "headline": "تصريحات المدربة",
-          "caption": "«الأولاد أعطوا كل شيء الليلة. هذا الفوز من أجل المشجعين». – غريس أوكويا، مدربة ريفيرس فاينكس.",
+          "headline": "كلمة المدربة غريس أوكوي",
+          "caption": "قالت غريس أوكوي: “اللاعبون بذلوا كل ما لديهم الليلة. هذا الفوز للجماهير.”",
           "media_hint": "Grace Okoye speaking to media",
           "minute": null,
           "players_mentioned": [
@@ -3850,7 +3830,7 @@
           "template": "cta",
           "icon": "ticket",
           "headline": "احجز تذكرتك للمباراة القادمة",
-          "caption": "لا تفوت فرصة مشاهدة ريفيرس فاينكس في ملعب إمبر. احجز الآن عبر الرابط.",
+          "caption": "لا تفوت فرصة مشاهدة ريفرسايد فينكس على أرضهم. احجز الآن!",
           "media_hint": "ticket graphic with club colors",
           "minute": null,
           "players_mentioned": [],
@@ -3860,12 +3840,12 @@
       ],
       "quiz": [
         {
-          "question": "ما هي النتيجة النهائية للمباراة؟",
+          "question": "ما هي نتيجة المباراة؟",
           "options": [
-            "1-1",
+            "2-1",
             "0-1",
             "1-0",
-            "2-0"
+            "1-1"
           ],
           "correct_index": 2,
           "kind": "final_score",
@@ -3873,14 +3853,14 @@
           "stat_key": "none"
         },
         {
-          "question": "من سجل هدف ريفيرس فاينكس؟",
+          "question": "من سجل أول هدف؟",
           "options": [
+            "Cheikh Ndiaye",
+            "Moussa Diallo",
             "Erik Dahl",
-            "Luis Ferreira",
-            "Marco Bellini",
-            "Cheikh Ndiaye"
+            "Luis Ferreira"
           ],
-          "correct_index": 3,
+          "correct_index": 0,
           "kind": "scorer",
           "answer_canonical": "Cheikh Ndiaye",
           "stat_key": "none"
@@ -3888,12 +3868,12 @@
         {
           "question": "في أي دقيقة جاء الهدف؟",
           "options": [
-            "57'",
-            "90'",
-            "64'",
-            "73'"
+            "60",
+            "80",
+            "73",
+            "45"
           ],
-          "correct_index": 3,
+          "correct_index": 2,
           "kind": "goal_minute",
           "answer_canonical": "73",
           "stat_key": "none"
@@ -3901,38 +3881,52 @@
         {
           "question": "من قدم التمريرة الحاسمة للهدف؟",
           "options": [
+            "Seun Lawal",
             "Ade Bakare",
-            "Ibrahim Sow",
             "Victor Osei",
-            "Seun Lawal"
+            "Ibrahim Sow"
           ],
-          "correct_index": 3,
+          "correct_index": 0,
           "kind": "assist",
           "answer_canonical": "Seun Lawal",
+          "stat_key": "none"
+        },
+        {
+          "question": "أين أقيمت المباراة؟",
+          "options": [
+            "Ember Field",
+            "Delta Arena",
+            "City Park",
+            "River Stadium"
+          ],
+          "correct_index": 0,
+          "kind": "venue",
+          "answer_canonical": "Ember Field",
           "stat_key": "none"
         }
       ],
       "poll": {
-        "question": "ما هو أفضل لحظة في المباراة؟",
+        "question": "ما هو رأيك بأداء ريفرسايد فينكس؟",
         "options": [
-          "الهدف",
-          "البطاقات الصفراء",
-          "التبديلات",
-          "الإحصائيات"
+          "ممتاز",
+          "جيد",
+          "متوسط",
+          "ضعيف"
         ]
       },
       "categories": [
         "match-report",
         "goals",
         "stats",
-        "post-match-quotes"
+        "post-match-quotes",
+        "clean-sheet"
       ],
       "tags": [
-        "riverside",
-        "phoenix",
-        "delta",
-        "rovers",
-        "cpl"
+        "riverside phoenix",
+        "delta rovers",
+        "premier league",
+        "ember field",
+        "victory"
       ]
     }
   },
@@ -3948,35 +3942,35 @@
       "facts": true,
       "quiz_ok": true,
       "cta": true,
-      "is_arabic": true
+      "is_arabic": false
     },
     "grade": {
-      "hook": 3,
-      "accuracy": 4,
-      "voice": 4,
-      "comment": "The pages capture the key moments and stats, but the hook could be stronger with more punchy language. Accuracy is solid, though a few details (e.g., the assistant line) are missing. Voice aligns well with the playful, energetic fan zone style in Arabic."
+      "hook": 5,
+      "accuracy": 5,
+      "voice": 5,
+      "comment": "All pages are spot‑on: accurate stats, quotes, and a playful, punchy Arabic style that keeps readers clicking."
     },
-    "pass": true,
-    "ms": 9234,
-    "usd": 0.001478,
-    "judge_usd": 0.00012,
-    "tokens_in": 2275,
-    "tokens_out": 1894,
+    "pass": false,
+    "ms": 7265,
+    "usd": 0.001432,
+    "judge_usd": 0.000118,
+    "tokens_in": 2296,
+    "tokens_out": 1812,
     "flags": {},
-    "quiz": "4/4",
+    "quiz": "5/5",
     "quiz_flags": {},
     "story_flags": [],
     "repairs": 0,
     "rate_limit_wait_ms": 0,
     "story": {
-      "title": "ريفرسايد فينكس يتفوق على دلتا روفرز 1-0",
+      "title": "مباراة ريفيرسيد بايونكس ضد دلتا روفرز",
       "pages": [
         {
           "type": "cover",
           "template": "cover-score",
           "icon": "ball",
-          "headline": "ريفرسايد فينكس 1-0 دلتا روفرز",
-          "caption": "فوز ضيق في ملعب إمبر، الفينيكس يرفعون النتيجة 1-0",
+          "headline": "ريفييرسيد بايونكس 1-0 دلتا روفرز",
+          "caption": "فوز صعب على الأرضية Ember Field 🎉",
           "media_hint": "final score graphic",
           "minute": null,
           "players_mentioned": [],
@@ -3987,9 +3981,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "هدف شايخ نديا",
-          "caption": "شايخ نديا يضرب اليسار 73' ويسجل الفينكس 1-0",
-          "media_hint": "celebration of Cheikh Ndiaye",
+          "headline": "هدف ريفيرسيد بايونكس",
+          "caption": "تشايخ نديي يسجل بالقدم اليسرى assisted by سون لوايل في الدقيقة 73",
+          "media_hint": "goal celebration clip",
           "minute": 73,
           "players_mentioned": [
             "Cheikh Ndiaye",
@@ -3999,26 +3993,12 @@
           "cta_url": null
         },
         {
-          "type": "moment",
-          "template": "moment",
-          "icon": "card-yellow",
-          "headline": "تحذير للفيينكس",
-          "caption": "موسى ديالو يحصل على بطاقة صفراء 33'",
-          "media_hint": "yellow card to Moussa Diallo",
-          "minute": 33,
-          "players_mentioned": [
-            "Moussa Diallo"
-          ],
-          "cta_text": null,
-          "cta_url": null
-        },
-        {
           "type": "stat",
           "template": "stat-card",
           "icon": "stat",
-          "headline": "الإحصاءات",
-          "caption": "استحواذ 54% - 46%، تسديدات 10-4، على الهدف 6-1",
-          "media_hint": "stat overlay",
+          "headline": "إحصائيات المباراة",
+          "caption": "استحواذ: Riverside Phoenix 54% - 46% Delta Rovers، تسديدات 10-4، على الهدف 6-1",
+          "media_hint": "stats board screenshot",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -4028,9 +4008,9 @@
           "type": "quote",
           "template": "quote",
           "icon": "quote",
-          "headline": "كلمة المدربة غريس",
-          "caption": "غريس أوكوي: “اللاعبون أعطوا كل شيء الليلة، هذا من أجل الجماهير.”",
-          "media_hint": "coach Grace Okoye speaking",
+          "headline": "كلمة المدرب",
+          "caption": "غريس أوكويا: \"الفرسان أعطوا كل شيء الليلة. هذه للمعجبين\"",
+          "media_hint": "coach interview photo",
           "minute": null,
           "players_mentioned": [
             "Grace Okoye"
@@ -4043,8 +4023,8 @@
           "template": "cta",
           "icon": "ticket",
           "headline": "احجز تذكرتك",
-          "caption": "لا تفوت المباراة القادمة في إمبر فلد! 🎟",
-          "media_hint": "ticket graphic",
+          "caption": "لا تفوت المباراة القادمة في Ember Field",
+          "media_hint": "ticket promotion graphic",
           "minute": null,
           "players_mentioned": [],
           "cta_text": "Get tickets for the next home game",
@@ -4055,22 +4035,22 @@
         {
           "question": "ما هي النتيجة النهائية للمباراة؟",
           "options": [
-            "0-1",
             "2-1",
-            "2-0",
-            "1-0"
+            "1-0",
+            "0-1",
+            "1-1"
           ],
-          "correct_index": 3,
+          "correct_index": 1,
           "kind": "final_score",
           "answer_canonical": "1-0",
           "stat_key": "none"
         },
         {
-          "question": "من سجل هدف ريفرسايد فينكس؟",
+          "question": "من سجل أول هدف في المباراة؟",
           "options": [
-            "Marco Bellini",
-            "Cheikh Ndiaye",
             "Ivan Kovac",
+            "Cheikh Ndiaye",
+            "Marco Bellini",
             "Luis Ferreira"
           ],
           "correct_index": 1,
@@ -4081,37 +4061,49 @@
         {
           "question": "في أي دقيقة جاء الهدف؟",
           "options": [
-            "45'",
-            "60'",
-            "73'",
-            "80'"
+            "60",
+            "73",
+            "80",
+            "45"
           ],
-          "correct_index": 2,
+          "correct_index": 1,
           "kind": "goal_minute",
-          "answer_canonical": "73'",
+          "answer_canonical": "73",
           "stat_key": "none"
         },
         {
           "question": "من قدم التمريرة الحاسمة للهدف؟",
           "options": [
-            "Tom Hadley",
+            "Seun Lawal",
             "Ade Bakare",
             "Victor Osei",
-            "Seun Lawal"
+            "Ibrahim Sow"
           ],
-          "correct_index": 3,
+          "correct_index": 0,
           "kind": "assist",
           "answer_canonical": "Seun Lawal",
+          "stat_key": "none"
+        },
+        {
+          "question": "أين أقيمت المباراة؟",
+          "options": [
+            "Delta Park",
+            "Ember Field",
+            "Sahara Arena",
+            "Nile Stadium"
+          ],
+          "correct_index": 1,
+          "kind": "venue",
+          "answer_canonical": "Ember Field",
           "stat_key": "none"
         }
       ],
       "poll": {
-        "question": "أي لحظة كانت الأهم في المباراة؟",
+        "question": "ما هو أفضل لحظة في المباراة؟",
         "options": [
-          "الهدف",
-          "البطاقات الصفراء",
-          "التبديلات",
-          "الإحصاءات"
+          "الهدف في الدقيقة 73",
+          "البطاقة الصفراء لموسى ديالو",
+          "التبديل في الدقيقة 64"
         ]
       },
       "categories": [
@@ -4124,7 +4116,7 @@
         "riverside phoenix",
         "delta rovers",
         "ember field",
-        "2026"
+        "2026-10-28"
       ]
     }
   },
@@ -4149,11 +4141,11 @@
       "comment": "rule-checked only"
     },
     "pass": true,
-    "ms": 3940,
-    "usd": 0.001015,
+    "ms": 2563,
+    "usd": 0.000887,
     "judge_usd": 0,
-    "tokens_in": 1455,
-    "tokens_out": 1328,
+    "tokens_in": 1476,
+    "tokens_out": 1110,
     "flags": {},
     "quiz": "3/3",
     "quiz_flags": {},
@@ -4178,10 +4170,10 @@
         {
           "type": "moment",
           "template": "moment",
-          "icon": "whistle",
-          "headline": "Harbor Town dominate the game",
-          "caption": "Harbor Town United controlled the match from the first whistle, dictating possession and creating chances.",
-          "media_hint": "Harbor Town in possession near midfield",
+          "icon": "ball",
+          "headline": "First Goal",
+          "caption": "Harbor Town opened the scoring early in the match, establishing control.",
+          "media_hint": "close‑up of the first goal celebration",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -4191,9 +4183,9 @@
           "type": "moment",
           "template": "moment",
           "icon": "ball",
-          "headline": "Two goals secure the win",
-          "caption": "Harbor Town United scored twice to seal a comfortable 2-0 win at Lighthouse Ground.",
-          "media_hint": "goal celebrations with the team",
+          "headline": "Second Goal Seals Win",
+          "caption": "A second strike cemented the 2‑0 win for Harbor Town United.",
+          "media_hint": "player celebrating the second goal",
           "minute": null,
           "players_mentioned": [],
           "cta_text": null,
@@ -4203,9 +4195,9 @@
           "type": "quote",
           "template": "quote",
           "icon": "quote",
-          "headline": "Coach Mark Ellery on the performance",
-          "caption": "\"The patience of our side paid off today,\" said home coach Mark Ellery after the match.",
-          "media_hint": "coach Mark Ellery speaking to the media",
+          "headline": "Coach Ellery on the Performance",
+          "caption": "\"We showed great patience today,\" said home coach Mark Ellery after the match.",
+          "media_hint": "coach Mark Ellery speaking on the sideline",
           "minute": null,
           "players_mentioned": [
             "Mark Ellery"
@@ -4217,12 +4209,12 @@
           "type": "cta",
           "template": "cta",
           "icon": "ticket",
-          "headline": "Get your tickets for the next match",
-          "caption": "Visit the official club website to purchase tickets for Harbor Town United's upcoming fixtures.",
-          "media_hint": "ticket graphic with club logo",
+          "headline": "Next Match Details",
+          "caption": "Stay tuned for upcoming fixtures and ticket information.",
+          "media_hint": "stadium exterior with upcoming match banner",
           "minute": null,
           "players_mentioned": [],
-          "cta_text": "Buy Tickets",
+          "cta_text": "Read the full match report",
           "cta_url": "https://example.com/news"
         }
       ],
@@ -4243,12 +4235,12 @@
         {
           "question": "Which team won the match?",
           "options": [
-            "Lighthouse Ground",
-            "Delta Rovers",
+            "Harbor Town United",
             "Sahara Falcons",
-            "Harbor Town United"
+            "None",
+            "Draw"
           ],
-          "correct_index": 3,
+          "correct_index": 0,
           "kind": "other",
           "answer_canonical": "Harbor Town United",
           "stat_key": "none"
@@ -4256,35 +4248,33 @@
         {
           "question": "Where was the match played?",
           "options": [
-            "River Park",
-            "Lighthouse Ground",
-            "Falcon Arena",
-            "Harbor Stadium"
+            "Sahara Stadium",
+            "Falcon Park",
+            "Harbor Arena",
+            "Lighthouse Ground"
           ],
-          "correct_index": 1,
+          "correct_index": 3,
           "kind": "venue",
           "answer_canonical": "Lighthouse Ground",
           "stat_key": "none"
         }
       ],
       "poll": {
-        "question": "Who was the standout player for Harbor Town United?",
+        "question": "Which team displayed the better overall performance?",
         "options": [
-          "Mark Ellery",
-          "Team Defense",
-          "Goalkeeper",
-          "Midfield Unit"
+          "Harbor Town United",
+          "Sahara Falcons"
         ]
       },
       "categories": [
         "match-report",
         "goals",
-        "clean-sheet",
         "post-match-quotes"
       ],
       "tags": [
-        "harbor-town",
-        "sahara-falcons",
+        "harbor town",
+        "sahara falcons",
+        "lighthouse ground",
         "matchday11"
       ]
     }

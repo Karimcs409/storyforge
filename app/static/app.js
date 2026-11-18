@@ -132,7 +132,7 @@ $("#gen").onclick = async () => {
   $("#pageView").innerHTML = `<div class="skeleton"><div><span class="spin"></span><br><br>Drafting Story, Trivia Quiz, Poll &amp; categories…</div></div>`;
   $("#bars").innerHTML = ""; const t0 = performance.now();
   try {
-    const body = { voice: S.voice, lang: S.lang, ...(S.src === "article" ? { article: $("#article").value } : { feed: $("#feed").value, match_id: $("#match").value }) };
+    const body = { voice: S.voice, lang: S.lang, short_title_max: +$("#shortMax").value || 20, ...(S.src === "article" ? { article: $("#article").value } : { feed: $("#feed").value, match_id: $("#match").value }) };
     const d = await api("/api/story", { method: "POST", body });
     S.data = d; S.sid = d.id; S.cur = 0; S.wall = ((performance.now() - t0) / 1000).toFixed(1);
     renderAll();
@@ -140,7 +140,77 @@ $("#gen").onclick = async () => {
   btn.disabled = false; btn.textContent = "✦ Draft Story";
 };
 
-function renderAll() { renderPhone(); renderEditor(); renderCost(); }
+function renderAll() { renderPhone(); renderEditor(); renderCost(); if (S.right === "cms") renderCms(); }
+
+// ---------------- CMS export: what an editor would otherwise type into the CMS ----------------
+S.right = "review";
+$("#rightSeg").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  S.right = b.dataset.v;
+  $("#rightSeg").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b));
+  $("#reviewPane").hidden = S.right !== "review"; $("#cmsPane").hidden = S.right !== "cms";
+  if (S.right === "cms") renderCms();
+});
+const TITLE_META = {
+  internal_title: ["Internal Title", "built in code (identifier)"],
+  long_display_title: ["Long Display Title", "rectangular thumbnails"],
+  short_display_title: ["Short Display Title", "circular thumbnails, max set per category"],
+  eyebrow: ["Eyebrow", "tagline, soft limit 20"],
+  seo_title: ["SEO title", "Google Web Story metadata"],
+  seo_description: ["SEO description", "Google Web Story metadata"],
+};
+async function renderCms() {
+  const d = S.data, pane = $("#cmsPane");
+  if (!d || !S.sid) { pane.innerHTML = '<p class="hint">Draft a Story first.</p>'; return; }
+  let ex;
+  try { ex = await api(`/api/story/${S.sid}/cms`); } catch (e) { pane.innerHTML = '<p class="hint">Could not build the export.</p>'; return; }
+  const tf = (d.report && d.report.title_flags) || {};
+  const lim = { short_display_title: d.story.short_title_max || 20, internal_title: 250, long_display_title: 60,
+                eyebrow: 20, seo_title: 60, seo_description: 155 };
+  const dir = d.lang === "ar" ? 'dir="rtl"' : "";
+  const titles = Object.keys(TITLE_META).filter(k => (ex.titles || {})[k] !== undefined).map(k => {
+    const v = ex.titles[k], f = tf[k] || [], ro = k === "internal_title";
+    const field = k === "seo_description"
+      ? `<textarea ${dir} rows="2" data-t="${k}" ${ro ? "readonly" : ""}>${esc(v)}</textarea>`
+      : `<input ${dir} data-t="${k}" value="${esc(v)}" ${ro ? "readonly" : ""}>`;
+    return `<div class="card tcard"><div class="row"><b>${TITLE_META[k][0]}</b><span class="hint">${TITLE_META[k][1]}</span>
+      <span style="margin-left:auto" class="chip ${f.length ? "bad" : "ok"}">${f.length ? "⚑ " + f.length : "✓"}</span></div>
+      ${field}<div class="cnt ${v.length > lim[k] ? "over" : ""}">${v.length}/${lim[k]}</div>
+      ${f.length ? `<div class="flags">${f.map(x => `<div>${esc(x)}</div>`).join("")}</div>` : ""}</div>`;
+  }).join("");
+  const quiz = ex.engagement_units[0], poll = ex.engagement_units[1];
+  const thumb = b => b ? `<img class="bgthumb" src="/media/${b.file}" alt="">` : "";
+  const quizHTML = `<div class="card"><div class="row"><b>Trivia Quiz</b><span class="chip">${quiz.questions.length} questions</span>
+      <span style="margin-left:auto" class="chip ${quiz.rule_issues.length ? "bad" : "ok"}">${quiz.rule_issues.length ? "⚑ " + quiz.rule_issues.length : "ready ✓"}</span></div>
+    <div class="row" style="margin-top:6px">${thumb(quiz.default_background)}${thumb(quiz.results_background)}<span class="hint">Default and results backgrounds, picked from the media library</span></div>
+    ${quiz.questions.map((q, i) => `<div class="qrow" ${dir}><div><b>Q${i + 1}.</b> ${esc(q.title)}</div>
+      ${q.answers.map(a => `<div class="ans ${a.correct ? "ok" : ""}">${a.correct ? "● correct" : "○"} ${esc(a.text)}</div>`).join("")}
+      <div class="${q.verified_in_code ? "ver" : "ver no"}">${q.verified_in_code ? "✓ correct answer verified in code (" + esc(q.check) + ")" : "⚑ " + q.flags.map(esc).join("; ")}</div></div>`).join("")}
+    ${quiz.rule_issues.length ? `<div class="flags">${quiz.rule_issues.map(x => `<div>${esc(x)}</div>`).join("")}</div>` : ""}</div>`;
+  const pollHTML = `<div class="card"><div class="row"><b>Poll</b><span class="chip">${poll.answers.length} text answers</span>
+      ${poll.side_by_side ? '<span class="chip">side by side</span>' : ""}
+      <span style="margin-left:auto" class="chip ${poll.rule_issues.length ? "bad" : "ok"}">${poll.rule_issues.length ? "⚑" : "ready ✓"}</span></div>
+    <div class="row" style="margin-top:6px">${thumb(poll.background)}<span class="hint">Question text added to the background</span></div>
+    <div class="qrow" ${dir}><b>${esc(poll.question)}</b>${poll.answers.map(a => `<div class="ans">○ ${esc(a)}</div>`).join("")}</div></div>`;
+  pane.innerHTML = `<p class="hint">Everything an editor would otherwise type into the CMS by hand, checked the same way as the pages.</p>
+    <div class="row" style="gap:6px;margin:8px 0"><button class="ghost" id="cmsCopy">Copy JSON</button><button class="ghost" id="cmsDl">Download JSON</button></div>
+    <h3>Titles</h3>${titles}<h3>Engagement Units</h3>${quizHTML}${pollHTML}
+    <h3>Categories</h3><div class="tags">${(ex.categories || []).map(c => `<span class="cat">${esc(c)}</span>`).join("")}${(ex.tags || []).map(t => `<span>#${esc(t)}</span>`).join("")}</div>`;
+  pane.querySelectorAll("[data-t]").forEach(inp => inp.oninput = () => {
+    d.story.titles[inp.dataset.t] = inp.value;
+    inp.parentElement.querySelector(".cnt").textContent = `${inp.value.length}/${lim[inp.dataset.t]}`;
+    clearTimeout(S.titleT);
+    S.titleT = setTimeout(async () => { await save(); if (S.right === "cms") renderCms(); }, 700);
+  });
+  $("#cmsCopy").onclick = async () => {
+    try { await navigator.clipboard.writeText(JSON.stringify(ex, null, 2)); toast("CMS export copied"); } catch (e) { toast("Copy failed"); }
+  };
+  $("#cmsDl").onclick = () => {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(ex, null, 2)], { type: "application/json" }));
+    a.download = `storyforge-cms-${S.sid}.json`; a.click();
+  };
+}
 
 function renderCost() {
   if (S.tab === "live") { const L = S.live; $("#cost").innerHTML = L.n ? `live pages: <b>${L.n}</b> drafted · avg <b>${(L.ms / L.n / 1000).toFixed(1)} s</b>/page · <b>$${L.usd.toFixed(4)}</b> total` : ""; return; }

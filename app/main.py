@@ -7,7 +7,7 @@ from fastapi.responses import FileResponse, HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from . import llm, factcheck, store, media
+from . import llm, factcheck, store, media, cms
 from .feeds import ADAPTERS, KEY_EVENTS
 from .schemas import VOICES, LANGS, CATEGORIES
 
@@ -60,6 +60,14 @@ class GenReq(BaseModel):
     article: str | None = None
     voice: str = "official"
     lang: str = "en"
+    short_title_max: int = 20   # the CMS sets this per category
+
+
+def _title_flags(story, facts, lang):
+    """Re-check the title pack (lengths + facts) whenever the Story is created or edited."""
+    if not story.get("titles"):
+        return {}
+    return cms.check_titles(story["titles"], facts, lang, cms.limits(story.get("short_title_max")))
 
 
 def _source(feed, match_id, article):
@@ -89,6 +97,14 @@ async def create_story(r: GenReq):
     except Exception as e:
         story["media"] = {}
         print("media pick failed:", e)
+    try:  # CMS title pack: Long / Short (category max) / Eyebrow / SEO, fact-checked, retried until within limits
+        story["short_title_max"] = r.short_title_max
+        story["titles"], _, tlog = await asyncio.to_thread(cms.title_pack, story, m, art, r.voice, r.lang,
+                                                             r.short_title_max, r.match_id or "article")
+        logs.append(tlog)
+    except Exception as e:
+        print("title pack failed:", e)
+    rep["title_flags"] = _title_flags(story, facts, r.lang)
     data = {"story": story, "report": rep, "logs": logs, "voice": r.voice, "lang": r.lang, "theme": _theme(m),
             "src": {"feed": r.feed, "match_id": r.match_id, "article": art}, "approved": [False] * len(story["pages"])}
     sid = store.save_story(r.match_id or "article", r.voice, r.lang, data)
@@ -100,6 +116,14 @@ def read_story(sid: int):
     s = store.get_story(sid)
     if not s: raise HTTPException(404)
     return s
+
+
+@app.get("/api/story/{sid}/cms")
+def cms_export(sid: int):
+    """Titles, pages, categories and the Trivia Quiz / Poll as Engagement Units, ready to enter in the CMS."""
+    s = store.get_story(sid)
+    if not s: raise HTTPException(404)
+    return cms.export(s)
 
 
 class EditReq(BaseModel):
@@ -116,6 +140,7 @@ def edit_story(sid: int, r: EditReq):
     _, _, facts = _source(src["feed"], src["match_id"], src["article"])
     s["story"] = r.story
     s["report"] = factcheck.check_story(r.story, facts, s["lang"])
+    s["report"]["title_flags"] = _title_flags(r.story, facts, s["lang"])
     if r.approved is not None: s["approved"] = r.approved
     # a page with an open fact flag can't stay approved: the editor must fix or regenerate it first
     s["approved"] = [a and not s["report"]["page_flags"].get(i) for i, a in enumerate(s["approved"])]
@@ -142,6 +167,7 @@ async def regen(sid: int, i: int, r: RegenReq):
     page = s["story"]["pages"][i]
     s["logs"].append(log)
     s["report"] = factcheck.check_story(s["story"], facts, s["lang"])
+    s["report"]["title_flags"] = _title_flags(s["story"], facts, s["lang"])
     keys = ("story", "report", "logs", "voice", "lang", "theme", "src", "approved")
     store.save_story("", "", "", {k: s[k] for k in keys}, sid=sid)
     return {"id": sid, "page": page, "log": log, **{k: s[k] for k in keys}}

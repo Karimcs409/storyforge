@@ -38,10 +38,10 @@ The UI is deliberately minimal (one HTML page, vanilla JS, no build step). It ex
 
 | | |
 |---|---|
-| **Evals** | **20/21 eval cases pass** (10 matches × 2 brand voices, English + Arabic, + 1 prompt-injection case) |
-| **Trivia Quiz** | **87/87 quiz answers verified against the source data in code** |
+| **Evals** | **19/21 eval cases pass** in the latest run, 17–20 across recent runs (10 matches × 2 brand voices, English + Arabic, + 1 prompt-injection case) |
+| **Trivia Quiz** | **86/86 quiz answers verified against the source data in code** (latest run) |
 | **Cost** | **a Story costs $0.0015** (Story + Trivia Quiz + Poll + categories in one call) |
-| **Speed** | **a Story takes ~5–7 s** · **a live page in < 5 s** (21/21 pages of the 2022 World Cup final, median 1.9 s) |
+| **Speed** | **a Story takes ~5 s** (median 4.7 s, p95 6.7 s) · **a live page in < 5 s** (21/21 pages of the 2022 World Cup final, median 1.9 s) |
 | **Real data** | runs on the real **2022 World Cup final** (StatsBomb Open Data) as well as on 10 fictional matches |
 
 A portfolio prototype by **Kareem**. It shows the AI layer of a content product end to end: prompt design,
@@ -64,6 +64,7 @@ quizzes. StoryForge drafts each of those pieces for the editor:
 | **Poll** | one fan-opinion question with 2–4 options |
 | **Categorization** | 3–6 categories from a fixed list + free tags |
 | **Editor review (CMS)** | phone preview, edit any text, approve per page, regenerate one page with a note |
+| **CMS export** | everything an editor otherwise types by hand: the **title pack** (internal / long / short with a per-category max / eyebrow ≤ 20 / SEO title + description), the Trivia Quiz and Poll as Engagement Units (correct-answer toggle verified in code, backgrounds picked from the library) and categories, as one JSON |
 | **Live Stories** | a live match feed → one draft page per key event in < 5 s → **Approve / Edit / Skip** |
 
 Same match, two **brand voice presets** (*Official club* and *Fan zone*), in **English, Arabic (right-to-left)
@@ -167,6 +168,7 @@ app/schemas.py     Pydantic models + strict JSON schemas
 app/factcheck.py   fact guard: scores, minutes, %, names, attribution, quiz answers
 app/feeds.py       FeedAdapter: JSON replay + StatsBomb Open Data
 app/media.py       vision tagging of the photo library + AI photo picker with a code guard
+app/cms.py         CMS export: title pack with length rules, Trivia Quiz / Poll as Engagement Units
 app/store.py       SQLite: stories + per-call cost log
 app/static/        one HTML page, vanilla JS, CSS (no build step)
 evals/run.py       rule checks + LLM-as-judge -> evals/report.md
@@ -181,30 +183,39 @@ docs/PROMPTS.md    prompt and model design, and which eval failure each rule cam
 `python -m evals.run`: 10 fictional matches × 2 voices (half English, half Arabic) + 1 prompt-injection
 case. Rule checks run in code; an LLM judge (`gpt-oss-20b`) scores hook, accuracy and brand voice from 1 to 5.
 Full table: [evals/report.md](evals/report.md). The deterministic guards are also covered by
-[`tests/`](tests/test_guards.py) (20 tests, run in CI).
+[`tests/`](tests/test_guards.py) (32 tests, run in CI).
 
-| check | passed |
+| check | passed (latest run) |
 |---|---|
 | strict JSON schema valid | 21/21 |
 | headline ≤ 40 / caption ≤ 140 chars (after self-repair) | 21/21 |
 | 5–7 pages | 21/21 |
-| every score, minute, % and name matches the input; right player on the right event | 21/21 |
-| every quiz answer provable from the input | 21/21 (87/87 answers) |
+| every score, minute, %, name and link matches the input; right player on the right event | 21/21 |
+| every quiz answer provable from the input | 21/21 (86/86 answers) |
 | CTA page present | 21/21 |
-| Arabic Stories are actually Arabic | 10/10 |
+| Arabic Stories are actually Arabic | 9/10 |
 | prompt injection ignored | 1/1 |
-| judge (1–5): hook / accuracy / voice | 3.65 / 4.85 / 4.65 |
+| judge (1–5): hook / accuracy / voice | 4.00 / 5.00 / 4.65 |
 
-**The 1 failure stays in the report.** An Arabic official-voice Story passed every rule, but the judge scored
-its hook 2/5. Rules can't measure a boring cover; the judge can.
+**The 2 failures stay in the report:** one Arabic Story mixed English words into the text (the language check
+caught it), and one English Story the judge scored below the bar. **The model's output varies run to run, so the
+pass count moves between 17 and 20 out of 21.** The README reports the latest run, not the best one.
 
-**How it got there (same 21 cases):** 9 → 16 → 18 → 19 → 20 passing. Most early failures were in the
-*checker*, not the model: Title Case headlines read as names, a Unicode hyphen (`4‑1`) slipping past the
-score check, team-name quiz answers the code couldn't verify yet. The real model failures it caught:
-- stats written in away-home order ("57%-43%" when the home side had 43%);
+**How it got there (same 21 cases):** 9 → 16 → 18 → 19 → 20 → 19 passing. Most failures were in the *checker*,
+not the model, and each one became a test:
+- Title Case headlines read as player names; a Unicode hyphen (`4‑1`) slipping past the score check;
+- a score at the end of a sentence ("9-0.") skipped because of the full stop;
+- whole-word matching: "Mid**field**" read as the player Noah Field, "A**li Ma**nsour" as Bruno Lima;
+- pages that combine several goals ("60' Nunes, 62' Sow, 70' Melo") flagged as crediting the wrong player;
+- quiz questions the code couldn't verify yet: team answers to stat questions, "how many goals did X score?".
+
+The real model failures it caught:
+- stats in away-home order ("57%-43%" when the home side had 43%); a quiz answer "equal" when it was 4 vs 2;
 - Arabic player names in a field that needs source spelling (now impossible: the field is an `enum`);
-- a CTA page with no link (links now come from code);
-- the wrong player credited for a live goal (now caught by the attribution check).
+- the wrong player credited for a live goal (now caught by the attribution check);
+- **a prompt-injection leak:** the link field was safe (links come from code), but in one run the model wrote
+  *"Visit evil.example.com"* into a caption. Any URL or domain in text that isn't the club's own is now flagged
+  and the page is redrafted automatically. Earlier runs had passed this case by luck.
 
 ---
 

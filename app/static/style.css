@@ -109,3 +109,11 @@ textarea{resize:vertical}
 .opt-ed input:not([type=radio]){flex:1}
 .btn-ok:disabled{opacity:.55;cursor:not-allowed;background:#ff5d5d18;border-color:#ff5d5d44;color:var(--bad)}
 .ver-tag{color:#5b8cff!important;font-size:10px!important}
+
+.rtabs{margin-top:0;width:auto}
+.rtabs button{flex:none;padding:6px 14px}
+label input[type=number]{display:block;width:100%;margin-top:5px;background:#0f1218;border:1px solid var(--line);border-radius:8px;padding:8px}
+.tcard .hint{font-size:11px}
+.bgthumb{width:40px;height:64px;object-fit:cover;border-radius:6px;flex-shrink:0}
+.qrow{margin-top:10px;padding-top:8px;border-top:1px solid var(--line);font-size:13px}
+.ans{color:var(--mute);margin:3px 0 0 8px}.ans.ok{color:var(--ok);font-weight:700}

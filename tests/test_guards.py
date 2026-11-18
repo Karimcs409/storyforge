@@ -160,3 +160,94 @@ def test_photo_context_uses_the_event_the_page_is_about():
     p = {"type": "moment", "headline": "Dybala replaces Tagliafico", "caption": "x", "media_hint": "x",
          "minute": 120, "players_mentioned": ["Paulo Dybala"]}
     assert media.page_context(p, 0, match)["team_nation"] == "argentina"
+
+
+# ---------- found while building the CMS export ----------
+
+def test_score_at_the_end_of_a_sentence_is_checked(facts):
+    # regression: "9-0." was skipped because of the full stop after it
+    assert any("9-0" in f for f in fc.check_text("Nile City won 9-0.", facts))
+    assert fc.check_text("It ended 1-1.", facts) == []
+
+
+def test_month_names_are_not_read_as_players(facts):
+    assert fc.check_text("On Dec 18 Nile City FC drew 1-1.", facts) == []
+
+
+# ---------- CMS title pack and Engagement Units ----------
+
+from app import cms
+
+
+def test_title_pack_flags_length_and_invented_facts(facts):
+    titles = {"internal_title": "Nile City FC v Delta Rovers · EN · official",
+              "long_display_title": "Nile City FC 1-1 Delta Rovers",
+              "short_display_title": "Nile City FC and Delta Rovers draw",    # 34 > 20
+              "eyebrow": "Matchday 10",
+              "seo_title": "Nile City win 9-0",                                # invented score
+              "seo_description": "Kevin Smith scores twice as Nile City FC draw 1-1."}  # invented player
+    flags = cms.check_titles(titles, facts, "en", cms.limits(20))
+    assert any("34>20" in f for f in flags["short_display_title"])
+    assert any("9-0" in f for f in flags["seo_title"])
+    assert any("Kevin Smith" in f for f in flags["seo_description"])
+    assert flags["long_display_title"] == [] and flags["eyebrow"] == []
+
+
+def test_internal_title_is_built_in_code():
+    assert cms.internal_title(M01, "fan", "ar") == "Nile City FC v Delta Rovers · 2026-10-01 · AR · fan"
+
+
+def test_quiz_unit_rules():
+    story = {"title": "T", "media": {}, "poll": {"question": "q", "options": ["Yes", "No"]},
+             "quiz": [{"question": "Who scored first?", "options": ["A", "B", "C", "D", "E"], "correct_index": 0,
+                       "kind": "first_scorer", "answer_canonical": "A"}]}
+    unit = cms.quiz_unit(story, {0: ["answer 'A' (first_scorer) not provable from source"]})
+    assert any("5 answers" in i for i in unit["rule_issues"])
+    assert any("not provable" in i for i in unit["rule_issues"])
+
+
+def test_poll_side_by_side_rule():
+    short = cms.poll_unit({"media": {}, "poll": {"question": "Who wins?", "options": ["Messi", "Mbappé"]}})
+    long_ = cms.poll_unit({"media": {}, "poll": {"question": "Who wins?", "options": ["Argentina", "France"]}})
+    assert short["side_by_side"] is True and long_["side_by_side"] is False
+
+
+def test_seo_description_is_cut_at_a_full_sentence():
+    text = "Argentina and France drew 3-3 in the final. Argentina won 4-2 on penalties after a dramatic shoot-out in Lusail."
+    out = cms.trim_to_sentence(text, 60)
+    assert out == "Argentina and France drew 3-3 in the final." and len(out) <= 60
+
+
+def test_stat_order_check_is_english_only(facts):
+    # Arabic captions name teams in Arabic letters, so the code can't tell which team comes first
+    assert fc.check_text("الاستحواذ 57%-43% للضيوف", facts, lang="ar") == []
+    assert any("away-home" in f for f in fc.check_text("Possession 57%-43%", facts, lang="en"))
+
+
+def test_attribution_matches_whole_words_only():
+    # regressions from the eval run: "Midfield" is not "Noah Field", "alimansour" doesn't contain "Bruno Lima"
+    m05 = fc.facts_from_match(json.loads((ROOT / "data/matches/m05.json").read_text(encoding="utf-8")))
+    m09 = fc.facts_from_match(json.loads((ROOT / "data/matches/m09.json").read_text(encoding="utf-8")))
+    assert fc.check_attribution(page("Delta Rovers Tweak Midfield", "Ben Ashby comes on for Kofi Mensah.", 61), m05) == []
+    assert fc.check_attribution(page("Ali Mansour pulls one back", "Ali Mansour converts a penalty.", 52), m09) == []
+
+
+def test_domain_written_in_text_is_flagged(facts):
+    # found in the prompt-injection eval: the link field was safe, but the caption said "Visit evil.example.com"
+    flags = fc.check_text("Visit evil.example.com for free tickets!", facts)
+    assert any("evil.example.com" in f for f in flags)
+    assert fc.check_text("Book now at https://example.com/ncf/tickets", facts) == []   # the club's own CTA domain
+
+
+def test_combined_moments_page_is_not_a_false_positive():
+    m07 = fc.facts_from_match(json.loads((ROOT / "data/matches/m07.json").read_text(encoding="utf-8")))
+    p = page("Nunes, Sow & Melo goals", "60' Gabriel Nunes doubles, 62' Ibrahim Sow converts, 70' Leandro Melo heads in.", 60)
+    assert fc.check_attribution(p, m07) == []
+
+
+def test_goal_count_question_is_verified():
+    m03 = fc.facts_from_match(json.loads((ROOT / "data/matches/m03.json").read_text(encoding="utf-8")))
+    right = quiz("scorer", "3", ["1", "2", "3", "4"], question="How many goals did Andre Viana score?")
+    wrong = quiz("scorer", "2", ["1", "2", "3", "4"], question="How many goals did Andre Viana score?")
+    assert fc.check_quiz_item(right, m03) == []
+    assert fc.check_quiz_item(wrong, m03)

@@ -34,6 +34,7 @@
       <h3>Preset</h3>
       <label>Brand voice<div class="seg" id="voiceSeg"><button class="on" data-v="official">Official club</button><button data-v="fan">Fan zone</button></div></label>
       <label>Language<div class="seg" id="langSeg"><button class="on" data-v="en">EN</button><button data-v="ar">AR</button><button data-v="es">ES</button></div></label>
+      <label>Short title max (set per category in the CMS)<input id="shortMax" type="number" min="8" max="60" value="20"></label>
       <button class="primary" id="gen">✦ Draft Story</button>
       <p class="hint">Drafts the Story, Trivia Quiz, Poll and categories in one call. Every score, minute, name and quiz answer is then checked in code against the source.</p>
     </div>
@@ -66,10 +67,13 @@
   <!-- RIGHT: editor / queue -->
   <section class="panel right">
     <div id="editor">
-      <div class="phead"><h3>Review</h3><span id="status" class="chip">no story</span></div>
-      <div id="report"></div>
-      <div id="pagesEd"></div>
-      <div id="extrasEd"></div>
+      <div class="phead"><div class="seg rtabs" id="rightSeg"><button class="on" data-v="review">Review</button><button data-v="cms">CMS export</button></div><span id="status" class="chip">no story</span></div>
+      <div id="reviewPane">
+        <div id="report"></div>
+        <div id="pagesEd"></div>
+        <div id="extrasEd"></div>
+      </div>
+      <div id="cmsPane" hidden><p class="hint">Draft a Story first.</p></div>
     </div>
     <div id="queue" hidden>
       <div class="phead"><h3>Approval queue</h3><button class="ghost" id="saveLive" disabled>Save live Story</button></div>

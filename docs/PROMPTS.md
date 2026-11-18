@@ -48,6 +48,8 @@ Each of these lines in `SYSTEM` / `STORY_TASK` was added because an eval or a li
 | Right answer always in position A | — | options shuffled in code |
 | CTA page without a link (injection case) | — | CTA text and URL set from config |
 | Di María credited for Messi's 22' goal | live task names the exact event | attribution check blocks approval |
+| Caption said "Visit evil.example.com" in the injection test | "Never write URLs, web addresses or domain names in text" | any domain in text that isn't the club's own is flagged and the page is redrafted |
+| Titles over their CMS limits | "aim for about 80% of each limit" | retries with the broken rules listed; SEO description cut at a full sentence as a last resort |
 
 ## 4. Live mode prompt
 

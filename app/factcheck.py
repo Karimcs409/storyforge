@@ -7,8 +7,9 @@ from .schemas import HEADLINE_MAX, CAPTION_MAX
 
 # Arabic-Indic digits -> 0-9, and every dash/hyphen variant (models love U+2011) -> "-"
 AR_DIGITS = str.maketrans({**{c: str(i) for i, c in enumerate("٠١٢٣٤٥٦٧٨٩")}, **{c: "-" for c in "‐‑‒–—−"}})
-SCORE_RE = re.compile(r"(?<![\d.])(\d{1,2})\s*[-–:]\s*(\d{1,2})(?![\d.])")
+SCORE_RE = re.compile(r"(?<!\d)(?<!\d\.)(\d{1,2})\s*[-–:]\s*(\d{1,2})(?!\d)(?!\.\d)")  # "9-0." at a sentence end still counts; "1.5-2" doesn't
 MINUTE_RE = re.compile(r"(\d{1,3})\s*(?:'|’|′|\+\d+'|(?:st|nd|rd|th)?\s*(?:min\b|minute))|(?:minute|min\.?|الدقيقة|دقيقة)\s*(\d{1,3})", re.I)
+LINK_RE = re.compile(r"(?:https?://|www\.)\S+|\b[a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?:com|net|org|io|co|ly|me|app|info|biz|xyz|tv|example)\b", re.I)
 PCT_RE = re.compile(r"(\d{1,3})\s*%")
 NAME_RE = re.compile(r"\b([A-Z][a-zà-ÿ]+(?:[ ]+(?:[A-Z][a-zà-ÿ]+|Jr|FC))+)\b")
 COMMON = {"Full", "Time", "Half", "Match", "Day", "Matchday", "Game", "Goal", "Final", "Whistle", "Man", "The", "What",
@@ -16,7 +17,10 @@ COMMON = {"Full", "Time", "Half", "Match", "Day", "Matchday", "Game", "Goal", "F
           "League", "Premier", "Continental", "Fan", "Zone", "Club", "Official", "Story", "Stats", "Watch", "Highlights",
           "Back", "Three", "Points", "Clean", "Sheet", "Late", "Drama", "Late", "Super", "Sub", "First", "Second", "Our",
           "Their", "Comeback", "Win", "Victory", "Draw", "Defeat", "Hero", "Heroes", "Moment", "Night", "Magic", "Boss",
-          "Coach", "Head", "Snapshot", "Recap", "Report", "Stay", "Updated", "Support", "Shock", "Follow", "Tune", "Share", "Vote", "Defender", "Midfielder", "Striker", "Forward", "Goalkeeper", "Keeper", "Captain", "Winger",
+          "Coach", "Head", "Snapshot", "On", "At", "After", "Before", "During", "With", "From", "Since", "When",
+          "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Sept", "Oct", "Nov", "Dec",
+          "January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December",
+          "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Recap", "Report", "Stay", "Updated", "Support", "Shock", "Follow", "Tune", "Share", "Vote", "Defender", "Midfielder", "Striker", "Forward", "Goalkeeper", "Keeper", "Captain", "Winger",
           "Substitute", "Skipper", "Manager", "Fans", "Supporters", "Kickoff", "Interval", "Break", "Penalty", "Header", "Buy", "Now", "Book", "Your", "Seat", "Join", "Us", "See", "You", "There", "Vs", "And", "In"}
 
 
@@ -51,6 +55,8 @@ class Facts:
     venue: str | None = None
     stats: dict = field(default_factory=dict)     # stat_key -> {team name: value}
     events_at: dict = field(default_factory=dict) # minute -> [(event type, [players involved])]
+    goals_by: dict = field(default_factory=dict)  # player -> goals scored
+    allowed_domains: set = field(default_factory=set)  # only the club's configured CTA domain may appear
     source: str = "match"
 
 
@@ -75,11 +81,14 @@ def facts_from_match(m: dict) -> Facts:
             hs, as_ = map(int, e["score_after"].split("-"))
             f.scores.update({f"{hs}-{as_}", f"{as_}-{hs}"})
             f.scorers.append(e["player"]); f.goal_minutes.add(e["minute"])
+            f.goals_by[e["player"]] = f.goals_by.get(e["player"], 0) + 1
             if e.get("assist"): f.assists.add(e["assist"])
         if e["type"] in ("red_card", "yellow_card"):
             col = e["type"].split("_")[0]
             (f.red_cards if col == "red" else f.yellow_cards).add(e["player"])
             f.card_minutes.setdefault(col, set()).add(e["minute"])
+    if m.get("cta", {}).get("url"):
+        f.allowed_domains.add(re.sub(r"^https?://(www\.)?", "", m["cta"]["url"]).split("/")[0].lower())
     h, a = m["score"]["home"], m["score"]["away"]
     f.final_score = f"{h}-{a}"
     f.scores.update({f"{h}-{a}", f"{a}-{h}"})
@@ -122,7 +131,7 @@ def check_text(text: str, f: Facts, lang: str = "en", names: bool = True) -> lis
         if pair in f.scores or pair in f.stat_pairs:
             continue
         if pair in f.stat_pairs_rev:
-            if not away_first:  # e.g. "Possession 57%-43%" when home had 43%: reads as the wrong team's number
+            if not away_first and lang == "en":  # Arabic text uses transliterated team names the code can't match  # e.g. "Possession 57%-43%" when home had 43%: reads as the wrong team's number
                 issues.append(f"stat {a}-{b} is in away-home order without naming the away team first")
             continue
         issues.append(f"score {a}-{b} not in source")
@@ -130,6 +139,10 @@ def check_text(text: str, f: Facts, lang: str = "en", names: bool = True) -> lis
         mi = int(g[0] or g[1])
         if mi not in f.minutes:
             issues.append(f"minute {mi}' not in source")
+    for link in LINK_RE.findall(t):
+        dom = re.sub(r"^https?://(www\.)?|^www\.", "", link.lower()).split("/")[0]
+        if dom not in f.allowed_domains:
+            issues.append(f"link or domain '{link}' in text (links only come from the club's config)")
     for p in PCT_RE.findall(t):
         if int(p) not in f.numbers:
             issues.append(f"{p}% not in source")
@@ -165,6 +178,36 @@ def check_page(p: dict, f: Facts, lang: str = "en") -> list[str]:
     return sorted(set(issues))
 
 
+PARTICLES = {"di", "de", "da", "del", "dos", "du", "van", "von", "der", "el", "al", "le", "la", "ben", "bin", "mac", "mc"}
+
+
+def name_keys(name: str) -> set:
+    """Whole-word keys a text may use for a person: surname, particle+surname joined ('Di Maria' -> 'dimaria'),
+    and the full name joined. Matching whole words avoids 'Field' in 'midfield' or 'Lima' in 'alimansour'."""
+    toks = fold(name).split()
+    if not toks:
+        return set()
+    keys = {"".join(toks)}
+    if len(toks[-1]) > 3:
+        keys.add(toks[-1])
+    if len(toks) >= 2 and toks[-2] in PARTICLES:
+        keys.add(toks[-2] + toks[-1])
+    return keys
+
+
+def _words(text: str) -> list:
+    return re.findall(r"[a-z]+", fold(text))
+
+
+def _mentions(words: list, name: str, exclude=()) -> bool:
+    keys = name_keys(name) - set(exclude)
+    for w in words:
+        if w in keys or (w.endswith("s") and w[:-1] in keys):   # possessive: "Messi's" -> "messis"
+            return True
+    toks = fold(name).split()
+    return len(toks) > 1 and " ".join(toks) in " ".join(words)    # full name written with spaces
+
+
 def check_attribution(p: dict, f: Facts, lang: str = "en") -> list[str]:
     """Right name on the right event: a page tied to minute X must name the player who actually did the
     key thing at X (e.g. 22' goal -> Messi, not Di María, even though both names exist in the source)."""
@@ -173,23 +216,24 @@ def check_attribution(p: dict, f: Facts, lang: str = "en") -> list[str]:
         return []
     key = [(t, who) for t, who in evs if t in ("goal", "red_card", "sub")] or evs
     involved = {w for _, who in key for w in who}
+    # a page may combine several moments ("60' Nunes, 62' Sow, 70' Melo"): anyone with an event at a minute
+    # the page itself mentions is involved too
+    text_all = f"{p.get('headline', '')} {p.get('caption', '')}".translate(AR_DIGITS)
+    for g in MINUTE_RE.findall(text_all):
+        for _, who in f.events_at.get(int(g[0] or g[1]), []):
+            involved |= set(who)
     if lang == "en":
-        text = fold(f"{p.get('headline', '')} {p.get('caption', '')}")
-        squashed = text.replace(" ", "")
-        ok = any(tok in text.split() or (len(tok) > 4 and tok in squashed)
-                 for w in involved for tok in fold(w).split() if len(tok) > 2)
+        words = _words(f"{p.get('headline', '')} {p.get('caption', '')}")
+        ok = any(_mentions(words, w) for w in involved)
     else:  # Arabic text: rely on the source-spelled players_mentioned list
         ok = bool({fold(x) for x in p.get("players_mentioned", [])} & {fold(w) for w in involved})
     what = "; ".join(f"{t.replace('_', ' ')}: {', '.join(who)}" for t, who in key)
     issues = [] if ok else [f"{p['minute']}' is {what}, but the page doesn't name them"]
     if lang == "en":  # the headline must not credit someone who had no part in this minute's event
-        head = fold(p.get("headline", ""))
-        mine = {tok for w in involved for tok in fold(w).split()}
-        for name in f.names - involved:
-            toks = [t for t in fold(name).split() if len(t) > 3 and t not in mine]
-            last = fold(name).split()[-1] if fold(name).split() else ""
-            hit = (last in toks and (last in head.split() or last in head.replace(" ", ""))) or                   (len(fold(name).replace(" ", "")) > 5 and fold(name).replace(" ", "") in head.replace(" ", ""))
-            if hit:
+        head = _words(p.get("headline", ""))
+        mine = {k for w in involved for k in name_keys(w)}
+        for name in sorted(f.names - involved):
+            if _mentions(head, name, exclude=mine):
                 issues.append(f"headline credits {name}, but {p['minute']}' is {what}")
                 break
     return issues
@@ -202,6 +246,18 @@ def _num(s):
 
 WORDNUM = {w: i for i, w in enumerate("zero one two three four five six seven eight nine ten eleven twelve thirteen "
                                         "fourteen fifteen sixteen seventeen eighteen nineteen twenty".split())}
+
+
+def _goal_count_ok(q, canon, f: Facts) -> bool:
+    """'How many goals did X score?' -> the number must equal X's goals in the events."""
+    n = _num(canon)
+    if n is None:
+        return False
+    qt = fold(q.get("question", ""))
+    for player, goals in f.goals_by.items():
+        if any(k in qt.split() for k in name_keys(player)) or fold(player) in qt:
+            return goals == n
+    return False
 
 
 def _stat_ok(q, canon, f: Facts) -> bool:
@@ -239,7 +295,7 @@ def check_quiz_item(q: dict, f: Facts, lang: str = "en") -> list[str]:
     ok = {
         "final_score": lambda: f.final_score and cn in {f.final_score, "-".join(reversed(f.final_score.split("-")))},
         "first_scorer": lambda: bool(f.scorers) and norm(canon) == norm(f.scorers[0]),
-        "scorer": lambda: _in(canon, set(f.scorers)),
+        "scorer": lambda: _in(canon, set(f.scorers)) or _goal_count_ok(q, canon, f),
         "goal_minute": lambda: _num(canon) in f.goal_minutes,
         "red_card": lambda: _in(canon, f.red_cards) or _num(canon) in f.card_minutes.get("red", set()),
         "yellow_card": lambda: _in(canon, f.yellow_cards) or _num(canon) in f.card_minutes.get("yellow", set()),

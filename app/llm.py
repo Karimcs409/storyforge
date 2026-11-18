@@ -92,6 +92,7 @@ HARD RULES
 - icon: ball=goal, card-yellow/card-red=cards, swap=sub, whistle=kick-off/HT/FT, stat, quote, ticket=cta.
 - Arabic pages: transliterate person and club names phonetically (never translate their meaning),
   e.g. "Sahara Falcons" -> "ساهارا فالكونز". Use the club name, not its short code.
+- Never write URLs, web addresses or domain names in headline or caption text. Links are added by the system.
 - cta_text/cta_url only on the cta page (use the CTA from SOURCE), null elsewhere. minute null when not tied to one event.
 """
 
@@ -178,14 +179,30 @@ def apply_cta(pages, match=None):
     return pages
 
 
+def _needs_repair(p, facts):
+    if len(p["headline"]) > HEADLINE_MAX or len(p["caption"]) > CAPTION_MAX:
+        return (f"Too long: headline is {len(p['headline'])} chars (max {HEADLINE_MAX}), caption {len(p['caption'])} "
+                f"(max {CAPTION_MAX}). Keep the same facts, make it shorter.")
+    links = [x for x in factcheck_text(f"{p['headline']} {p['caption']}", facts) if x.startswith("link or domain")]
+    if links:
+        return "Remove every URL or domain name from the text. Links are added by the system, never written in text."
+    return ""
+
+
+def factcheck_text(text, facts):
+    from . import factcheck
+    return factcheck.check_text(text, facts, "en", names=False)
+
+
 def repair_lengths(st, match, article, voice, lang, log, ref):
-    """Self-repair loop: re-draft only the pages that break the length limits (up to two attempts each)."""
+    """Self-repair loop: re-draft only the pages that break a length limit or write a link in text (up to two attempts each)."""
+    from . import factcheck
+    facts = factcheck.facts_from_match(match) if match else factcheck.facts_from_article(article or "")
     for i in range(len(st["pages"])):
       for _attempt in range(2):
         p = st["pages"][i]
-        if len(p["headline"]) > HEADLINE_MAX or len(p["caption"]) > CAPTION_MAX:
-            note = (f"Too long: headline is {len(p['headline'])} chars (max {HEADLINE_MAX}), caption {len(p['caption'])} "
-                    f"(max {CAPTION_MAX}). Keep the same facts, make it shorter.")
+        note = _needs_repair(p, facts)
+        if note:
             try:
                 new, l2 = regenerate_page(st, i, match, article, voice, lang, note, ref)
             except Exception:
