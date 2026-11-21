@@ -15,6 +15,7 @@
     <button data-tab="studio" class="on">Editor</button>
     <button data-tab="live">Live <span class="dot"></span></button>
     <button data-tab="analytics">Analytics</button>
+    <button data-tab="bank">Content Bank</button>
   </nav>
   <div class="meter" id="meter">—</div>
 </header>
@@ -49,6 +50,14 @@
       <p class="hint">Code computes every number (drop-off per page type, reach by time slot and category, quiz correct rates). The model picks what matters and explains it. Code then checks every number it wrote.</p>
       <p class="hint">The sample is <b>synthetic data</b> with planted patterns, made by <code>data/make_analytics.py</code>. <a href="/api/analytics/sample.csv" style="color:var(--acc)">Download it</a> to see the columns.</p>
     </div>
+    <div id="cbCtl" hidden>
+      <h3>Search the Content Bank</h3>
+      <label>Search titles and categories<input id="cbQ" placeholder="e.g. night stadium, Buenos Aires, trophy"></label>
+      <h3>Categories</h3>
+      <div id="cbCats"></div>
+      <button class="ghost" id="cbRetag" style="width:100%;margin-top:14px">↻ Re-tag the library with AI</button>
+      <p class="hint">Each photo was described once by a vision model. One text call writes a searchable title and picks Content Bank categories. <b>Teams</b> come from the vision tag in code, not from the model.</p>
+    </div>
     <div id="liveCtl" hidden>
       <h3>Live feed</h3>
       <label>Feed adapter<select id="lfeed"></select></label>
@@ -64,6 +73,7 @@
 
   <!-- CENTER: phone -->
   <section class="center">
+    <div id="cbView" hidden></div>
     <div id="anaView" hidden><p class="hint" style="text-align:center;margin-top:40%">Press <b>✦ Explain the numbers</b> to read the sample export.</p></div>
     <div id="phoneWrap" class="phoneWrap">
     <div class="phone">
@@ -90,6 +100,7 @@
       </div>
       <div id="cmsPane" hidden><p class="hint">Draft a Story first.</p></div>
     </div>
+    <div id="cbPane" hidden></div>
     <div id="anaPane" hidden><p class="hint">The insights appear here.</p></div>
     <div id="queue" hidden>
       <div class="phead"><h3>Approval queue</h3><div style="display:flex;gap:6px"><button class="ghost" id="addMoment" title="Add a moment the feed or the AI missed">+ Add moment</button><button class="ghost" id="saveLive" disabled>Save live Story</button></div></div>

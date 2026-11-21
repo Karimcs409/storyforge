@@ -69,6 +69,7 @@ quizzes. StoryForge drafts each of those pieces for the editor:
 | **Live Stories** | a live match feed → one draft page per key event in < 5 s → **Approve / Edit / Skip** |
 | **Editor-added moments** | **+ Add moment** (Live) / **+ Add page** (Editor): a moment the feed or the AI missed, drafted by AI or written by hand, players picked from the lineup, fact-checked against the editor's input and the roster, marked *added by editor (not in feed)* |
 | **Analytics explainer** | reads a per-page analytics export (CSV) → code computes drop-off per page type, reach by time slot and category, quiz correct rates → the model writes 3–5 insights for editors → code checks every number, and that it sits next to the right category / page type / slot. Demo data is **synthetic** ([`data/make_analytics.py`](data/make_analytics.py)) |
+| **Content Bank auto-tagging** | every library photo gets a searchable title and categories (Teams from the vision tag in code; Events, Places by the model). Code blocks player names in titles (a fan's "MESSI 10" shirt is not proof), places not in the caption, and Night/Day contradictions |
 | **App home preview** | the phone switches to an app home screen showing where the Short / Long / Eyebrow titles appear, with the "…" when a title is cut off |
 
 Same match, two **brand voice presets** (*Official club* and *Fan zone*), in **English, Arabic (right-to-left)
@@ -153,6 +154,9 @@ drafts the Trivia Quiz and Poll.
   <img src="docs/screenshots/08_live_add_moment.png" width="100%" alt="Live mode: an editor-added 74' moment approved, and a hand-written page naming an invented player blocked">
 </p>
 <p align="center">
+  <img src="docs/screenshots/13_content_bank.png" width="100%" alt="Content Bank: AI titles and categories, searchable">
+</p>
+<p align="center">
   <img src="docs/screenshots/12_analytics_explainer.png" width="100%" alt="Analytics explainer on synthetic data: numbers computed in code, insights written by the model and checked in code">
 </p>
 <p align="center">
@@ -201,7 +205,7 @@ docs/PROMPTS.md    prompt and model design, and which eval failure each rule cam
 `python -m evals.run`: 10 fictional matches × 2 voices (half English, half Arabic) + 1 prompt-injection
 case. Rule checks run in code; an LLM judge (`gpt-oss-20b`) scores hook, accuracy and brand voice from 1 to 5.
 Full table: [evals/report.md](evals/report.md). The deterministic guards are also covered by
-[`tests/`](tests/test_guards.py) (41 tests, run in CI).
+[`tests/`](tests/test_guards.py) (44 tests, run in CI).
 
 | check | passed (latest run) |
 |---|---|
@@ -271,6 +275,7 @@ Two sample articles for *Article* mode are in [`docs/`](docs/). One of them hide
 - The demo photo library is small (18 Pexels photos), so a long live match falls back to neutral photos.
   Vision tags can be wrong: a first pass tagged plain night stadiums as "France" until the prompt was fixed.
 - Poll results in the preview are a demo animation, not real votes.
+- Content Bank tags can still be wrong where code can't check them (a stadium photo tagged "Goal net").
 - The analytics explainer runs on **synthetic** data with planted patterns; it has not seen a real export.
   Its guard checks numbers per sentence, so two names swapped inside one sentence are not caught, and it can't
   judge whether a stated *reason* ("likely because…") is true. Thresholds the model invents ("above 50%") are flagged.

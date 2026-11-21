@@ -353,3 +353,39 @@ def test_analytics_real_misattribution_from_a_run_is_caught():
     assert any("belongs to category transfer" in f for f in an.check_attribution(t, s))
     # "stats pages" is the page type, not the stats category
     assert an.check_attribution("Stats pages lose 29.9% of viewers.", s) == []
+
+
+def test_brace_and_hat_trick_must_match_the_goal_count():
+    # an eval Story called Mbappé's hat-trick a brace: every name and number true, the count word wrong
+    import copy
+    m = copy.deepcopy(M01)
+    m["events"].append({"minute": 80, "type": "goal", "team": "home", "player": "Ramy Saber", "assist": None, "score_after": "2-1"})
+    m["score"] = {"home": 2, "away": 1}
+    f2 = fc.facts_from_match(m)
+    assert fc.check_goal_count(page("Saber's brace", "Ramy Saber scores twice for Nile City FC.", players=["Ramy Saber"]), f2) == []
+    assert any("3 goals" in x for x in fc.check_goal_count(page("Saber hat-trick", "Ramy Saber completes a hat-trick.", players=["Ramy Saber"]), f2))
+    # with one goal in the feed, a brace is wrong
+    f1 = fc.facts_from_match(M01)
+    assert any("2 goals" in x for x in fc.check_goal_count(page("Mercer brace", "Paul Mercer's brace.", players=["Paul Mercer"]), f1))
+
+
+# ---------- Content Bank auto-tagging ----------
+
+def test_content_bank_guard():
+    from app import content_bank as cb
+    photo = {"pexels_alt": "Crowd celebrating in Buenos Aires", "description": "fan in a shirt printed 'MESSI 10'", "time_of_day": "day"}
+    names = {"Lionel Messi", "Noah Field"}
+    ok = {"title": "Fans celebrate on a green field in Buenos Aires", "events": ["Fans", "Day"], "place": "Buenos Aires"}
+    assert cb.check_entry(ok, photo, names) == []            # "field" in lowercase is not the player Noah Field
+    shirt = ok | {"title": "Messi celebrates with fans"}       # a fan's shirt is not proof Messi is there
+    assert any("Lionel Messi" in f for f in cb.check_entry(shirt, photo, names))
+    assert any("place" in f for f in cb.check_entry(ok | {"place": "Paris"}, photo, names))
+    assert any("Night" in f for f in cb.check_entry(ok | {"events": ["Night", "Day"]}, photo, names))
+
+
+def test_content_bank_search_is_accent_insensitive_and_filters_by_category():
+    from app import content_bank as cb
+    e = [{"title": "Stadium crowd in Córdoba", "categories": {"Teams": [], "Events": ["Fans"], "Places": ["Córdoba"]}},
+         {"title": "Fans in Buenos Aires", "categories": {"Teams": ["Argentina"], "Events": ["Fans"], "Places": []}}]
+    assert [x["title"] for x in cb.search(e, "cordoba")] == ["Stadium crowd in Córdoba"]
+    assert [x["title"] for x in cb.search(e, cat="Teams:Argentina")] == ["Fans in Buenos Aires"]

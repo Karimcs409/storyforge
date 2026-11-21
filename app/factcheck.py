@@ -212,6 +212,7 @@ def check_page(p: dict, f: Facts, lang: str = "en") -> list[str]:
     issues += check_text(p.get("caption", ""), f, lang)
     issues += check_attribution(p, f, lang)
     issues += check_second_yellow(p, f, lang)
+    issues += check_goal_count(p, f, lang)
     if p.get("type") == "cta" and not (p.get("cta_text") and p.get("cta_url")):
         issues.append("cta page without cta_text/cta_url")
     return sorted(set(issues))
@@ -230,6 +231,27 @@ def check_second_yellow(p: dict, f: Facts, lang: str = "en") -> list[str]:
     if any(_in(x, f.yellow_cards) for x in who):
         return []
     return [f"'second yellow' but {', '.join(who) or 'nobody named'} has no earlier yellow card in the source"]
+
+
+GOAL_COUNT_RE = re.compile(r"\b(brace|hat[\s-]?trick|(?:score[sd]?|netted|nets|struck|strikes)\s+twice|scored\s+three\s+times)\b", re.I)
+
+
+def check_goal_count(p: dict, f: Facts, lang: str = "en") -> list[str]:
+    """'brace' = 2 goals, 'hat-trick' = 3, for a player the page names (an eval Story called
+    Mbappé's hat-trick a brace: every name and number was true, the count word wasn't)."""
+    text = f"{p.get('headline', '')} {p.get('caption', '')}"
+    if lang != "en" or f.source != "match":
+        return []
+    issues = []
+    words = _words(text)
+    who = {x for x in p.get("players_mentioned", []) if _in(x, f.names)} | {n for n in f.names if _mentions(words, n)}
+    for m in GOAL_COUNT_RE.finditer(text):
+        w = m.group(1).lower()
+        n = 3 if ("hat" in w or "three" in w) else 2
+        if not any(f.goals_by.get(x, 0) == n for x in who):
+            got = ", ".join(f"{x} {f.goals_by.get(x, 0)}" for x in sorted(who)) or "nobody named"
+            issues.append(f"'{m.group(1)}' means {n} goals, but the source has: {got}")
+    return issues
 
 
 PARTICLES = {"di", "de", "da", "del", "dos", "du", "van", "von", "der", "el", "al", "le", "la", "ben", "bin", "mac", "mc"}

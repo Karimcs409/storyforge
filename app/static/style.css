@@ -165,3 +165,20 @@ label input[type=number]{display:block;width:100%;margin-top:5px;background:#0f1
 .abar .av{text-align:right;font-weight:700}.abar .ax{color:var(--mute);font-size:11px}
 .card.ins p{margin:6px 0 0;font-size:13px}.card.ins p.rec{color:#9db8ff}
 #anaCtl input[type=file]{display:block;width:100%;margin-top:5px;font-size:12px}
+.addform .mwarn{color:var(--warn);font-size:12px;font-weight:600;margin-top:6px}
+.addform .mwarn[hidden]{display:none}
+/* Content Bank */
+#cbView{width:100%;max-width:760px;align-self:stretch;overflow:auto;margin:0 auto}
+#cbView[hidden]{display:none}
+.center:has(#cbView:not([hidden])){justify-content:flex-start;align-items:stretch}
+.cbgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.cbi{background:#10131a;border:1px solid var(--line);border-radius:12px;overflow:hidden;padding-bottom:8px}
+.cbi.bad{border-color:#ff5d5d66}
+.cbi img{width:100%;height:120px;object-fit:cover;display:block}
+.cbi .cbt{font-weight:700;font-size:12.5px;padding:7px 9px 0;line-height:1.3}
+.cbi .cnt{font-size:10px;color:var(--mute);padding:0 9px;text-align:right}
+.cbi .tags,.cbi .flags{padding:0 9px}
+.cbg{margin:8px 0}
+.cbc{background:#232a3a;border:1px solid var(--line);border-radius:12px;padding:2px 9px;font-size:11px;cursor:pointer;color:var(--ink)}
+.cbc i{color:var(--mute);font-style:normal;margin-left:3px}.cbc.on{background:var(--acc);border-color:var(--acc)}
+#cbCtl input{display:block;width:100%;margin-top:5px;background:#0f1218;border:1px solid var(--line);border-radius:8px;padding:8px}

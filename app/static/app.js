@@ -42,8 +42,8 @@ function rgba(hex, f, a) { const n = parseInt(hex.slice(1), 16);
 function deck() {
   if (S.tab === "live") {
     const L = S.live, d = L.pages.map(p => ({ kind: "page", page: p, flags: [], photo: p.photo }));
-    // live quiz/poll have no library pick yet: no background, gradient as before
-    if (L.extras && L.extras.approved) { L.extras.quiz.forEach((q, i) => d.push({ kind: "quiz", q, i, n: L.extras.quiz.length })); d.push({ kind: "poll", poll: L.extras.poll }); }
+    if (L.extras && L.extras.approved) { const ub = L.extras.unit_backgrounds || {};  // same backgrounds as the Editor tab
+      L.extras.quiz.forEach((q, i) => d.push({ kind: "quiz", q, i, n: L.extras.quiz.length, photo: ub.quiz })); d.push({ kind: "poll", poll: L.extras.poll, photo: ub.poll }); }
     return { items: d, theme: L.theme, lang: L.lang };
   }
   if (!S.data) return { items: [] };
@@ -165,7 +165,8 @@ function markCuts() {  // show when the phone actually cuts a title off with "�
 
 // ---------------- editor-added moments: "+ Add moment" (Live) and "+ Add page" (Editor) ----------------
 const EV_TYPES = [["goal", "Goal"], ["yellow_card", "Yellow card"], ["red_card", "Red card"], ["sub", "Substitution"], ["other", "Other"]];
-function momentForm({ roster, minute, positions, onSubmit }) {
+function momentForm({ roster, minute, positions, onSubmit, liveMinute }) {
+  // liveMinute(): the match minute now (Live only). A later minute hasn't happened yet: warn, add only on a second press.
   // The editor picks players from the lineup (no free typing), so a name can only come from the roster.
   const sides = Object.keys(roster), el = document.createElement("div"); el.className = "card addform";
   el.innerHTML = `<div class="row"><b>Add a moment the feed missed</b><span class="chip warn" style="margin-left:auto">not in feed</span></div>
@@ -179,6 +180,7 @@ function momentForm({ roster, minute, positions, onSubmit }) {
     </div>
     ${positions ? `<label>Insert<select data-k="position">${positions.map(([v, n]) => `<option value="${v}">${esc(n)}</option>`).join("")}</select></label>` : ""}
     <label>Note for the AI (optional)<input data-k="note" placeholder="e.g. header from a corner"></label>
+    <div class="mwarn" hidden></div>
     <div class="acts"><button class="btn-ok" data-a="ai">✦ Draft with AI</button><button class="ghost" data-a="manual">✎ Write it myself</button><button class="ghost" data-a="cancel">Cancel</button></div>`;
   const q = k => el.querySelector(`[data-k="${k}"]`);
   const fill = () => {
@@ -192,10 +194,18 @@ function momentForm({ roster, minute, positions, onSubmit }) {
     el.querySelector('[data-w="p2"]').hidden = !two; el.querySelector('[data-w="score"]').hidden = ty !== "goal";
   };
   q("type").onchange = fill; q("team").onchange = fill; fill();
+  let okLate = null;  // the minute the editor confirmed despite the warning
+  q("minute").oninput = () => { okLate = null; el.querySelector(".mwarn").hidden = true; };
   el.querySelectorAll("[data-a]").forEach(b => b.onclick = async () => {
     if (b.dataset.a === "cancel") return el.remove();
     const ty = q("type").value, mi = parseInt(q("minute").value, 10);
     if (!(mi >= 0 && mi <= 130)) return toast("Enter the minute (0-130)");
+    const now = liveMinute ? liveMinute() : null, w = el.querySelector(".mwarn");
+    if (now != null && mi > now && okLate !== mi) {
+      okLate = mi; w.hidden = false;
+      w.textContent = `⚠ ${mi}' is after the match's current minute (${now}'). Check the minute, or press again to add it anyway.`;
+      return;
+    }
     const ev = { minute: mi, type: ty, team: q("team").value, player: q("player").value || null,
       player2: (ty === "goal" || ty === "sub") ? (q("player2").value || null) : null,
       score_after: ty === "goal" ? (q("score_after").value.trim() || null) : null, note: q("note").value.trim() };
@@ -506,7 +516,7 @@ $("#addMoment").onclick = async () => {
   if ($("#queueList .addform")) return;
   const L = S.live, feed = L.feed || $("#lfeed").value, match = L.match || $("#lmatch").value;
   let roster; try { roster = await api(`/api/roster/${feed}/${match}`); } catch (e) { return toast("Could not load the lineups"); }
-  const f = momentForm({ roster, minute: L.minute || null, onSubmit: async (event, mode) => {
+  const f = momentForm({ roster, minute: L.minute || null, liveMinute: () => (L.es ? L.minute ?? null : null), onSubmit: async (event, mode) => {
     const lang = L.es || L.pages.length ? L.lang : S.llang;
     const d = await api("/api/live/add", { method: "POST", body: { feed, match_id: match, event, mode, voice: S.lvoice, lang,
                                                                   prior: L.pages.map(p => p.headline) } });
@@ -532,7 +542,7 @@ function extrasCard(x) {
 
 $("#saveLive").onclick = async () => {
   const L = S.live, x = L.extras || { quiz: [], poll: { question: "", options: [] }, categories: [], tags: [] };
-  const r = await api("/api/story/save", { method: "POST", body: { data: { story: { title: "Live Story", pages: L.pages, quiz: x.approved ? x.quiz : [], poll: x.poll, categories: x.categories, tags: x.tags }, voice: S.lvoice, lang: L.lang, theme: L.theme } } });
+  const r = await api("/api/story/save", { method: "POST", body: { data: { story: { title: "Live Story", pages: L.pages, quiz: x.approved ? x.quiz : [], poll: x.poll, categories: x.categories, tags: x.tags, unit_backgrounds: x.unit_backgrounds }, voice: S.lvoice, lang: L.lang, theme: L.theme } } });
   toast(`Live Story saved (#${r.id})`);
 };
 
@@ -540,12 +550,49 @@ $("#saveLive").onclick = async () => {
 document.querySelector(".tabs").onclick = e => {
   const b = e.target.closest("button"); if (!b) return; S.tab = b.dataset.tab;
   document.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
-  const live = S.tab === "live", ana = S.tab === "analytics";
-  $("#studioCtl").hidden = live || ana; $("#liveCtl").hidden = !live; $("#anaCtl").hidden = !ana;
-  $("#editor").hidden = live || ana; $("#queue").hidden = !live; $("#anaPane").hidden = !ana;
-  $("#phoneWrap").hidden = ana; $("#anaView").hidden = !ana;
+  const live = S.tab === "live", ana = S.tab === "analytics", bank = S.tab === "bank", other = ana || bank;
+  $("#studioCtl").hidden = live || other; $("#liveCtl").hidden = !live; $("#anaCtl").hidden = !ana; $("#cbCtl").hidden = !bank;
+  $("#editor").hidden = live || other; $("#queue").hidden = !live; $("#anaPane").hidden = !ana; $("#cbPane").hidden = !bank;
+  $("#phoneWrap").hidden = other; $("#anaView").hidden = !ana; $("#cbView").hidden = !bank;
+  if (bank) return loadBank();
   if (ana) return;
   S.cur = live ? Math.max(0, S.live.pages.length - 1) : 0; renderPhone(); renderCost();
+};
+
+// ---------------- Content Bank: AI titles + categories, guarded in code, searchable ----------------
+S.cb = { q: "", cat: "", all: null };
+async function loadBank() {
+  try {
+    const all = S.cb.all || (S.cb.all = await api("/api/content-bank"));
+    const res = await api(`/api/content-bank?q=${encodeURIComponent(S.cb.q)}&cat=${encodeURIComponent(S.cb.cat)}`);
+    renderBank(all, res);
+  } catch (e) { $("#cbView").innerHTML = `<div class="flags"><div>${esc(e.message)}</div></div>`; }
+}
+function renderBank(all, res) {
+  const counts = {};
+  all.items.forEach(e => Object.entries(e.categories).forEach(([g, vs]) => vs.forEach(v => { const k = `${g}:${v}`; counts[k] = (counts[k] || 0) + 1; })));
+  $("#cbCats").innerHTML = ["Teams", "Places", "Events"].map(g => `<div class="cbg"><span class="hint">${g}</span><div class="tags">${Object.entries(counts).filter(([k]) => k.startsWith(g + ":"))
+    .map(([k, n]) => `<button class="cbc ${S.cb.cat === k ? "on" : ""}" data-c="${esc(k)}">${esc(k.split(":")[1])} <i>${n}</i></button>`).join("")}</div></div>`).join("")
+    + `<p class="hint">Players: <b>none tagged</b>. A photo can't prove who is in it (one shows a fan in a "MESSI 10" shirt).</p>`;
+  $("#cbCats").querySelectorAll(".cbc").forEach(b => b.onclick = () => { S.cb.cat = S.cb.cat === b.dataset.c ? "" : b.dataset.c; loadBank(); });
+  $("#cbView").innerHTML = `<p class="hint">${res.items.length} of ${res.total} photos${S.cb.q ? ` matching "<b>${esc(S.cb.q)}</b>"` : ""}${S.cb.cat ? ` in <b>${esc(S.cb.cat)}</b>` : ""}</p>
+    <div class="cbgrid">${res.items.map(e => `<div class="cbi ${e.flags.length ? "bad" : ""}"><img src="/media/${e.file}" alt="" loading="lazy">
+      <div class="cbt">${esc(e.title)}</div><div class="cnt ${e.title.length > 60 ? "over" : ""}">${e.title.length}/60</div>
+      <div class="tags">${Object.entries(e.categories).flatMap(([g, vs]) => vs.map(v => `<span class="${g === "Teams" ? "cat" : ""}" title="${g}">${esc(v)}</span>`)).join("")}</div>
+      ${e.flags.length ? `<div class="flags">${e.flags.map(f => `<div>${esc(f)}</div>`).join("")}</div>` : ""}</div>`).join("")}</div>`;
+  const nf = all.items.filter(e => e.flags.length).length;
+  $("#cbPane").innerHTML = `<div class="phead"><h3>Auto-tagging</h3><span class="chip ${nf ? "bad" : "ok"}">${nf ? "⚑ " + nf + " flagged" : all.total + " photos ✓"}</span></div>
+    <div class="card"><b>What an editor types by hand today</b><p class="hint">A descriptive title and categories (players, teams, events) for every asset, "to aid searching".</p></div>
+    <div class="card"><b>What is automatic here</b><p class="hint">Title (max 60), Events and Places from one text call over the vision descriptions. Teams from the vision tag, set in code.</p></div>
+    <div class="card"><b>Checked in code</b><div class="hint">• no player name in a title (a shirt is not proof)<br>• a place must be written in the caption or description<br>• Night / Day must match the vision tag<br>• title length</div></div>
+    ${S.cb.log ? `<p class="hint">Last re-tag: ${(S.cb.log.ms / 1000).toFixed(1)} s · $${S.cb.log.usd.toFixed(4)}</p>` : ""}`;
+}
+let cbT; $("#cbQ").oninput = e => { clearTimeout(cbT); cbT = setTimeout(() => { S.cb.q = e.target.value.trim(); loadBank(); }, 250); };
+$("#cbRetag").onclick = async () => {
+  const b = $("#cbRetag"); b.disabled = true; b.innerHTML = '<span class="spin"></span> Tagging…';
+  try { const r = await api("/api/content-bank/retag", { method: "POST" }); S.cb.all = null; S.cb.log = r.log; await loadBank(); toast(`${r.total} photos re-tagged`); }
+  catch (e) { toast("Error: " + e.message); }
+  b.disabled = false; b.textContent = "↻ Re-tag the library with AI";
 };
 
 // ---------------- Analytics explainer: code computes the numbers, the LLM explains, code checks the numbers ----------------

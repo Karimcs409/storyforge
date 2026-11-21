@@ -7,7 +7,7 @@ from fastapi.responses import FileResponse, HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from . import llm, factcheck, store, media, cms, analytics
+from . import llm, factcheck, store, media, cms, analytics, content_bank
 from .feeds import ADAPTERS, KEY_EVENTS
 from .schemas import VOICES, LANGS, CATEGORIES
 
@@ -291,6 +291,21 @@ async def analytics_explain(r: AnalyticsReq):
             "flags": analytics.check_insights(data, summary), "log": log}
 
 
+# ---------------- Content Bank auto-tagging ----------------
+@app.get("/api/content-bank")
+def content_bank_list(q: str = "", cat: str = ""):
+    entries = content_bank.load()
+    return {"total": len(entries), "items": content_bank.search(entries, q, cat), "events": content_bank.EVENTS}
+
+
+@app.post("/api/content-bank/retag")
+async def content_bank_retag():
+    """Re-run the tagging call on the whole library (one text call) and save it."""
+    entries, log = await asyncio.to_thread(content_bank.tag_bank)
+    content_bank.OUT.write_text(json.dumps(entries, indent=2, ensure_ascii=False), encoding="utf-8")
+    return {"total": len(entries), "items": entries, "log": log}
+
+
 class SaveReq(BaseModel):
     data: dict
     source: str = "live"
@@ -370,6 +385,8 @@ async def live(feed: str = "replay", match_id: str = "m01", voice: str = "offici
                         ex, log2 = await asyncio.to_thread(llm.extras, m, voice, lang, f"live:{match_id}")
                         fx = factcheck.facts_from_match(m)
                         qf = {i: factcheck.check_quiz_item(q, fx, lang) for i, q in enumerate(ex["quiz"])}
+                        # quiz / poll backgrounds: same picker as the Editor tab, skipping photos the live pages used
+                        ex["unit_backgrounds"] = cms.unit_backgrounds({"media": {str(i): {"id": pid} for i, pid in enumerate(used_photos)}})
                         yield _sse("extras", {**ex, "quiz_flags": qf, "log": log2})
                     except Exception as e:
                         yield _sse("error", {"msg": str(e)[:200]})
