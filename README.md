@@ -8,7 +8,7 @@
 
 [![tests](https://github.com/Karimcs409/storyforge/actions/workflows/tests.yml/badge.svg)](https://github.com/Karimcs409/storyforge/actions/workflows/tests.yml)
 
-**▶ Demo video (1:50):** https://youtu.be/rAAtZjrGfJQ
+**▶ Demo video (2:29, Nov 2026):** https://youtu.be/E5uyEWfU1x4 · [first demo (1:50)](https://youtu.be/rAAtZjrGfJQ)
 
 ### What this project demonstrates
 
