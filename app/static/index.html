@@ -61,6 +61,7 @@
         <div class="tap prev" id="tapPrev"></div><div class="tap next" id="tapNext"></div>
       </div>
     </div>
+    <div class="seg viewseg" id="viewSeg"><button class="on" data-v="story">Story</button><button data-v="home">App home</button></div>
     <div class="cost" id="cost"></div>
   </section>
 
@@ -76,8 +77,8 @@
       <div id="cmsPane" hidden><p class="hint">Draft a Story first.</p></div>
     </div>
     <div id="queue" hidden>
-      <div class="phead"><h3>Approval queue</h3><button class="ghost" id="saveLive" disabled>Save live Story</button></div>
-      <div id="queueList"><p class="hint">Key events (goal, red card, sub, half-time, full-time) become draft pages here in &lt; 5 s. Approve / Edit / Skip. Approved pages go live in the phone preview.</p></div>
+      <div class="phead"><h3>Approval queue</h3><div style="display:flex;gap:6px"><button class="ghost" id="addMoment" title="Add a moment the feed or the AI missed">+ Add moment</button><button class="ghost" id="saveLive" disabled>Save live Story</button></div></div>
+      <div id="queueList"><p class="hint">Key events (goal, red card, sub, half-time, full-time) become draft pages here in &lt; 5 s. Approve / Edit / Skip. Approved pages go live in the phone preview. Missed a moment? <b>+ Add moment</b>.</p></div>
     </div>
   </section>
 </main>

@@ -251,3 +251,59 @@ def test_goal_count_question_is_verified():
     wrong = quiz("scorer", "2", ["1", "2", "3", "4"], question="How many goals did Andre Viana score?")
     assert fc.check_quiz_item(right, m03) == []
     assert fc.check_quiz_item(wrong, m03)
+
+
+# ---------- editor-added moments (not in the feed) ----------
+
+def editor_page(headline, caption, ev, players=()):
+    return page(headline, caption, ev["minute"], players) | {"added_by_editor": True, "editor_event": ev}
+
+
+def test_editor_added_page_with_invented_player_is_flagged(facts):
+    ev = {"minute": 88, "type": "goal", "team": "home", "player": "Kevin Smith", "score_after": "2-1"}
+    flags = fc.check_page(editor_page("Smith wins it", "Kevin Smith scores at 88' to make it 2-1.", ev, ["Kevin Smith"]), facts)
+    assert any("editor's player 'Kevin Smith' is not in the roster" in f for f in flags)
+    assert any("player 'Kevin Smith' not in source" in f for f in flags)
+
+
+def test_editor_added_page_with_roster_player_and_editor_minute_passes(facts):
+    # 88' and 2-1 are not in the feed: the editor's input makes them facts for this page only
+    ev = {"minute": 88, "type": "goal", "team": "home", "player": "Ziad Hosny", "score_after": "2-1"}
+    p = editor_page("Hosny wins it late", "Ziad Hosny scores at 88' to make it 2-1 for Nile City FC.", ev, ["Ziad Hosny"])
+    assert fc.check_page(p, facts) == []
+    # ...but only for that page: the same text without the editor's event is flagged
+    assert fc.check_page(page(p["headline"], p["caption"], 88, ["Ziad Hosny"]), facts)
+
+
+def test_editor_added_page_must_name_the_editors_player(facts):
+    ev = {"minute": 88, "type": "goal", "team": "home", "player": "Ziad Hosny", "score_after": "2-1"}
+    flags = fc.check_page(editor_page("Mercer wins it", "Paul Mercer scores at 88'.", ev, ["Paul Mercer"]), facts)
+    assert any("doesn't name" in f for f in flags)
+
+
+def test_editor_added_page_sets_badge_and_shifts_photos(monkeypatch):
+    import asyncio
+    from app import main, store
+    story = {"title": "t", "pages": [page("c", "c", type_="cover"), page("m", "m"), page("x", "x", type_="cta")],
+             "quiz": [], "poll": {"question": "?", "options": ["a", "b"]}, "categories": [], "tags": [],
+             "media": {"0": {"file": "a.jpg"}, "1": {"file": "b.jpg"}, "2": {"file": "c.jpg"}}}
+    saved = {}
+    monkeypatch.setattr(store, "get_story", lambda sid: {"story": story, "report": {}, "logs": [], "voice": "official", "lang": "en",
+                        "theme": {}, "src": {"feed": "replay", "match_id": "m01", "article": None}, "approved": [True, True, True]})
+    monkeypatch.setattr(store, "save_story", lambda *a, **k: saved.update(a[3]) or 1)
+    req = main.AddPageReq(mode="manual", position=1, event={"minute": 88, "type": "goal", "team": "home", "player": "Ziad Hosny"})
+    d = asyncio.run(main.add_page(1, req))
+    new = d["story"]["pages"][1]
+    assert new["added_by_editor"] is True and new["minute"] == 88 and new["players_mentioned"] == ["Ziad Hosny"]
+    assert d["approved"] == [True, False, True, True]
+    assert [d["story"]["media"][k]["file"] for k in ("0", "2", "3")] == ["a.jpg", "b.jpg", "c.jpg"]
+
+
+def test_second_yellow_needs_an_earlier_yellow_in_the_source(facts):
+    # an AI-drafted editor moment wrote "his second booking" for a player with no earlier card
+    ev = {"minute": 93, "type": "yellow_card", "team": "away", "player": "Paul Mercer"}
+    bad = editor_page("Mercer booked", "Paul Mercer gets his second booking at 93'.", ev, ["Paul Mercer"])
+    assert any("second yellow" in f for f in fc.check_page(bad, facts))
+    ev2 = {"minute": 93, "type": "yellow_card", "team": "home", "player": "Hany Gamal"}  # booked at 61' in the feed
+    ok = editor_page("Gamal booked again", "Hany Gamal gets his second yellow at 93'.", ev2, ["Hany Gamal"])
+    assert fc.check_page(ok, facts) == []

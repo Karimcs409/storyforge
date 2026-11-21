@@ -42,20 +42,24 @@ function rgba(hex, f, a) { const n = parseInt(hex.slice(1), 16);
 function deck() {
   if (S.tab === "live") {
     const L = S.live, d = L.pages.map(p => ({ kind: "page", page: p, flags: [], photo: p.photo }));
+    // live quiz/poll have no library pick yet: no background, gradient as before
     if (L.extras && L.extras.approved) { L.extras.quiz.forEach((q, i) => d.push({ kind: "quiz", q, i, n: L.extras.quiz.length })); d.push({ kind: "poll", poll: L.extras.poll }); }
     return { items: d, theme: L.theme, lang: L.lang };
   }
   if (!S.data) return { items: [] };
   const st = S.data.story, rep = S.data.report, items = st.pages.map((p, i) => ({ kind: "page", page: p, idx: i, flags: rep.page_flags[i] || [], photo: (st.media || {})[i] }));
   const cta = items.findIndex(x => x.page.type === "cta");
-  const extra = st.quiz.map((q, i) => ({ kind: "quiz", q, i, n: st.quiz.length })).concat([{ kind: "poll", poll: st.poll }]);
+  const ub = st.unit_backgrounds || {};  // same library photos as the CMS export's Engagement Units
+  const extra = st.quiz.map((q, i) => ({ kind: "quiz", q, i, n: st.quiz.length, photo: ub.quiz })).concat([{ kind: "poll", poll: st.poll, photo: ub.poll }]);
   if (cta >= 0) items.splice(cta, 0, ...extra); else items.push(...extra);
   return { items, theme: S.data.theme, lang: S.data.lang };
 }
 
 function renderPhone() {
-  const { items, theme, lang } = deck();
   const view = $("#pageView");
+  $("#screen").classList.toggle("homeMode", S.view === "home");
+  if (S.view === "home") { $("#bars").innerHTML = ""; view.className = ""; view.innerHTML = homeHTML(); markCuts(); return; }
+  const { items, theme, lang } = deck();
   if (!items.length) { $("#bars").innerHTML = ""; if (!view.querySelector(".skeleton")) view.innerHTML = `<div class="emptyMsg">${S.tab === "live" ? "Approved live pages appear here" : "Pick a match and draft a Story"}</div>`; view.className = "empty"; return; }
   S.cur = Math.max(0, Math.min(S.cur, items.length - 1));
   $("#bars").innerHTML = items.map((_, i) => `<i class="${i < S.cur ? "done" : i === S.cur ? "cur" : ""}"></i>`).join("");
@@ -71,18 +75,22 @@ function pageHTML(it, th, lang) {
   const T = s => lang === "ar" ? esc(s).replace(/(\d+)(['’′])/g, "⁦$1$2⁩").replace(/(\d+\s*[-‑–]\s*\d+)/g, "⁦$1⁩") : esc(s);
   const tone = { cover: [1, .35], moment: [.9, .25], stat: [.45, .15], quote: [.6, .2], cta: [1.1, .4], quiz: [.55, .18], poll: [.7, .22] };
   const type = it.kind === "page" ? it.page.type : it.kind, [a, b] = tone[type] || [1, .3];
-  const bg = `background:linear-gradient(160deg,${shade(c0, a)} 0%,${shade(c0, b)} 70%,#000 100%)`;
+  let bg = `background:linear-gradient(160deg,${shade(c0, a)} 0%,${shade(c0, b)} 70%,#000 100%)`;
   const club = `<div class="club"><span>${esc(th.home_short || "")}${S.tab === "live" ? ' <span class="live">LIVE</span>' : ""}</span><span>${esc(type)}</span></div>`;
+  // quiz / poll: the background picked for the Engagement Unit, under a dark overlay so the options stay readable
+  const unitBg = it.kind !== "page" && it.photo;
+  if (unitBg) bg = `background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,.55) 45%,rgba(0,0,0,.85) 100%),url('/media/${it.photo.file}') center/cover`;
+  const ucls = unitBg ? "pg unitbg" : "pg", utpl = unitBg ? " · background: media library" : "";
   if (it.kind === "quiz") {
-    return `<div class="pg" ${rtl} style="${bg}">${club}<div class="mid">${icon("stat").replace('class="ico"', 'class="ico" style="width:40px;height:40px"')}
+    return `<div class="${ucls}" ${rtl} style="${bg}">${club}<div class="mid">${icon("stat").replace('class="ico"', 'class="ico" style="width:40px;height:40px"')}
       <div style="font-size:12px;opacity:.75;font-weight:700;letter-spacing:.1em">TRIVIA QUIZ ${it.i + 1}/${it.n}</div>
       <h1 style="font-size:22px">${T(it.q.question)}</h1>
-      <div>${it.q.options.map((o, i) => `<button class="opt" data-i="${i}">${esc(o)}</button>`).join("")}</div></div><div class="tpl">template: quiz</div></div>`;
+      <div>${it.q.options.map((o, i) => `<button class="opt" data-i="${i}">${esc(o)}</button>`).join("")}</div></div><div class="tpl">template: quiz${utpl}</div></div>`;
   }
   if (it.kind === "poll") {
-    return `<div class="pg" ${rtl} style="${bg}">${club}<div class="mid"><div style="font-size:12px;opacity:.75;font-weight:700;letter-spacing:.1em">POLL</div>
+    return `<div class="${ucls}" ${rtl} style="${bg}">${club}<div class="mid"><div style="font-size:12px;opacity:.75;font-weight:700;letter-spacing:.1em">POLL</div>
       <h1 style="font-size:24px">${T(it.poll.question)}</h1>
-      <div>${it.poll.options.map((o, i) => `<button class="opt" data-i="${i}"><span class="bar"></span><span style="position:relative">${esc(o)}</span></button>`).join("")}</div></div><div class="tpl">template: poll</div></div>`;
+      <div>${it.poll.options.map((o, i) => `<button class="opt" data-i="${i}"><span class="bar"></span><span style="position:relative">${esc(o)}</span></button>`).join("")}</div></div><div class="tpl">template: poll${utpl}</div></div>`;
   }
   const p = it.page, who = (p.players_mentioned || []).slice(0, 3);
   let mid = "";
@@ -102,7 +110,8 @@ function pageHTML(it, th, lang) {
   const pbg = ph ? `background:linear-gradient(180deg,${rgba(c0, .9, .8)} 0%,${rgba(c0, .6, .3)} 28%,rgba(0,0,0,.15) 45%,rgba(0,0,0,.82) 75%,#000 100%),url('/media/${ph.file}') center/cover` : bg;
   const chip = ph ? `🤖 <span><b>${ph.guarded ? "Swapped by code guard:" : "AI-picked:"}</b> ${esc(ph.reason || p.media_hint)}</span>`
                   : `📷 <span>${esc(p.media_hint)}</span>`;
-  return `<div class="pg ${ph ? "photo" : ""} ${it.flags && it.flags.length ? "flagged" : ""}" ${rtl} style="${pbg}">${club}<div class="mid">${mid}</div>
+  const edb = p.added_by_editor ? '<div class="edbadge" dir="ltr">✎ added by editor · not in feed</div>' : "";
+  return `<div class="pg ${ph ? "photo" : ""} ${it.flags && it.flags.length ? "flagged" : ""}" ${rtl} style="${pbg}">${club}<div class="mid">${edb}${mid}</div>
     <div class="media" dir="ltr">${chip}</div><div class="tpl">template: ${esc(p.template)}${ph ? " · photo: Pexels" : ""}</div></div>`;
 }
 
@@ -119,6 +128,102 @@ $("#tapNext").onclick = () => { S.cur++; renderPhone(); };
 $("#tapPrev").onclick = () => { S.cur--; renderPhone(); };
 document.addEventListener("keydown", e => { if (e.target.matches("input,textarea,select")) return;
   if (e.key === "ArrowRight") { S.cur++; renderPhone(); } if (e.key === "ArrowLeft") { S.cur--; renderPhone(); } });
+
+// ---------------- App home preview: where the CMS titles appear ----------------
+S.view = "story";
+$("#viewSeg").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  S.view = b.dataset.v; $("#viewSeg").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); renderPhone();
+});
+function homeHTML() {
+  const st = S.tab === "studio" && S.data && S.data.story, t = st && st.titles;
+  if (!t) return `<div class="emptyMsg" style="position:absolute;inset:0;display:grid;place-items:center">${S.tab === "live" ? "The app home shows a drafted Story's titles: use the Editor tab" : "Draft a Story to see its titles on the app home"}</div>`;
+  const cover = (st.media || {})[0], c0 = (S.data.theme.colors || ["#1f2a44"])[0];
+  const img = cover ? `url('/media/${cover.file}') center/cover` : `linear-gradient(160deg,${shade(c0, 1)},${shade(c0, .3)})`;
+  const dir = S.data.lang === "ar" ? 'dir="rtl"' : "", max = st.short_title_max || 20;
+  const ghost = n => [...Array(n)].map(() => `<div class="hc dim"><div class="ring"><div class="av"></div></div><span class="st">&nbsp;</span></div>`).join("");
+  return `<div class="home">
+    <div class="happ"><b>${esc(S.data.theme.home_short || "Club")}</b><span>App home</span></div>
+    <div class="hsec">Stories</div>
+    <div class="hrow"><div class="hc"><div class="ring on"><div class="av" style="background:${img}"></div></div>
+      <span class="st" ${dir} data-cut="short">${esc(t.short_display_title)}</span></div>${ghost(3)}</div>
+    <div class="ann" data-for="short">▲ Short Display Title · ${t.short_display_title.length}/${max} chars</div>
+    <div class="hsec">Latest</div>
+    <div class="htile" style="background:linear-gradient(180deg,transparent 30%,#000d 100%),${img}">
+      <div class="tx" ${dir}><span class="eb" data-cut="eyebrow">${esc(t.eyebrow)}</span><b class="lt" data-cut="long">${esc(t.long_display_title)}</b></div></div>
+    <div class="ann" data-for="eyebrow">▲ Eyebrow · ${t.eyebrow.length}/20 chars</div>
+    <div class="ann" data-for="long">▲ Long Display Title · ${t.long_display_title.length}/60 chars</div>
+    <div class="htile dim"></div></div>`;
+}
+function markCuts() {  // show when the phone actually cuts a title off with "…"
+  document.querySelectorAll("#pageView [data-cut]").forEach(el => {
+    const cut = el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 1;
+    const ann = document.querySelector(`#pageView .ann[data-for="${el.dataset.cut}"]`);
+    if (ann) { ann.classList.toggle("cut", cut); if (cut) ann.textContent += " · cut off on screen"; }
+  });
+}
+
+// ---------------- editor-added moments: "+ Add moment" (Live) and "+ Add page" (Editor) ----------------
+const EV_TYPES = [["goal", "Goal"], ["yellow_card", "Yellow card"], ["red_card", "Red card"], ["sub", "Substitution"], ["other", "Other"]];
+function momentForm({ roster, minute, positions, onSubmit }) {
+  // The editor picks players from the lineup (no free typing), so a name can only come from the roster.
+  const sides = Object.keys(roster), el = document.createElement("div"); el.className = "card addform";
+  el.innerHTML = `<div class="row"><b>Add a moment the feed missed</b><span class="chip warn" style="margin-left:auto">not in feed</span></div>
+    <div class="grid2">
+      <label>Minute<input type="number" min="0" max="130" data-k="minute" value="${minute ?? ""}"></label>
+      <label>Type<select data-k="type">${EV_TYPES.map(([v, n]) => `<option value="${v}">${n}</option>`).join("")}</select></label>
+      <label>Team<select data-k="team">${sides.map(s => `<option value="${s}">${esc(roster[s].name)}</option>`).join("")}</select></label>
+      <label data-w="score">Score after<input data-k="score_after" placeholder="e.g. 2-1"></label>
+      <label><span data-l="p1">Player</span><select data-k="player"></select></label>
+      <label data-w="p2"><span data-l="p2">Assist (optional)</span><select data-k="player2"></select></label>
+    </div>
+    ${positions ? `<label>Insert<select data-k="position">${positions.map(([v, n]) => `<option value="${v}">${esc(n)}</option>`).join("")}</select></label>` : ""}
+    <label>Note for the AI (optional)<input data-k="note" placeholder="e.g. header from a corner"></label>
+    <div class="acts"><button class="btn-ok" data-a="ai">✦ Draft with AI</button><button class="ghost" data-a="manual">✎ Write it myself</button><button class="ghost" data-a="cancel">Cancel</button></div>`;
+  const q = k => el.querySelector(`[data-k="${k}"]`);
+  const fill = () => {
+    const ty = q("type").value, players = roster[q("team").value].players, two = ty === "goal" || ty === "sub";
+    const opts = (blank) => (blank ? '<option value="">—</option>' : "") + players.map(p => `<option>${esc(p)}</option>`).join("");
+    const keep1 = q("player").value, keep2 = q("player2").value;
+    q("player").innerHTML = opts(ty === "other"); q("player2").innerHTML = opts(true);
+    if (players.includes(keep1)) q("player").value = keep1; if (players.includes(keep2)) q("player2").value = keep2;
+    el.querySelector('[data-l="p1"]').textContent = ty === "sub" ? "Player on" : ty === "other" ? "Player (optional)" : "Player";
+    el.querySelector('[data-l="p2"]').textContent = ty === "sub" ? "Player off" : "Assist (optional)";
+    el.querySelector('[data-w="p2"]').hidden = !two; el.querySelector('[data-w="score"]').hidden = ty !== "goal";
+  };
+  q("type").onchange = fill; q("team").onchange = fill; fill();
+  el.querySelectorAll("[data-a]").forEach(b => b.onclick = async () => {
+    if (b.dataset.a === "cancel") return el.remove();
+    const ty = q("type").value, mi = parseInt(q("minute").value, 10);
+    if (!(mi >= 0 && mi <= 130)) return toast("Enter the minute (0-130)");
+    const ev = { minute: mi, type: ty, team: q("team").value, player: q("player").value || null,
+      player2: (ty === "goal" || ty === "sub") ? (q("player2").value || null) : null,
+      score_after: ty === "goal" ? (q("score_after").value.trim() || null) : null, note: q("note").value.trim() };
+    el.querySelectorAll("button").forEach(x => x.disabled = true);
+    const old = b.innerHTML; b.innerHTML = '<span class="spin"></span>';
+    try { await onSubmit(ev, b.dataset.a, positions ? +q("position").value : null); el.remove(); }
+    catch (e) { toast("Error: " + e.message); el.querySelectorAll("button").forEach(x => x.disabled = false); b.innerHTML = old; }
+  });
+  return el;
+}
+const EDITOR_BADGE = '<span class="chip edchip" title="The editor added this moment by hand. It is checked against the editor\'s input and the roster.">✎ added by editor (not in feed)</span>';
+
+async function openAddPage() {
+  const d = S.data; if (!d || !S.sid || $("#pagesEd .addform")) return;
+  let roster; try { roster = await api(`/api/story/${S.sid}/roster`); } catch (e) { return toast("Could not load the roster"); }
+  const pages = d.story.pages, cta = pages.findIndex(p => p.type === "cta");
+  const positions = pages.map((p, i) => [i, `before page ${i + 1} (${p.type})`]).concat([[pages.length, "at the end"]]);
+  if (cta >= 0) positions.unshift(positions.splice(cta, 1)[0]);  // default: just before the CTA
+  const f = momentForm({ roster, minute: null, positions, onSubmit: async (event, mode, position) => {
+    const nd = await api(`/api/story/${S.sid}/page/add`, { method: "POST", body: { event, mode, position } });
+    Object.assign(d, { story: nd.story, report: nd.report, logs: nd.logs, approved: nd.approved });
+    S.view = "story"; $("#viewSeg").querySelectorAll("button").forEach(x => x.classList.toggle("on", x.dataset.v === "story"));
+    renderAll(); S.cur = deck().items.findIndex(x => x.idx === nd.position); renderPhone();
+    const card = $(`#pagesEd .card[data-i="${nd.position}"]`); if (card) { card.scrollIntoView({ block: "center" }); if (mode === "manual") card.querySelector("[data-f=headline]").focus(); }
+    toast(mode === "ai" ? `Page ${nd.position + 1} drafted in ${(nd.log.ms / 1000).toFixed(1)} s and checked` : `Page ${nd.position + 1} added: write the headline and caption`);
+  } });
+  $("#pagesEd").prepend(f); f.scrollIntoView({ block: "nearest" });
+}
 
 // ---------------- studio ----------------
 async function loadMatches(feedSel, matchSel) {
@@ -199,6 +304,7 @@ async function renderCms() {
   pane.querySelectorAll("[data-t]").forEach(inp => inp.oninput = () => {
     d.story.titles[inp.dataset.t] = inp.value;
     inp.parentElement.querySelector(".cnt").textContent = `${inp.value.length}/${lim[inp.dataset.t]}`;
+    if (S.view === "home") renderPhone();  // the app-home preview follows the title as it is typed
     clearTimeout(S.titleT);
     S.titleT = setTimeout(async () => { await save(); if (S.right === "cms") renderCms(); }, 700);
   });
@@ -234,13 +340,14 @@ function renderEditor() {
     ${r.story_flags.length ? `<div class="flags">${r.story_flags.map(f => `<div>${esc(f)}</div>`).join("")}</div>` : ""}
     <div style="margin-top:8px;font-weight:700">${esc(d.story.title)}</div>
     <div class="tags">${d.story.categories.map(c => `<span class="cat">${esc(c)}</span>`).join("")}${d.story.tags.map(t => `<span>#${esc(t)}</span>`).join("")}</div>
-    <div style="display:flex;gap:6px;margin-top:10px"><button class="ghost" id="apprAll">Approve all</button></div>`;
+    <div style="display:flex;gap:6px;margin-top:10px"><button class="ghost" id="apprAll">Approve all</button><button class="ghost" id="addPage" title="Add a page for a moment the feed or the AI missed">+ Add page</button></div>`;
   $("#apprAll").onclick = () => { d.approved = d.approved.map(() => true); save(); };
+  $("#addPage").onclick = openAddPage;
   const dir = d.lang === "ar" ? 'dir="rtl"' : "";
   $("#pagesEd").innerHTML = d.story.pages.map((p, i) => {
     const fl = r.page_flags[i] || [];
     return `<div class="card ${d.approved[i] ? "appr" : ""}" data-i="${i}">
-      <div class="row"><b>${i + 1}</b><span class="chip">${p.type}</span><span class="chip">${p.template}</span>${p.minute != null ? `<span class="chip">${p.minute}'</span>` : ""}
+      <div class="row"><b>${i + 1}</b><span class="chip">${p.type}</span><span class="chip">${p.template}</span>${p.minute != null ? `<span class="chip">${p.minute}'</span>` : ""}${p.added_by_editor ? EDITOR_BADGE : ""}
         <span style="margin-left:auto" class="chip ${fl.length ? "bad" : "ok"}">${fl.length ? "⚑ " + fl.length : "facts ✓"}</span></div>
       ${(d.story.media || {})[i] ? `<div class="thumb"><img src="/media/${d.story.media[i].file}" alt=""><span>${d.story.media[i].guarded ? '<b class="g">code guard swap:</b> ' : "🤖 "}${esc(d.story.media[i].reason)}</span></div>` : ""}
       <input ${dir} data-f="headline" value="${esc(p.headline)}"><div class="cnt ${p.headline.length > 40 ? "over" : ""}">${p.headline.length}/40</div>
@@ -331,7 +438,7 @@ $("#liveGo").onclick = () => {
     const txt = { goal: `⚽ GOAL ${ev.player} (${ev.score_after})`, red_card: `🟥 Red card ${ev.player}`, yellow_card: `🟨 ${ev.player}`,
       sub: `🔁 ${ev.player_in} for ${ev.player_out}`, half_time: `Half-time ${ev.score}`, full_time: `Full-time ${ev.score}` }[ev.type] || ev.type;
     $("#ticker").insertAdjacentHTML("afterbegin", `<li class="new ${key ? "key" : ""}"><b>${ev.minute}'</b>${esc(txt)}${key ? ' <span class="spin" style="width:10px;height:10px"></span>' : ""}</li>`);
-    $("#meter").innerHTML = `<span style="color:var(--bad)">● LIVE</span> ${ev.minute}'`;
+    $("#meter").innerHTML = `<span style="color:var(--bad)">● LIVE</span> ${ev.minute}'`; L.minute = ev.minute;
   });
   es.addEventListener("draft", e => {
     const d = JSON.parse(e.data); L.n++; L.ms += d.latency_ms; L.usd += d.log.usd; renderCost();
@@ -343,14 +450,14 @@ $("#liveGo").onclick = () => {
   es.addEventListener("done", () => { es.close(); L.es = null; $("#liveGo").textContent = "● Go live"; $("#meter").textContent = "Full-time"; $("#saveLive").disabled = false; });
 };
 
-function queueCard(d) {
+function queueCard(d, startEditing = false) {
   // Live approval card. Every edit is re-checked by the fact guard on the server, and a page with an open
   // flag can't be approved (same rule as the Editor tab): the editor fixes it, regenerates nothing, or skips it.
   const p = d.page, dir = S.live.lang === "ar" ? 'dir="rtl"' : "", L = S.live;
   let flags = d.flags.slice(), editing = false, checkT;
   const el = document.createElement("div"); el.className = "card";
-  el.innerHTML = `<div class="row"><b>${d.event.minute}'</b><span class="chip">${d.event.type.replace("_", " ")}</span>
-    <span class="lat">⚡ ${(d.latency_ms / 1000).toFixed(1)} s</span><span style="margin-left:auto" class="chip st"></span></div>
+  el.innerHTML = `<div class="row"><b>${d.event.minute}'</b><span class="chip">${d.event.type.replace("_", " ")}</span>${p.added_by_editor ? EDITOR_BADGE : ""}
+    ${d.log || !p.added_by_editor ? `<span class="lat">⚡ ${(d.latency_ms / 1000).toFixed(1)} s</span>` : ""}<span style="margin-left:auto" class="chip st"></span></div>
     <div class="view" ${dir}><div style="font-weight:800;margin-top:6px">${esc(p.headline)}</div><div class="hint">${esc(p.caption)}</div></div>
     <div class="flags"></div>
     <div class="acts"><button class="btn-ok" data-a="ok">Approve</button><button class="ghost" data-a="edit">Edit</button><button class="ghost" data-a="skip">Skip</button></div>`;
@@ -391,7 +498,25 @@ function queueCard(d) {
   el.querySelector('[data-a="skip"]').onclick = () => el.remove();
   paint(false);
   $("#queueList").prepend(el);
+  if (startEditing) { el.querySelector('[data-a="edit"]').click(); el.querySelector("[data-f=headline]").focus(); }
 }
+
+// "+ Add moment": the editor adds what the feed or the AI missed; it goes through the same queue and fact guard
+$("#addMoment").onclick = async () => {
+  if ($("#queueList .addform")) return;
+  const L = S.live, feed = L.feed || $("#lfeed").value, match = L.match || $("#lmatch").value;
+  let roster; try { roster = await api(`/api/roster/${feed}/${match}`); } catch (e) { return toast("Could not load the lineups"); }
+  const f = momentForm({ roster, minute: L.minute || null, onSubmit: async (event, mode) => {
+    const lang = L.es || L.pages.length ? L.lang : S.llang;
+    const d = await api("/api/live/add", { method: "POST", body: { feed, match_id: match, event, mode, voice: S.lvoice, lang,
+                                                                  prior: L.pages.map(p => p.headline) } });
+    Object.assign(L, { feed, match, lang });
+    if (d.log) { L.n = (L.n || 0) + 1; L.ms = (L.ms || 0) + d.latency_ms; L.usd = (L.usd || 0) + d.log.usd; renderCost(); }
+    queueCard(d, mode === "manual");
+    toast(mode === "ai" ? "Moment drafted and checked: approve, edit or skip" : "Write the page, the fact guard checks it as you type");
+  } });
+  $("#queueList").prepend(f);
+};
 
 function extrasCard(x) {
   const ok = Object.values(x.quiz_flags).filter(f => !f.length).length, dir = S.live.lang === "ar" ? 'dir="rtl"' : "";

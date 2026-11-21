@@ -39,9 +39,9 @@ The UI is deliberately minimal (one HTML page, vanilla JS, no build step). It ex
 | | |
 |---|---|
 | **Evals** | **19/21 eval cases pass** in the latest run, 17–20 across recent runs (10 matches × 2 brand voices, English + Arabic, + 1 prompt-injection case) |
-| **Trivia Quiz** | **86/86 quiz answers verified against the source data in code** (latest run) |
-| **Cost** | **a Story costs $0.0015** (Story + Trivia Quiz + Poll + categories in one call) |
-| **Speed** | **a Story takes ~5 s** (median 4.7 s, p95 6.7 s) · **a live page in < 5 s** (21/21 pages of the 2022 World Cup final, median 1.9 s) |
+| **Trivia Quiz** | **83/83 quiz answers verified against the source data in code** (latest run) |
+| **Cost** | **a Story costs $0.0016** (Story + Trivia Quiz + Poll + categories in one call) |
+| **Speed** | **a Story takes ~5 s** (median 5.1 s, p95 9.5 s) · **a live page in < 5 s** (21/21 pages of the 2022 World Cup final, median 1.9 s) |
 | **Real data** | runs on the real **2022 World Cup final** (StatsBomb Open Data) as well as on 10 fictional matches |
 
 A portfolio prototype by **Kareem**. It shows the AI layer of a content product end to end: prompt design,
@@ -64,8 +64,10 @@ quizzes. StoryForge drafts each of those pieces for the editor:
 | **Poll** | one fan-opinion question with 2–4 options |
 | **Categorization** | 3–6 categories from a fixed list + free tags |
 | **Editor review (CMS)** | phone preview, edit any text, approve per page, regenerate one page with a note |
-| **CMS export** | everything an editor otherwise types by hand: the **title pack** (internal / long / short with a per-category max / eyebrow ≤ 20 / SEO title + description), the Trivia Quiz and Poll as Engagement Units (correct-answer toggle verified in code, backgrounds picked from the library) and categories, as one JSON |
+| **CMS export** | everything an editor otherwise types by hand: the **title pack** (internal / long / short with a per-category max / eyebrow ≤ 20 / SEO title + description), the Trivia Quiz and Poll as Engagement Units (correct-answer toggle verified in code, backgrounds picked from the library and shown on the quiz and poll pages in the phone) and categories, as one JSON |
 | **Live Stories** | a live match feed → one draft page per key event in < 5 s → **Approve / Edit / Skip** |
+| **Editor-added moments** | **+ Add moment** (Live) / **+ Add page** (Editor): a moment the feed or the AI missed, drafted by AI or written by hand, players picked from the lineup, fact-checked against the editor's input and the roster, marked *added by editor (not in feed)* |
+| **App home preview** | the phone switches to an app home screen showing where the Short / Long / Eyebrow titles appear, with the "…" when a title is cut off |
 
 Same match, two **brand voice presets** (*Official club* and *Fan zone*), in **English, Arabic (right-to-left)
 or Spanish**.
@@ -141,6 +143,17 @@ drafts the Trivia Quiz and Poll.
 - Real data: **StatsBomb Open Data** (2022 World Cup), including the penalty shoot-out result.
 - Latency budget: `gpt-oss-120b` with a 4 s timeout, falling back to `gpt-oss-20b`.
 - Production: *"Plug a licensed live provider (Opta/Stats Perform, Sportradar) into the same interface."*
+- **+ Add moment** for what the feed missed: the editor enters minute, type, team and players (from the lineup),
+  then drafts with AI or writes the page. The editor's minute and score count as facts for that page only; names
+  must still be on the roster, so an invented player is flagged and Approve stays locked.
+
+<p align="center">
+  <img src="docs/screenshots/08_live_add_moment.png" width="100%" alt="Live mode: an editor-added 74' moment approved, and a hand-written page naming an invented player blocked">
+</p>
+<p align="center">
+  <img src="docs/screenshots/10_phone_app_home.png" width="49%" alt="App home preview: where the Short, Long and Eyebrow titles appear">
+  <img src="docs/screenshots/11_phone_quiz_background.png" width="49%" alt="Trivia Quiz page on the background picked for the Engagement Unit">
+</p>
 
 ---
 
@@ -183,22 +196,23 @@ docs/PROMPTS.md    prompt and model design, and which eval failure each rule cam
 `python -m evals.run`: 10 fictional matches × 2 voices (half English, half Arabic) + 1 prompt-injection
 case. Rule checks run in code; an LLM judge (`gpt-oss-20b`) scores hook, accuracy and brand voice from 1 to 5.
 Full table: [evals/report.md](evals/report.md). The deterministic guards are also covered by
-[`tests/`](tests/test_guards.py) (32 tests, run in CI).
+[`tests/`](tests/test_guards.py) (37 tests, run in CI).
 
 | check | passed (latest run) |
 |---|---|
-| strict JSON schema valid | 21/21 |
-| headline ≤ 40 / caption ≤ 140 chars (after self-repair) | 21/21 |
-| 5–7 pages | 21/21 |
-| every score, minute, %, name and link matches the input; right player on the right event | 21/21 |
-| every quiz answer provable from the input | 21/21 (86/86 answers) |
-| CTA page present | 21/21 |
-| Arabic Stories are actually Arabic | 9/10 |
+| strict JSON schema valid | 20/21 |
+| headline ≤ 40 / caption ≤ 140 chars (after self-repair) | 19/20 |
+| 5–7 pages | 20/20 |
+| every score, minute, %, name and link matches the input; right player on the right event | 20/20 |
+| every quiz answer provable from the input | 20/20 (83/83 answers) |
+| CTA page present | 20/20 |
+| Arabic Stories are actually Arabic | 9/9 |
 | prompt injection ignored | 1/1 |
-| judge (1–5): hook / accuracy / voice | 4.00 / 5.00 / 4.65 |
+| judge (1–5): hook / accuracy / voice | 4.16 / 5.00 / 4.89 |
 
-**The 2 failures stay in the report:** one Arabic Story mixed English words into the text (the language check
-caught it), and one English Story the judge scored below the bar. **The model's output varies run to run, so the
+**The 2 failures stay in the report:** one Arabic Story broke a length limit even after self-repair, and in one
+the provider rejected the model's JSON (a category outside the allowed list), so no Story was produced; the other
+checks count 20 Stories. **The model's output varies run to run, so the
 pass count moves between 17 and 20 out of 21.** The README reports the latest run, not the best one.
 
 **How it got there (same 21 cases):** 9 → 16 → 18 → 19 → 20 → 19 passing. Most failures were in the *checker*,

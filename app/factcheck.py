@@ -1,6 +1,6 @@
 """Fact guard: deterministic code (no LLM) that checks every score, minute, number and name
 in a generated Story / page / quiz against the input data."""
-import re, unicodedata
+import copy, re, unicodedata
 from dataclasses import dataclass, field
 
 from .schemas import HEADLINE_MAX, CAPTION_MAX
@@ -159,8 +159,46 @@ def check_text(text: str, f: Facts, lang: str = "en", names: bool = True) -> lis
     return issues
 
 
+EDITOR_TYPES = ("goal", "yellow_card", "red_card", "sub", "other")
+
+
+def with_editor_event(f: Facts, ev: dict) -> tuple[Facts, list[str]]:
+    """A moment the editor added by hand (not in the feed). The editor's minute, score and players become
+    facts for THIS page only, but the players must still be on the roster: the editor's word is trusted for
+    what happened, never for who exists."""
+    f, issues = copy.deepcopy(f), []
+    minute = ev.get("minute")
+    if not isinstance(minute, int) or not 0 <= minute <= 130:
+        issues.append(f"editor's minute '{minute}' is not a match minute (0-130)")
+        minute = None
+    if ev.get("type") not in EDITOR_TYPES:
+        issues.append(f"editor's event type '{ev.get('type')}' is not one of {', '.join(EDITOR_TYPES)}")
+    who = []
+    for x in (ev.get("player"), ev.get("player2")):
+        if not x:
+            continue
+        if f.names and not _in(x, f.names):
+            issues.append(f"editor's player '{x}' is not in the roster")
+        else:
+            who.append(x)
+    sa = (ev.get("score_after") or "").translate(AR_DIGITS).replace(" ", "")
+    if sa:
+        if re.fullmatch(r"\d{1,2}-\d{1,2}", sa):
+            h, a = sa.split("-")
+            f.scores.update({f"{int(h)}-{int(a)}", f"{int(a)}-{int(h)}"})
+        else:
+            issues.append(f"editor's score '{ev.get('score_after')}' is not a score like 2-1")
+    if minute is not None:
+        f.minutes.add(minute); f.numbers.add(minute)
+        if who:
+            f.events_at.setdefault(minute, []).append((ev.get("type", "other"), who))
+    return f, issues
+
+
 def check_page(p: dict, f: Facts, lang: str = "en") -> list[str]:
     issues = []
+    if p.get("editor_event"):  # added by the editor, not in the feed: checked against the editor's input + roster
+        f, issues = with_editor_event(f, p["editor_event"])
     if len(p.get("headline", "")) > HEADLINE_MAX:
         issues.append(f"headline {len(p['headline'])}>{HEADLINE_MAX} chars")
     if len(p.get("caption", "")) > CAPTION_MAX:
@@ -173,9 +211,25 @@ def check_page(p: dict, f: Facts, lang: str = "en") -> list[str]:
     issues += check_text(p.get("headline", ""), f, lang, names=False)  # headlines are Title Case: numbers only
     issues += check_text(p.get("caption", ""), f, lang)
     issues += check_attribution(p, f, lang)
+    issues += check_second_yellow(p, f, lang)
     if p.get("type") == "cta" and not (p.get("cta_text") and p.get("cta_url")):
         issues.append("cta page without cta_text/cta_url")
     return sorted(set(issues))
+
+
+SECOND_YELLOW_RE = re.compile(r"\b(second|2nd)\s+(yellow|booking|caution)", re.I)
+
+
+def check_second_yellow(p: dict, f: Facts, lang: str = "en") -> list[str]:
+    """'his second booking' is only true if the source already has a yellow card for that player
+    (found when an AI-drafted editor moment invented one)."""
+    text = f"{p.get('headline', '')} {p.get('caption', '')}"
+    if lang != "en" or f.source != "match" or not SECOND_YELLOW_RE.search(text):
+        return []
+    who = [x for x in p.get("players_mentioned", []) if _in(x, f.names)]
+    if any(_in(x, f.yellow_cards) for x in who):
+        return []
+    return [f"'second yellow' but {', '.join(who) or 'nobody named'} has no earlier yellow card in the source"]
 
 
 PARTICLES = {"di", "de", "da", "del", "dos", "du", "van", "von", "der", "el", "al", "le", "la", "ben", "bin", "mac", "mc"}

@@ -58,6 +58,11 @@ the last four headlines ("do not repeat"). Stats and quotes are only added at fu
 exactly one `moment` page with `minute` set to the event minute, and the page is fact-checked against that
 partial match.
 
+**Editor-added moments** (`editor_page()`): the editor's input is wrapped in `<EDITOR_MOMENT>` and treated as
+data. Two rules came from the first manual tests: the prompt now carries the score at that minute, computed in
+code (a 123' save at 3-3 was described as "preserving Argentina's lead"), and forbids earlier cards or goals the
+source doesn't list (a 93' yellow became "his second booking"; a code check for "second yellow" now flags that too).
+
 ## 5. Model routing
 
 | Job | Model | Why |

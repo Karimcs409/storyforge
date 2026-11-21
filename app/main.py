@@ -105,6 +105,7 @@ async def create_story(r: GenReq):
     except Exception as e:
         print("title pack failed:", e)
     rep["title_flags"] = _title_flags(story, facts, r.lang)
+    story["unit_backgrounds"] = cms.unit_backgrounds(story)  # quiz / poll backgrounds: same photos in the phone and the export
     data = {"story": story, "report": rep, "logs": logs, "voice": r.voice, "lang": r.lang, "theme": _theme(m),
             "src": {"feed": r.feed, "match_id": r.match_id, "article": art}, "approved": [False] * len(story["pages"])}
     sid = store.save_story(r.match_id or "article", r.voice, r.lang, data)
@@ -171,6 +172,100 @@ async def regen(sid: int, i: int, r: RegenReq):
     keys = ("story", "report", "logs", "voice", "lang", "theme", "src", "approved")
     store.save_story("", "", "", {k: s[k] for k in keys}, sid=sid)
     return {"id": sid, "page": page, "log": log, **{k: s[k] for k in keys}}
+
+
+# ---------------- editor-added moments (the feed or the AI missed one) ----------------
+class EditorEvent(BaseModel):
+    minute: int
+    type: str = "other"            # goal / yellow_card / red_card / sub / other
+    team: str | None = None        # home / away
+    player: str | None = None      # scorer, carded player, player on
+    player2: str | None = None     # assist (goal) or player off (sub)
+    score_after: str | None = None # goal only, e.g. "2-1"
+    note: str = ""
+
+
+def _editor_page(ev: EditorEvent, mode: str, m, art, prior, voice, lang, ref):
+    """AI-drafted or blank page for the editor's moment, marked as not in the feed. Returns (page, log)."""
+    e = ev.model_dump()
+    if mode == "ai":
+        page, log = llm.editor_page(m, art, e, prior, voice, lang, ref)
+    else:
+        page, log = llm.blank_editor_page(e), None
+    page["added_by_editor"] = True
+    page["editor_event"] = e
+    return page, log
+
+
+def _roster(m, art):
+    if m:
+        return {side: {"name": m[side]["name"], "players": m[side]["lineup"] + m[side].get("bench", [])} for side in ("home", "away")}
+    return {"home": {"name": "Players in the article", "players": sorted(factcheck.facts_from_article(art).names)}}
+
+
+@app.get("/api/story/{sid}/roster")
+def story_roster(sid: int):
+    s = store.get_story(sid)
+    if not s: raise HTTPException(404)
+    m, art, _ = _source(s["src"]["feed"], s["src"]["match_id"], s["src"]["article"])
+    return _roster(m, art)
+
+
+@app.get("/api/roster/{feed}/{mid}")
+def roster(feed: str, mid: str):
+    return _roster(ADAPTERS[feed].get_match(mid), None)
+
+
+class AddPageReq(BaseModel):
+    event: EditorEvent
+    mode: str = "ai"               # ai / manual
+    position: int | None = None    # insert before this page index (default: before the CTA)
+
+
+@app.post("/api/story/{sid}/page/add")
+async def add_page(sid: int, r: AddPageReq):
+    s = store.get_story(sid)
+    if not s: raise HTTPException(404)
+    src = s["src"]
+    m, art, facts = _source(src["feed"], src["match_id"], src["article"])
+    st = s["story"]
+    page, log = await asyncio.to_thread(_editor_page, r.event, r.mode, m, art, st["pages"], s["voice"], s["lang"], f"{sid}:add")
+    n = len(st["pages"])
+    cta = next((i for i, p in enumerate(st["pages"]) if p["type"] == "cta"), n)
+    pos = cta if r.position is None else max(0, min(r.position, n))
+    st["pages"].insert(pos, page)
+    s["approved"].insert(pos, False)
+    # photos are keyed by page index: shift the ones after the new page
+    st["media"] = {str(int(k) + (int(k) >= pos)): v for k, v in (st.get("media") or {}).items()}
+    if log: s["logs"].append(log)
+    s["report"] = factcheck.check_story(st, facts, s["lang"])
+    s["report"]["title_flags"] = _title_flags(st, facts, s["lang"])
+    keys = ("story", "report", "logs", "voice", "lang", "theme", "src", "approved")
+    store.save_story("", "", "", {k: s[k] for k in keys}, sid=sid)
+    return {"id": sid, "position": pos, "log": log, **{k: s[k] for k in keys}}
+
+
+class LiveAddReq(BaseModel):
+    feed: str = "replay"
+    match_id: str
+    event: EditorEvent
+    mode: str = "ai"
+    voice: str = "official"
+    lang: str = "en"
+    prior: list[str] = []          # headlines already in the live Story
+
+
+@app.post("/api/live/add")
+async def live_add(r: LiveAddReq):
+    """'+ Add moment' in the Live approval queue: drafted only from the match as it stood at that minute."""
+    m = await asyncio.to_thread(ADAPTERS[r.feed].get_match, r.match_id)
+    part = _partial(m, [e for e in m["events"] if e["minute"] <= r.event.minute])
+    t0 = time.perf_counter()
+    prior = [{"headline": h} for h in r.prior]
+    page, log = await asyncio.to_thread(_editor_page, r.event, r.mode, part, None, prior, r.voice, r.lang, f"live:{r.match_id}:add")
+    flags = factcheck.check_page(page, factcheck.facts_from_match(part), r.lang)
+    return {"page": page, "flags": flags, "log": log, "latency_ms": int((time.perf_counter() - t0) * 1000),
+            "event": {"minute": r.event.minute, "type": r.event.type}}
 
 
 class SaveReq(BaseModel):

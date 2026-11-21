@@ -116,9 +116,19 @@ def _backgrounds(story: dict, n: int) -> list[dict]:
     return [{"id": p["id"], "file": p["file"], "source": p["source"]} for p in lib[:n]]
 
 
+def unit_backgrounds(story: dict) -> dict:
+    """Quiz default, quiz results and poll backgrounds, picked once and stored on the Story so the phone preview
+    and the CMS export always show the same photos."""
+    if story.get("unit_backgrounds"):
+        return story["unit_backgrounds"]
+    bg = _backgrounds(story, 3)
+    pick = lambda i: bg[i] if len(bg) > i else (bg[0] if bg else None)
+    return {"quiz": pick(0), "quiz_results": pick(1), "poll": pick(2)}
+
+
 def quiz_unit(story: dict, quiz_flags: dict) -> dict:
     """Trivia Quiz as an editor would build it: title, default background, questions (<=4 answers, one correct), results page."""
-    bg = _backgrounds(story, 2)
+    ub = unit_backgrounds(story)
     qs = []
     for i, q in enumerate(story["quiz"]):
         flags = quiz_flags.get(i) or quiz_flags.get(str(i)) or []
@@ -126,8 +136,7 @@ def quiz_unit(story: dict, quiz_flags: dict) -> dict:
                    "answers": [{"text": o, "correct": j == q["correct_index"]} for j, o in enumerate(q["options"])],
                    "verified_in_code": not flags, "check": f"{q['kind']}: {q['answer_canonical']}", "flags": flags})
     unit = {"type": "trivia_quiz", "title": f"{story['title']} – Quiz"[:120],
-            "default_background": bg[0] if bg else None, "questions": qs,
-            "results_background": bg[1] if len(bg) > 1 else (bg[0] if bg else None)}
+            "default_background": ub["quiz"], "questions": qs, "results_background": ub["quiz_results"]}
     unit["rule_issues"] = quiz_rules(unit)
     return unit
 
@@ -149,12 +158,11 @@ def quiz_rules(unit: dict) -> list[str]:
 
 def poll_unit(story: dict) -> dict:
     poll = story["poll"]
-    bg = _backgrounds(story, 3)
     answers = [a.strip() for a in poll["options"]]
     unit = {"type": "poll", "question": poll["question"], "answer_type": "text", "answers": answers,
             "add_question_text_to_background": True,
             "side_by_side": len(answers) == 2 and all(len(a) < 7 for a in answers),
-            "background": bg[2] if len(bg) > 2 else (bg[0] if bg else None)}
+            "background": unit_backgrounds(story)["poll"]}
     unit["rule_issues"] = [] if 2 <= len(answers) <= 4 else [f"{len(answers)} answers (2-4 allowed)"]
     return unit
 
@@ -166,7 +174,7 @@ def export(data: dict) -> dict:
         "titles": st.get("titles", {}),
         "categories": st.get("categories", []), "tags": st.get("tags", []),
         "pages": [{"order": i + 1, "type": p["type"], "template": p["template"], "headline": p["headline"],
-                   "caption": p["caption"], "photo": (st.get("media") or {}).get(str(i), {}).get("file"),
+                   "caption": p["caption"], "added_by_editor": bool(p.get("added_by_editor")), "photo": (st.get("media") or {}).get(str(i), {}).get("file"),
                    "cta": {"text": p["cta_text"], "url": p["cta_url"]} if p.get("cta_url") else None}
                   for i, p in enumerate(st["pages"])],
         "engagement_units": [quiz_unit(st, rep.get("quiz_flags", {})), poll_unit(st)],
