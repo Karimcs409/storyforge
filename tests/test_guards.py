@@ -307,3 +307,49 @@ def test_second_yellow_needs_an_earlier_yellow_in_the_source(facts):
     ev2 = {"minute": 93, "type": "yellow_card", "team": "home", "player": "Hany Gamal"}  # booked at 61' in the feed
     ok = editor_page("Gamal booked again", "Hany Gamal gets his second yellow at 93'.", ev2, ["Hany Gamal"])
     assert fc.check_page(ok, facts) == []
+
+
+# ---------- Analytics explainer: numbers come from code, and are checked in code ----------
+
+def test_analytics_summary_finds_the_planted_patterns():
+    from app import analytics as an
+    s = an.summarize(an.load_sample())
+    assert next(iter(s["drop_off_by_page_type"])) == "stat"          # stat pages lose the most viewers
+    slots = s["by_time_slot"]
+    assert slots["evening (17-22h)"]["avg_reach"] > slots["morning (06-11h)"]["avg_reach"]
+    assert [q["story_id"] for q in s["quiz"]["suspicious_answer_keys"]] == ["S013"]
+
+
+def test_analytics_guard_flags_invented_and_misattributed_numbers():
+    from app import analytics as an
+    s = an.summarize(an.load_sample())
+    ok = {"headline": "Evening Stories reach more fans", "insights": [{"title": "Stat pages lose viewers",
+          "finding": f"Stat pages lose {s['drop_off_by_page_type']['stat']['avg_drop_pct']}% of viewers.",
+          "recommendation": "Move stats after a poll.", "kind": "retention"}]}
+    assert an.check_insights(ok, s)["insights"][0] == []
+    invented = ok | {"insights": [ok["insights"][0] | {"finding": "Stat pages lose 93.3% of viewers."}]}
+    assert any("93.3" in f for f in an.check_insights(invented, s)["insights"][0])
+    # a real number, but another category's: the model once gave goals the transfer completion rate
+    wrong = f"Goals Stories complete at {s['by_category']['transfer']['avg_completion_pct']}%."
+    assert any("belongs to category transfer" in f for f in an.check_attribution(wrong, s))
+    assert an.check_attribution("Poll and quiz pages drop only 6.7% and 4.7%, far lower than 29.9% for stat pages.", s) == []
+    # found in the browser: a time range in the next sentence was read as the morning slot's number
+    fine = "Evening reach is 6615, about twice the morning average of 3241. → Post in the 17-22h window."
+    assert an.check_attribution(fine, s) == []
+
+
+def test_analytics_csv_errors_are_clear():
+    from app import analytics as an
+    with pytest.raises(ValueError, match="missing columns"):
+        an.parse_csv("story_id,page\nS1,1\n")
+    assert an.check_numbers("6 615 viewers", {6615.0}) == []        # thousands separators read as one number
+
+
+def test_analytics_real_misattribution_from_a_run_is_caught():
+    # word for word from a browser run: 5502 is the transfer reach, goals reached 6533
+    from app import analytics as an
+    s = an.summarize(an.load_sample())
+    t = "Goal stories reach 5502 on average and injury stories 3697."
+    assert any("belongs to category transfer" in f for f in an.check_attribution(t, s))
+    # "stats pages" is the page type, not the stats category
+    assert an.check_attribution("Stats pages lose 29.9% of viewers.", s) == []

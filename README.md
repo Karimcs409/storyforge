@@ -23,6 +23,7 @@
 | **Vision model + LLM + code guard** for media selection | [`app/media.py`](app/media.py) |
 | **Prompt-injection defence:** source text is data, links come from code | [`docs/sample_article_injection.txt`](docs/sample_article_injection.txt) |
 | **Human in the loop:** flagged pages can't be approved, and edits are re-checked | [`app/main.py`](app/main.py) |
+| **Numbers from code, words from the model:** an analytics explainer whose every number is checked, including *which* category it belongs to | [`app/analytics.py`](app/analytics.py) |
 
 The UI is deliberately minimal (one HTML page, vanilla JS, no build step). It exists to show the AI layer.
 
@@ -67,6 +68,7 @@ quizzes. StoryForge drafts each of those pieces for the editor:
 | **CMS export** | everything an editor otherwise types by hand: the **title pack** (internal / long / short with a per-category max / eyebrow ≤ 20 / SEO title + description), the Trivia Quiz and Poll as Engagement Units (correct-answer toggle verified in code, backgrounds picked from the library and shown on the quiz and poll pages in the phone) and categories, as one JSON |
 | **Live Stories** | a live match feed → one draft page per key event in < 5 s → **Approve / Edit / Skip** |
 | **Editor-added moments** | **+ Add moment** (Live) / **+ Add page** (Editor): a moment the feed or the AI missed, drafted by AI or written by hand, players picked from the lineup, fact-checked against the editor's input and the roster, marked *added by editor (not in feed)* |
+| **Analytics explainer** | reads a per-page analytics export (CSV) → code computes drop-off per page type, reach by time slot and category, quiz correct rates → the model writes 3–5 insights for editors → code checks every number, and that it sits next to the right category / page type / slot. Demo data is **synthetic** ([`data/make_analytics.py`](data/make_analytics.py)) |
 | **App home preview** | the phone switches to an app home screen showing where the Short / Long / Eyebrow titles appear, with the "…" when a title is cut off |
 
 Same match, two **brand voice presets** (*Official club* and *Fan zone*), in **English, Arabic (right-to-left)
@@ -151,6 +153,9 @@ drafts the Trivia Quiz and Poll.
   <img src="docs/screenshots/08_live_add_moment.png" width="100%" alt="Live mode: an editor-added 74' moment approved, and a hand-written page naming an invented player blocked">
 </p>
 <p align="center">
+  <img src="docs/screenshots/12_analytics_explainer.png" width="100%" alt="Analytics explainer on synthetic data: numbers computed in code, insights written by the model and checked in code">
+</p>
+<p align="center">
   <img src="docs/screenshots/10_phone_app_home.png" width="49%" alt="App home preview: where the Short, Long and Eyebrow titles appear">
   <img src="docs/screenshots/11_phone_quiz_background.png" width="49%" alt="Trivia Quiz page on the background picked for the Engagement Unit">
 </p>
@@ -196,7 +201,7 @@ docs/PROMPTS.md    prompt and model design, and which eval failure each rule cam
 `python -m evals.run`: 10 fictional matches × 2 voices (half English, half Arabic) + 1 prompt-injection
 case. Rule checks run in code; an LLM judge (`gpt-oss-20b`) scores hook, accuracy and brand voice from 1 to 5.
 Full table: [evals/report.md](evals/report.md). The deterministic guards are also covered by
-[`tests/`](tests/test_guards.py) (37 tests, run in CI).
+[`tests/`](tests/test_guards.py) (41 tests, run in CI).
 
 | check | passed (latest run) |
 |---|---|
@@ -266,6 +271,9 @@ Two sample articles for *Article* mode are in [`docs/`](docs/). One of them hide
 - The demo photo library is small (18 Pexels photos), so a long live match falls back to neutral photos.
   Vision tags can be wrong: a first pass tagged plain night stadiums as "France" until the prompt was fixed.
 - Poll results in the preview are a demo animation, not real votes.
+- The analytics explainer runs on **synthetic** data with planted patterns; it has not seen a real export.
+  Its guard checks numbers per sentence, so two names swapped inside one sentence are not caught, and it can't
+  judge whether a stated *reason* ("likely because…") is true. Thresholds the model invents ("above 50%") are flagged.
 
 ## What it would take for production
 

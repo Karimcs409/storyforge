@@ -540,10 +540,56 @@ $("#saveLive").onclick = async () => {
 document.querySelector(".tabs").onclick = e => {
   const b = e.target.closest("button"); if (!b) return; S.tab = b.dataset.tab;
   document.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
-  const live = S.tab === "live";
-  $("#studioCtl").hidden = live; $("#liveCtl").hidden = !live; $("#editor").hidden = live; $("#queue").hidden = !live;
+  const live = S.tab === "live", ana = S.tab === "analytics";
+  $("#studioCtl").hidden = live || ana; $("#liveCtl").hidden = !live; $("#anaCtl").hidden = !ana;
+  $("#editor").hidden = live || ana; $("#queue").hidden = !live; $("#anaPane").hidden = !ana;
+  $("#phoneWrap").hidden = ana; $("#anaView").hidden = !ana;
+  if (ana) return;
   S.cur = live ? Math.max(0, S.live.pages.length - 1) : 0; renderPhone(); renderCost();
 };
+
+// ---------------- Analytics explainer: code computes the numbers, the LLM explains, code checks the numbers ----------------
+S.anaCsv = null;
+$("#anaFile").onchange = async e => {
+  const f = e.target.files[0]; if (!f) return;
+  S.anaCsv = await f.text(); $("#anaSrc").textContent = `${f.name} (${(f.size / 1024).toFixed(0)} KB)`;
+};
+$("#anaSample").onclick = () => { S.anaCsv = null; $("#anaFile").value = ""; $("#anaSrc").textContent = "sample export (synthetic, 40 Stories)"; };
+$("#anaGo").onclick = async () => {
+  const btn = $("#anaGo"); btn.disabled = true; btn.innerHTML = '<span class="spin"></span> Explaining…';
+  $("#anaPane").innerHTML = '<p class="hint"><span class="spin"></span> Computing the numbers in code, then asking the model what they mean…</p>';
+  try { const d = await api("/api/analytics/explain", { method: "POST", body: { csv: S.anaCsv } }); renderAnalytics(d); }
+  catch (e) { $("#anaPane").innerHTML = `<div class="flags"><div>${esc(e.message)}</div></div>`; }
+  btn.disabled = false; btn.textContent = "✦ Explain the numbers";
+};
+function bars(title, rows, unit, note) {  // rows: [label, value, extra]
+  const max = Math.max(...rows.map(r => r[1]), 1);
+  return `<div class="card"><div class="row"><b>${esc(title)}</b><span class="hint" style="margin-left:auto">${esc(note || "")}</span></div>
+    ${rows.map(([l, v, x]) => `<div class="abar"><span class="al">${esc(l)}</span><span class="at"><i style="width:${(100 * v / max).toFixed(1)}%"></i></span>
+      <span class="av">${v.toLocaleString()}${unit}</span>${x ? `<span class="ax">${esc(x)}</span>` : ""}</div>`).join("")}</div>`;
+}
+function renderAnalytics(d) {
+  const s = d.summary, q = s.quiz;
+  $("#anaView").innerHTML = `<div class="report">
+      <div><b>${s.stories}</b><span>Stories</span></div><div><b>${s.avg_reach.toLocaleString()}</b><span>avg reach</span></div>
+      <div><b>${s.avg_completion_pct}%</b><span>avg completion</span></div></div>
+    <p class="hint">Source: <b>${esc(d.source)}</b>. Every number below is computed in code from the export.</p>
+    ${bars("Viewers lost on each page type", Object.entries(s.drop_off_by_page_type).map(([t, v]) => [t, v.avg_drop_pct, `${v.pages} pages`]), "%", "vs the page before")}
+    ${bars("Average reach by time slot", Object.entries(s.by_time_slot).map(([t, v]) => [t, v.avg_reach, `${v.stories} Stories`]), "", "viewers on page 1")}
+    ${bars("Average reach by category", Object.entries(s.by_category).map(([c, v]) => [c, v.avg_reach, `${v.avg_completion_pct}% complete`]), "", "")}
+    <div class="card"><div class="row"><b>Trivia Quiz answers</b><span class="hint" style="margin-left:auto">${q.questions} questions · ${q.avg_correct_pct}% correct on average</span></div>
+      ${q.suspicious_answer_keys.length ? q.suspicious_answer_keys.map(x => `<div class="flags"><div>${esc(x.story_id)} "${esc(x.question)}": only ${x.correct_pct}% of ${x.answers.toLocaleString()} answers correct. Check the answer key.</div></div>`).join("")
+        : '<div class="ver">No question with a suspiciously low correct rate.</div>'}</div>`;
+  const fl = d.flags, nfl = fl.headline.length + Object.values(fl.insights).filter(x => x.length).length;
+  $("#anaPane").innerHTML = `<div class="phead"><h3>What the numbers say</h3><span class="chip ${nfl ? "bad" : "ok"}">${nfl ? "⚑ " + nfl + " number flag" + (nfl > 1 ? "s" : "") : "numbers ✓"}</span></div>
+    <div class="card"><b>${esc(d.headline)}</b>${fl.headline.length ? `<div class="flags">${fl.headline.map(f => `<div>${esc(f)}</div>`).join("")}</div>` : ""}</div>
+    ${d.insights.map((x, i) => { const f = fl.insights[i] || [];
+      return `<div class="card ins"><div class="row"><span class="chip">${esc(x.kind)}</span><b>${esc(x.title)}</b>
+        <span style="margin-left:auto" class="chip ${f.length ? "bad" : "ok"}">${f.length ? "⚑ " + f.length : "✓"}</span></div>
+        <p>${esc(x.finding)}</p><p class="rec">→ ${esc(x.recommendation)}</p>
+        ${f.length ? `<div class="flags">${f.map(z => `<div>${esc(z)}</div>`).join("")}</div>` : ""}</div>`; }).join("")}
+    <p class="hint">Every number and % above was checked in code against the computed analytics, including which category, page type or time slot it belongs to. ${(d.log.ms / 1000).toFixed(1)} s · $${d.log.usd.toFixed(4)} · ${esc(d.log.model)}</p>`;
+}
 
 (async () => {
   seg("#srcSeg", "src"); seg("#voiceSeg", "voice"); seg("#langSeg", "lang"); seg("#lvoiceSeg", "lvoice"); seg("#llangSeg", "llang");

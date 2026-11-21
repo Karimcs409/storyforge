@@ -1,0 +1,271 @@
+story_id,story_title,category,published_at,page,page_type,viewers,shares,swipe_ups,votes,quiz_question,quiz_answers,quiz_correct
+S001,Coral Bay Athletic v Delta Rovers,match-report,2026-10-01 18:00,1,cover,5579,36,0,0,,0,0
+S001,Coral Bay Athletic v Delta Rovers,match-report,2026-10-01 18:00,2,moment,5079,33,0,0,,0,0
+S001,Coral Bay Athletic v Delta Rovers,match-report,2026-10-01 18:00,3,moment,4603,30,0,0,,0,0
+S001,Coral Bay Athletic v Delta Rovers,match-report,2026-10-01 18:00,4,stat,3143,24,0,0,,0,0
+S001,Coral Bay Athletic v Delta Rovers,match-report,2026-10-01 18:00,5,quiz,3044,20,0,0,Who scored the opening goal?,1437,1015
+S001,Coral Bay Athletic v Delta Rovers,match-report,2026-10-01 18:00,6,poll,2907,23,0,1126,,0,0
+S001,Coral Bay Athletic v Delta Rovers,match-report,2026-10-01 18:00,7,cta,2572,16,352,0,,0,0
+S002,Alpine Wanderers v Sahara Falcons,goals,2026-10-01 10:00,1,cover,3717,30,0,0,,0,0
+S002,Alpine Wanderers v Sahara Falcons,goals,2026-10-01 10:00,2,moment,3319,83,0,0,,0,0
+S002,Alpine Wanderers v Sahara Falcons,goals,2026-10-01 10:00,3,moment,3059,94,0,0,,0,0
+S002,Alpine Wanderers v Sahara Falcons,goals,2026-10-01 10:00,4,quiz,2926,23,0,0,What was the final score?,1472,1095
+S002,Alpine Wanderers v Sahara Falcons,goals,2026-10-01 10:00,5,poll,2716,25,0,1041,,0,0
+S002,Alpine Wanderers v Sahara Falcons,goals,2026-10-01 10:00,6,cta,2300,16,306,0,,0,0
+S003,Delta Rovers sign a new striker,transfer,2026-10-02 14:45,1,cover,7342,56,0,0,,0,0
+S003,Delta Rovers sign a new striker,transfer,2026-10-02 14:45,2,moment,6785,46,0,0,,0,0
+S003,Delta Rovers sign a new striker,transfer,2026-10-02 14:45,3,moment,6170,40,0,0,,0,0
+S003,Delta Rovers sign a new striker,transfer,2026-10-02 14:45,4,quote,5484,48,0,0,,0,0
+S003,Delta Rovers sign a new striker,transfer,2026-10-02 14:45,5,poll,5123,47,0,1934,,0,0
+S003,Delta Rovers sign a new striker,transfer,2026-10-02 14:45,6,cta,4457,37,551,0,,0,0
+S004,Granite Hill FC injury update,injury,2026-10-03 09:30,1,cover,2222,21,0,0,,0,0
+S004,Granite Hill FC injury update,injury,2026-10-03 09:30,2,moment,2061,15,0,0,,0,0
+S004,Granite Hill FC injury update,injury,2026-10-03 09:30,3,moment,1863,15,0,0,,0,0
+S004,Granite Hill FC injury update,injury,2026-10-03 09:30,4,quote,1592,12,0,0,,0,0
+S004,Granite Hill FC injury update,injury,2026-10-03 09:30,5,poll,1451,9,0,503,,0,0
+S004,Granite Hill FC injury update,injury,2026-10-03 09:30,6,cta,1268,8,136,0,,0,0
+S005,Riverside Phoenix v Granite Hill FC: the numbers,stats,2026-10-04 19:00,1,cover,4031,31,0,0,,0,0
+S005,Riverside Phoenix v Granite Hill FC: the numbers,stats,2026-10-04 19:00,2,moment,3679,31,0,0,,0,0
+S005,Riverside Phoenix v Granite Hill FC: the numbers,stats,2026-10-04 19:00,3,moment,3446,29,0,0,,0,0
+S005,Riverside Phoenix v Granite Hill FC: the numbers,stats,2026-10-04 19:00,4,stat,2395,17,0,0,,0,0
+S005,Riverside Phoenix v Granite Hill FC: the numbers,stats,2026-10-04 19:00,5,stat,1634,11,0,0,,0,0
+S005,Riverside Phoenix v Granite Hill FC: the numbers,stats,2026-10-04 19:00,6,quote,1452,9,0,0,,0,0
+S005,Riverside Phoenix v Granite Hill FC: the numbers,stats,2026-10-04 19:00,7,quiz,1406,9,0,0,Which team had more possession?,672,394
+S005,Riverside Phoenix v Granite Hill FC: the numbers,stats,2026-10-04 19:00,8,poll,1311,10,0,495,,0,0
+S005,Riverside Phoenix v Granite Hill FC: the numbers,stats,2026-10-04 19:00,9,cta,1102,10,156,0,,0,0
+S006,Nile City FC fans take over,fan-zone,2026-10-04 20:45,1,cover,6824,65,0,0,,0,0
+S006,Nile City FC fans take over,fan-zone,2026-10-04 20:45,2,moment,6188,41,0,0,,0,0
+S006,Nile City FC fans take over,fan-zone,2026-10-04 20:45,3,moment,5665,38,0,0,,0,0
+S006,Nile City FC fans take over,fan-zone,2026-10-04 20:45,4,stat,3981,32,0,0,,0,0
+S006,Nile City FC fans take over,fan-zone,2026-10-04 20:45,5,quote,3598,30,0,0,,0,0
+S006,Nile City FC fans take over,fan-zone,2026-10-04 20:45,6,poll,3260,23,0,1255,,0,0
+S006,Nile City FC fans take over,fan-zone,2026-10-04 20:45,7,cta,2826,26,352,0,,0,0
+S007,Granite Hill FC v Nile City FC,match-report,2026-10-05 09:45,1,cover,3214,21,0,0,,0,0
+S007,Granite Hill FC v Nile City FC,match-report,2026-10-05 09:45,2,moment,2855,21,0,0,,0,0
+S007,Granite Hill FC v Nile City FC,match-report,2026-10-05 09:45,3,moment,2561,23,0,0,,0,0
+S007,Granite Hill FC v Nile City FC,match-report,2026-10-05 09:45,4,stat,1756,11,0,0,,0,0
+S007,Granite Hill FC v Nile City FC,match-report,2026-10-05 09:45,5,quote,1587,12,0,0,,0,0
+S007,Granite Hill FC v Nile City FC,match-report,2026-10-05 09:45,6,quiz,1476,12,0,0,What was the final score?,668,455
+S007,Granite Hill FC v Nile City FC,match-report,2026-10-05 09:45,7,poll,1412,12,0,598,,0,0
+S007,Granite Hill FC v Nile City FC,match-report,2026-10-05 09:45,8,cta,1197,9,124,0,,0,0
+S008,Sahara Falcons v Alpine Wanderers,goals,2026-10-06 20:30,1,cover,8660,60,0,0,,0,0
+S008,Sahara Falcons v Alpine Wanderers,goals,2026-10-06 20:30,2,moment,7757,223,0,0,,0,0
+S008,Sahara Falcons v Alpine Wanderers,goals,2026-10-06 20:30,3,moment,7188,189,0,0,,0,0
+S008,Sahara Falcons v Alpine Wanderers,goals,2026-10-06 20:30,4,quiz,6825,59,0,0,Who was sent off?,3746,2800
+S008,Sahara Falcons v Alpine Wanderers,goals,2026-10-06 20:30,5,cta,5860,41,732,0,,0,0
+S009,Coral Bay Athletic sign a new striker,transfer,2026-10-07 15:30,1,cover,5769,55,0,0,,0,0
+S009,Coral Bay Athletic sign a new striker,transfer,2026-10-07 15:30,2,moment,5284,33,0,0,,0,0
+S009,Coral Bay Athletic sign a new striker,transfer,2026-10-07 15:30,3,moment,4927,36,0,0,,0,0
+S009,Coral Bay Athletic sign a new striker,transfer,2026-10-07 15:30,4,stat,3478,31,0,0,,0,0
+S009,Coral Bay Athletic sign a new striker,transfer,2026-10-07 15:30,5,quote,2991,22,0,0,,0,0
+S009,Coral Bay Athletic sign a new striker,transfer,2026-10-07 15:30,6,poll,2817,19,0,1258,,0,0
+S009,Coral Bay Athletic sign a new striker,transfer,2026-10-07 15:30,7,cta,2413,20,241,0,,0,0
+S010,Riverside Phoenix injury update,injury,2026-10-07 18:00,1,cover,5465,49,0,0,,0,0
+S010,Riverside Phoenix injury update,injury,2026-10-07 18:00,2,moment,4867,44,0,0,,0,0
+S010,Riverside Phoenix injury update,injury,2026-10-07 18:00,3,moment,4557,38,0,0,,0,0
+S010,Riverside Phoenix injury update,injury,2026-10-07 18:00,4,stat,3161,25,0,0,,0,0
+S010,Riverside Phoenix injury update,injury,2026-10-07 18:00,5,quote,2720,17,0,0,,0,0
+S010,Riverside Phoenix injury update,injury,2026-10-07 18:00,6,quiz,2657,22,0,0,Which team had more possession?,1335,1045
+S010,Riverside Phoenix injury update,injury,2026-10-07 18:00,7,cta,2276,20,308,0,,0,0
+S011,Sahara Falcons v Nile City FC: the numbers,stats,2026-10-08 14:15,1,cover,2888,22,0,0,,0,0
+S011,Sahara Falcons v Nile City FC: the numbers,stats,2026-10-08 14:15,2,moment,2570,23,0,0,,0,0
+S011,Sahara Falcons v Nile City FC: the numbers,stats,2026-10-08 14:15,3,moment,2318,18,0,0,,0,0
+S011,Sahara Falcons v Nile City FC: the numbers,stats,2026-10-08 14:15,4,stat,1631,15,0,0,,0,0
+S011,Sahara Falcons v Nile City FC: the numbers,stats,2026-10-08 14:15,5,stat,1136,10,0,0,,0,0
+S011,Sahara Falcons v Nile City FC: the numbers,stats,2026-10-08 14:15,6,quote,1000,8,0,0,,0,0
+S011,Sahara Falcons v Nile City FC: the numbers,stats,2026-10-08 14:15,7,poll,931,6,0,365,,0,0
+S011,Sahara Falcons v Nile City FC: the numbers,stats,2026-10-08 14:15,8,cta,785,5,105,0,,0,0
+S012,Harbor Town United fans take over,fan-zone,2026-10-09 19:00,1,cover,7159,48,0,0,,0,0
+S012,Harbor Town United fans take over,fan-zone,2026-10-09 19:00,2,moment,6538,47,0,0,,0,0
+S012,Harbor Town United fans take over,fan-zone,2026-10-09 19:00,3,moment,5870,52,0,0,,0,0
+S012,Harbor Town United fans take over,fan-zone,2026-10-09 19:00,4,stat,4111,33,0,0,,0,0
+S012,Harbor Town United fans take over,fan-zone,2026-10-09 19:00,5,cta,3590,33,421,0,,0,0
+S013,Sahara Falcons v Coral Bay Athletic,match-report,2026-10-10 14:45,1,cover,4410,31,0,0,,0,0
+S013,Sahara Falcons v Coral Bay Athletic,match-report,2026-10-10 14:45,2,moment,4019,36,0,0,,0,0
+S013,Sahara Falcons v Coral Bay Athletic,match-report,2026-10-10 14:45,3,moment,3751,35,0,0,,0,0
+S013,Sahara Falcons v Coral Bay Athletic,match-report,2026-10-10 14:45,4,stat,2687,18,0,0,,0,0
+S013,Sahara Falcons v Coral Bay Athletic,match-report,2026-10-10 14:45,5,quiz,2545,19,0,0,Who was sent off?,1245,87
+S013,Sahara Falcons v Coral Bay Athletic,match-report,2026-10-10 14:45,6,poll,2341,20,0,916,,0,0
+S013,Sahara Falcons v Coral Bay Athletic,match-report,2026-10-10 14:45,7,cta,1978,14,201,0,,0,0
+S014,Harbor Town United v Coral Bay Athletic,goals,2026-10-10 15:15,1,cover,5296,35,0,0,,0,0
+S014,Harbor Town United v Coral Bay Athletic,goals,2026-10-10 15:15,2,moment,4930,127,0,0,,0,0
+S014,Harbor Town United v Coral Bay Athletic,goals,2026-10-10 15:15,3,moment,4532,120,0,0,,0,0
+S014,Harbor Town United v Coral Bay Athletic,goals,2026-10-10 15:15,4,stat,3211,30,0,0,,0,0
+S014,Harbor Town United v Coral Bay Athletic,goals,2026-10-10 15:15,5,quote,2810,21,0,0,,0,0
+S014,Harbor Town United v Coral Bay Athletic,goals,2026-10-10 15:15,6,quiz,2646,17,0,0,In which minute was the equaliser?,1287,816
+S014,Harbor Town United v Coral Bay Athletic,goals,2026-10-10 15:15,7,cta,2270,19,259,0,,0,0
+S015,Alpine Wanderers sign a new striker,transfer,2026-10-11 09:00,1,cover,4811,31,0,0,,0,0
+S015,Alpine Wanderers sign a new striker,transfer,2026-10-11 09:00,2,moment,4451,32,0,0,,0,0
+S015,Alpine Wanderers sign a new striker,transfer,2026-10-11 09:00,3,moment,3960,30,0,0,,0,0
+S015,Alpine Wanderers sign a new striker,transfer,2026-10-11 09:00,4,quiz,3855,34,0,0,Which team had more possession?,1834,1077
+S015,Alpine Wanderers sign a new striker,transfer,2026-10-11 09:00,5,poll,3675,30,0,1558,,0,0
+S015,Alpine Wanderers sign a new striker,transfer,2026-10-11 09:00,6,cta,3083,20,397,0,,0,0
+S016,Riverside Phoenix injury update,injury,2026-10-12 14:00,1,cover,3661,33,0,0,,0,0
+S016,Riverside Phoenix injury update,injury,2026-10-12 14:00,2,moment,3323,24,0,0,,0,0
+S016,Riverside Phoenix injury update,injury,2026-10-12 14:00,3,moment,3033,28,0,0,,0,0
+S016,Riverside Phoenix injury update,injury,2026-10-12 14:00,4,quote,2632,17,0,0,,0,0
+S016,Riverside Phoenix injury update,injury,2026-10-12 14:00,5,poll,2452,17,0,865,,0,0
+S016,Riverside Phoenix injury update,injury,2026-10-12 14:00,6,cta,2066,13,218,0,,0,0
+S017,Alpine Wanderers v Coral Bay Athletic: the numbers,stats,2026-10-13 14:15,1,cover,2885,18,0,0,,0,0
+S017,Alpine Wanderers v Coral Bay Athletic: the numbers,stats,2026-10-13 14:15,2,moment,2586,16,0,0,,0,0
+S017,Alpine Wanderers v Coral Bay Athletic: the numbers,stats,2026-10-13 14:15,3,moment,2386,19,0,0,,0,0
+S017,Alpine Wanderers v Coral Bay Athletic: the numbers,stats,2026-10-13 14:15,4,stat,1639,12,0,0,,0,0
+S017,Alpine Wanderers v Coral Bay Athletic: the numbers,stats,2026-10-13 14:15,5,stat,1177,7,0,0,,0,0
+S017,Alpine Wanderers v Coral Bay Athletic: the numbers,stats,2026-10-13 14:15,6,quiz,1140,8,0,0,What was the final score?,569,431
+S017,Alpine Wanderers v Coral Bay Athletic: the numbers,stats,2026-10-13 14:15,7,poll,1053,8,0,444,,0,0
+S017,Alpine Wanderers v Coral Bay Athletic: the numbers,stats,2026-10-13 14:15,8,cta,932,6,126,0,,0,0
+S018,Harbor Town United fans take over,fan-zone,2026-10-13 15:00,1,cover,5329,35,0,0,,0,0
+S018,Harbor Town United fans take over,fan-zone,2026-10-13 15:00,2,moment,4897,37,0,0,,0,0
+S018,Harbor Town United fans take over,fan-zone,2026-10-13 15:00,3,moment,4458,42,0,0,,0,0
+S018,Harbor Town United fans take over,fan-zone,2026-10-13 15:00,4,stat,3139,27,0,0,,0,0
+S018,Harbor Town United fans take over,fan-zone,2026-10-13 15:00,5,poll,2840,19,0,1057,,0,0
+S018,Harbor Town United fans take over,fan-zone,2026-10-13 15:00,6,cta,2369,17,264,0,,0,0
+S019,Coral Bay Athletic v Delta Rovers,match-report,2026-10-14 08:30,1,cover,2563,17,0,0,,0,0
+S019,Coral Bay Athletic v Delta Rovers,match-report,2026-10-14 08:30,2,moment,2301,19,0,0,,0,0
+S019,Coral Bay Athletic v Delta Rovers,match-report,2026-10-14 08:30,3,moment,2062,18,0,0,,0,0
+S019,Coral Bay Athletic v Delta Rovers,match-report,2026-10-14 08:30,4,stat,1408,12,0,0,,0,0
+S019,Coral Bay Athletic v Delta Rovers,match-report,2026-10-14 08:30,5,quote,1212,10,0,0,,0,0
+S019,Coral Bay Athletic v Delta Rovers,match-report,2026-10-14 08:30,6,quiz,1144,8,0,0,In which minute was the equaliser?,586,334
+S019,Coral Bay Athletic v Delta Rovers,match-report,2026-10-14 08:30,7,poll,1094,9,0,392,,0,0
+S019,Coral Bay Athletic v Delta Rovers,match-report,2026-10-14 08:30,8,cta,963,8,120,0,,0,0
+S020,Coral Bay Athletic v Granite Hill FC,goals,2026-10-15 19:15,1,cover,7781,67,0,0,,0,0
+S020,Coral Bay Athletic v Granite Hill FC,goals,2026-10-15 19:15,2,moment,7086,206,0,0,,0,0
+S020,Coral Bay Athletic v Granite Hill FC,goals,2026-10-15 19:15,3,moment,6526,196,0,0,,0,0
+S020,Coral Bay Athletic v Granite Hill FC,goals,2026-10-15 19:15,4,quote,5884,51,0,0,,0,0
+S020,Coral Bay Athletic v Granite Hill FC,goals,2026-10-15 19:15,5,quiz,5613,50,0,0,Which team had more possession?,2534,1828
+S020,Coral Bay Athletic v Granite Hill FC,goals,2026-10-15 19:15,6,cta,4913,42,697,0,,0,0
+S021,Sahara Falcons sign a new striker,transfer,2026-10-16 08:00,1,cover,3737,31,0,0,,0,0
+S021,Sahara Falcons sign a new striker,transfer,2026-10-16 08:00,2,moment,3427,29,0,0,,0,0
+S021,Sahara Falcons sign a new striker,transfer,2026-10-16 08:00,3,moment,3116,19,0,0,,0,0
+S021,Sahara Falcons sign a new striker,transfer,2026-10-16 08:00,4,stat,2220,19,0,0,,0,0
+S021,Sahara Falcons sign a new striker,transfer,2026-10-16 08:00,5,quote,1954,15,0,0,,0,0
+S021,Sahara Falcons sign a new striker,transfer,2026-10-16 08:00,6,poll,1835,12,0,786,,0,0
+S021,Sahara Falcons sign a new striker,transfer,2026-10-16 08:00,7,cta,1554,10,168,0,,0,0
+S022,Sahara Falcons injury update,injury,2026-10-16 19:45,1,cover,5650,47,0,0,,0,0
+S022,Sahara Falcons injury update,injury,2026-10-16 19:45,2,moment,5049,42,0,0,,0,0
+S022,Sahara Falcons injury update,injury,2026-10-16 19:45,3,moment,4548,38,0,0,,0,0
+S022,Sahara Falcons injury update,injury,2026-10-16 19:45,4,stat,3220,27,0,0,,0,0
+S022,Sahara Falcons injury update,injury,2026-10-16 19:45,5,quiz,2992,23,0,0,What was the final score?,1491,1182
+S022,Sahara Falcons injury update,injury,2026-10-16 19:45,6,poll,2715,19,0,1082,,0,0
+S022,Sahara Falcons injury update,injury,2026-10-16 19:45,7,cta,2365,17,279,0,,0,0
+S023,Delta Rovers v Alpine Wanderers: the numbers,stats,2026-10-17 13:30,1,cover,3521,31,0,0,,0,0
+S023,Delta Rovers v Alpine Wanderers: the numbers,stats,2026-10-17 13:30,2,moment,3294,25,0,0,,0,0
+S023,Delta Rovers v Alpine Wanderers: the numbers,stats,2026-10-17 13:30,3,moment,2956,20,0,0,,0,0
+S023,Delta Rovers v Alpine Wanderers: the numbers,stats,2026-10-17 13:30,4,stat,2125,15,0,0,,0,0
+S023,Delta Rovers v Alpine Wanderers: the numbers,stats,2026-10-17 13:30,5,stat,1494,10,0,0,,0,0
+S023,Delta Rovers v Alpine Wanderers: the numbers,stats,2026-10-17 13:30,6,quiz,1422,13,0,0,Who was sent off?,658,496
+S023,Delta Rovers v Alpine Wanderers: the numbers,stats,2026-10-17 13:30,7,poll,1323,12,0,561,,0,0
+S023,Delta Rovers v Alpine Wanderers: the numbers,stats,2026-10-17 13:30,8,cta,1119,10,133,0,,0,0
+S024,Nile City FC fans take over,fan-zone,2026-10-18 08:45,1,cover,3247,22,0,0,,0,0
+S024,Nile City FC fans take over,fan-zone,2026-10-18 08:45,2,moment,2925,21,0,0,,0,0
+S024,Nile City FC fans take over,fan-zone,2026-10-18 08:45,3,moment,2636,20,0,0,,0,0
+S024,Nile City FC fans take over,fan-zone,2026-10-18 08:45,4,poll,2516,17,0,858,,0,0
+S024,Nile City FC fans take over,fan-zone,2026-10-18 08:45,5,cta,2195,15,217,0,,0,0
+S025,Riverside Phoenix v Granite Hill FC,match-report,2026-10-19 21:00,1,cover,6132,40,0,0,,0,0
+S025,Riverside Phoenix v Granite Hill FC,match-report,2026-10-19 21:00,2,moment,5447,49,0,0,,0,0
+S025,Riverside Phoenix v Granite Hill FC,match-report,2026-10-19 21:00,3,moment,4893,45,0,0,,0,0
+S025,Riverside Phoenix v Granite Hill FC,match-report,2026-10-19 21:00,4,stat,3373,24,0,0,,0,0
+S025,Riverside Phoenix v Granite Hill FC,match-report,2026-10-19 21:00,5,quote,2970,20,0,0,,0,0
+S025,Riverside Phoenix v Granite Hill FC,match-report,2026-10-19 21:00,6,quiz,2800,26,0,0,Which team had more possession?,1507,1134
+S025,Riverside Phoenix v Granite Hill FC,match-report,2026-10-19 21:00,7,poll,2625,24,0,1188,,0,0
+S025,Riverside Phoenix v Granite Hill FC,match-report,2026-10-19 21:00,8,cta,2264,19,222,0,,0,0
+S026,Riverside Phoenix v Sahara Falcons,goals,2026-10-19 21:15,1,cover,8680,59,0,0,,0,0
+S026,Riverside Phoenix v Sahara Falcons,goals,2026-10-19 21:15,2,moment,7886,221,0,0,,0,0
+S026,Riverside Phoenix v Sahara Falcons,goals,2026-10-19 21:15,3,moment,7089,233,0,0,,0,0
+S026,Riverside Phoenix v Sahara Falcons,goals,2026-10-19 21:15,4,stat,5104,36,0,0,,0,0
+S026,Riverside Phoenix v Sahara Falcons,goals,2026-10-19 21:15,5,quote,4533,33,0,0,,0,0
+S026,Riverside Phoenix v Sahara Falcons,goals,2026-10-19 21:15,6,quiz,4322,33,0,0,Who scored the opening goal?,2017,1190
+S026,Riverside Phoenix v Sahara Falcons,goals,2026-10-19 21:15,7,cta,3651,33,437,0,,0,0
+S027,Sahara Falcons sign a new striker,transfer,2026-10-20 15:45,1,cover,6456,47,0,0,,0,0
+S027,Sahara Falcons sign a new striker,transfer,2026-10-20 15:45,2,moment,5828,52,0,0,,0,0
+S027,Sahara Falcons sign a new striker,transfer,2026-10-20 15:45,3,moment,5209,33,0,0,,0,0
+S027,Sahara Falcons sign a new striker,transfer,2026-10-20 15:45,4,quote,4686,35,0,0,,0,0
+S027,Sahara Falcons sign a new striker,transfer,2026-10-20 15:45,5,quiz,4517,31,0,0,What was the final score?,2154,1589
+S027,Sahara Falcons sign a new striker,transfer,2026-10-20 15:45,6,poll,4200,34,0,1609,,0,0
+S027,Sahara Falcons sign a new striker,transfer,2026-10-20 15:45,7,cta,3653,29,489,0,,0,0
+S028,Sahara Falcons injury update,injury,2026-10-21 14:15,1,cover,3398,32,0,0,,0,0
+S028,Sahara Falcons injury update,injury,2026-10-21 14:15,2,moment,3023,23,0,0,,0,0
+S028,Sahara Falcons injury update,injury,2026-10-21 14:15,3,moment,2794,25,0,0,,0,0
+S028,Sahara Falcons injury update,injury,2026-10-21 14:15,4,quote,2528,20,0,0,,0,0
+S028,Sahara Falcons injury update,injury,2026-10-21 14:15,5,cta,2118,19,297,0,,0,0
+S029,Granite Hill FC v Sahara Falcons: the numbers,stats,2026-10-22 13:00,1,cover,2824,25,0,0,,0,0
+S029,Granite Hill FC v Sahara Falcons: the numbers,stats,2026-10-22 13:00,2,moment,2601,23,0,0,,0,0
+S029,Granite Hill FC v Sahara Falcons: the numbers,stats,2026-10-22 13:00,3,moment,2423,16,0,0,,0,0
+S029,Granite Hill FC v Sahara Falcons: the numbers,stats,2026-10-22 13:00,4,stat,1724,11,0,0,,0,0
+S029,Granite Hill FC v Sahara Falcons: the numbers,stats,2026-10-22 13:00,5,stat,1180,9,0,0,,0,0
+S029,Granite Hill FC v Sahara Falcons: the numbers,stats,2026-10-22 13:00,6,quote,1009,8,0,0,,0,0
+S029,Granite Hill FC v Sahara Falcons: the numbers,stats,2026-10-22 13:00,7,poll,965,8,0,389,,0,0
+S029,Granite Hill FC v Sahara Falcons: the numbers,stats,2026-10-22 13:00,8,cta,826,7,83,0,,0,0
+S030,Alpine Wanderers fans take over,fan-zone,2026-10-22 21:15,1,cover,6803,53,0,0,,0,0
+S030,Alpine Wanderers fans take over,fan-zone,2026-10-22 21:15,2,moment,6361,53,0,0,,0,0
+S030,Alpine Wanderers fans take over,fan-zone,2026-10-22 21:15,3,moment,5922,46,0,0,,0,0
+S030,Alpine Wanderers fans take over,fan-zone,2026-10-22 21:15,4,stat,4079,29,0,0,,0,0
+S030,Alpine Wanderers fans take over,fan-zone,2026-10-22 21:15,5,quiz,3982,34,0,0,Which team had more possession?,1914,1063
+S030,Alpine Wanderers fans take over,fan-zone,2026-10-22 21:15,6,poll,3703,31,0,1445,,0,0
+S030,Alpine Wanderers fans take over,fan-zone,2026-10-22 21:15,7,cta,3138,26,440,0,,0,0
+S031,Sahara Falcons v Granite Hill FC,match-report,2026-10-23 08:30,1,cover,2983,19,0,0,,0,0
+S031,Sahara Falcons v Granite Hill FC,match-report,2026-10-23 08:30,2,moment,2681,24,0,0,,0,0
+S031,Sahara Falcons v Granite Hill FC,match-report,2026-10-23 08:30,3,moment,2376,18,0,0,,0,0
+S031,Sahara Falcons v Granite Hill FC,match-report,2026-10-23 08:30,4,stat,1633,14,0,0,,0,0
+S031,Sahara Falcons v Granite Hill FC,match-report,2026-10-23 08:30,5,quote,1411,11,0,0,,0,0
+S031,Sahara Falcons v Granite Hill FC,match-report,2026-10-23 08:30,6,quiz,1321,12,0,0,Who scored the opening goal?,608,429
+S031,Sahara Falcons v Granite Hill FC,match-report,2026-10-23 08:30,7,poll,1237,11,0,492,,0,0
+S031,Sahara Falcons v Granite Hill FC,match-report,2026-10-23 08:30,8,cta,1090,7,135,0,,0,0
+S032,Riverside Phoenix v Nile City FC,goals,2026-10-24 13:00,1,cover,6533,50,0,0,,0,0
+S032,Riverside Phoenix v Nile City FC,goals,2026-10-24 13:00,2,moment,6087,210,0,0,,0,0
+S032,Riverside Phoenix v Nile City FC,goals,2026-10-24 13:00,3,moment,5617,202,0,0,,0,0
+S032,Riverside Phoenix v Nile City FC,goals,2026-10-24 13:00,4,stat,4033,30,0,0,,0,0
+S032,Riverside Phoenix v Nile City FC,goals,2026-10-24 13:00,5,quote,3482,32,0,0,,0,0
+S032,Riverside Phoenix v Nile City FC,goals,2026-10-24 13:00,6,quiz,3357,21,0,0,What was the final score?,1733,1117
+S032,Riverside Phoenix v Nile City FC,goals,2026-10-24 13:00,7,poll,3098,23,0,1116,,0,0
+S032,Riverside Phoenix v Nile City FC,goals,2026-10-24 13:00,8,cta,2585,18,291,0,,0,0
+S033,Delta Rovers sign a new striker,transfer,2026-10-25 13:45,1,cover,6316,49,0,0,,0,0
+S033,Delta Rovers sign a new striker,transfer,2026-10-25 13:45,2,moment,5703,53,0,0,,0,0
+S033,Delta Rovers sign a new striker,transfer,2026-10-25 13:45,3,moment,5094,38,0,0,,0,0
+S033,Delta Rovers sign a new striker,transfer,2026-10-25 13:45,4,poll,4851,31,0,1888,,0,0
+S033,Delta Rovers sign a new striker,transfer,2026-10-25 13:45,5,cta,4249,37,416,0,,0,0
+S034,Nile City FC injury update,injury,2026-10-25 09:00,1,cover,2076,19,0,0,,0,0
+S034,Nile City FC injury update,injury,2026-10-25 09:00,2,moment,1903,13,0,0,,0,0
+S034,Nile City FC injury update,injury,2026-10-25 09:00,3,moment,1754,13,0,0,,0,0
+S034,Nile City FC injury update,injury,2026-10-25 09:00,4,poll,1609,10,0,692,,0,0
+S034,Nile City FC injury update,injury,2026-10-25 09:00,5,cta,1418,11,200,0,,0,0
+S035,Nile City FC v Riverside Phoenix: the numbers,stats,2026-10-26 13:00,1,cover,3057,22,0,0,,0,0
+S035,Nile City FC v Riverside Phoenix: the numbers,stats,2026-10-26 13:00,2,moment,2770,22,0,0,,0,0
+S035,Nile City FC v Riverside Phoenix: the numbers,stats,2026-10-26 13:00,3,moment,2585,18,0,0,,0,0
+S035,Nile City FC v Riverside Phoenix: the numbers,stats,2026-10-26 13:00,4,stat,1842,16,0,0,,0,0
+S035,Nile City FC v Riverside Phoenix: the numbers,stats,2026-10-26 13:00,5,stat,1314,11,0,0,,0,0
+S035,Nile City FC v Riverside Phoenix: the numbers,stats,2026-10-26 13:00,6,poll,1230,9,0,465,,0,0
+S035,Nile City FC v Riverside Phoenix: the numbers,stats,2026-10-26 13:00,7,cta,1049,9,104,0,,0,0
+S036,Sahara Falcons fans take over,fan-zone,2026-10-27 10:15,1,cover,2994,23,0,0,,0,0
+S036,Sahara Falcons fans take over,fan-zone,2026-10-27 10:15,2,moment,2660,17,0,0,,0,0
+S036,Sahara Falcons fans take over,fan-zone,2026-10-27 10:15,3,moment,2439,17,0,0,,0,0
+S036,Sahara Falcons fans take over,fan-zone,2026-10-27 10:15,4,quote,2136,20,0,0,,0,0
+S036,Sahara Falcons fans take over,fan-zone,2026-10-27 10:15,5,poll,2043,14,0,727,,0,0
+S036,Sahara Falcons fans take over,fan-zone,2026-10-27 10:15,6,cta,1753,16,188,0,,0,0
+S037,Delta Rovers v Riverside Phoenix,match-report,2026-10-28 14:30,1,cover,4108,29,0,0,,0,0
+S037,Delta Rovers v Riverside Phoenix,match-report,2026-10-28 14:30,2,moment,3725,26,0,0,,0,0
+S037,Delta Rovers v Riverside Phoenix,match-report,2026-10-28 14:30,3,moment,3336,24,0,0,,0,0
+S037,Delta Rovers v Riverside Phoenix,match-report,2026-10-28 14:30,4,stat,2392,16,0,0,,0,0
+S037,Delta Rovers v Riverside Phoenix,match-report,2026-10-28 14:30,5,quote,2050,14,0,0,,0,0
+S037,Delta Rovers v Riverside Phoenix,match-report,2026-10-28 14:30,6,quiz,1918,15,0,0,What was the final score?,987,567
+S037,Delta Rovers v Riverside Phoenix,match-report,2026-10-28 14:30,7,poll,1780,11,0,606,,0,0
+S037,Delta Rovers v Riverside Phoenix,match-report,2026-10-28 14:30,8,cta,1566,11,184,0,,0,0
+S038,Coral Bay Athletic v Nile City FC,goals,2026-10-28 14:15,1,cover,5066,47,0,0,,0,0
+S038,Coral Bay Athletic v Nile City FC,goals,2026-10-28 14:15,2,moment,4575,157,0,0,,0,0
+S038,Coral Bay Athletic v Nile City FC,goals,2026-10-28 14:15,3,moment,4150,112,0,0,,0,0
+S038,Coral Bay Athletic v Nile City FC,goals,2026-10-28 14:15,4,stat,2953,27,0,0,,0,0
+S038,Coral Bay Athletic v Nile City FC,goals,2026-10-28 14:15,5,quiz,2739,22,0,0,Who was sent off?,1402,847
+S038,Coral Bay Athletic v Nile City FC,goals,2026-10-28 14:15,6,poll,2528,17,0,921,,0,0
+S038,Coral Bay Athletic v Nile City FC,goals,2026-10-28 14:15,7,cta,2142,17,272,0,,0,0
+S039,Sahara Falcons sign a new striker,transfer,2026-10-29 08:30,1,cover,4085,32,0,0,,0,0
+S039,Sahara Falcons sign a new striker,transfer,2026-10-29 08:30,2,moment,3713,28,0,0,,0,0
+S039,Sahara Falcons sign a new striker,transfer,2026-10-29 08:30,3,moment,3439,29,0,0,,0,0
+S039,Sahara Falcons sign a new striker,transfer,2026-10-29 08:30,4,stat,2357,19,0,0,,0,0
+S039,Sahara Falcons sign a new striker,transfer,2026-10-29 08:30,5,quiz,2260,17,0,0,In which minute was the equaliser?,1078,859
+S039,Sahara Falcons sign a new striker,transfer,2026-10-29 08:30,6,poll,2123,16,0,734,,0,0
+S039,Sahara Falcons sign a new striker,transfer,2026-10-29 08:30,7,cta,1853,17,214,0,,0,0
+S040,Nile City FC injury update,injury,2026-10-30 15:15,1,cover,3404,23,0,0,,0,0
+S040,Nile City FC injury update,injury,2026-10-30 15:15,2,moment,3022,24,0,0,,0,0
+S040,Nile City FC injury update,injury,2026-10-30 15:15,3,moment,2727,24,0,0,,0,0
+S040,Nile City FC injury update,injury,2026-10-30 15:15,4,poll,2480,16,0,885,,0,0
+S040,Nile City FC injury update,injury,2026-10-30 15:15,5,cta,2172,16,268,0,,0,0

@@ -151,3 +151,17 @@ label input[type=number]{display:block;width:100%;margin-top:5px;background:#0f1
 .htile .lt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:16px;line-height:1.2;margin-top:2px}
 .ann{font-size:10px;color:#5b8cff;margin-top:4px;font-weight:600}
 .ann.cut{color:var(--warn)}
+
+/* Analytics explainer */
+.phoneWrap{display:flex;flex-direction:column;align-items:center;gap:14px;min-height:0}
+.phoneWrap[hidden]{display:none}
+#anaView{width:100%;max-width:640px;align-self:stretch;overflow:auto;margin:0 auto}
+#anaView[hidden]{display:none}
+.center:has(#anaView:not([hidden])){justify-content:flex-start;align-items:stretch}
+.abar{display:grid;grid-template-columns:110px 1fr 64px 92px;gap:8px;align-items:center;margin-top:7px;font-size:12px}
+.abar .al{color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.abar .at{height:10px;background:#0b0d12;border-radius:5px;overflow:hidden}
+.abar .at i{display:block;height:100%;background:linear-gradient(90deg,#5b8cff,#8a5bff);border-radius:5px}
+.abar .av{text-align:right;font-weight:700}.abar .ax{color:var(--mute);font-size:11px}
+.card.ins p{margin:6px 0 0;font-size:13px}.card.ins p.rec{color:#9db8ff}
+#anaCtl input[type=file]{display:block;width:100%;margin-top:5px;font-size:12px}

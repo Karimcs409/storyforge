@@ -7,7 +7,7 @@ from fastapi.responses import FileResponse, HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from . import llm, factcheck, store, media, cms
+from . import llm, factcheck, store, media, cms, analytics
 from .feeds import ADAPTERS, KEY_EVENTS
 from .schemas import VOICES, LANGS, CATEGORIES
 
@@ -266,6 +266,29 @@ async def live_add(r: LiveAddReq):
     flags = factcheck.check_page(page, factcheck.facts_from_match(part), r.lang)
     return {"page": page, "flags": flags, "log": log, "latency_ms": int((time.perf_counter() - t0) * 1000),
             "event": {"minute": r.event.minute, "type": r.event.type}}
+
+
+# ---------------- Analytics explainer ----------------
+class AnalyticsReq(BaseModel):
+    csv: str | None = None    # an analytics export saved as CSV; None = the synthetic sample
+
+
+@app.get("/api/analytics/sample.csv")
+def analytics_sample():
+    return FileResponse(analytics.SAMPLE, media_type="text/csv", filename="storyforge_sample_analytics_SYNTHETIC.csv")
+
+
+@app.post("/api/analytics/explain")
+async def analytics_explain(r: AnalyticsReq):
+    """Code computes every number; the LLM explains; the number guard checks what it wrote."""
+    try:
+        rows = analytics.parse_csv(r.csv) if r.csv else analytics.load_sample()
+    except ValueError as e:
+        raise HTTPException(400, f"could not read the export: {e}")
+    summary = analytics.summarize(rows)
+    data, log = await asyncio.to_thread(analytics.explain, summary)
+    return {"source": "upload" if r.csv else "sample (synthetic)", "summary": summary, **data,
+            "flags": analytics.check_insights(data, summary), "log": log}
 
 
 class SaveReq(BaseModel):

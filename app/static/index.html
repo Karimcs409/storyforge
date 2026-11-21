@@ -14,6 +14,7 @@
   <nav class="tabs">
     <button data-tab="studio" class="on">Editor</button>
     <button data-tab="live">Live <span class="dot"></span></button>
+    <button data-tab="analytics">Analytics</button>
   </nav>
   <div class="meter" id="meter">—</div>
 </header>
@@ -38,6 +39,16 @@
       <button class="primary" id="gen">✦ Draft Story</button>
       <p class="hint">Drafts the Story, Trivia Quiz, Poll and categories in one call. Every score, minute, name and quiz answer is then checked in code against the source.</p>
     </div>
+    <div id="anaCtl" hidden>
+      <h3>Analytics export</h3>
+      <p class="hint">A Stories CMS can export per-page analytics to Excel. Save it as CSV and upload it, or use the sample.</p>
+      <button class="ghost" id="anaSample" style="width:100%">Use the sample export</button>
+      <label>Or upload a CSV<input type="file" id="anaFile" accept=".csv,text/csv"></label>
+      <p class="hint">Using: <b id="anaSrc">sample export (synthetic, 40 Stories)</b></p>
+      <button class="primary" id="anaGo">✦ Explain the numbers</button>
+      <p class="hint">Code computes every number (drop-off per page type, reach by time slot and category, quiz correct rates). The model picks what matters and explains it. Code then checks every number it wrote.</p>
+      <p class="hint">The sample is <b>synthetic data</b> with planted patterns, made by <code>data/make_analytics.py</code>. <a href="/api/analytics/sample.csv" style="color:var(--acc)">Download it</a> to see the columns.</p>
+    </div>
     <div id="liveCtl" hidden>
       <h3>Live feed</h3>
       <label>Feed adapter<select id="lfeed"></select></label>
@@ -53,6 +64,8 @@
 
   <!-- CENTER: phone -->
   <section class="center">
+    <div id="anaView" hidden><p class="hint" style="text-align:center;margin-top:40%">Press <b>✦ Explain the numbers</b> to read the sample export.</p></div>
+    <div id="phoneWrap" class="phoneWrap">
     <div class="phone">
       <div class="notch"></div>
       <div class="screen" id="screen">
@@ -63,6 +76,7 @@
     </div>
     <div class="seg viewseg" id="viewSeg"><button class="on" data-v="story">Story</button><button data-v="home">App home</button></div>
     <div class="cost" id="cost"></div>
+    </div>
   </section>
 
   <!-- RIGHT: editor / queue -->
@@ -76,6 +90,7 @@
       </div>
       <div id="cmsPane" hidden><p class="hint">Draft a Story first.</p></div>
     </div>
+    <div id="anaPane" hidden><p class="hint">The insights appear here.</p></div>
     <div id="queue" hidden>
       <div class="phead"><h3>Approval queue</h3><div style="display:flex;gap:6px"><button class="ghost" id="addMoment" title="Add a moment the feed or the AI missed">+ Add moment</button><button class="ghost" id="saveLive" disabled>Save live Story</button></div></div>
       <div id="queueList"><p class="hint">Key events (goal, red card, sub, half-time, full-time) become draft pages here in &lt; 5 s. Approve / Edit / Skip. Approved pages go live in the phone preview. Missed a moment? <b>+ Add moment</b>.</p></div>
